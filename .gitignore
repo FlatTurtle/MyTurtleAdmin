@@ -1,5 +1,17 @@
+# Project related #
+###################
+
+assets/css/*
+assets/js/*
+nbproject/*
+
+# Codeigniter #
+###############
+
 */config/development
 */logs/log-*.php
 */logs/!index.html
 */cache/*
 */cache/!index.html
+/nbproject/private/
+/.sass-cache/

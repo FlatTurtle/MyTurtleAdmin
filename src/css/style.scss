@@ -1,0 +1,33 @@
+/*
+FlatTurtle bvba
+Author: Michiel Vancoillie
+
+Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+*/
+
+@import "bootstrap";
+@import "1140";
+@import "1140_styles";
+
+.container{
+	padding: 0px 20px;
+}
+
+header[role=banner] {
+	padding: 40px 0px;
+	margin: 0 auto;
+	overflow: hidden;
+	hgroup {
+		width: 67%; /* 369px / 864px */
+		min-width: 200px;
+		max-width: 369px;
+		/*height: 89px;*/
+		float: left;
+	}
+}
+
+.container.body{
+	background-color: #ededed;
+	padding: 20px;
+}
+
