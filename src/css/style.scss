@@ -130,13 +130,14 @@ footer[role=footer] {
 	margin:0;
 }
 
-// Fix margin
-.row [class*="span"]{
-	margin-left: 20px;
-}
-
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
+	// Fix margin container
+	.container{
+		margin-left: 25px;
+		margin-right: 25px;
+	}
+	
 	nav[role=navigation] {
 		padding: 0px;
 		padding-bottom: 20px;
