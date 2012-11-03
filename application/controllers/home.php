@@ -36,6 +36,10 @@ class Home extends CI_Controller {
 	 * Login view
 	 */
 	public function login() {
+		if ($this->session->userdata('logged_in')) {
+			redirect('/');
+		}
+		
 		$data['username'] = $this->session->flashdata('username');
 		$data['form_error'] = $this->session->flashdata('form_error');
 

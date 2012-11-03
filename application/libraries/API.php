@@ -38,8 +38,8 @@ class API {
 		return $this->request($url);
 	}
 
-	public function post($url) {
-		return $this->request($url, 'POST');
+	public function post($url, $data) {
+		return $this->request($url, 'POST', $data);
 	}
 
 	public function put($url) {
@@ -53,7 +53,7 @@ class API {
 	/**
 	 * Do a request with the admin token
 	 */
-	private function request($url, $method = "GET") {
+	private function request($url, $method = "GET", $data = null) {
 		$this->CI = &get_instance();
 		if($this->CI->session->userdata('token') == null){
 			$this->auth();
@@ -67,6 +67,14 @@ class API {
 		curl_setopt($http, CURLOPT_HTTPHEADER, array(
 			'Authorization: ' . $this->CI->session->userdata('token')
 		));
+		
+		switch($method){
+			case 'POST':
+				if(!empty($data) && is_array($data))
+					curl_setopt($http, CURLOPT_POSTFIELDS, $data);
+				break;
+		}
+		
 		$response = curl_exec($http);
 		$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
 		curl_close($http);
