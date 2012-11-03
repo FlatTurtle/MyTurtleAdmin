@@ -11,7 +11,6 @@ class Home extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->library('form_validation');
 		$this->load->model('infoscreen');
 		$this->form_validation->set_rules('username', 'username', 'required');
 		$this->form_validation->set_rules('password', 'password', 'required');

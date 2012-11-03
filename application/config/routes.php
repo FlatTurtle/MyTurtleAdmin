@@ -43,6 +43,7 @@ $route['404_override'] = '';
 $route['login/do/*'] = 'home/login_post';
 $route['login/*'] = 'home/login';
 $route['logout/*'] = 'home/logout';
+$route['screen/(.*)'] = 'screen/show/$1';
 
 
 /* End of file routes.php */

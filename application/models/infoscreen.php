@@ -12,5 +12,9 @@ class Infoscreen extends CI_Model {
 	public function getAll(){
 		return json_decode($this->api->get($this->config->item('api_url').API_INFOSCREENS));
 	}
+	
+	public function get($alias){
+		return json_decode($this->api->get($this->config->item('api_url').API_INFOSCREENS.'/'.$alias));
+	}
 }
 ?>

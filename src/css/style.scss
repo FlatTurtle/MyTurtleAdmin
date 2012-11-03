@@ -7,23 +7,47 @@ Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
 
 @import "bootstrap";
 @import "bootstrap-responsive";
+@import "font-awesome";
+
+
+html, body{
+	height: 100%;
+	background-color: #2257a6;
+	padding: 0px;
+}
 
 header[role=banner] {
 	padding: 40px 0px;
 	margin: 0 auto;
 	overflow: hidden;
+	background-color: #fff;
+	
 	hgroup {
-		width: 67%; /* 369px / 864px */
+		width: 67%;
 		min-width: 200px;
 		max-width: 369px;
-		/*height: 89px;*/
-		float: left;
 	}
 }
 
+nav[role=navigation] {
+	width: 100%;
+	text-align: right;
+	padding: 65px 0px;
+	
+	i{
+		color: #0578bd;
+	}
+}
+
+
 .wrapper{
+	background-color: #fff;
+}
+
+.grey_wrapper{
 	background-color: #ededed;
-	padding: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .form-signin { 
@@ -80,6 +104,48 @@ header[role=banner] {
 	
 }
 
+
+footer[role=footer] {
+	width:100%;
+	background-color: #2257a6;
+	border-top: 10px solid #0578bd;
+	bottom: 0;
+	padding: 20px 0px;
+	color: #fff;
+}
+
+.blacklink{
+	color: #333;
+}
+
+.blacklink:hover,
+.blacklink:focus,
+.blacklink:active{
+	color: #555;
+	text-decoration: none;
+	outline: none;
+}
+
 .nomargin{
 	margin:0;
+}
+
+// Fix margin
+.row [class*="span"]{
+	margin-left: 20px;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	nav[role=navigation] {
+		padding: 0px;
+		padding-bottom: 20px;
+		text-align: left;
+		
+		h4{
+			display: inline;
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+	}
 }
