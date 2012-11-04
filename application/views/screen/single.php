@@ -5,7 +5,7 @@
 				<i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>
 			</a>
 		</h2>
-		
+
 		<div class="single-infoscreen">
 			<div class="dummy"></div>
 			<div class="screen">
@@ -15,19 +15,42 @@
 					<button class="btn"><i class="icon-eye-open icon-large"></i></button>
 				</div>
 				<div class='inner'>
+					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">
+						<div class='left-side'>
+
+						</div>
+					</a>
+					<a href="<?= site_url('screen/' . $infoscreen->alias . '/right') ?>">
+						<div class='right-side' style='background-color:<?= $infoscreen->color; ?>;'>
+
+						</div>
+					</a>
 					
+					<? if(!empty($logo)){ ?>
+					<div class='logo' style="background-image:url('<?= base_url().$logo; ?>?<?= rand(0, 999999) ?>');"></div>
+					<? } ?>
 				</div>
 			</div>
 		</div>
 
-		<form class="form-horizontal center" action="<?= site_url('screen/'.$infoscreen->alias.'/update'); ?>" method="post" enctype="multipart/form-data">
-			<div class="control-group<?= (!empty($errors['title'])) ? ' error':''; ?>">
+		<form class="form-horizontal center" action="<?= site_url('screen/' . $infoscreen->alias . '/update'); ?>" method="post" enctype="multipart/form-data">
+			
+			<ul class="pager">
+				<li class="previous">
+					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">&larr; Left side</a>
+				</li>
+				<li class="next">
+					<a href="<?= site_url('screen/' . $infoscreen->alias . '/right') ?>">Right side &rarr;</a>
+				</li>
+			</ul>
+			
+			<div class="control-group<?= (!empty($errors['title'])) ? ' error' : ''; ?>">
 				<label class="control-label" for="inputTitle">Title</label>
 				<div class="controls">
 					<input type="text" id="inputTitle" name="title" placeholder="Title" value="<?= $infoscreen->title; ?>" class="input-block-level">
 				</div>
 			</div>
-			<div class="control-group<?= (!empty($errors['color'])) ? ' error':''; ?>">
+			<div class="control-group<?= (!empty($errors['color'])) ? ' error' : ''; ?>">
 				<label class="control-label" for="inputColor">Color</label>
 				<div class="controls">
 					<div class="input-prepend input-append">
@@ -36,10 +59,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="control-group">
+			<div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
 				<label class="control-label" for="inputLogo">Logo</label>
 				<div class="controls">
-					<input type="file" id="inputLogo" name="logot">
+					<input type="file" id="inputLogo" name="logo">
 				</div>
 			</div>
 			<div class="control-group">
@@ -50,13 +73,15 @@
 			</div>
 			<div class="control-group">
 				<div class="controls">
-					<? if(!empty($all_errors)){ ?>
+					<? if (!empty($all_errors) || !empty($file_error)) { ?>
 						<div class="alert">
+							<?= $file_error ?>
+							<?= (!empty($file_error))? '<br/>':''; ?>
 							<?= $all_errors; ?>
 						</div>
 						<button type="submit" class="btn">Retry</button>
-						<a href="<?= site_url('screen/'.$infoscreen->alias) ?>" class="btn">Cancel</a>
-					<? } else {?>
+						<a href="<?= site_url('screen/' . $infoscreen->alias) ?>" class="btn">Cancel</a>
+					<? } else { ?>
 						<button type="submit" class="btn">Save</button>
 					<? } ?>
 				</div>

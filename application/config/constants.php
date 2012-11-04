@@ -41,6 +41,8 @@ define('API_AUTH_ADMIN','auth/admin');
 define('API_INFOSCREENS','');
 
 
+define('LOGO_MAX_WIDTH', 600);
+define('LOGO_MAX_HEIGHT', 138);
 define('ERROR_WRONG_USER_PASSWORD','Username and password mismatch!');
 
 /* End of file constants.php */

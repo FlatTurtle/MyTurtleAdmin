@@ -15,7 +15,10 @@
 |
 */
 $config['base_url']	= 'https://my.flatturtle.com/';
+// API URL WITH trailing slash
 $config['api_url']	= '';
+// Upload directory WITH trailing slash
+$config['upload_dir']	= 'uploads/';
 
 
 

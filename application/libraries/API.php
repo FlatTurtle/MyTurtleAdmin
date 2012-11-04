@@ -62,6 +62,8 @@ class API {
 		$http = curl_init();
 		curl_setopt($http, CURLOPT_URL, $url);
 		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($http, CURLOPT_LOW_SPEED_LIMIT, 1);   // cancel if below 1 byte/second
+		curl_setopt($http, CURLOPT_LOW_SPEED_TIME, 30);   // for a period of 30 seconds
 		curl_setopt($http, CURLOPT_CUSTOMREQUEST, $method);
 		// Set headers
 		curl_setopt($http, CURLOPT_HTTPHEADER, array(

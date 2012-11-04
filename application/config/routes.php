@@ -44,6 +44,8 @@ $route['login/do/*'] = 'home/login_post';
 $route['login/*'] = 'home/login';
 $route['logout/*'] = 'home/logout';
 $route['screen/(.*)/update'] = 'screen/update/$1';
+$route['screen/(.*)/left/*'] = 'turtles/index/$1';
+$route['screen/(.*)/right/*'] = 'panes/index/$1';
 $route['screen/(.*)'] = 'screen/show/$1';
 
 

@@ -4,6 +4,7 @@
 assets/css/*
 assets/js/*
 nbproject/*
+uploads/*
 
 # Codeigniter #
 ###############
