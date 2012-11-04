@@ -12,7 +12,7 @@ class Screen extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('infoscreen');
-		$this->load->library('my_formvalidation');
+		$this->load->library('My_FormValidation');
 		$this->load->helper('directory');
 
 		if (!$this->session->userdata('logged_in')) {
