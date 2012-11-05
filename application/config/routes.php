@@ -43,6 +43,7 @@ $route['404_override'] = '';
 $route['login/do/*'] = 'home/login_post';
 $route['login/*'] = 'home/login';
 $route['logout/*'] = 'home/logout';
+$route['screen/(.*)/plugin/message'] = 'plugin/message/$1';
 $route['screen/(.*)/update'] = 'screen/update/$1';
 $route['screen/(.*)/left/*'] = 'turtles/index/$1';
 $route['screen/(.*)/right/*'] = 'panes/index/$1';

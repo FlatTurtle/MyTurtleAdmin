@@ -1,3 +1,17 @@
+<div id="messageModal" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Send a message</h3>
+	</div>
+	<div class="modal-body">
+		<input id='the_message' class="input-block-level"/><br/>
+		<span class='note'>The message is displayed on the screen for a small time.</span>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+		<a href="#" id="btnSendMessage" class="btn btn-primary">Send</a>
+	</div>
+</div>
 <div class='row'>
 	<div class='span12'>
 		<h2>
@@ -10,7 +24,7 @@
 			<div class="dummy"></div>
 			<div class="screen">
 				<div class="btn-group">
-					<button class="btn"><i class="icon-comment icon-large"></i></button>
+					<a href='#messageModal' role='button' class="btn" data-toggle="modal"><i class="icon-comment icon-large"></i></a>
 					<button class="btn"><i class="icon-time icon-large"></i></button>
 					<button class="btn"><i class="icon-eye-open icon-large"></i></button>
 				</div>
@@ -25,16 +39,16 @@
 
 						</div>
 					</a>
-					
-					<? if(!empty($logo)){ ?>
-					<div class='logo' style="background-image:url('<?= base_url().$logo; ?>?<?= rand(0, 999999) ?>');"></div>
+
+					<? if (!empty($logo)) { ?>
+						<div class='logo' style="background-image:url('<?= base_url() . $logo; ?>?<?= rand(0, 999999) ?>');"></div>
 					<? } ?>
 				</div>
 			</div>
 		</div>
 
 		<form class="form-horizontal center" action="<?= site_url('screen/' . $infoscreen->alias . '/update'); ?>" method="post" enctype="multipart/form-data">
-			
+
 			<ul class="pager">
 				<li class="previous">
 					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">&larr; Left side</a>
@@ -43,7 +57,7 @@
 					<a href="<?= site_url('screen/' . $infoscreen->alias . '/right') ?>">Right side &rarr;</a>
 				</li>
 			</ul>
-			
+
 			<div class="control-group<?= (!empty($errors['title'])) ? ' error' : ''; ?>">
 				<label class="control-label" for="inputTitle">Title</label>
 				<div class="controls">
@@ -76,7 +90,7 @@
 					<? if (!empty($all_errors) || !empty($file_error)) { ?>
 						<div class="alert">
 							<?= $file_error ?>
-							<?= (!empty($file_error))? '<br/>':''; ?>
+							<?= (!empty($file_error)) ? '<br/>' : ''; ?>
 							<?= $all_errors; ?>
 						</div>
 						<button type="submit" class="btn">Retry</button>

@@ -8,13 +8,16 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 class API {
-	
+
 	var $CI;
 
+	/**
+	 * Get a new admin token
+	 */
 	public function auth() {
 		$this->CI = &get_instance();
 		$http = curl_init();
-		curl_setopt($http, CURLOPT_URL, $this->CI->config->item('api_url').API_AUTH_ADMIN);
+		curl_setopt($http, CURLOPT_URL, $this->CI->config->item('api_url') . API_AUTH_ADMIN);
 		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($http, CURLOPT_POST, true);
 		$data = array(
@@ -26,14 +29,17 @@ class API {
 		$response = curl_exec($http);
 		$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
 		curl_close($http);
-		
-		if($http_status == 200){
+
+		if ($http_status == 200) {
 			$this->CI->session->set_userdata('token', json_decode($response));
-		}else{
+		} else {
 			throw new ErrorException($response);
 		}
 	}
 
+	/**
+	 * Various types of requests
+	 */
 	public function get($url) {
 		return $this->request($url);
 	}
@@ -55,10 +61,11 @@ class API {
 	 */
 	private function request($url, $method = "GET", $data = null) {
 		$this->CI = &get_instance();
-		if($this->CI->session->userdata('token') == null){
+		if ($this->CI->session->userdata('token') == null) {
 			$this->auth();
 		}
-		
+
+		// Use cURL to talk to API
 		$http = curl_init();
 		curl_setopt($http, CURLOPT_URL, $url);
 		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
@@ -69,29 +76,29 @@ class API {
 		curl_setopt($http, CURLOPT_HTTPHEADER, array(
 			'Authorization: ' . $this->CI->session->userdata('token')
 		));
-		
-		switch($method){
+
+		switch ($method) {
 			case 'POST':
-				if(!empty($data) && is_array($data))
+				if (!empty($data) && is_array($data))
 					curl_setopt($http, CURLOPT_POSTFIELDS, $data);
 				break;
 		}
-		
+
 		$response = curl_exec($http);
 		$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
 		curl_close($http);
 
-
+		// Check response code
 		switch ($http_status) {
 			case 200:
 				return $response;
 				break;
 			case 403:
-				if (strpos($response,'token') && strpos($response,'not valid')) {
+				if (strpos($response, 'token') && strpos($response, 'not valid')) {
 					// Token expired, get new token and retry
 					$this->auth();
 					$this->request($url, $method);
-				}else{		
+				} else {
 					throw new ErrorException($response);
 				}
 				break;

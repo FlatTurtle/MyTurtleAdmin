@@ -39,6 +39,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('API_AUTH_ADMIN','auth/admin');
 define('API_INFOSCREENS','');
+define('API_PLUGIN_MESSAGE','plugins/message');
 
 
 define('LOGO_MAX_WIDTH', 600);

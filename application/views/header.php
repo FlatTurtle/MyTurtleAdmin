@@ -3,22 +3,25 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>Your FlatTurtle</title>
-
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css" type="text/css" media="screen" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" /><![endif]-->
-
-		<!--Enables media queries in some unsupported browsers-->
-		<script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.js"></script>
-
+		<title>Your FlatTurtle</title>
+		
 		<!-- For iPhone 4 -->
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-114.png">
 		<!-- For iPad 1-->
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-72.png">
 		<!-- For everything else -->
 		<link rel="shortcut icon" href="https://www.flatturtle.com/themes/site/img/favicon.ico">
+
+		<link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css" type="text/css" media="screen" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" /><![endif]-->
+		
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			if (typeof jQuery == 'undefined'){
+				document.write(unescape("%3Cscript src='<?= base_url(); ?>assets/js/jquery-min.js' type='text/javascript'%3E%3C/script%3E"));
+			}
+		</script>
 	</head>
 	<body>
 		<div class="wrapper">
