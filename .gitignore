@@ -1,8 +1,6 @@
 # Project related #
 ###################
 
-assets/css/*
-assets/js/*
 nbproject/*
 uploads/*
 
