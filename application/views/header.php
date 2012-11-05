@@ -19,6 +19,7 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-72.png">
 		<!-- For everything else -->
 		<link rel="shortcut icon" href="https://www.flatturtle.com/themes/site/img/favicon.ico">
+                <link type="text/css" rel="stylesheet" href="https://fast.fonts.com/cssapi/66253153-9c89-413c-814d-60d3ba0d6ac2.css"/>
 	</head>
 	<body>
 		<div class="wrapper">
