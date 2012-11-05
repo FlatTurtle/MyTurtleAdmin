@@ -12,9 +12,10 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-72.png">
 		<!-- For everything else -->
 		<link rel="shortcut icon" href="https://www.flatturtle.com/themes/site/img/favicon.ico">
-<<<<<<< HEAD
 
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css" type="text/css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="https://fast.fonts.com/cssapi/66253153-9c89-413c-814d-60d3ba0d6ac2.css"/>
+		
 		<!--[if lte IE 8]><link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" /><![endif]-->
 		
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -23,9 +24,6 @@
 				document.write(unescape("%3Cscript src='<?= base_url(); ?>assets/js/jquery-min.js' type='text/javascript'%3E%3C/script%3E"));
 			}
 		</script>
-=======
-                <link type="text/css" rel="stylesheet" href="https://fast.fonts.com/cssapi/66253153-9c89-413c-814d-60d3ba0d6ac2.css"/>
->>>>>>> 06757d67fc1cb66bb39a3b6a5fa72fb7a68173de
 	</head>
 	<body>
 		<div class="wrapper">
