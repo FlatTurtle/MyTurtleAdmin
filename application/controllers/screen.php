@@ -12,7 +12,7 @@ class Screen extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('infoscreen');
-		$this->load->library('My_FormValidation');
+		$this->load->library('my_formvalidation');
 		$this->load->helper('directory');
 
 		if (!$this->session->userdata('logged_in')) {
@@ -115,6 +115,14 @@ class Screen extends CI_Controller {
 		$data['errors'] = $this->session->flashdata('errors');
 		$data['all_errors'] = $this->session->flashdata('all_errors');
 		$data['file_error'] = $this->session->flashdata('file_error');
+		
+		$plugin_states = $this->infoscreen->plugin_states($alias);
+		$data['state_clock'] = 1;
+		$data['state_screen'] = 1;
+		if(isset($plugin_states->clock))
+			$data['state_clock'] = $plugin_states->clock;
+		if(isset($plugin_states->screen))
+			$data['state_screen'] = $plugin_states->screen;
 
 		$data['logo'] = "";
 		$logo_url = $this->config->item('upload_dir') . $alias . "/logo.png";

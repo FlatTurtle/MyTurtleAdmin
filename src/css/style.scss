@@ -136,6 +136,14 @@ nav[role=navigation] {
 				[class*=" icon-"]{
 					line-height: inherit;
 				}
+				
+				i.active{
+					color: #08C;
+				}
+				
+				.loading{
+					margin-top: -5px;
+				}
 			}
 		}
 		

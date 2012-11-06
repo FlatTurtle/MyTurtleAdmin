@@ -19,6 +19,7 @@ class API {
 		$http = curl_init();
 		curl_setopt($http, CURLOPT_URL, $this->CI->config->item('api_url') . API_AUTH_ADMIN);
 		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($http, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($http, CURLOPT_POST, true);
 		$data = array(
 			'username' => $this->CI->session->userdata('username'),
@@ -44,7 +45,7 @@ class API {
 		return $this->request($url);
 	}
 
-	public function post($url, $data) {
+	public function post($url, $data = null) {
 		return $this->request($url, 'POST', $data);
 	}
 
@@ -69,6 +70,7 @@ class API {
 		$http = curl_init();
 		curl_setopt($http, CURLOPT_URL, $url);
 		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($http, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($http, CURLOPT_LOW_SPEED_LIMIT, 1);   // cancel if below 1 byte/second
 		curl_setopt($http, CURLOPT_LOW_SPEED_TIME, 30);   // for a period of 30 seconds
 		curl_setopt($http, CURLOPT_CUSTOMREQUEST, $method);
@@ -103,6 +105,7 @@ class API {
 				}
 				break;
 			default:
+				echo $http_status;
 				throw new ErrorException($response);
 				break;
 		}

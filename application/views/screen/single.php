@@ -23,10 +23,24 @@
 		<div class="single-infoscreen">
 			<div class="dummy"></div>
 			<div class="screen">
+				<?
+					$clock_class = 'active';
+					if(!$state_clock){
+						$clock_class = '';  
+					}
+					$screen_class = 'icon-eye-open active';
+					if(!$state_screen){
+						$screen_class = 'icon-eye-close';  
+					}
+				?>
 				<div class="btn-group">
 					<a href='#messageModal' role='button' class="btn" data-toggle="modal"><i class="icon-comment icon-large"></i></a>
-					<button class="btn"><i class="icon-time icon-large"></i></button>
-					<button class="btn"><i class="icon-eye-open icon-large"></i></button>
+					<a href='#' id="btnToggleClock" role='button' class="btn">
+						<i class="icon-time icon-large <?= $clock_class ?>"></i>
+					</a>
+					<a href='#' id="btnToggleScreen" role='button' class="btn">
+						<i class="<?= $screen_class ?> icon-large"></i>
+					</a>
 				</div>
 				<div class='inner'>
 					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">
