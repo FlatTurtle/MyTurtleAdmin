@@ -11,7 +11,7 @@ Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
 
 
 html, body{
-        font-family: "Soho Gothic W01 Regular", sans-serif;
+    font-family: "Soho Gothic W01 Regular", sans-serif;
 	height: 100%;
 	background-color: #2257a6;
 	padding: 0px;
@@ -186,6 +186,45 @@ nav[role=navigation] {
 .form-horizontal.center{
 	margin: 0px auto;
 	max-width: 500px;
+}
+
+
+
+.turtle-chooser{
+	.turtle{
+		padding: 3px 10px;
+		background-color: #2257a6;
+		color: #fff;
+		margin-bottom: 3px;
+		cursor: pointer;
+	}
+}
+
+.turtle-holder{
+	position: relative;
+	
+	.turtle-area{
+		height: 100%;
+		width: 100%;	
+		border: 5px solid #000;
+		border-right: none;
+		min-height: 350px;
+		background-color: #fff;
+		margin-bottom: 20px;
+		
+		.drag-notice{
+			color: #ccc;
+			font-size: 20px;
+			width: 140px;
+			height: 60px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -70px;
+			margin-top: -30px;
+			line-height: 1.2em;
+		}
+	}
 }
 
 footer[role=footer] {

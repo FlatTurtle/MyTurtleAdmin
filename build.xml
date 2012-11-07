@@ -33,11 +33,12 @@
     <target name="-js.concatenate" depends="-init" 
         description="Concatenates specified JavaScript files">
 		<copy file="${src.js.dir}/jquery-1.8.2.js" tofile="${build.dir}/js/jquery.js"/>
+		<copy file="${src.js.dir}/jquery-ui-1.9.1.js" tofile="${build.dir}/js/jquery-ui.js"/>
         <concat destfile="${build.dir}/js/script.js">
             <fileset 
                 dir="${src.js.dir}"
                 includes="*.js" 
-                excludes="jquery-1.8.2.js"/>
+                excludes="jquery-1.8.2.js, jquery-ui-1.9.1.js"/>
         </concat>
         <echo>Finished</echo>
     </target>

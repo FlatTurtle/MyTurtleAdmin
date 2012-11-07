@@ -29,13 +29,13 @@ class API {
 
 		$response = curl_exec($http);
 		$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
-		curl_close($http);
 
 		if ($http_status == 200) {
 			$this->CI->session->set_userdata('token', json_decode($response));
 		} else {
-			throw new ErrorException($response);
+			throw new ErrorException(curl_error($http));
 		}
+		curl_close($http);
 	}
 
 	/**

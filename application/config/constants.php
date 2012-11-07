@@ -39,7 +39,8 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('API_AUTH_ADMIN','auth/admin');
 define('API_INFOSCREENS','');
-define('API_PLUGIN_STATES','plugins/');
+define('API_TURTLE_TYPES','turtles');
+define('API_PLUGIN_STATES','plugins');
 define('API_PLUGIN_MESSAGE','plugins/message');
 define('API_PLUGIN_CLOCK','plugins/clock');
 define('API_PLUGIN_SCREEN_POWER','plugins/screen/power');

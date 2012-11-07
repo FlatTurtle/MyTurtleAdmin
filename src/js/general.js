@@ -1,7 +1,3 @@
-/**
- * Message plugin
- */
-
 // Submit on enter
 $('#messageModal input').keypress(function (e) {
 	if (e.which == 13) {
@@ -87,5 +83,16 @@ $('#btnToggleScreen').click(function(e){
 				}, 400);
 			}
 		});
+	}
+});
+
+$( ".draggable" ).draggable({ 
+	revert: true, 
+	stack: ".turtle-chooser .turtle"  
+});
+$( ".droppable" ).droppable({
+	accept: ".turtle",
+	drop: function( event, ui ) {
+		$( this ).html( "Dropped!" + ui.draggable);
 	}
 });

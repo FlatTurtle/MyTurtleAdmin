@@ -19,10 +19,12 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" /><![endif]-->
 		
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 			if (typeof jQuery == 'undefined'){
 				document.write(unescape("%3Cscript src='<?= base_url(); ?>assets/js/jquery-min.js' type='text/javascript'%3E%3C/script%3E"));
 			}
+			!window.jQuery.ui && document.write(unescape("%3Cscript src='<?= base_url(); ?>assets/js/jquery-ui-min.js type='text/javascript'%3E%3C/script%3E"))
 		</script>
 	</head>
 	<body>

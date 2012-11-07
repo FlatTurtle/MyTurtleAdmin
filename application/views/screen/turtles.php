@@ -8,10 +8,20 @@
 	</div>
 </div>
 <div class='row'>
-	<div class='span4'>
-		
+	<div class='turtle-chooser span4'>
+		<h4>Available turtles</h4>
+		<? foreach($turtle_types as $turtle_type){ ?>
+			<div class='turtle draggable'>
+				<?= $turtle_type->name; ?>
+			</div>
+		<? } ?>
 	</div>
-	<div class='span8'>
-		
+	<div class='turtle-holder span8'>
+		<h4>Left side of the screen</h4>
+		<div class='turtle-area droppable'>
+			<div class='drag-notice'>
+				Drag your turtles here
+			</div>
+		</div>
 	</div>
 </div>
