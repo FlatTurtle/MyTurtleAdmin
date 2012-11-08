@@ -46,8 +46,8 @@ define('API_PLUGIN_CLOCK','plugins/clock');
 define('API_PLUGIN_SCREEN_POWER','plugins/screen/power');
 
 
-define('LOGO_MAX_WIDTH', 600);
-define('LOGO_MAX_HEIGHT', 138);
+define('LOGO_MAX_WIDTH', 400);
+define('LOGO_MAX_HEIGHT', 120);
 define('ERROR_WRONG_USER_PASSWORD','Username and password mismatch!');
 
 /* End of file constants.php */

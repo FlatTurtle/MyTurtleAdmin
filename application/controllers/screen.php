@@ -92,6 +92,8 @@ class Screen extends CI_Controller {
 				}
 
 				unlink($uploadfile);
+				
+				$_POST['logo'] = base_url().$uploaddir. '/logo.png';
 			}
 		}
 
