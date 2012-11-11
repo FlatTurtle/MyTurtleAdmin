@@ -99,14 +99,13 @@ class API {
 				if (strpos($response, 'token') && strpos($response, 'not valid')) {
 					// Token expired, get new token and retry
 					$this->auth();
-					$this->request($url, $method);
+					$this->request($url, $method, $data);
 				} else {
-					throw new ErrorException($response);
+					throw new ErrorException($http_status ." - ". $response);
 				}
 				break;
 			default:
-				echo $http_status;
-				throw new ErrorException($response);
+				throw new ErrorException($http_status ." - ". $response);
 				break;
 		}
 	}
