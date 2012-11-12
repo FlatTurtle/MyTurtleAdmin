@@ -7,7 +7,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-require_once('phpass/PasswordHash.php');
+require_once('phpass/passwordhash.php');
 
 define('PHPASS_HASH_STRENGTH', 8);
 define('PHPASS_HASH_PORTABLE', true);
