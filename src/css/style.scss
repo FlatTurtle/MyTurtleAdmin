@@ -11,7 +11,7 @@ Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
 
 
 html, body{
-    font-family: "Soho Gothic W01 Regular", sans-serif;
+	font-family: "Soho Gothic W01 Regular", sans-serif;
 	height: 100%;
 	background-color: #2257a6;
 	padding: 0px;
@@ -193,8 +193,9 @@ nav[role=navigation] {
 .turtle-chooser{
 	.turtle{
 		padding: 3px 10px;
-		background-color: #2257a6;
-		color: #fff;
+		background-color: #fff;
+		color: #000;
+		border: 1px solid #ddd;
 		margin-bottom: 3px;
 		cursor: pointer;
 	}
@@ -204,26 +205,46 @@ nav[role=navigation] {
 	position: relative;
 	
 	.turtle-area{
-		height: 100%;
 		width: 100%;	
 		border: 5px solid #000;
 		border-right: none;
 		min-height: 350px;
 		background-color: #fff;
-		margin-bottom: 20px;
+		position: relative;
 		
-		.drag-notice{
-			color: #ccc;
-			font-size: 20px;
-			width: 140px;
-			height: 60px;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			margin-left: -70px;
-			margin-top: -30px;
-			line-height: 1.2em;
+		.turtle_instance{
+			background-color: #efefef;
+			
+			.title{
+				display: block;
+				margin: 0px;
+				background-color: #333;
+				border:1px solid #555;
+				border-bottom: none;
+				color: #fff;
+				padding: 7px;
+			}
+			
+			.delete{
+				position: absolute;
+				right: 10px;
+				cursor: pointer;
+				color: #fff;
+				text-decoration: none;
+			}
+			
+			.edit_area{
+				padding:10px;
+				padding-bottom: 0px;
+				border:1px solid #ddd;
+				border-top: none;
+				
+				.ui-helper-hidden-accessible{
+					display: none;
+				}
+			}
 		}
+		
 	}
 }
 
@@ -252,6 +273,12 @@ footer[role=footer] {
 	margin:0;
 }
 
+.note{
+	line-height: 2.5em;
+	font-size:13px;
+	color: #aaa;
+}
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
 	// Fix margin container
@@ -272,3 +299,26 @@ footer[role=footer] {
 		}
 	}
 }
+
+/* JQuery UI Autocomplete */
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	left: 10px;
+	padding: 5px;
+	cursor: default;
+	list-style: none;
+	
+	a{
+		color: #333;
+	}
+	
+	li{
+		font-size: 13px;
+	}
+}
+
+/* Workaround */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */

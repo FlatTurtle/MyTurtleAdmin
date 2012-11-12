@@ -1,98 +1,75 @@
-// Submit on enter
-$('#messageModal input').keypress(function (e) {
-	if (e.which == 13) {
-		$('#btnSendMessage').click();
-	}
+// Creating new turtles by dragging
+$(".turtle-chooser .draggable" ).draggable({
+	revert: true,
+	stack: ".turtle-chooser .turtle"
 });
 
-// Send a message to the screen
-$('#btnSendMessage').click(function(e){
-	e.preventDefault();
-	var pathname = window.location.pathname;
-	
-	if($('#btnSendMessage').attr('disabled') != 'disabled'){
-		$('#btnSendMessage').attr('disabled', 'disabled').addClass('disable');
-
-		$.ajax({
-			type: 'POST',
-			url: pathname + '/plugin/message',
-			data: {
-				message: $('#the_message').val()
-			},
-			success: function(html){
-				setTimeout(function() {
-					$('#btnToggleClock i').toggleClass('active');
-					$('#btnSendMessage').removeAttr('disabled');
-				}, 1000);
-				$('#messageModal').modal('hide');
-				$('#btnSendMessage').removeAttr('disabled').removeClass('disable');
-			}
-		});
-	}
-});
-
-// Toggle clock on screen
-$('#btnToggleClock').click(function(e){
-	e.preventDefault();
-	
-	if($('#btnToggleClock').attr('disabled') != 'disabled'){
-		
-		var pathname = window.location.pathname;
-		$('#btnToggleClock').attr('disabled', 'disabled').addClass('disable');
-
-		$.ajax({
-			type: 'POST',
-			url: pathname + '/plugin/clock',
-			data: {
-				action: (($('#btnToggleClock i').hasClass('active'))? 'off':'on')
-			},
-			success: function(html){
-				setTimeout(function() {
-					$('#btnToggleClock i').toggleClass('active');
-					$('#btnToggleClock').removeAttr('disabled');
-				}, 100);
-			}
-		});
-	}
-});
-
-// Toggle screen power
-$('#btnToggleScreen').click(function(e){
-	e.preventDefault();
-	
-	if($('#btnToggleScreen').attr('disabled') != 'disabled'){
-		
-		var pathname = window.location.pathname;
-		$('#btnToggleScreen').attr('disabled', 'disabled').addClass('disable');
-
-		$.ajax({
-			type: 'POST',
-			url: pathname + '/plugin/screen_power',
-			data: {
-				action: (($('#btnToggleScreen i').hasClass('active'))? 'off':'on')
-			},
-			success: function(html){
-				setTimeout(function() {
-					$('#btnToggleScreen i').toggleClass('active').removeClass('icon-eye-close').removeClass('icon-eye-open');
-					var end = 'close';
-					if($('#btnToggleScreen i').hasClass('active')){
-						end ='open';
-					}
-					$('#btnToggleScreen i').addClass('icon-eye-' + end);
-					$('#btnToggleScreen').removeAttr('disabled');
-				}, 400);
-			}
-		});
-	}
-});
-
-$( ".draggable" ).draggable({ 
-	revert: true, 
-	stack: ".turtle-chooser .turtle"  
-});
-$( ".droppable" ).droppable({
+$( ".turtle-area.droppable").droppable({
 	accept: ".turtle",
 	drop: function( event, ui ) {
-		$( this ).html( "Dropped!" + ui.draggable);
+		var dragged =  ui.draggable;
+		var droppable = $(this);
+
+		$.ajax({
+			url: '../../assets/inc/turtles/options_'+ dragged.attr('id') + '.php',
+			dataType: 'html',
+			success: function(content){
+				content = content.replace('{{title}}', dragged.html());
+				content = content.replace('{{location}}', '');
+				var turtle = $(content);
+				turtle.hide();
+
+				droppable.append(turtle);
+				bind_autocomplete();
+				turtle.slideDown(400);
+			},
+			error: function(error){
+				$.ajax({
+					url: '../../assets/inc/turtles/options_blank.php',
+					dataType: 'html',
+					success: function(content){
+						content = content.replace('{{title}}', dragged.html());
+						var turtle = $(content);
+						turtle.hide();
+
+						droppable.append(turtle);
+						bind_autocomplete();
+						turtle.slideDown(400);
+					},
+					error: function(error){
+
+					}
+				});
+			}
+		});
 	}
 });
+
+// Turtle sorting
+$(".turtle-area.sortable").sortable();
+
+// Autocomplete De Lijn
+function bind_autocomplete(){
+	$("#delijn-location").autocomplete({
+		minLength: 4,
+		source: function( request, response ) {
+			$.ajax({
+				url: "http://data.irail.be/DeLijn/Stations.json",
+				type: 'GET',
+				dataType: "json",
+				data: {
+					name: request.term
+				},
+				success: function( data ) {
+					response( $.map( data.Stations, function( item ) {
+						return {
+							label: item.name,
+							value: item.name
+						}
+					}));
+				}
+			});
+		}
+	});
+}
+bind_autocomplete();

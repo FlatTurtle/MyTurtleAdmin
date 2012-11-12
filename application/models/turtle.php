@@ -22,6 +22,17 @@ class Turtle extends CI_Model {
 	public function get_all_types(){
 		return json_decode($this->api->get($this->API . API_TURTLE_TYPES));
 	}
+	
+	/**
+	 * Get all turtle instances
+	 */
+	public function get($alias, $pane_type = null){
+		if($pane_type){
+			return json_decode($this->api->get($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES . '?pane_type='. urlencode($pane_type)));
+		}else{
+			return json_decode($this->api->get($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES));
+		}
+	}
 }
 
 ?>
