@@ -53,7 +53,23 @@ $( ".turtle-area.droppable").droppable({
 });
 
 // Turtle sorting
-$(".turtle-area.sortable").sortable();
+$(".turtle-area.sortable").sortable({
+	update: function(event,ui){
+		var order = $(".turtle-area.sortable").sortable('toArray');
+		var pathname = window.location.pathname;
+		for(var i=0; i<order.length; i++) {
+			 order[i] = order[i].split("_")[1];
+		}
+		
+		$.ajax({
+			url: pathname + '/sort',
+			type: 'POST',
+			data: {
+				order: order
+			}
+		});
+	}
+});
 
 // Events to bind to turtles
 function bind_event_to_turtles(){

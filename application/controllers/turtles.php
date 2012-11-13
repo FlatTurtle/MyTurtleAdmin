@@ -19,6 +19,9 @@ class Turtles extends CI_Controller {
 		$this->load->model('turtle');
 	}
 
+	/**
+	 * Turtle page
+	 */
 	public function index($alias) {
 		$data['infoscreen'] = $this->infoscreen->get($alias);
 		$data['turtle_instances'] = $this->turtle->get($alias, 'list');
@@ -32,10 +35,27 @@ class Turtles extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	public function sort() {
-		
+	/**
+	 * AJAX URI for updating order
+	 */
+	public function sort($alias) {
+		$order = $this->input->post('order');
+		if(!empty($order) && is_array($order)){
+			$counter = 0;
+			foreach($order as $id){
+				$data['order'] = $counter;
+				$this->turtle->update($alias, $id, $data);
+				$counter++;
+			}
+			echo "true";
+			return;
+		}
+		echo "false";
 	}
 
+	/**
+	 * AJAX URI for updating turtle options
+	 */
 	public function update($alias) {
 		$id = $this->input->post('id');
 		unset($_POST['id']);
@@ -51,6 +71,9 @@ class Turtles extends CI_Controller {
 		echo "false";
 	}
 
+	/**
+	 * Get template and fill out the data
+	 */
 	public function template($turtle) {
 		if (!$contents = file_get_contents(base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php')) {
 			// Load notice when template is not found
