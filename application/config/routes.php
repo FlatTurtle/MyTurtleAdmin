@@ -43,10 +43,12 @@ $route['404_override'] = '';
 $route['login/do/*'] = 'home/login_post';
 $route['login/*'] = 'home/login';
 $route['logout/*'] = 'home/logout';
-$route['screen/(.*)/plugin/(.*)'] = 'plugin/$2/$1';
-$route['screen/(.*)/update'] = 'screen/update/$1';
+$route['screen/(.*)/left/template/(.*)'] = 'turtles/template/$2';
+$route['screen/(.*)/left/update/*'] = 'turtles/update/$1';
 $route['screen/(.*)/left/*'] = 'turtles/index/$1';
 $route['screen/(.*)/right/*'] = 'panes/index/$1';
+$route['screen/(.*)/plugin/(.*)'] = 'plugin/$2/$1';
+$route['screen/(.*)/update'] = 'screen/update/$1';
 $route['screen/(.*)'] = 'screen/show/$1';
 
 

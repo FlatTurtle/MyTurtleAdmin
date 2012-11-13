@@ -101,15 +101,19 @@ class API {
 					$this->auth();
 					$this->request($url, $method, $data);
 				} else {
-					throw new ErrorException($http_status ." - ". $response);
+					if (ENVIRONMENT == 'production')
+						show_404();
+					else
+						throw new ErrorException($http_status . " - " . $response);
 				}
 				break;
 			default:
-				throw new ErrorException($http_status ." - ". $response);
+				if (ENVIRONMENT == 'production')
+					show_404();
+				else
+					throw new ErrorException($http_status . " - " . $response);
 				break;
 		}
 	}
 
 }
-
-?>

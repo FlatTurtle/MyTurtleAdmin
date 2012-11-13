@@ -223,11 +223,39 @@ nav[role=navigation] {
 				border-bottom: none;
 				color: #fff;
 				padding: 7px;
+				padding-left: 43px;
+				padding-bottom: 8px;
+				cursor: pointer;
+				
+				.icon{
+					position: absolute;
+					width: 30px;
+					height: 35px;
+					left: 5px;
+					margin-top: -7px;
+					background-size: contain;
+					background-position: center center;
+										
+					&.delijn{
+						background-image: url('../img/turtle_delijn.png');
+					}
+					
+					&.airport{
+						background-image: url('../img/turtle_airport.png');
+					} 
+					
+					&.nmbs{
+						background-image: url('../img/turtle_nmbs.png');
+					}
+				}
 			}
 			
 			.delete{
 				position: absolute;
-				right: 10px;
+				right: 5px;
+				width: 15px;
+				height: 15px;
+				margin-top: 8px;
 				cursor: pointer;
 				color: #fff;
 				text-decoration: none;
@@ -243,8 +271,30 @@ nav[role=navigation] {
 					display: none;
 				}
 			}
+			
+			.loading{
+				display: inline-block;
+				height: 20px;
+				width: 20px;
+				margin-left: 5px;
+				background: url('../img/loading.gif') no-repeat;
+				vertical-align: middle;
+			}
 		}
 		
+	}
+}
+
+.pane-holder{
+	position: relative;
+	
+	.pane-area{
+		width: 100%;	
+		border: 5px solid #000;
+		border-left: none;
+		min-height: 350px;
+		background-color: #fff;
+		position: relative;
 	}
 }
 
@@ -319,6 +369,3 @@ footer[role=footer] {
 		font-size: 13px;
 	}
 }
-
-/* Workaround */
-* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */

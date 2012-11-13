@@ -33,6 +33,13 @@ class Turtle extends CI_Model {
 			return json_decode($this->api->get($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES));
 		}
 	}
+	
+	/**
+	 * Update turtle options 
+	 */
+	public function update($alias, $id, $data){
+		json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES .'/' . $id, $data));
+	}
 }
 
 ?>

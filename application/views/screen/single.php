@@ -12,6 +12,7 @@
 		<a href="#" id="btnSendMessage" class="btn btn-primary">Send</a>
 	</div>
 </div>
+
 <div class='row'>
 	<div class='span12'>
 		<h2>
@@ -33,15 +34,19 @@
 						$screen_class = 'icon-eye-close';  
 					}
 				?>
+				
 				<div class="btn-group">
-					<a href='#messageModal' role='button' class="btn" data-toggle="modal"><i class="icon-comment icon-large"></i></a>
-					<a href='#' id="btnToggleClock" role='button' class="btn">
+					<a href='#messageModal' role='button' class="btn" data-toggle="modal" title="Display a message on the screen">
+						<i class="icon-comment icon-large"></i>
+					</a>
+					<a href='#' id="btnToggleClock" role='button' class="btn" title="Toggle the clock">
 						<i class="icon-time icon-large <?= $clock_class ?>"></i>
 					</a>
-					<a href='#' id="btnToggleScreen" role='button' class="btn">
+					<a href='#' id="btnToggleScreen" role='button' class="btn"  title="Switch the screen on and off">
 						<i class="<?= $screen_class ?> icon-large"></i>
 					</a>
 				</div>
+				
 				<div class='inner'>
 					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">
 						<div class='left-side'>
