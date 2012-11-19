@@ -21,6 +21,7 @@ class Screen extends CI_Controller {
 
 		// Set validation rules
 		$this->my_formvalidation->set_rules('title', 'title', 'required|trim|max_length[255]');
+		$this->my_formvalidation->set_rules('location', 'location', 'required|trim');
 		$this->my_formvalidation->set_rules('color', 'color', 'callback_check_color');
 		$this->my_formvalidation->set_error_delimiters('&bull;&nbsp;', '<br/>');
 	}
@@ -39,8 +40,32 @@ class Screen extends CI_Controller {
 			$_POST['color'] = '#' . substr($_POST['color'], 0, 6);
 		}
 		unset($_POST['hostname']);
+		
+		// Get longitude and latitude of the location with google API
+		$location = $this->input->post('location');
+		if(!empty($location)){
+			$http = curl_init();
+			curl_setopt($http, CURLOPT_URL, 'https://maps.googleapis.com/maps/api/geocode/json?address='. urlencode($location) .'&sensor=false');
+			curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
+			
+			$response = curl_exec($http);
+			$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
+			curl_close($http);
+			
+			if($http_status == 200){
+				$data = json_decode($response);
+				if(!empty($data->results[0]->geometry->location)){
+					$result = $data->results[0]->geometry->location;
+					$_POST['latitude'] = $result->lat;
+					$_POST['longitude'] = $result->lng;
+				}
+			}
+			
+			
+		}
+		
 
-		// Handle the logo upload
+		// Handle the logo upload and resize
 		if (!empty($_FILES['logo']['name'])) {
 			$uploaddir = $this->config->item('upload_dir') . $alias;
 			$uploadfile = $uploaddir . '/temp.' . pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION);

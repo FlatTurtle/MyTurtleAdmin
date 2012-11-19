@@ -5,4 +5,4 @@
 		{{title}}
 	</h4>
 	<div class='edit_area'>
-		<form class="form-horizontal">
+		<form class="form-horizontal" onsubmit="return false;">

@@ -22,7 +22,7 @@ header[role=banner] {
 	margin: 0 auto;
 	overflow: hidden;
 	background-color: #fff;
-	
+
 	hgroup {
 		width: 67%;
 		min-width: 200px;
@@ -34,7 +34,7 @@ nav[role=navigation] {
 	width: 100%;
 	text-align: right;
 	padding: 65px 0px;
-	
+
 	i{
 		color: #0578bd;
 	}
@@ -51,7 +51,7 @@ nav[role=navigation] {
 	padding-bottom: 20px;
 }
 
-.form-signin { 
+.form-signin {
 	max-width: 300px;
 	padding: 19px 29px 29px;
 	margin: 0 auto 20px;
@@ -78,14 +78,14 @@ nav[role=navigation] {
 
 #infoscreens{
 	width: 100%;
-	
+
 	.infoscreen{
 		margin: 10px;
 		padding-bottom: 10px;
 		width: 214px;
 		float: left;
 		text-align: center;
-		
+
 		.screen{
 			-moz-box-shadow: 0px 0px 5px #aaa;
 			-webkit-box-shadow: 0px 0px 5px #aaa;
@@ -94,7 +94,7 @@ nav[role=navigation] {
 			border: 5px solid #000;
 			background-color: #fff;
 			margin-bottom: 5px;
-			
+
 			.inside{
 				width: 100%;
 				height: 100%;
@@ -103,7 +103,7 @@ nav[role=navigation] {
 			}
 		}
 	}
-	
+
 }
 
 .single-infoscreen{
@@ -112,11 +112,11 @@ nav[role=navigation] {
 	width: 100%;
 	max-width: 500px;
 	margin-bottom: 25px;
-	
+
 	.dummy{
 		padding-top:55%;
 	}
-	
+
 	.screen{
 		position: absolute;
 		top: 0;
@@ -124,60 +124,67 @@ nav[role=navigation] {
 		left: 0;
 		right: 0;
 		padding-top: 40px;
-		
+
 		.btn-group{
 			top: 0;
 			right: 0;
 			position: absolute;
-			
+
 			.btn{
 				padding-top: 6px;
-				
+
 				[class*=" icon-"]{
 					line-height: inherit;
 				}
-				
+
 				i.active{
 					color: #08C;
 				}
-				
+
 				.loading{
 					margin-top: -5px;
 				}
 			}
 		}
-		
+
 		.inner{
 			background-color: #fff;
 			border: 5px solid #000;
 			height: 100%;
 			min-height: 100px;
 			position: relative;
-			
+
 			.left-side{
 				width: 50%;
 				height: 100%;
 				position: absolute;
 			}
-			
+
 			.right-side{
 				width: 50%;
 				height: 100%;
 				left: 50%;
 				position: absolute;
 			}
-			
-			.logo{
+
+			.logo-holder{
 				width: 100%;
 				height: 100%;
-				max-width: 600px;
-				max-height: 69px;
-				bottom: 25px;
-				right: 25px;
-				background-size: contain;
-				background-repeat: no-repeat;
-				background-position: right bottom;
+				max-width: 220px;
+				max-height: 39px;
 				position: absolute;
+				background-color: #fff;
+				bottom: 0px;
+				right: 0px;
+				padding: 15px;
+
+				.logo{
+					width: 100%;
+					height: 100%;
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: right bottom;
+				}
 			}
 		}
 	}
@@ -203,18 +210,18 @@ nav[role=navigation] {
 
 .turtle-holder{
 	position: relative;
-	
+
 	.turtle-area{
-		width: 100%;	
+		width: 100%;
 		border: 5px solid #000;
 		border-right: none;
 		min-height: 350px;
 		background-color: #fff;
 		position: relative;
-		
+
 		.turtle_instance{
 			background-color: #efefef;
-			
+
 			.title{
 				display: block;
 				margin: 0px;
@@ -226,7 +233,7 @@ nav[role=navigation] {
 				padding-left: 43px;
 				padding-bottom: 8px;
 				cursor: pointer;
-				
+
 				.icon{
 					position: absolute;
 					width: 30px;
@@ -235,21 +242,25 @@ nav[role=navigation] {
 					margin-top: -7px;
 					background-size: contain;
 					background-position: center center;
-										
+
 					&.delijn{
 						background-image: url('../img/turtle_delijn.png');
 					}
-					
+
 					&.airport{
 						background-image: url('../img/turtle_airport.png');
-					} 
-					
+					}
+
 					&.nmbs{
 						background-image: url('../img/turtle_nmbs.png');
 					}
+
+					&.villo{
+						background-image: url('../img/turtle_villo.png');
+					}
 				}
 			}
-			
+
 			.delete{
 				position: absolute;
 				right: 5px;
@@ -260,18 +271,18 @@ nav[role=navigation] {
 				color: #fff;
 				text-decoration: none;
 			}
-			
+
 			.edit_area{
 				padding:10px;
 				padding-bottom: 0px;
 				border:1px solid #ddd;
 				border-top: none;
-				
+
 				.ui-helper-hidden-accessible{
 					display: none;
 				}
 			}
-			
+
 			.loading{
 				display: inline-block;
 				height: 20px;
@@ -281,15 +292,15 @@ nav[role=navigation] {
 				vertical-align: middle;
 			}
 		}
-		
+
 	}
 }
 
 .pane-holder{
 	position: relative;
-	
+
 	.pane-area{
-		width: 100%;	
+		width: 100%;
 		border: 5px solid #000;
 		border-left: none;
 		min-height: 350px;
@@ -330,18 +341,18 @@ footer[role=footer] {
 }
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
 	// Fix margin container
 	.container{
 		margin-left: 25px;
 		margin-right: 25px;
 	}
-	
+
 	nav[role=navigation] {
 		padding: 0px;
 		padding-bottom: 20px;
 		text-align: left;
-		
+
 		h4{
 			display: inline;
 			vertical-align: middle;
@@ -360,11 +371,11 @@ footer[role=footer] {
 	padding: 5px;
 	cursor: default;
 	list-style: none;
-	
+
 	a{
 		color: #333;
 	}
-	
+
 	li{
 		font-size: 13px;
 	}

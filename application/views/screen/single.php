@@ -27,14 +27,14 @@
 				<?
 					$clock_class = 'active';
 					if(!$state_clock){
-						$clock_class = '';  
+						$clock_class = '';
 					}
 					$screen_class = 'icon-eye-open active';
 					if(!$state_screen){
-						$screen_class = 'icon-eye-close';  
+						$screen_class = 'icon-eye-close';
 					}
 				?>
-				
+
 				<div class="btn-group">
 					<a href='#messageModal' role='button' class="btn" data-toggle="modal" title="Display a message on the screen">
 						<i class="icon-comment icon-large"></i>
@@ -46,7 +46,7 @@
 						<i class="<?= $screen_class ?> icon-large"></i>
 					</a>
 				</div>
-				
+
 				<div class='inner'>
 					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">
 						<div class='left-side'>
@@ -60,7 +60,9 @@
 					</a>
 
 					<? if (!empty($logo)) { ?>
-						<div class='logo' style="background-image:url('<?= base_url() . $logo; ?>?<?= rand(0, 999999) ?>');"></div>
+						<div class="logo-holder">
+							<div class='logo' style="background-image:url('<?= base_url() . $logo; ?>?<?= rand(0, 999999) ?>');"></div>
+						</div>
 					<? } ?>
 				</div>
 			</div>
@@ -81,6 +83,13 @@
 				<label class="control-label" for="inputTitle">Title</label>
 				<div class="controls">
 					<input type="text" id="inputTitle" name="title" placeholder="Title" value="<?= $infoscreen->title; ?>" class="input-block-level">
+				</div>
+			</div>
+			<div class="control-group<?= (!empty($errors['location'])) ? ' error' : ''; ?>">
+				<label class="control-label" for="inputLocation">Address</label>
+				<div class="controls">
+					<input type="text" id="inputLocation" name="location" placeholder="Address your building (Ex: Veldstraat 10, Gent)" value="<?= $infoscreen->location; ?>" class="input-block-level">
+					<span class='note'><?= ($infoscreen->latitude)? 'Geographic coordinates: '.$infoscreen->latitude.', '.$infoscreen->longitude:''; ?></span>
 				</div>
 			</div>
 			<div class="control-group<?= (!empty($errors['color'])) ? ' error' : ''; ?>">

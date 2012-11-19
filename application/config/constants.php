@@ -41,6 +41,7 @@ define('API_AUTH_ADMIN','auth/admin');
 define('API_INFOSCREENS','');
 define('API_TURTLE_TYPES','turtles');
 define('API_TURTLE_INSTANCES','turtles');
+define('API_TURTLE_ORDER','order');
 define('API_PLUGIN_STATES','plugins');
 define('API_PLUGIN_MESSAGE','plugins/message');
 define('API_PLUGIN_CLOCK','plugins/clock');

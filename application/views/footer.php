@@ -10,9 +10,9 @@
                                                    Are you a developer who would like to know more about FlatTurtle?
                                                    Did you know you can control your FlatTurtle through an API?
                                                    Did you know you can write your own turtles and panes?
-                                                   Get in touch with us at 
-                                                      http://dev.FlatTurtle.com 
-                                                   or mail us at 
+                                                   Get in touch with us at
+                                                      http://dev.FlatTurtle.com
+                                                   or mail us at
                                                       info@flatturtle.com
 -->
 				</div>

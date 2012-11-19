@@ -2,7 +2,7 @@
 
 /**
  * FlatTurtle bvba
- * @author: Michiel Vancoillie 
+ * @author: Michiel Vancoillie
  */
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
@@ -26,7 +26,7 @@ class Turtles extends CI_Controller {
 		$data['infoscreen'] = $this->infoscreen->get($alias);
 		$data['turtle_instances'] = $this->turtle->get($alias, 'list');
 		foreach ($data['turtle_instances'] as $turtle) {
-			$turtle->content = $this->template($turtle);
+			$turtle->content = $this->_template($turtle);
 		}
 		$data['turtle_types'] = $this->turtle->get_all_types();
 
@@ -44,7 +44,7 @@ class Turtles extends CI_Controller {
 			$counter = 0;
 			foreach($order as $id){
 				$data['order'] = $counter;
-				$this->turtle->update($alias, $id, $data);
+				$this->turtle->order($alias, $id, $data);
 				$counter++;
 			}
 			echo "true";
@@ -60,7 +60,7 @@ class Turtles extends CI_Controller {
 		$id = $this->input->post('id');
 		unset($_POST['id']);
 		if(!empty($id) && is_numeric($id)){
-			
+
 			if($this->input->post('options'))
 				$data['options'] = json_encode($this->input->post('options'));
 
@@ -72,9 +72,30 @@ class Turtles extends CI_Controller {
 	}
 
 	/**
+	 * Delete turtle instance
+	 */
+	public function delete($alias){
+		$id = $this->input->post('id');
+		if(!empty($id) && is_numeric($id)){
+			$this->turtle->delete($alias, $id);
+			echo "true";
+			return;
+		}
+		echo "false";
+
+	}
+
+	/**
+	 * Create new turtle instance
+	 */
+	public function create($alias){
+
+	}
+
+	/**
 	 * Get template and fill out the data
 	 */
-	public function template($turtle) {
+	private function _template($turtle) {
 		if (!$contents = file_get_contents(base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php')) {
 			// Load notice when template is not found
 			$contents = file_get_contents(base_url() . 'assets/inc/turtles/options_blank.php');
@@ -82,7 +103,7 @@ class Turtles extends CI_Controller {
 		$contents = preg_replace('/{{id}}/', $turtle->id, $contents);
 		$contents = preg_replace('/{{title}}/', $turtle->name, $contents);
 		$contents = preg_replace('/{{type}}/', $turtle->type, $contents);
-		
+
 		$limit_options = "";
 		$limit = (!empty($turtle->options->limit))? $turtle->options->limit : 5;
 		for ($i = 2; $i < 19; $i++) {
@@ -92,7 +113,7 @@ class Turtles extends CI_Controller {
 			$limit_options .= '<option ' . $selected . '>' . $i . '</option>';
 		}
 		$contents = preg_replace('/{{limit-options}}/', $limit_options, $contents);
-		
+
 		foreach ($turtle->options as $key => $value) {
 			$contents = preg_replace('/{{' . $key . '}}/', $value, $contents);
 		}
