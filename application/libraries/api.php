@@ -49,8 +49,8 @@ class API {
 		return $this->request($url, 'POST', $data);
 	}
 
-	public function put($url) {
-		return $this->request($url, 'PUT');
+	public function put($url, $data = null) {
+		return $this->request($url, 'PUT', $data);
 	}
 
 	public function delete($url) {
@@ -83,6 +83,10 @@ class API {
 			case 'POST':
 				if (!empty($data) && is_array($data))
 					curl_setopt($http, CURLOPT_POSTFIELDS, $data);
+				break;
+			case 'PUT':
+				if (!empty($data) && is_array($data))
+					curl_setopt($http, CURLOPT_POSTFIELDS, http_build_query($data));
 				break;
 		}
 

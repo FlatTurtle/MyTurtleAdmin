@@ -38,7 +38,7 @@ class Turtle extends CI_Model {
 	 * Update turtle options
 	 */
 	public function update($alias, $id, $data) {
-		json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES . '/' . $id, $data));
+		return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES . '/' . $id, $data));
 	}
 
 
@@ -46,25 +46,21 @@ class Turtle extends CI_Model {
 	 * Change turtle order
 	 */
 	public function order($alias, $id, $data) {
-		json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES . '/' . API_TURTLE_ORDER . '/' . $id, $data));
+		return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES . '/' . API_TURTLE_ORDER . '/' . $id, $data));
 	}
-
 
 	/**
 	 * Create a new turtle
+	 */
+	public function create($alias, $data) {
+		return json_decode($this->api->put($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES, $data));
+	}
+
+	/**
+	 * Delete a turtle
 	 */
 	public function delete($alias, $id) {
-		json_decode($this->api->delete($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES . '/' . $id));
-	}
-
-	/**
-	 * Create a new turtle
-	 */
-	public function create($alias) {
-
-		return $alias;
+		return json_decode($this->api->delete($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_TURTLE_INSTANCES . '/' . $id));
 	}
 
 }
-
-?>

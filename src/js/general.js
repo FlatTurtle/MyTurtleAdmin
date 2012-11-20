@@ -11,15 +11,22 @@ $( ".turtle-area.droppable").droppable({
 	drop: function( event, ui ) {
 		var dragged =  ui.draggable;
 		var droppable = $(this);
+		var turtle_type = dragged.attr('id');
+		var pane_id = droppable.attr('id').split('_')[1];
 
 		$.ajax({
 			url: pathname + '/create',
 			dataType: 'html',
+			type: 'POST',
+			data:{
+				type: turtle_type,
+				pane: pane_id
+			},
 			success: function(content){
 				var turtle = $(content);
 				turtle.hide();
 
-				droppable.append(turtle);
+				droppable.prepend(turtle);
 				bind_event_to_turtles();
 				turtle.slideDown(400);
 
@@ -29,6 +36,10 @@ $( ".turtle-area.droppable").droppable({
 				},100).animate({
 					borderColor:'#000'
 				},600);
+
+
+				$(".turtle-area.sortable").sortable('refresh');
+				sort_turtles();
 			},
 			error: function(error, status){
 				alert('Could not create turtle: ' + status);
@@ -39,23 +50,25 @@ $( ".turtle-area.droppable").droppable({
 
 // Turtle sorting
 $(".turtle-area.sortable").sortable({
-	update: function(event,ui){
-		var order = $(".turtle-area.sortable").sortable('toArray');
+	update: sort_turtles
+});
+function sort_turtles(){
+	var order = $(".turtle-area.sortable").sortable('toArray');
 
-		for(var i=0; i<order.length; i++) {
-			order[i] = order[i].split("_")[1];
+	for(var i=0; i<order.length; i++) {
+		order[i] = order[i].split("_")[1];
+	}
+
+	$.ajax({
+		url: pathname + '/sort',
+		type: 'POST',
+		data: {
+			order: order
 		}
 
-		$.ajax({
-			url: pathname + '/sort',
-			type: 'POST',
-			data: {
-				order: order
-			}
+	});
+}
 
-		});
-	}
-});
 
 // Events to bind to turtles
 function bind_event_to_turtles(){
@@ -109,7 +122,6 @@ function bind_event_to_turtles(){
 				var option_name = $(this).attr('name').split(turtle_id + '-')[1];
 				option_data[option_name] = $(this).val();
 			});
-			console.debug(option_data);
 
 			$.ajax({
 				url: pathname + '/update',

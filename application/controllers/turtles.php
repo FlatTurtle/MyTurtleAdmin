@@ -17,6 +17,7 @@ class Turtles extends CI_Controller {
 
 		$this->load->model('infoscreen');
 		$this->load->model('turtle');
+		$this->load->model('pane');
 	}
 
 	/**
@@ -24,10 +25,15 @@ class Turtles extends CI_Controller {
 	 */
 	public function index($alias) {
 		$data['infoscreen'] = $this->infoscreen->get($alias);
-		$data['turtle_instances'] = $this->turtle->get($alias, 'list');
-		foreach ($data['turtle_instances'] as $turtle) {
-			$turtle->content = $this->_template($turtle);
-		}
+		$data['pane'] = $this->pane->get($alias, 'list');
+		$data['pane'] = $data['pane'][0];
+		$data['turtle_instances'] = array();
+		try{
+			$data['turtle_instances'] = $this->turtle->get($alias, 'list');
+			foreach ($data['turtle_instances'] as $turtle) {
+				$turtle->content = $this->_template($turtle);
+			}
+		}catch(ErrorException $e){}
 		$data['turtle_types'] = $this->turtle->get_all_types();
 
 		$this->load->view('header');
@@ -41,7 +47,7 @@ class Turtles extends CI_Controller {
 	public function sort($alias) {
 		$order = $this->input->post('order');
 		if(!empty($order) && is_array($order)){
-			$counter = 0;
+			$counter = 1;
 			foreach($order as $id){
 				$data['order'] = $counter;
 				$this->turtle->order($alias, $id, $data);
@@ -89,17 +95,36 @@ class Turtles extends CI_Controller {
 	 * Create new turtle instance
 	 */
 	public function create($alias){
+		$data['type'] = $this->input->post('type');
+		$data['pane'] = $this->input->post('pane');
+		$data['options'] = '';
 
+		if(!empty($data['type']) && is_numeric($data['pane'])){
+			$turtle = $this->turtle->create($alias, $data);
+			echo $this->_template($turtle);
+			return;
+		}
+		echo "false";
 	}
 
 	/**
 	 * Get template and fill out the data
 	 */
 	private function _template($turtle) {
-		if (!$contents = file_get_contents(base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php')) {
+		$http = curl_init();
+		curl_setopt($http, CURLOPT_URL, base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php');
+		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($http, CURLOPT_SSL_VERIFYPEER, false);
+		$contents = curl_exec($http);
+		$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
+
+		if ($http_status != 200) {
 			// Load notice when template is not found
-			$contents = file_get_contents(base_url() . 'assets/inc/turtles/options_blank.php');
+			curl_setopt($http, CURLOPT_URL, base_url() . 'assets/inc/turtles/options_blank.php');
+			$contents = curl_exec($http);
 		}
+		curl_close($http);
+
 		$contents = preg_replace('/{{id}}/', $turtle->id, $contents);
 		$contents = preg_replace('/{{title}}/', $turtle->name, $contents);
 		$contents = preg_replace('/{{type}}/', $turtle->type, $contents);

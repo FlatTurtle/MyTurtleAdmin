@@ -19,7 +19,7 @@
 	</div>
 	<div class='turtle-holder span9'>
 		<h4>Left side of the screen</h4>
-		<div class='turtle-area droppable sortable'>
+		<div id='pane_<?= $pane->id ?>' class='turtle-area droppable sortable'>
 			<? foreach($turtle_instances as $turtle){
 				echo $turtle->content;
 				?>
