@@ -243,8 +243,8 @@ nav[role=navigation] {
 					background-size: contain;
 					background-position: center center;
 
-					&.delijn{
-						background-image: url('../img/turtle_delijn.png');
+					&.delijn, &.mivb{
+						background-image: url('../img/turtle_bus.png');
 					}
 
 					&.airport{
