@@ -170,3 +170,6 @@ function bind_event_to_turtles(){
 	});
 }
 bind_event_to_turtles();
+
+// Help Popovers
+$(".help-popover").popover();

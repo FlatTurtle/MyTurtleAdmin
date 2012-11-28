@@ -211,6 +211,31 @@ nav[role=navigation] {
 .turtle-holder{
 	position: relative;
 
+	#pane-selector{
+		position: absolute;
+		top: 0px;
+		right: -5px;
+
+		ul{
+			display:inline;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		li{
+			display: inline;
+			width: 10px;
+			text-align: right;
+			height: 20px;
+			font-size: 30px;
+			line-height: 19px;
+			vertical-align: top;
+			padding: 0px;
+			margin: 0px;
+			padding-left: 10px;
+		}
+	}
+
 	.turtle-area{
 		width: 100%;
 		border: 5px solid #000;
