@@ -21,9 +21,13 @@
 		<h4>Left side of the screen</h4>
 		<nav id='pane-selector'>
 			<ul>
-			<? foreach($panes as $pane){ ?>
-				<li>&bull;</li>
-			<? } ?>
+			<?
+			$first = true;
+			foreach($panes as $pane){ ?>
+				<li id='pane-selector_<? echo $pane->id ?>' <? echo ($first)? 'class="active"':''; ?>>&bull;</li>
+			<?
+				$first = false;
+			} ?>
 			</ul>
 		</nav>
 		<?

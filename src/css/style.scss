@@ -213,7 +213,7 @@ nav[role=navigation] {
 
 	#pane-selector{
 		position: absolute;
-		top: 0px;
+		margin-top: -30px;
 		right: -5px;
 
 		ul{
@@ -223,16 +223,19 @@ nav[role=navigation] {
 		}
 
 		li{
+			cursor: pointer;
 			display: inline;
 			width: 10px;
 			text-align: right;
-			height: 20px;
 			font-size: 30px;
-			line-height: 19px;
-			vertical-align: top;
+			vertical-align: middle;
 			padding: 0px;
 			margin: 0px;
-			padding-left: 10px;
+			color: #ccc;
+		}
+
+		li.active{
+			color: #666;
 		}
 	}
 

@@ -69,6 +69,17 @@ function sort_turtles(){
 	});
 }
 
+// Pane switcher for left side
+$('#pane-selector li').on('click', function(e){
+	var selected = $(this).attr('id').split('_')[1];
+	if(!$(this).hasClass('active')){
+		$('#pane-selector li').removeClass('active');
+		$(this).addClass('active');
+		$('.turtle-area').fadeOut();
+		$('#pane_' + selected).fadeIn();
+	}
+});
+
 
 // Events to bind to turtles
 function bind_event_to_turtles(){
