@@ -1,58 +1,55 @@
 var pathname = window.location.pathname;
 
-// Creating new turtles by dragging
-$(".turtle-chooser .draggable" ).draggable({
-	revert: true,
-	stack: ".turtle-chooser .turtle"
-});
+// Turtle sorting
+var sortableIn = 0;
+$(".turtle-area.sortable").sortable({
+	cursor: 'pointer',
+	update: sort_turtles,
+	receive: function(event, ui){
+		if(sortableIn == 1){
+			var dragged =  ui.item;
+			var droppable = $(this);
+			var turtle_type = dragged.attr('id');
+			var pane_id = droppable.attr('id').split('_')[1];
+			$('.turtle',droppable).html("<div style='padding:20px;'><i class='loading'></i> Adding turtle </div>");
 
-$( ".turtle-area.droppable").droppable({
-	accept: ".turtle",
-	drop: function( event, ui ) {
-		var dragged =  ui.draggable;
-		var droppable = $(this);
-		var turtle_type = dragged.attr('id');
-		var pane_id = droppable.attr('id').split('_')[1];
+			$.ajax({
+				url: pathname + '/create',
+				dataType: 'html',
+				type: 'POST',
+				data:{
+					type: turtle_type,
+					pane: pane_id
+				},
+				success: function(content){
+					var turtle = $(content);
+					turtle.hide();
 
-		$.ajax({
-			url: pathname + '/create',
-			dataType: 'html',
-			type: 'POST',
-			data:{
-				type: turtle_type,
-				pane: pane_id
-			},
-			success: function(content){
-				var turtle = $(content);
-				turtle.hide();
+					$('.turtle',droppable).replaceWith(turtle);
 
-				droppable.prepend(turtle);
-				bind_event_to_turtles();
-				turtle.slideDown(400);
+					bind_event_to_turtles();
+					turtle.slideDown(400);
 
-				// Animation when turtle has been added successfull
-				$('.turtle-area').animate({
-					borderColor:'#0779bd'
-				},100).animate({
-					borderColor:'#000'
-				},600);
-
-
-				$(".turtle-area.sortable").sortable('refresh');
-				sort_turtles();
-			},
-			error: function(error, status){
-				alert('Could not create turtle: ' + status);
-			}
-		});
+					// Force re-sort
+					$(".turtle-area.sortable").sortable('refresh');
+				},
+				error: function(error, status){
+					alert('Could not create turtle: ' + status);
+				}
+			});
+		}
+	},
+	over: function(event, ui)
+	{
+		sortableIn = 1;
+	},
+	out: function(event, ui)
+	{
+		sortableIn = 0;
 	}
 });
 
-// Turtle sorting
-$(".turtle-area.sortable").sortable({
-	update: sort_turtles
-});
-function sort_turtles(){
+function sort_turtles(event, ui){
 	var order = $(".turtle-area.sortable").sortable('toArray');
 
 	for(var i=0; i<order.length; i++) {
@@ -65,9 +62,65 @@ function sort_turtles(){
 		data: {
 			order: order
 		}
-
 	});
 }
+
+// Creating new turtles by dragging
+$(".turtle-chooser .draggable" ).draggable({
+	revert: true,
+	helper: function(event) {
+		helper = $(event.target).clone();
+		helper.css('padding','30px');
+		helper.css('min-width','100px');
+		helper.css('line-height','0px');
+		helper.css('display','block');
+		return helper;
+	},
+	stack: ".turtle-chooser .turtle",
+	connectToSortable: ".turtle-area.sortable"
+});
+
+// $( ".turtle-area.droppable").droppable({
+// 	accept: ".turtle",
+// 	tolerance: 'touch',
+// 	drop: function( event, ui ) {
+// 		event.preventDefault();
+
+// 		var dragged =  ui.draggable;
+// 		var droppable = $(this);
+// 		var turtle_type = dragged.attr('id');
+// 		var pane_id = droppable.attr('id').split('_')[1];
+
+// 		$.ajax({
+// 			url: pathname + '/create',
+// 			dataType: 'html',
+// 			type: 'POST',
+// 			data:{
+// 				type: turtle_type,
+// 				pane: pane_id
+// 			},
+// 			success: function(content){
+// 				var turtle = $(content);
+// 				turtle.hide();
+
+// 				droppable.prepend(turtle);
+
+// 				bind_event_to_turtles();
+// 				turtle.slideDown(400);
+
+// 				// Animation when turtle has been added successfull
+// 				$('.turtle-area').animate({
+// 					borderColor:'#0779bd'
+// 				},100).animate({
+// 					borderColor:'#000'
+// 				},600);
+// 			},
+// 			error: function(error, status){
+// 				alert('Could not create turtle: ' + status);
+// 			}
+// 		});
+// 	}
+// });
 
 // Pane switcher for left side
 $('#pane-selector li').on('click', function(e){
@@ -75,7 +128,7 @@ $('#pane-selector li').on('click', function(e){
 	if(!$(this).hasClass('active')){
 		$('#pane-selector li').removeClass('active');
 		$(this).addClass('active');
-		$('.turtle-area').fadeOut();
+		$('.turtle-area').fadeOut(0);
 		$('#pane_' + selected).fadeIn();
 	}
 });
@@ -183,13 +236,11 @@ function bind_event_to_turtles(){
 bind_event_to_turtles();
 
 // Help Popovers
-<<<<<<< HEAD
 $(".help-popover").popover();
 
 // Color picker
-$('#inputColor').spectrum({
-    showInput: true
-});
-=======
-$(".help-popover").popover();
->>>>>>> b53b4f2615659698ded42e7fb48fe2bf3aaa2cc2
+if($('#inputColor')[0]){
+	$('#inputColor').spectrum({
+		showInput: true
+	});
+}

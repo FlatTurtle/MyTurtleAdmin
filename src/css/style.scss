@@ -310,18 +310,18 @@ nav[role=navigation] {
 					display: none;
 				}
 			}
-
-			.loading{
-				display: inline-block;
-				height: 20px;
-				width: 20px;
-				margin-left: 5px;
-				background: url('../img/loading.gif') no-repeat;
-				vertical-align: middle;
-			}
 		}
 
 	}
+}
+
+.loading{
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+	background: url('../img/loading.gif') no-repeat;
+	vertical-align: middle;
 }
 
 .pane-holder{
