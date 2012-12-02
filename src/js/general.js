@@ -80,48 +80,6 @@ $(".turtle-chooser .draggable" ).draggable({
 	connectToSortable: ".turtle-area.sortable"
 });
 
-// $( ".turtle-area.droppable").droppable({
-// 	accept: ".turtle",
-// 	tolerance: 'touch',
-// 	drop: function( event, ui ) {
-// 		event.preventDefault();
-
-// 		var dragged =  ui.draggable;
-// 		var droppable = $(this);
-// 		var turtle_type = dragged.attr('id');
-// 		var pane_id = droppable.attr('id').split('_')[1];
-
-// 		$.ajax({
-// 			url: pathname + '/create',
-// 			dataType: 'html',
-// 			type: 'POST',
-// 			data:{
-// 				type: turtle_type,
-// 				pane: pane_id
-// 			},
-// 			success: function(content){
-// 				var turtle = $(content);
-// 				turtle.hide();
-
-// 				droppable.prepend(turtle);
-
-// 				bind_event_to_turtles();
-// 				turtle.slideDown(400);
-
-// 				// Animation when turtle has been added successfull
-// 				$('.turtle-area').animate({
-// 					borderColor:'#0779bd'
-// 				},100).animate({
-// 					borderColor:'#000'
-// 				},600);
-// 			},
-// 			error: function(error, status){
-// 				alert('Could not create turtle: ' + status);
-// 			}
-// 		});
-// 	}
-// });
-
 // Pane switcher for left side
 $('#pane-selector li').on('click', function(e){
 	var selected = $(this).attr('id').split('_')[1];

@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Your FlatTurtle</title>
-		
+
 		<!-- For iPhone 4 -->
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-114.png">
 		<!-- For iPad 1-->
@@ -15,9 +15,9 @@
 
 		<link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css" type="text/css" media="screen" />
 		<link type="text/css" rel="stylesheet" href="https://fast.fonts.com/cssapi/66253153-9c89-413c-814d-60d3ba0d6ac2.css"/>
-		
+
 		<!--[if lte IE 8]><link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" /><![endif]-->
-		
+
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 		<script type="text/javascript">
@@ -26,6 +26,7 @@
 			}
 			!window.jQuery.ui && document.write(unescape("%3Cscript src='<?= base_url(); ?>assets/js/jquery-ui-min.js type='text/javascript'%3E%3C/script%3E"))
 		</script>
+		<script src='<?= base_url(); ?>assets/js/jquery-ui-touch-punch-min.js' type='text/javascript'></script>
 	</head>
 	<body>
 		<div class="wrapper">
