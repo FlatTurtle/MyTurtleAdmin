@@ -2,7 +2,7 @@
 
 /**
  * FlatTurtle bvba
- * @author: Michiel Vancoillie 
+ * @author: Michiel Vancoillie
  */
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
@@ -40,18 +40,18 @@ class Screen extends CI_Controller {
 			$_POST['color'] = '#' . substr($_POST['color'], 0, 6);
 		}
 		unset($_POST['hostname']);
-		
+
 		// Get longitude and latitude of the location with google API
 		$location = $this->input->post('location');
 		if(!empty($location)){
 			$http = curl_init();
 			curl_setopt($http, CURLOPT_URL, 'https://maps.googleapis.com/maps/api/geocode/json?address='. urlencode($location) .'&sensor=false');
 			curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
-			
+
 			$response = curl_exec($http);
 			$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
 			curl_close($http);
-			
+
 			if($http_status == 200){
 				$data = json_decode($response);
 				if(!empty($data->results[0]->geometry->location)){
@@ -60,10 +60,10 @@ class Screen extends CI_Controller {
 					$_POST['longitude'] = $result->lng;
 				}
 			}
-			
-			
+
+
 		}
-		
+
 
 		// Handle the logo upload and resize
 		if (!empty($_FILES['logo']['name'])) {
@@ -117,7 +117,7 @@ class Screen extends CI_Controller {
 				}
 
 				unlink($uploadfile);
-				
+
 				$_POST['logo'] = base_url().$uploaddir. '/logo.png';
 			}
 		}
@@ -131,7 +131,7 @@ class Screen extends CI_Controller {
 			$this->session->set_flashdata('all_errors', $this->my_formvalidation->error_string());
 			$this->session->set_flashdata('errors', $this->my_formvalidation->error_array());
 		}
-		redirect('screen/' . $alias);
+		redirect($alias);
 	}
 
 	/**
@@ -142,7 +142,7 @@ class Screen extends CI_Controller {
 		$data['errors'] = $this->session->flashdata('errors');
 		$data['all_errors'] = $this->session->flashdata('all_errors');
 		$data['file_error'] = $this->session->flashdata('file_error');
-		
+
 		$plugin_states = $this->infoscreen->plugin_states($alias);
 		$data['state_clock'] = 1;
 		$data['state_screen'] = 1;

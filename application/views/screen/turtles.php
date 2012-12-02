@@ -1,7 +1,7 @@
 <div class='row'>
 	<div class='span12'>
 		<h2>
-			<a href="<?= site_url('screen/' . $infoscreen->alias); ?>" class='blacklink'>
+			<a href="<?= site_url($infoscreen->alias); ?>" class='blacklink'>
 				<i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>&nbsp;&gg;&nbsp;Left
 			</a>
 		</h2>
@@ -19,12 +19,30 @@
 	</div>
 	<div class='turtle-holder span9'>
 		<h4>Left side of the screen</h4>
-		<div id='pane_<?= $pane->id ?>' class='turtle-area droppable sortable'>
+		<nav id='pane-selector'>
+			<ul>
+			<?
+			$first = true;
+			foreach($panes as $pane){ ?>
+				<li id='pane-selector_<? echo $pane->id ?>' <? echo ($first)? 'class="active"':''; ?>>&bull;</li>
+			<?
+				$first = false;
+			} ?>
+			</ul>
+		</nav>
+		<?
+			$first = true;
+			foreach($panes as $pane){ ?>
+		<div id='pane_<?= $pane->id ?>' class="turtle-area droppable sortable <? echo ($first)? '':'hide'; ?>">
 			<? foreach($turtle_instances as $turtle){
-				echo $turtle->content;
+				if($pane->id == $turtle->pane_id){
+					echo $turtle->content;
+				}
 				?>
 			<? } ?>
 		</div>
+		<? 		$first = false;
+			} ?>
 		<span class='note'>Drag turtles to sort</span>
 	</div>
 </div>

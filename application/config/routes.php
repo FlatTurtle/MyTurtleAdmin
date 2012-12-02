@@ -43,15 +43,15 @@ $route['404_override'] = '';
 $route['login/do/*'] = 'home/login_post';
 $route['login/*'] = 'home/login';
 $route['logout/*'] = 'home/logout';
-$route['screen/(.*)/left/create/*'] = 'turtles/create/$1';
-$route['screen/(.*)/left/delete/*'] = 'turtles/delete/$1';
-$route['screen/(.*)/left/sort/*'] = 'turtles/sort/$1';
-$route['screen/(.*)/left/update/*'] = 'turtles/update/$1';
-$route['screen/(.*)/left/*'] = 'turtles/index/$1';
-$route['screen/(.*)/right/*'] = 'panes/index/$1';
-$route['screen/(.*)/plugin/(.*)'] = 'plugin/$2/$1';
-$route['screen/(.*)/update'] = 'screen/update/$1';
-$route['screen/(.*)'] = 'screen/show/$1';
+$route['(.*)/left/create/*'] = 'turtles/create/$1';
+$route['(.*)/left/delete/*'] = 'turtles/delete/$1';
+$route['(.*)/left/sort/*'] = 'turtles/sort/$1';
+$route['(.*)/left/update/*'] = 'turtles/update/$1';
+$route['(.*)/left/*'] = 'turtles/index/$1';
+$route['(.*)/right/*'] = 'panes/index/$1';
+$route['(.*)/plugin/(.*)'] = 'plugin/$2/$1';
+$route['(.*)/update'] = 'screen/update/$1';
+$route['(.*)'] = 'screen/show/$1';
 
 
 /* End of file routes.php */

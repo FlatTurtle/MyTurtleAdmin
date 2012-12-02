@@ -16,40 +16,41 @@
         <property name="build.major" value="1"/>
         <property name="build.minor" value="1"/>
     </target>
-	
+
 
     <!--Create build directories-->
     <target name="-init" depends="-load.properties"
         description="Create build directory structure">
         <!--Delete previous build files-->
         <delete dir="${build.dir}/js"/>
-        
+
         <!--Recreate the build directories-->
         <mkdir dir="${build.dir}/js"/>
     </target>
 
 
     <!--Concatenate JS files-->
-    <target name="-js.concatenate" depends="-init" 
+    <target name="-js.concatenate" depends="-init"
         description="Concatenates specified JavaScript files">
 		<copy file="${src.js.dir}/jquery-1.8.2.js" tofile="${build.dir}/js/jquery.js"/>
 		<copy file="${src.js.dir}/jquery-ui-1.9.1.js" tofile="${build.dir}/js/jquery-ui.js"/>
+        <copy file="${src.js.dir}/spectrum.js" tofile="${build.dir}/js/spectrum.js"/>
         <concat destfile="${build.dir}/js/script.js">
-            <fileset 
+            <fileset
                 dir="${src.js.dir}"
-                includes="*.js" 
-                excludes="jquery-1.8.2.js, jquery-ui-1.9.1.js"/>
+                includes="*.js"
+                excludes="jquery-1.8.2.js, jquery-ui-1.9.1.js, spectrum.js"/>
         </concat>
         <echo>Finished</echo>
     </target>
 
 
     <!--Minify JS files-->
-    <target name="-js.minify" depends="-js.concatenate" 
+    <target name="-js.minify" depends="-js.concatenate"
         description="Minifies JavaScript files">
         <apply executable="java" parallel="false" dest="${build.dir}/js">
-            <fileset 
-                dir="${build.dir}/js" 
+            <fileset
+                dir="${build.dir}/js"
                 includes="*.js"/>
             <arg line="-jar"/>
             <arg path="${yui.dir}"/>
@@ -60,7 +61,7 @@
         </apply>
         <echo>Finished</echo>
     </target>
-	
+
 	<target name="-clean" depends="-js.minify"
         description="Clean build directory">
 		<delete includeemptydirs="true">
@@ -71,10 +72,10 @@
     </target>
 
     <!--Build-->
-    <target name="build" 
+    <target name="build"
         description="Builds project files for production use"
         depends="
-            -load.properties, 
+            -load.properties,
             -init,
             -js.concatenate,
             -js.minify,

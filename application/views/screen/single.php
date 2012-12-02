@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?= base_url(); ?>assets/js/spectrum-min.js"></script>
+<link rel="stylesheet" href="<?= base_url(); ?>assets/css/spectrum.css" type="text/css" />
 <div id="messageModal" class="modal hide fade">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -48,12 +50,12 @@
 				</div>
 
 				<div class='inner'>
-					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">
+					<a href="<?= site_url($infoscreen->alias . '/left') ?>">
 						<div class='left-side'>
 
 						</div>
 					</a>
-					<a href="<?= site_url('screen/' . $infoscreen->alias . '/right') ?>">
+					<a href="<?= site_url($infoscreen->alias . '/right') ?>">
 						<div class='right-side' style='background-color:<?= $infoscreen->color; ?>;'>
 
 						</div>
@@ -68,14 +70,14 @@
 			</div>
 		</div>
 
-		<form class="form-horizontal center" action="<?= site_url('screen/' . $infoscreen->alias . '/update'); ?>" method="post" enctype="multipart/form-data">
+		<form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/update'); ?>" method="post" enctype="multipart/form-data">
 
 			<ul class="pager">
 				<li class="previous">
-					<a href="<?= site_url('screen/' . $infoscreen->alias . '/left') ?>">&larr; Left side</a>
+					<a href="<?= site_url($infoscreen->alias . '/left') ?>">&larr; Left side</a>
 				</li>
 				<li class="next">
-					<a href="<?= site_url('screen/' . $infoscreen->alias . '/right') ?>">Right side &rarr;</a>
+					<a href="<?= site_url($infoscreen->alias . '/right') ?>">Right side &rarr;</a>
 				</li>
 			</ul>
 
@@ -96,10 +98,10 @@
 				<label class="control-label" for="inputColor">Color</label>
 				<div class="controls">
 					<div class="input-prepend input-append">
-						<span class="add-on" style="background-color:<?= $infoscreen->color; ?>;"></span>
 						<input type="text" id="inputColor" name="color" placeholder="#color" class="input-small" value="<?= $infoscreen->color; ?>" maxlength="7">
 					</div>
 				</div>
+				<div id='colorpicker'></div>
 			</div>
 			<div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
 				<label class="control-label" for="inputLogo">Logo</label>
@@ -122,7 +124,7 @@
 							<?= $all_errors; ?>
 						</div>
 						<button type="submit" class="btn">Retry</button>
-						<a href="<?= site_url('screen/' . $infoscreen->alias) ?>" class="btn">Cancel</a>
+						<a href="<?= site_url($infoscreen->alias) ?>" class="btn">Cancel</a>
 					<? } else { ?>
 						<button type="submit" class="btn">Save</button>
 					<? } ?>
