@@ -2,7 +2,7 @@
 
 /**
  * FlatTurtle bvba
- * @author: Michiel Vancoillie 
+ * @author: Michiel Vancoillie
  */
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
@@ -50,7 +50,7 @@ class Infoscreen extends CI_Model {
 	public function message($alias, $post_data) {
 		return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PLUGIN_MESSAGE, $post_data));
 	}
-	
+
 	/**
 	 * Sent a clock
 	 */
@@ -59,7 +59,7 @@ class Infoscreen extends CI_Model {
 			return json_decode($this->api->delete($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PLUGIN_CLOCK));
 		}else{
 			return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PLUGIN_CLOCK));
-		}		
+		}
 	}
 
 	/**

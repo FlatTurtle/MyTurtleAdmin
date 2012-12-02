@@ -103,7 +103,7 @@ class API {
 				if (strpos($response, 'token') && strpos($response, 'not valid')) {
 					// Token expired, get new token and retry
 					$this->auth();
-					$this->request($url, $method, $data);
+					return $this->request($url, $method, $data);
 				} else {
 					if (ENVIRONMENT == 'production')
 						show_404();

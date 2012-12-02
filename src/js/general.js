@@ -75,7 +75,7 @@ $('#pane-selector li').on('click', function(e){
 	if(!$(this).hasClass('active')){
 		$('#pane-selector li').removeClass('active');
 		$(this).addClass('active');
-		$('.turtle-area').fadeOut();
+		$('.turtle-area').fadeOut(0);
 		$('#pane_' + selected).fadeIn();
 	}
 });
