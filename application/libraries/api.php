@@ -99,6 +99,11 @@ class API {
 			case 200:
 				return $response;
 				break;
+			case 401:
+				if (ENVIRONMENT == 'production')
+					show_error("You aren't the owner of that!", 401);
+				else
+					throw new ErrorException($http_status . " - " . $response);
 			case 403:
 				if (strpos($response, 'token') && strpos($response, 'not valid')) {
 					// Token expired, get new token and retry
@@ -106,7 +111,7 @@ class API {
 					return $this->request($url, $method, $data);
 				} else {
 					if (ENVIRONMENT == 'production')
-						show_404();
+						show_error('You are not authorized to do this!', 403);
 					else
 						throw new ErrorException($http_status . " - " . $response);
 				}
