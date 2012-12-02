@@ -183,13 +183,9 @@ function bind_event_to_turtles(){
 bind_event_to_turtles();
 
 // Help Popovers
-<<<<<<< HEAD
 $(".help-popover").popover();
 
 // Color picker
 $('#inputColor').spectrum({
     showInput: true
 });
-=======
-$(".help-popover").popover();
->>>>>>> b53b4f2615659698ded42e7fb48fe2bf3aaa2cc2
