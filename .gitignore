@@ -8,6 +8,7 @@ uploads/*
 ###############
 
 */config/development
+*/config/production
 */logs/log-*.php
 */logs/!index.html
 */cache/*
