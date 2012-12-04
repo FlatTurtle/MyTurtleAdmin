@@ -32,6 +32,7 @@ $(".turtle-area.sortable").sortable({
 
 					// Force re-sort
 					$(".turtle-area.sortable").sortable('refresh');
+					sort_turtles();
 				},
 				error: function(error, status){
 					alert('Could not create turtle: ' + status);
@@ -51,6 +52,7 @@ $(".turtle-area.sortable").sortable({
 
 function sort_turtles(event, ui){
 	var order = $(".turtle-area.sortable").sortable('toArray');
+	console.log(order);
 
 	for(var i=0; i<order.length; i++) {
 		order[i] = order[i].split("_")[1];
