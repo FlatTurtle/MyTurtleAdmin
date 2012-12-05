@@ -157,7 +157,7 @@ class Screen extends CI_Controller {
 			$data['state_clock'] = $plugin_states->clock;
 		if(isset($plugin_states->power))
 			$data['state_screen'] = $plugin_states->power;
-		if(isset($plugin_states->footer))
+		if(isset($plugin_states->footer) && $plugin_states->footer != 0)
 			$data['footer'] = $plugin_states->footer;
 
 		$data['logo'] = "";
