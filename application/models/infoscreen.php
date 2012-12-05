@@ -69,6 +69,17 @@ class Infoscreen extends CI_Model {
 		return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PLUGIN_SCREEN_POWER, $post_data));
 	}
 
+	/**
+	 * Place footer message
+	 */
+	public function footer($alias, $post_data) {
+		if($post_data == null){
+			return json_decode($this->api->delete($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PLUGIN_FOOTER));
+		}else{
+			return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PLUGIN_FOOTER, $post_data));
+		}
+	}
+
 }
 
 ?>

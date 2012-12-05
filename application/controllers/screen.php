@@ -64,6 +64,12 @@ class Screen extends CI_Controller {
 
 		}
 
+		$footerdata['value']  = trim($this->input->post('footer'));
+		if(empty($footerdata['value'])){
+			$footerdata = null;
+		}
+		$this->infoscreen->footer($alias, $footerdata);
+		unset($_POST['footer']);
 
 		// Handle the logo upload and resize
 		if (!empty($_FILES['logo']['name'])) {
@@ -146,10 +152,13 @@ class Screen extends CI_Controller {
 		$plugin_states = $this->infoscreen->plugin_states($alias);
 		$data['state_clock'] = 1;
 		$data['state_screen'] = 1;
+		$data['footer'] = '';
 		if(isset($plugin_states->clock))
 			$data['state_clock'] = $plugin_states->clock;
-		if(isset($plugin_states->screen))
-			$data['state_screen'] = $plugin_states->screen;
+		if(isset($plugin_states->power))
+			$data['state_screen'] = $plugin_states->power;
+		if(isset($plugin_states->footer))
+			$data['footer'] = $plugin_states->footer;
 
 		$data['logo'] = "";
 		$logo_url = $this->config->item('upload_dir') . $alias . "/logo.png";

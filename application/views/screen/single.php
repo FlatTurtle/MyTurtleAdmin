@@ -101,7 +101,13 @@
 						<input type="text" id="inputColor" name="color" placeholder="#color" class="input-small" value="<?= $infoscreen->color; ?>" maxlength="7">
 					</div>
 				</div>
-				<div id='colorpicker'></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputFooter">Footer</label>
+				<div class="controls">
+					<input type="text" id="inputFooter" name="footer" placeholder="Text/RSS" class="input-block-level" value="<?= $footer ?>"/>
+					<span class='note'>Regular text or a RSS link for a rotating footer</span>
+				</div>
 			</div>
 			<div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
 				<label class="control-label" for="inputLogo">Logo</label>
