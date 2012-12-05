@@ -98,31 +98,141 @@ $('#pane-selector li').on('click', function(e){
 function bind_event_to_turtles(){
 
 	// Autocomplete De Lijn
-	$(".delijn-location").autocomplete({
-		minLength: 4,
-		source: function( request, response ) {
-			$.ajax({
-				url: "http://data.irail.be/DeLijn/Stations.json",
-				type: 'GET',
-				dataType: "json",
-				data: {
-					name: request.term
-				},
-				success: function( data ) {
-					response( $.map( data.Stations, function( item ) {
-						return {
-							label: item.name,
-							value: item.name
-						}
-					}));
+	$(".delijn-location").off().on('keydown.autocomplete', function(){
+		$(this).autocomplete({
+			minLength: 4,
+			source: function( request, response ) {
+				$.ajax({
+					url: "http://data.irail.be/DeLijn/Stations.json",
+					type: 'GET',
+					dataType: "json",
+					data: {
+						name: request.term
+					},
+					success: function( data ) {
+						response( $.map( data.Stations, function( item ) {
+							return {
+								label: item.name,
+								value: item.name
+							}
+						}));
+					}
+				});
+			}
+		});
+	});
+
+	// Autocomplete NMBS
+	$(".nmbs-location").off().on('keydown.autocomplete', function(){
+		$(this).autocomplete({
+			minLength: 3,
+			source: function( request, response ) {
+				$.ajax({
+					url: "http://data.irail.be/NMBS/Stations.json",
+					type: 'GET',
+					dataType: "json",
+					data: {
+						name: request.term
+					},
+					success: function( data ) {
+						var pattern = new RegExp(request.term.toLowerCase());
+						response( $.map( data.Stations, function( item ) {
+								if(item.name.toLowerCase().match(pattern)){
+								return {
+									label: item.name,
+									value: item.name
+								}
+							}
+						}));
+					}
+				});
+			}
+		});
+	});
+
+	// Autocomplete Velo
+	$(".velo-name").off().on('keydown.autocomplete', function(){
+		var self = $(this);
+		$(this).autocomplete({
+			minLength: 3,
+			autoFocus: true,
+			autoSelect: true,
+			source: function( request, response ) {
+				$.ajax({
+					url: "http://data.irail.be/Bikes/Velo.json",
+					type: 'GET',
+					dataType: "json",
+					data: {
+						name: request.term
+					},
+					success: function( data ) {
+						var pattern = new RegExp(request.term.toLowerCase());
+						response( $.map( data.Velo, function( item ) {
+								if(item.name.toLowerCase().match(pattern)){
+								return {
+									label: item.name,
+									value: item.name,
+									location: item.latitude + ',' + item.longitude
+								}
+							}
+						}));
+					}
+				});
+			},
+			select: function(e, ui){
+				$('.velo-location',self.parents('.turtle_instance')).val(ui.item.location);
+			},
+			change: function(e, ui){
+				if ( !ui.item ) {
+					self.val('');
 				}
-			});
-		}
+			}
+		});
+	});
+
+	// Autocomplete Velo
+	$(".villo-name").off().on('keydown.autocomplete', function(){
+		var self = $(this);
+		$(this).autocomplete({
+			minLength: 3,
+			autoFocus: true,
+			autoSelect: true,
+			source: function( request, response ) {
+				$.ajax({
+					url: "http://data.irail.be/Bikes/Villo.json",
+					type: 'GET',
+					dataType: "json",
+					data: {
+						name: request.term
+					},
+					success: function( data ) {
+						var pattern = new RegExp(request.term.toLowerCase());
+						response( $.map( data.Velo, function( item ) {
+								if(item.name.toLowerCase().match(pattern)){
+								return {
+									label: item.name,
+									value: item.name,
+									location: item.latitude + ',' + item.longitude
+								}
+							}
+						}));
+					}
+				});
+			},
+			select: function(e, ui){
+				$('.villo-location',self.parents('.turtle_instance')).val(ui.item.location);
+			},
+			change: function(e, ui){
+				if ( !ui.item ) {
+					self.val('');
+				}
+			}
+		});
 	});
 
 	// Collapsable turtles
 	$('.turtle_instance .title').off().on('click',function(){
-		$('.autocomplete').autocomplete('close');
+		try{$('.autocomplete').autocomplete('close');}catch(e){}
 		$('.edit_area', $(this).parent()).slideToggle(200);
 	});
 
@@ -133,6 +243,7 @@ function bind_event_to_turtles(){
 	});
 	$('.turtle_instance .turtle_save').off().on('click',function(e){
 		e.preventDefault();
+		$(this).focus();
 		var turtle_instance = $(this).parents('.turtle_instance');
 		var button = $(this);
 
@@ -144,7 +255,9 @@ function bind_event_to_turtles(){
 			var inputs = $('form :input',turtle_instance);
 			inputs.each(function(){
 				var option_name = $(this).attr('name').split(turtle_id + '-')[1];
-				option_data[option_name] = $(this).val();
+				if(option_name){
+					option_data[option_name] = $(this).val();
+				}
 			});
 
 			$.ajax({
