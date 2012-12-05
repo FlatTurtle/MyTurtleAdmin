@@ -1,5 +1,12 @@
 var pathname = window.location.pathname;
 
+// Camelcase string
+String.prototype.camelcase = function() {
+    return this.replace(/(\w)(\w*)/g, function(g0,g1,g2){
+        return g1.toUpperCase() + g2.toLowerCase();
+    });
+}
+
 // Turtle sorting
 var sortableIn = 0;
 $(".turtle-area.sortable").sortable({
@@ -52,7 +59,6 @@ $(".turtle-area.sortable").sortable({
 
 function sort_turtles(event, ui){
 	var order = $(".turtle-area.sortable").sortable('toArray');
-	console.log(order);
 
 	for(var i=0; i<order.length; i++) {
 		order[i] = order[i].split("_")[1];
@@ -137,7 +143,7 @@ function bind_event_to_turtles(){
 					success: function( data ) {
 						var pattern = new RegExp(request.term.toLowerCase());
 						response( $.map( data.Stations, function( item ) {
-								if(item.name.toLowerCase().match(pattern)){
+							if(item.name.toLowerCase().match(pattern)){
 								return {
 									label: item.name,
 									value: item.name
@@ -149,6 +155,35 @@ function bind_event_to_turtles(){
 			}
 		});
 	});
+
+	// Autocomplete MIVB
+	$(".mivb-location").off().on('keydown.autocomplete', function(){
+		$(this).autocomplete({
+			minLength: 3,
+			source: function( request, response ) {
+				$.ajax({
+					url: "http://data.irail.be/MIVBSTIB/Stations.json",
+					type: 'GET',
+					dataType: "json",
+					data: {
+						name: request.term
+					},
+					success: function( data ) {
+						var pattern = new RegExp(request.term.toLowerCase());
+						response( $.map( data.Stations, function( item ) {
+							if(item.name.toLowerCase().match(pattern)){
+								return {
+									label: item.name.camelcase(),
+									value: item.name.camelcase()
+								}
+							}
+						}));
+					}
+				});
+			}
+		});
+	});
+
 
 	// Autocomplete Velo
 	$(".velo-name").off().on('keydown.autocomplete', function(){
@@ -168,7 +203,7 @@ function bind_event_to_turtles(){
 					success: function( data ) {
 						var pattern = new RegExp(request.term.toLowerCase());
 						response( $.map( data.Velo, function( item ) {
-								if(item.name.toLowerCase().match(pattern)){
+							if(item.name.toLowerCase().match(pattern)){
 								return {
 									label: item.name,
 									value: item.name,
@@ -190,7 +225,7 @@ function bind_event_to_turtles(){
 		});
 	});
 
-	// Autocomplete Velo
+	// Autocomplete Villo
 	$(".villo-name").off().on('keydown.autocomplete', function(){
 		var self = $(this);
 		$(this).autocomplete({
@@ -207,11 +242,14 @@ function bind_event_to_turtles(){
 					},
 					success: function( data ) {
 						var pattern = new RegExp(request.term.toLowerCase());
-						response( $.map( data.Velo, function( item ) {
-								if(item.name.toLowerCase().match(pattern)){
+						response( $.map( data.Villo, function( item ) {
+							item.name = item.name.toLowerCase();
+							var name = item.name.match(/^[0-9]+\s*-\s*((.*?)(?:[\/|:](.*))?)$/);
+							console.log(name);
+							if(name[1].match(pattern)){
 								return {
-									label: item.name,
-									value: item.name,
+									label: name[1].camelcase(),
+									value: name[1].camelcase(),
 									location: item.latitude + ',' + item.longitude
 								}
 							}
