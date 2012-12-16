@@ -105,26 +105,41 @@
 			<div class="control-group">
 				<label class="control-label" for="inputFooter">Footer</label>
 				<div class="controls">
-					<input type="text" id="inputFooter" name="footer" placeholder="Text/RSS" class="input-block-level" value="<?= $footer ?>"/>
-					<span class='note'>Regular text or a RSS link for a rotating footer</span>
+					<select>
+						<option>Message</option>
+						<option>Updates</option>
+					</select>
+					<input type="text" id="inputFooter" name="footer" placeholder="Text/RSS" class="" value="<?= $footer ?>"/>
 				</div>
 			</div>
 			<div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
 				<label class="control-label" for="inputLogo">Logo</label>
 				<div class="controls">
-					<input type="file" id="inputLogo" name="logo">
+					<input type="file" id="inputLogo" name="logo" class="hide better-file-upload"/>
+					<div class="input-append">
+					   <input id="inputLogoVal" class="input-large file-value" type="text">
+					   <a class="btn file-button">Browse</a>
+					</div>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputHostname">Hostname</label>
 				<div class="controls">
-					<input type="text" id="inputHostname" placeholder="Hostname" class="" value="<?= $infoscreen->hostname; ?>" disabled>
+					<input type="text" id="inputHostname" class="" value="<?= $infoscreen->hostname; ?>" disabled>
 				</div>
 			</div>
+			<? if($infoscreen->pincode){ ?>
+			<div class="control-group">
+				<label class="control-label" for="inputPin">PIN for tablet</label>
+				<div class="controls padding-5">
+					<strong><? echo $infoscreen->pincode; ?></strong>
+				</div>
+			</div>
+			<? } ?>
 			<div class="control-group">
 				<div class="controls">
 					<? if (!empty($all_errors) || !empty($file_error)) { ?>
-						<div class="alert">
+						<div class="alert alert-error">
 							<?= $file_error ?>
 							<?= (!empty($file_error)) ? '<br/>' : ''; ?>
 							<?= $all_errors; ?>

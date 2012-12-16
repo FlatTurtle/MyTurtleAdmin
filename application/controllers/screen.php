@@ -22,6 +22,7 @@ class Screen extends CI_Controller {
 		// Set validation rules
 		$this->my_formvalidation->set_rules('title', 'title', 'required|trim|max_length[255]');
 		$this->my_formvalidation->set_rules('location', 'location', 'required|trim');
+		$this->my_formvalidation->set_rules('longitude', 'longitude', 'callback_check_geocode');
 		$this->my_formvalidation->set_rules('color', 'color', 'callback_check_color');
 		$this->my_formvalidation->set_error_delimiters('&bull;&nbsp;', '<br/>');
 	}
@@ -60,8 +61,6 @@ class Screen extends CI_Controller {
 					$_POST['longitude'] = $result->lng;
 				}
 			}
-
-
 		}
 
 		$footerdata['value']  = trim($this->input->post('footer'));
@@ -182,6 +181,17 @@ class Screen extends CI_Controller {
 	public function check_color($value) {
 		if (!preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $value)) {
 			$this->my_formvalidation->set_message('check_color', "The %s '$value' is not a valid hexadecimal color.");
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Check if geocode could be resolved
+	 */
+	public function check_geocode($value) {
+		if ($value == null) {
+			$this->my_formvalidation->set_message('check_geocode', "Couldn't resolve location to geocode, try to be more specific.");
 			return false;
 		}
 		return true;

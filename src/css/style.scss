@@ -1,8 +1,6 @@
 /*
 FlatTurtle bvba
 Author: Michiel Vancoillie
-
-Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
 */
 
 @import "bootstrap";
@@ -407,4 +405,12 @@ footer[role=footer] {
 	li{
 		font-size: 13px;
 	}
+}
+
+.padding-5{
+	padding: 5px;
+}
+
+select{
+	width: auto;
 }

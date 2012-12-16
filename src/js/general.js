@@ -1,13 +1,18 @@
+// Get the URI
 var pathname = window.location.pathname;
 
-// Camelcase string
+/**
+ * Convert a string to camelcase
+ */
 String.prototype.camelcase = function() {
     return this.replace(/(\w)(\w*)/g, function(g0,g1,g2){
         return g1.toUpperCase() + g2.toLowerCase();
     });
 }
 
-// Turtle sorting
+/**
+ * Turtle sorting
+ */
 var sortableIn = 0;
 $(".turtle-area.sortable").sortable({
 	cursor: 'pointer',
@@ -57,6 +62,9 @@ $(".turtle-area.sortable").sortable({
 	}
 });
 
+/**
+ * Post the new order on change
+ */
 function sort_turtles(event, ui){
 	var order = $(".turtle-area.sortable").sortable('toArray');
 
@@ -73,7 +81,9 @@ function sort_turtles(event, ui){
 	});
 }
 
-// Creating new turtles by dragging
+/**
+ * Creating new turtles by drag and drop
+ */
 $(".turtle-chooser .draggable" ).draggable({
 	revert: true,
 	helper: function(event) {
@@ -88,7 +98,9 @@ $(".turtle-chooser .draggable" ).draggable({
 	connectToSortable: ".turtle-area.sortable"
 });
 
-// Pane switcher for left side
+/**
+ * Pane switcher for left side of the screen
+ */
 $('#pane-selector li').on('click', function(e){
 	var selected = $(this).attr('id').split('_')[1];
 	if(!$(this).hasClass('active')){
@@ -100,7 +112,9 @@ $('#pane-selector li').on('click', function(e){
 });
 
 
-// Events to bind to turtles
+/**
+ * Bind events to (new) turtles
+ */
 function bind_event_to_turtles(){
 
 	// Autocomplete De Lijn
@@ -344,6 +358,7 @@ function bind_event_to_turtles(){
 		}
 	});
 }
+// Bind events for existing turtles
 bind_event_to_turtles();
 
 // Help Popovers
@@ -355,3 +370,16 @@ if($('#inputColor')[0]){
 		showInput: true
 	});
 }
+
+/**
+ * Better file uploads
+ */
+$('input.better-file-upload').change(function() {
+   $('input.file-value', $(this).next()).val($(this).val());
+});
+$('.file-value').on('click', function(){
+	$(this).parent().prev('input.better-file-upload').click();
+});
+$('.file-button').on('click', function(){
+	$(this).parent().prev('input.better-file-upload').click();
+});
