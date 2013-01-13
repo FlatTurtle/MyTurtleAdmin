@@ -124,7 +124,7 @@
 							}
 						?>
 					</select>
-					<input type="text" id="inputFooterMessage" name="footer_message" placeholder="Text" class="<?php if($footer_type == "message") echo "shown"; ?>" value="<?= $footer ?>"/>
+					<input type="text" id="inputFooterMessage" name="footer_message" placeholder="Text" class="<?php if($footer_type == "message") echo "shown"; ?>" value="<?php if($footer_type == "message") echo $footer; ?>"/>
 				</div>
 			</div>
 			<div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
