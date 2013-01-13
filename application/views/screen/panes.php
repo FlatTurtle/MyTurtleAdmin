@@ -10,7 +10,9 @@
 <div class='row'>
 	<div class='pane-chooser span3'>
 		<h4>Panes</h4>
-
+		<? foreach($panes as $pane){ ?>
+			<?= $pane->title; ?>
+		<? } ?>
 		<span class='note'>Drag panes to sort</span>
 	</div>
 	<div class='pane-holder span9'>

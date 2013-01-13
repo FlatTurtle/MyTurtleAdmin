@@ -11,6 +11,7 @@ class Screen extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->model('option');
 		$this->load->model('infoscreen');
 		$this->load->library('my_formvalidation');
 		$this->load->helper('directory');
@@ -63,12 +64,24 @@ class Screen extends CI_Controller {
 			}
 		}
 
-		$footerdata['value']  = trim($this->input->post('footer'));
-		if(empty($footerdata['value'])){
+		// Update the logo
+		$footerdata['type']  = trim($this->input->post('footer_type'));
+		if($footerdata['type'] == "message"){
+			$footerdata['value']  = trim($this->input->post('footer_message'));
+			if(empty($footerdata['value'])){
+				$footerdata['value'] = ' ';
+			}
+		}else if($footerdata['type'] == "updates"){
+			$footerdata['value']  = trim($this->input->post('footer_rss'));
+		}else{
 			$footerdata = null;
 		}
+
 		$this->infoscreen->footer($alias, $footerdata);
-		unset($_POST['footer']);
+		unset($_POST['footer_type']);
+		unset($_POST['footer_message']);
+		unset($_POST['footer_rss']);
+
 
 		// Handle the logo upload and resize
 		if (!empty($_FILES['logo']['name'])) {
@@ -156,8 +169,20 @@ class Screen extends CI_Controller {
 			$data['state_clock'] = $plugin_states->clock;
 		if(isset($plugin_states->power))
 			$data['state_screen'] = $plugin_states->power;
-		if(isset($plugin_states->footer) && $plugin_states->footer != 0)
-			$data['footer'] = $plugin_states->footer;
+
+		// Get footer data
+		$data['footer'] = "";
+		$data['footer_type'] = "none";
+		$data['footer_types'] = array('none','message', 'updates');
+		if(isset($plugin_states->footer_type)){
+			$data['footer_type'] = $plugin_states->footer_type;
+			if(isset($plugin_states->footer) && $data['footer_type'] != "none"){
+				$data['footer'] = $plugin_states->footer;
+				if($data['footer'] == " ") $data['footer'] = '';
+			}
+		}
+		// Get available footer RSS links
+		$data['rss_links'] = $this->option->get('footer_rss');
 
 		$data['logo'] = "";
 		$logo_url = $this->config->item('upload_dir') . $alias . "/logo.png";

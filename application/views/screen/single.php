@@ -104,12 +104,27 @@
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputFooter">Footer</label>
+				<input type="hidden" name="" value="<?= $footer ?>"/>
 				<div class="controls">
-					<select>
-						<option>Message</option>
-						<option>Updates</option>
+					<select id='footerType' name='footer_type'>
+						<?php
+							foreach($footer_types as $footer_proto_type){
+								echo "<option value='$footer_proto_type'";
+								if($footer_type == $footer_proto_type) echo " selected='selected'";
+								echo ">".ucfirst($footer_proto_type)."</option>";
+							}
+						?>
 					</select>
-					<input type="text" id="inputFooter" name="footer" placeholder="Text/RSS" class="" value="<?= $footer ?>"/>
+					<select id='inputFooterUpdates' name='footer_rss' class="<?php if($footer_type == "updates") echo "shown"; ?>">
+						<?php
+							foreach($rss_links as $rss_link){
+								echo "<option value='$rss_link->url'";
+								if($footer == $rss_link->url) echo " selected='selected'";
+								echo ">".$rss_link->name."</option>";
+							}
+						?>
+					</select>
+					<input type="text" id="inputFooterMessage" name="footer_message" placeholder="Text" class="<?php if($footer_type == "message") echo "shown"; ?>" value="<?= $footer ?>"/>
 				</div>
 			</div>
 			<div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">

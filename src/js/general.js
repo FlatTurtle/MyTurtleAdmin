@@ -383,3 +383,16 @@ $('.file-value').on('click', function(){
 $('.file-button').on('click', function(){
 	$(this).parent().prev('input.better-file-upload').click();
 });
+
+/**
+ *
+ */
+$('#inputFooterMessage').hide();
+$('#inputFooterUpdates').hide();
+$('#footerType').on('change', function(){
+	$('#inputFooterMessage').hide();
+	$('#inputFooterUpdates').hide();
+	$('#inputFooter' + $(this).val().charAt(0).toUpperCase() + $(this).val().slice(1)).show();
+});
+
+$('.shown').show();
