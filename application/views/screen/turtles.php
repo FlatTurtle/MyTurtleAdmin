@@ -11,9 +11,9 @@
 	<div class='turtle-chooser span3'>
 		<h4>Available turtles</h4>
 		<? foreach($turtle_types as $turtle_type){ ?>
-			<div id="<?=$turtle_type->type ?>" class='turtle draggable'>
-				<?= $turtle_type->name; ?>
-			</div>
+		<div id="<?=$turtle_type->type ?>" class='turtle draggable'>
+			<?= $turtle_type->name; ?>
+		</div>
 		<? } ?>
 		<span class='note'>Drag turtles to the screen</span>
 	</div>
@@ -21,28 +21,30 @@
 		<h4>Left side of the screen</h4>
 		<nav id='pane-selector'>
 			<ul>
-			<?
-			$first = true;
-			foreach($panes as $pane){ ?>
-				<li id='pane-selector_<? echo $pane->id ?>' <? echo ($first)? 'class="active"':''; ?>>&bull;</li>
-			<?
-				$first = false;
-			} ?>
+				<?
+				if(count($panes) > 1){
+					$active_class = "class='active'";
+					foreach($panes as $pane){
+						echo "<li id='pane-selector_". $pane->id ."' ". $active_class .">&bull;</li>";
+						$active_class = "";
+					}
+				}
+				?>
 			</ul>
 		</nav>
 		<?
-			$first = true;
-			foreach($panes as $pane){ ?>
-		<div id='pane_<?= $pane->id ?>' class="turtle-area droppable sortable <? echo ($first)? '':'hide'; ?>">
-			<? foreach($turtle_instances as $turtle){
+		$extra_class = "";
+		foreach($panes as $pane){
+			echo "<div id='pane_".$pane->id."' class='turtle-area droppable sortable'>";
+			foreach($turtle_instances as $turtle){
 				if($pane->id == $turtle->pane_id){
 					echo $turtle->content;
 				}
-				?>
-			<? } ?>
-		</div>
-		<? 		$first = false;
-			} ?>
+			}
+			echo "</div>";
+			$extra_class = "hide";
+		}
+		?>
 		<span class='note'>Drag turtles to sort</span>
 	</div>
 </div>
