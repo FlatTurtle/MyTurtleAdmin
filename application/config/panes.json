@@ -1,0 +1,54 @@
+{
+    "News": {
+        "turtles": [
+            {
+                "type": "weather",
+                "order": 0
+            },
+            {
+                "type": "rss",
+                "order": 1
+            }
+        ]
+    },
+    "Social": {
+        "turtles": [
+            {
+                "type": "twitter",
+                "order": 0
+            }
+        ]
+    },
+    "Traffic": {
+        "turtles": [
+            {
+                "type": "map",
+                "order": 0
+            }
+        ]
+    },
+    "Location": {
+        "turtles": [
+            {
+                "type": "mapbox",
+                "order": 0
+            }
+        ]
+    },
+    "Finance": {
+        "turtles": [
+            {
+                "type": "finance",
+                "order": 0
+            }
+        ]
+    },
+    "Signage": {
+        "turtles": [
+            {
+                "type": "signage",
+                "order": 0
+            }
+        ]
+    }
+}

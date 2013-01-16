@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /**
  * FlatTurtle bvba
@@ -21,7 +21,12 @@ class Panes extends CI_Controller {
 
 	public function index($alias){
 		$data['infoscreen'] = $this->infoscreen->get($alias);
+		$data['available_panes'] = $this->pane->panes;
 		$data['panes'] = $this->pane->get($alias, 'widget');
+
+		foreach($data['panes'] as $pane){
+			unset($data['available_panes']->{$pane->title});
+		}
 
 		$this->load->view('header');
 		$this->load->view('screen/panes', $data);

@@ -10,10 +10,22 @@ if (!defined('BASEPATH'))
 class Pane extends CI_Model {
 
 	private $API;
+	public $panes;
 
 	public function __construct() {
 		parent::__construct();
 		$this->API = $this->config->item('api_url');
+
+		$this->loadJSON();
+	}
+
+
+	private function loadJSON(){
+		$configfile = APPPATH.'config/panes.json';
+		$this->panes = json_decode(file_get_contents($configfile));
+		if($this->panes == NULL){
+			throw new Exception("Couldn't read config/panes.json, is it formatted as valid JSON?");
+		}
 	}
 
 	/**
