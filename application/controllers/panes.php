@@ -25,7 +25,11 @@ class Panes extends CI_Controller {
 		$data['panes'] = $this->pane->get($alias, 'widget');
 
 		foreach($data['panes'] as $pane){
-			unset($data['available_panes']->{$pane->title});
+			$pane->description = "";
+			if(!empty($data['available_panes']->{$pane->title})){
+				$pane->description = $data['available_panes']->{$pane->title}->description;
+				unset($data['available_panes']->{$pane->title});
+			}
 		}
 
 		$this->load->view('header');

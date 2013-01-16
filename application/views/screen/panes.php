@@ -12,7 +12,12 @@
 		<h4>Enabled panes</h4>
 		<? foreach($panes as $pane){ ?>
 		<div id="pane_<?= $pane->id; ?>" class='pane draggable'>
-			<?= $pane->title; ?>
+			<?
+				echo $pane->title;
+				if(!empty($pane->description)){
+					echo "<span class='note'>".$pane->description."</span>";
+				}
+			?>
 		</div>
 		<? } ?>
 		<span class='note'>Drag panes to sort</span>
@@ -21,7 +26,12 @@
 		<? foreach($available_panes as $pane => $pane_value){ ?>
 		<div id="<?= $pane; ?>" class='pane'>
 			<input type='checkbox' />
-			<?= $pane; ?>
+			<?
+				echo $pane;
+				if(!empty($pane_value->description)){
+					echo "<span class='note'>".$pane_value->description."</span>";
+				}
+			?>
 		</div>
 		<? } ?>
 		<span class='note'>Click to enable panes</span>

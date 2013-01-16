@@ -1,5 +1,6 @@
 {
     "News": {
+        "description": "Show the weather expectations and news from an RSS feed.",
         "turtles": [
             {
                 "type": "weather",
@@ -12,6 +13,7 @@
         ]
     },
     "Social": {
+        "description": "Feeds from twitter.",
         "turtles": [
             {
                 "type": "twitter",
@@ -20,6 +22,7 @@
         ]
     },
     "Traffic": {
+        "description": "A map with live traffic information on it.",
         "turtles": [
             {
                 "type": "map",
@@ -28,6 +31,7 @@
         ]
     },
     "Location": {
+        "description": "A map focusses around a location.",
         "turtles": [
             {
                 "type": "mapbox",
@@ -36,6 +40,7 @@
         ]
     },
     "Finance": {
+        "description": "Stock information, own stock and secondary ones.",
         "turtles": [
             {
                 "type": "finance",
@@ -44,6 +49,7 @@
         ]
     },
     "Signage": {
+        "description": "What is on which floor?",
         "turtles": [
             {
                 "type": "signage",

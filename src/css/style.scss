@@ -356,6 +356,20 @@ nav[role=navigation] {
 			margin-top: -2px;
 			margin-right: 10px;
 		}
+
+		.note{
+			display:block;
+			padding-left: 25px;
+			font-size: 11px;
+			line-height: 14px;
+			padding-bottom: 4px;
+		}
+
+		&.draggable{
+			.note{
+				padding-left: 0px;
+			}
+		}
 	}
 }
 
