@@ -24,6 +24,16 @@ class Panes extends CI_Controller {
 		$data['available_panes'] = $this->pane->panes;
 		$data['panes'] = $this->pane->get($alias, 'widget');
 
+
+		// Check language specific description
+		$description_lang = "description_".$this->lang->lang();
+		foreach($data['available_panes'] as $pane){
+			if(!empty($pane->{$description_lang})){
+				$pane->description = $pane->{$description_lang};
+			}
+		}
+
+		// Get desciption an unset enabled panes
 		foreach($data['panes'] as $pane){
 			$pane->description = "";
 			if(!empty($data['available_panes']->{$pane->title})){

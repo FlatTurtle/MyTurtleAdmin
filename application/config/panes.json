@@ -1,6 +1,7 @@
 {
     "News": {
         "description": "Show the weather expectations and news from an RSS feed.",
+        "description_fr": "Voir les prévisions météorologiques et les nouvelles à partir d'un flux RSS.",
         "turtles": [
             {
                 "type": "weather",

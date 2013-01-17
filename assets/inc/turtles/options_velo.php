@@ -1,8 +1,8 @@
 <? include 'header.php'; ?>
 <div class="control-group">
-    <label class="control-label" for="{{id}}-location">Location</label>
+    <label class="control-label" for="{{id}}-location">{{term.location}}</label>
     <div class="controls">
-		<input type="text" id="{{id}}-name" name="{{id}}-name" placeholder="Name of a Velo station (ex. Theater)" class='input-block-level autocomplete velo-name' value="{{name}}"/>
+		<input type="text" id="{{id}}-name" name="{{id}}-name" placeholder="{{turtle.velo_alt}}" class='input-block-level autocomplete velo-name' value="{{name}}"/>
 		<input type="hidden" id="{{id}}-location" name="{{id}}-location" class='input-block-level velo-location' value="{{location}}"/>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 <? include 'header.php'; ?>
-You need to configure an include for the turtle.
+{{turtles.error_blank}}
 		</form>
 	</div>
 </div>

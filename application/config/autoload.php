@@ -64,7 +64,7 @@ $autoload['libraries'] = array('session','securelogin','API', 'form_validation')
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url', 'language');
 
 
 /*
@@ -96,7 +96,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array();
+$autoload['language'] = array('main');
 
 
 /*
