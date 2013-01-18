@@ -48,12 +48,13 @@
 									<?= lang('term.log_out') ?>
 								</a>
 							<? } ?>
-							<div class="language_switcher btn-toolbar">
+							<!-- <div class="language_switcher btn-toolbar">
 								<div class="btn-group">
   									<a href='<?= $this->lang->switch_uri('en'); ?>' class="btn <? echo ($this->lang->lang() == "en")? 'active':''; ?>">EN</a>
+  									<a href='<?= $this->lang->switch_uri('nl'); ?>' class="btn <? echo ($this->lang->lang() == "nl")? 'active':''; ?>">NL</a>
   									<a href='<?= $this->lang->switch_uri('fr'); ?>' class="btn <? echo ($this->lang->lang() == "fr")? 'active':''; ?>">FR</a>
 								</div>
-							</div>
+							</div> -->
 						</nav>
 					</div>
 				</div>
