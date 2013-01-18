@@ -24,7 +24,7 @@ class Panes extends CI_Controller {
 	 * Redirect to first enabled pane (when available)
 	 */
 	public function first($alias){
-		$panes = $this->pane->get($alias, 'widget');
+		$panes = $this->pane->get_all($alias, 'widget');
 		if(count($panes)> 0){
 			redirect(site_url($alias.'/right/'.$panes[0]->template . '/' . $panes[0]->id . '#config'));
 		}
@@ -36,7 +36,7 @@ class Panes extends CI_Controller {
 	public function index($alias, $pane_id){
 		$data['infoscreen'] = $this->infoscreen->get($alias);
 		$data['available_panes'] = $this->pane->panes;
-		$data['panes'] = $this->pane->get($alias, 'widget');
+		$data['panes'] = $this->pane->get_all($alias, 'widget');
 		$data['turtles'] = array();
 
 		try{
@@ -57,9 +57,9 @@ class Panes extends CI_Controller {
 		// Get desciption an unset enabled panes, get selected pane
 		foreach($data['panes'] as $pane){
 			$pane->description = "";
-			if(!empty($data['available_panes']->{$pane->title})){
-				$pane->description = $data['available_panes']->{$pane->title}->description;
-				unset($data['available_panes']->{$pane->title});
+			if(!empty($data['available_panes']->{ucfirst($pane->template)})){
+				$pane->description = $data['available_panes']->{ucfirst($pane->template)}->description;
+				unset($data['available_panes']->{ucfirst($pane->template)});
 			}
 			if($pane_id == $pane->id){
 				$data['current_pane'] = $pane;
@@ -84,6 +84,22 @@ class Panes extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('screen/panes', $data);
 		$this->load->view('footer');
+	}
+
+	/**
+	 * Save general pane options
+	 */
+	public function save($alias, $pane_id){
+		$pane = $this->pane->get($alias, $pane_id);
+
+		if(empty($pane)){
+			redirect(site_url($alias.'/right/'));
+		}else{
+			$post_data['duration'] = $this->input->post('duration')*1000;
+			$post_data['title'] = ucfirst($this->input->post('title'));
+			$this->pane->post($alias, $pane->id, $post_data);
+			redirect(site_url($alias.'/right/'.$pane->template . '/' . $pane->id . '#config'));
+		}
 	}
 }
 

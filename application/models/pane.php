@@ -31,7 +31,7 @@ class Pane extends CI_Model {
 	/**
 	 * Get all panes
 	 */
-	public function get($alias, $type = null) {
+	public function get_all($alias, $type = null) {
 		if ($type) {
 			return json_decode($this->api->get($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '?type=' . urlencode($type)));
 		} else {
@@ -39,6 +39,20 @@ class Pane extends CI_Model {
 		}
 	}
 
+	/**
+	 * Get specific panes
+	 */
+	public function get($alias, $pane_id) {
+		return json_decode($this->api->get($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '/' . $pane_id));
+	}
+
+
+	/**
+	 * Update pane information
+	 */
+	public function post($alias, $pane_id, $post_data) {
+		return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '/'. $pane_id, $post_data));
+	}
 }
 
 ?>

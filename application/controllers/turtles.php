@@ -25,7 +25,7 @@ class Turtles extends CI_Controller {
 	 */
 	public function index($alias) {
 		$data['infoscreen'] = $this->infoscreen->get($alias);
-		$data['panes'] = $this->pane->get($alias, 'list');
+		$data['panes'] = $this->pane->get_all($alias, 'list');
 		$data['turtle_instances'] = array();
 		try{
 			$data['turtle_instances'] = $this->turtle->get($alias, 'list');
