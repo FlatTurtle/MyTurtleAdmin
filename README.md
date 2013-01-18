@@ -3,8 +3,8 @@ MyTurtleAdmin
 
 Admin for the infoscreens (my.flatturtle.com).
 
-MyTurtleAdmin makes use of the [Codeigniter framework](http://codeigniter.com/), [Twitter Bootstrap](http://twitter.github.com/bootstrap), 
-[Font Awesome](http://fortawesome.github.com/Font-Awesome/), 
+MyTurtleAdmin makes use of the [Codeigniter framework](http://codeigniter.com/), [Twitter Bootstrap](http://twitter.github.com/bootstrap),
+[Font Awesome](http://fortawesome.github.com/Font-Awesome/),
 [SASS](http://sass-lang.com) and the [ControlBay API](https://github.com/FlatTurtle/)
 
 * [Michiel Vancoillie](http://twitter.com/ntynmichiel) (project leader)
@@ -42,4 +42,7 @@ Current supported databases are MySQL (4.1+), MySQLi, MS SQL, Postgres, Oracle, 
 Copyright and license
 =====================
 
-© 2012 - Flatturtle
+© 2012 - FlatTurtle
+Code is licensed under AGPLv3
+
+Some icons come from [iconic](http://somerandomdude.com/work/iconic/) by P.J. Onori &mdash; CC BY-SA 3.0

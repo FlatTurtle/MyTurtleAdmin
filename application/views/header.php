@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
-
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Your FlatTurtle</title>
+		<title><?= lang('title') ?></title>
 
 		<!-- For iPhone 4 -->
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-114.png">
@@ -40,16 +39,23 @@
 						</header>
 					</div>
 					<div class="span4">
-						<? if ($this->session->userdata('logged_in')) { ?>
-							<nav role="navigation">
+						<nav role="navigation">
+							<? if ($this->session->userdata('logged_in')) { ?>
 								<h4>
-									<i class='icon-user'></i>&nbsp;&nbsp;Hi, <?= $this->session->userdata('username') ?>!
+									<i class='icon-user'></i>&nbsp;&nbsp;<?= lang('greeting') ?>, <?= $this->session->userdata('username') ?>!
 								</h4>
-								<a href="<?= site_url('/logout') ?>" alt="Log out" class="btn btn-small">
-									Log out
+								<a href="<?= site_url('/logout') ?>" alt="<?= lang('term.log_out') ?>" class="btn btn-small">
+									<?= lang('term.log_out') ?>
 								</a>
-							</nav>
-						<? } ?>
+							<? } ?>
+							<!-- <div class="language_switcher btn-toolbar">
+								<div class="btn-group">
+  									<a href='<?= $this->lang->switch_uri('en'); ?>' class="btn <? echo ($this->lang->lang() == "en")? 'active':''; ?>">EN</a>
+  									<a href='<?= $this->lang->switch_uri('nl'); ?>' class="btn <? echo ($this->lang->lang() == "nl")? 'active':''; ?>">NL</a>
+  									<a href='<?= $this->lang->switch_uri('fr'); ?>' class="btn <? echo ($this->lang->lang() == "fr")? 'active':''; ?>">FR</a>
+								</div>
+							</div> -->
+						</nav>
 					</div>
 				</div>
 			</div>

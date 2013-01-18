@@ -44,6 +44,10 @@ nav[role=navigation] {
 	}
 }
 
+.language_switcher a{
+	font-size: 10px !important;
+	padding: 2px 6px !important;
+}
 
 .wrapper{
 	background-color: #fff;
@@ -212,7 +216,8 @@ nav[role=navigation] {
 	}
 }
 
-.turtle-holder{
+.turtle-holder,
+.pane-holder{
 	position: relative;
 
 	#pane-selector{
@@ -243,7 +248,8 @@ nav[role=navigation] {
 		}
 	}
 
-	.turtle-area{
+	.turtle-area,
+	.pane-area{
 		width: 100%;
 		border: 5px solid #000;
 		border-right: none;
@@ -290,6 +296,31 @@ nav[role=navigation] {
 					&.villo, &.velo{
 						background-image: url('../img/turtle_villo.png');
 					}
+
+					&.rss{
+						background-image: url('../img/turtle_rss.png');
+					}
+
+					&.mapbox, &.map{
+						background-image: url('../img/turtle_mapbox.png');
+					}
+
+					&.weather{
+						background-image: url('../img/turtle_weather.png');
+					}
+
+					&.finance{
+						background-image: url('../img/turtle_finance.png');
+					}
+
+					&.signage{
+						background-image: url('../img/turtle_signage.png');
+					}
+
+					&.twitter{
+						background-image: url('../img/turtle_twitter.png');
+					}
+
 				}
 			}
 
@@ -338,18 +369,68 @@ nav[role=navigation] {
 		min-height: 350px;
 		background-color: #fff;
 		position: relative;
+
+		.pane-options{
+			background-color: #2257a6;
+			padding: 10px 10px 25px 10px;
+			color: #fff;
+
+			form{
+				margin: 0px;
+
+				.control-group:last-child{
+					margin: 0px;
+				}
+			}
+		}
 	}
 }
 
 .pane-chooser{
 	.pane{
-		padding: 3px 10px;
 		background-color: #fff;
-		color: #000;
 		border: 1px solid #ddd;
 		margin-bottom: 3px;
 		cursor: pointer;
 		line-height: 25px;
+		position: relative;
+
+		a{
+			border: 0px none;
+			text-decoration: none;
+		}
+
+		.holder{
+			padding: 3px 10px;
+			color: #000;
+		}
+
+		&.active{
+			background-color: #2257a6;
+
+			.holder{
+				color: #fff;
+			}
+
+			.note{
+				color: #21b0d7;
+			}
+		}
+
+		&.active .holder:after{
+			content: '';
+			top: 50%;
+			margin-top: -10px;
+			right: -15px;
+			position: absolute;
+
+			width: 0;
+			height: 0;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+
+			border-left: 15px solid #2257a6;
+		}
 
 		input[type=checkbox]{
 			margin:0px;

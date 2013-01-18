@@ -3,15 +3,15 @@
 <div id="messageModal" class="modal hide fade">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h3>Send a message</h3>
+		<h3><?= lang('screen.sent_message') ?></h3>
 	</div>
 	<div class="modal-body">
 		<input id='the_message' class="input-block-level"/><br/>
-		<span class='note'>The message is displayed on the screen for a small time.</span>
+		<span class='note'><?= lang('screen.sent_message_note') ?></span>
 	</div>
 	<div class="modal-footer">
-		<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-		<a href="#" id="btnSendMessage" class="btn btn-primary">Send</a>
+		<a href="#" class="btn" data-dismiss="modal"><?= lang('term.cancel') ?></a>
+		<a href="#" id="btnSendMessage" class="btn btn-primary"><?= lang('term.send') ?></a>
 	</div>
 </div>
 
@@ -38,13 +38,13 @@
 				?>
 
 				<div class="btn-group">
-					<a href='#messageModal' role='button' class="btn" data-toggle="modal" title="Display a message on the screen">
+					<a href='#messageModal' role='button' class="btn" data-toggle="modal" title="<?= lang('screen.sent_message_alt') ?>">
 						<i class="icon-comment icon-large"></i>
 					</a>
-					<a href='#' id="btnToggleClock" role='button' class="btn" title="Toggle the clock">
+					<a href='#' id="btnToggleClock" role='button' class="btn" title="<?= lang('screen.toggle_clock_alt') ?>">
 						<i class="icon-time icon-large <?= $clock_class ?>"></i>
 					</a>
-					<a href='#' id="btnToggleScreen" role='button' class="btn"  title="Switch the screen on and off">
+					<a href='#' id="btnToggleScreen" role='button' class="btn"  title="<?= lang('screen.toggle_screen_alt') ?>">
 						<i class="<?= $screen_class ?> icon-large"></i>
 					</a>
 				</div>
@@ -52,12 +52,10 @@
 				<div class='inner'>
 					<a href="<?= site_url($infoscreen->alias . '/left') ?>">
 						<div class='left-side'>
-
 						</div>
 					</a>
 					<a href="<?= site_url($infoscreen->alias . '/right') ?>">
 						<div class='right-side' style='background-color:<?= $infoscreen->color; ?>;'>
-
 						</div>
 					</a>
 
@@ -74,36 +72,36 @@
 
 			<ul class="pager">
 				<li class="previous">
-					<a href="<?= site_url($infoscreen->alias . '/left') ?>">&larr; Left side</a>
+					<a href="<?= site_url($infoscreen->alias . '/left') ?>">&larr; <?= lang('screen.left_side') ?></a>
 				</li>
 				<li class="next">
-					<a href="<?= site_url($infoscreen->alias . '/right') ?>">Right side &rarr;</a>
+					<a href="<?= site_url($infoscreen->alias . '/right') ?>"><?= lang('screen.right_side') ?> &rarr;</a>
 				</li>
 			</ul>
 
 			<div class="control-group<?= (!empty($errors['title'])) ? ' error' : ''; ?>">
-				<label class="control-label" for="inputTitle">Title</label>
+				<label class="control-label" for="inputTitle"><?= lang('term.title') ?></label>
 				<div class="controls">
-					<input type="text" id="inputTitle" name="title" placeholder="Title" value="<?= $infoscreen->title; ?>" class="input-block-level">
+					<input type="text" id="inputTitle" name="title" placeholder="<?= lang('term.title') ?>" value="<?= $infoscreen->title; ?>" class="input-block-level">
 				</div>
 			</div>
 			<div class="control-group<?= (!empty($errors['location'])) ? ' error' : ''; ?>">
-				<label class="control-label" for="inputLocation">Address</label>
+				<label class="control-label" for="inputLocation"><?= lang('term.address') ?></label>
 				<div class="controls">
-					<input type="text" id="inputLocation" name="location" placeholder="Address your building (Ex: Veldstraat 10, Gent)" value="<?= $infoscreen->location; ?>" class="input-block-level">
-					<span class='note'><?= ($infoscreen->latitude)? 'Geographic coordinates: '.$infoscreen->latitude.', '.$infoscreen->longitude:''; ?></span>
+					<input type="text" id="inputLocation" name="location" placeholder="<?= lang('screen.address_alt') ?>" value="<?= $infoscreen->location; ?>" class="input-block-level">
+					<span class='note'><?= ($infoscreen->latitude)? lang('screen.geographic_coordinates').': '.$infoscreen->latitude.', '.$infoscreen->longitude:lang('error.resolve_address'); ?></span>
 				</div>
 			</div>
 			<div class="control-group<?= (!empty($errors['color'])) ? ' error' : ''; ?>">
-				<label class="control-label" for="inputColor">Color</label>
+				<label class="control-label" for="inputColor"><?= lang('term.color') ?></label>
 				<div class="controls">
 					<div class="input-prepend input-append">
-						<input type="text" id="inputColor" name="color" placeholder="#color" class="input-small" value="<?= $infoscreen->color; ?>" maxlength="7">
+						<input type="text" id="inputColor" name="color" placeholder="#<?= strtolower(lang('term.color')) ?>" class="input-small" value="<?= $infoscreen->color; ?>" maxlength="7">
 					</div>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputFooter">Footer</label>
+				<label class="control-label" for="inputFooter"><?= lang('term.footer') ?></label>
 				<input type="hidden" name="" value="<?= $footer ?>"/>
 				<div class="controls">
 					<select id='footerType' name='footer_type'>
@@ -111,7 +109,7 @@
 							foreach($footer_types as $footer_proto_type){
 								echo "<option value='$footer_proto_type'";
 								if($footer_type == $footer_proto_type) echo " selected='selected'";
-								echo ">".ucfirst($footer_proto_type)."</option>";
+								echo ">".lang('term.'.$footer_proto_type)."</option>";
 							}
 						?>
 					</select>
@@ -128,24 +126,24 @@
 				</div>
 			</div>
 			<div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
-				<label class="control-label" for="inputLogo">Logo</label>
+				<label class="control-label" for="inputLogo"><?= lang('term.logo') ?></label>
 				<div class="controls">
 					<input type="file" id="inputLogo" name="logo" class="hide better-file-upload"/>
 					<div class="input-append">
 					   <input id="inputLogoVal" class="input-large file-value" type="text">
-					   <a class="btn file-button">Browse</a>
+					   <a class="btn file-button"><?= lang('term.browse') ?></a>
 					</div>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputHostname">Hostname</label>
+				<label class="control-label" for="inputHostname"><?= lang('term.hostname') ?></label>
 				<div class="controls">
 					<input type="text" id="inputHostname" class="" value="<?= $infoscreen->hostname; ?>" disabled>
 				</div>
 			</div>
 			<? if($infoscreen->pincode){ ?>
 			<div class="control-group">
-				<label class="control-label" for="inputPin">PIN for tablet</label>
+				<label class="control-label" for="inputPin"><?= lang('screen.pin_for_tablet') ?></label>
 				<div class="controls padding-5">
 					<strong><? echo $infoscreen->pincode; ?></strong>
 				</div>
@@ -159,10 +157,10 @@
 							<?= (!empty($file_error)) ? '<br/>' : ''; ?>
 							<?= $all_errors; ?>
 						</div>
-						<button type="submit" class="btn">Retry</button>
-						<a href="<?= site_url($infoscreen->alias) ?>" class="btn">Cancel</a>
+						<button type="submit" class="btn"><?= lang('term.retry') ?></button>
+						<a href="<?= site_url($infoscreen->alias) ?>" class="btn"><?= lang('term.cancel') ?></a>
 					<? } else { ?>
-						<button type="submit" class="btn">Save</button>
+						<button type="submit" class="btn"><?= lang('term.save') ?></button>
 					<? } ?>
 				</div>
 			</div>

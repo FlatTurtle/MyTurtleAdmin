@@ -93,7 +93,7 @@ class Screen extends CI_Controller {
 			}
 
 			if (!move_uploaded_file($_FILES['logo']['tmp_name'], $uploadfile)) {
-				$this->session->set_flashdata('file_error', '&bull;&nbsp;Something went wrong while trying to upload a new logo.');
+				$this->session->set_flashdata('file_error', '&bull;&nbsp;'. lang('error.logo_upload'));
 			} else {
 				// Resize the image
 				list($source_image_width, $source_image_height, $source_image_type) = getimagesize($uploadfile);
@@ -205,7 +205,8 @@ class Screen extends CI_Controller {
 	 */
 	public function check_color($value) {
 		if (!preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $value)) {
-			$this->my_formvalidation->set_message('check_color', "The %s '$value' is not a valid hexadecimal color.");
+			$message = str_replace('{{value}}', $value, lang('error.color_check_hex'));
+			$this->my_formvalidation->set_message('check_color', $message);
 			return false;
 		}
 		return true;
@@ -216,7 +217,7 @@ class Screen extends CI_Controller {
 	 */
 	public function check_geocode($value) {
 		if ($value == null) {
-			$this->my_formvalidation->set_message('check_geocode', "Couldn't resolve location to geocode, try to be more specific.");
+			$this->my_formvalidation->set_message('check_geocode', lang('error.resolve_address'));
 			return false;
 		}
 		return true;
