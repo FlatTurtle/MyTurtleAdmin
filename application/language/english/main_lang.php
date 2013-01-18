@@ -28,6 +28,8 @@ $lang['term.browse'] = "Browse";
 $lang['term.log_in'] = "Log in";
 $lang['term.log_out'] = "Log out";
 $lang['term.retry'] = "Retry";
+$lang['term.delete'] = "Delete";
+$lang['term.disable'] = "Disable";
 
 
 $lang['term.infoscreens'] = "Infoscreens";
@@ -45,6 +47,8 @@ $lang['term.none'] = "None";
 $lang['term.message'] = "Message";
 $lang['term.updates'] = "Updates";
 $lang['term.location'] = "Location";
+$lang['term.duration'] = "Duration";
+$lang['term.seconds'] = "Seconds";
 
 
 /**
@@ -71,6 +75,7 @@ $lang['turtles.drag_to_screen'] = "Drag turtles to the screen";
 $lang['turtles.screen_title'] = "Left side of the screen";
 $lang['turtles.drag_to_sort'] = "Drag turtles to sort";
 $lang['turtles.option_number_of_items'] = "Items to show";
+$lang['turtles.option_zoom'] = "Zoom";
 $lang['turtles.error_blank'] = "You need to configure an include for the turtle.";
 
 /**
@@ -92,6 +97,7 @@ $lang['panes.enabled'] = "Enabled panes";
 $lang['panes.screen_title'] = "Right side of the screen";
 $lang['panes.drag_to_sort'] = "Drag panes to sort";
 $lang['panes.click_to_enable'] = "Click to enable a pane";
+$lang['panes.general_options'] = "General pane options";
 
 
 /**
