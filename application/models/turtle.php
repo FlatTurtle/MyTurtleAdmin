@@ -89,6 +89,8 @@ class Turtle extends CI_Model {
 		// Language specific replaces
 		$contents = preg_replace('/{{term.save}}/', lang('term.save'), $contents);
 		$contents = preg_replace('/{{term.location}}/', lang('term.location'), $contents);
+		$contents = preg_replace('/{{term.primary}}/', lang('term.primary'), $contents);
+		$contents = preg_replace('/{{term.secondary}}/', lang('term.secondary'), $contents);
 		$contents = preg_replace('/{{turtles.option_number_of_items}}/', lang('turtles.option_number_of_items'), $contents);
 		$contents = preg_replace('/{{turtles.option_zoom}}/', lang('turtles.option_zoom'), $contents);
 
@@ -99,6 +101,12 @@ class Turtle extends CI_Model {
 		$contents = preg_replace('/{{turtle.nmbs_alt}}/', lang('turtle.nmbs_alt'), $contents);
 		$contents = preg_replace('/{{turtle.velo_alt}}/', lang('turtle.velo_alt'), $contents);
 		$contents = preg_replace('/{{turtle.villo_alt}}/', lang('turtle.villo_alt'), $contents);
+		$contents = preg_replace('/{{turtle.mapbox_alt}}/', lang('turtle.mapbox_alt'), $contents);
+		$contents = preg_replace('/{{turtle.finance_primary_alt}}/', lang('turtle.finance_primary_alt'), $contents);
+		$contents = preg_replace('/{{turtle.finance_secondary_alt}}/', lang('turtle.finance_secondary_alt'), $contents);
+		$contents = preg_replace('/{{turtle.finance_primary_note}}/', lang('turtle.finance_primary_note'), $contents);
+		$contents = preg_replace('/{{turtle.finance_secondary_note}}/', lang('turtle.finance_secondary_note'), $contents);
+
 
 		// Get RSS links
 		if($turtle->type == "rss"){

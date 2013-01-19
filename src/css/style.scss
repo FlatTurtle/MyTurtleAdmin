@@ -248,6 +248,12 @@ nav[role=navigation] {
 		}
 	}
 
+	.pane-area{
+		.turtle_instance .delete{
+			display: none;
+		}
+	}
+
 	.turtle-area,
 	.pane-area{
 		width: 100%;
@@ -319,6 +325,14 @@ nav[role=navigation] {
 
 					&.twitter{
 						background-image: url('../img/turtle_twitter.png');
+					}
+
+					&.video{
+						background-image: url('../img/turtle_video.png');
+					}
+
+					&.image{
+						background-image: url('../img/turtle_image.png');
 					}
 
 				}

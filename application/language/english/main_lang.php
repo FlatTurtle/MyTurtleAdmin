@@ -49,6 +49,8 @@ $lang['term.updates'] = "Updates";
 $lang['term.location'] = "Location";
 $lang['term.duration'] = "Duration";
 $lang['term.seconds'] = "Seconds";
+$lang['term.primary'] = "Primary";
+$lang['term.secondary'] = "Secondary";
 
 
 /**
@@ -76,7 +78,7 @@ $lang['turtles.screen_title'] = "Left side of the screen";
 $lang['turtles.drag_to_sort'] = "Drag turtles to sort";
 $lang['turtles.option_number_of_items'] = "Items to show";
 $lang['turtles.option_zoom'] = "Zoom";
-$lang['turtles.error_blank'] = "You need to configure an include for the turtle.";
+$lang['turtles.error_blank'] = "Momentarily there are no options to configure for this turtle.";
 
 /**
  * Specific for a turtle
@@ -87,6 +89,11 @@ $lang['turtle.mivb_alt'] =  "Name of a stop (e.g. Mozart)";
 $lang['turtle.nmbs_alt'] =  "Name of a station (e.g. Gent Sint-Pieters)";
 $lang['turtle.velo_alt'] =  "Name of a Velo station (e.g. Theater)";
 $lang['turtle.villo_alt'] =  "Name of a Villo station (e.g. Botanique/Kruidtuin)";
+$lang['turtle.mapbox_alt'] =  "Address of a location (e.g. Gent Korenmarkt)";
+$lang['turtle.finance_primary_alt'] = "(e.g. KBC.BR)";
+$lang['turtle.finance_secondary_alt'] = "(e.g. GOOG, AAPL, DUV.BR)";
+$lang['turtle.finance_primary_note'] = "Stock symbol, this one is shown bigger than the secondary stocks";
+$lang['turtle.finance_secondary_note'] = "List of comma separated stock symbols";
 
 
 /**

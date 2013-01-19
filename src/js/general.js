@@ -302,6 +302,7 @@ function bind_event_to_turtles(){
 		if(button.attr('disabled') != 'disabled'){
 			button.attr('disabled', 'disabled').addClass('disable');
 			$('.loading', turtle_instance).animate({'opacity': 1}, 200);
+
 			var turtle_id = turtle_instance.attr('id').split('_')[1];
 			var option_data = new Object();
 			var inputs = $('form :input',turtle_instance);
@@ -312,23 +313,33 @@ function bind_event_to_turtles(){
 				}
 			});
 
-			$.ajax({
-				url: pathname + '/update',
-				type: 'POST',
-				data: {
-					id: turtle_id,
-					options: option_data
-				},
-				success: function( data ) {
-					$('.loading', turtle_instance).animate({'opacity':0}, 200);
-					button.removeAttr('disabled').removeClass('disable');
-				},
-				error: function(data, status){
-					alert('Could not save at this moment: ' + status);
-					$('.loading', turtle_instance).animate({'opacity':0}, 200);
-					button.removeAttr('disabled').removeClass('disable');
-				}
-			});
+			// Resolve MapBox location to geocode first
+			if(turtle_instance.hasClass('turtle_mapbox')){
+				$.ajax({
+					url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+ encodeURIComponent(option_data['name']) +'&sensor=false',
+					type: 'GET',
+					success: function( data ) {
+						if(data.results.length > 0){
+							var geocode_el = data.results[0].geometry.location;
+							if(typeof geocode_el !='undefined'){
+								option_data['location'] = geocode_el.lat + "," + geocode_el.lng;
+								updateTurtle(turtle_instance, button, turtle_id, option_data);
+							}
+						}else{
+							alert("Couldn't resolve that address to geocode. Correct the address and try again.");
+							$('.loading', turtle_instance).animate({'opacity':0}, 200);
+							button.removeAttr('disabled').removeClass('disable');
+						}
+					},
+					error: function(data, status){
+						alert('Could not resolve that address to geocode, try to correct the address.');
+						$('.loading', turtle_instance).animate({'opacity':0}, 200);
+						button.removeAttr('disabled').removeClass('disable');
+					}
+				});
+			}else{
+				updateTurtle(turtle_instance, button, turtle_id, option_data);
+			}
 		}
 	});
 
@@ -358,6 +369,35 @@ function bind_event_to_turtles(){
 		}
 	});
 }
+
+// Turtle update ajax request
+function updateTurtle(turtle_instance, button, turtle_id, option_data){
+	var path = pathname;
+	var split = pathname.split("right");
+	if(split.length > 1){
+		path = split[0] + "left";
+	}
+
+	$.ajax({
+		url: path + '/update',
+		type: 'POST',
+		data: {
+			id: turtle_id,
+			options: option_data
+		},
+		success: function( data ) {
+			$('.loading', turtle_instance).animate({'opacity':0}, 200);
+			button.removeAttr('disabled').removeClass('disable');
+		},
+		error: function(data, status){
+			alert('Could not save at this moment: ' + status);
+			$('.loading', turtle_instance).animate({'opacity':0}, 200);
+			button.removeAttr('disabled').removeClass('disable');
+		}
+	});
+}
+
+
 // Bind events for existing turtles
 bind_event_to_turtles();
 
