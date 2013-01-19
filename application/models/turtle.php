@@ -91,6 +91,7 @@ class Turtle extends CI_Model {
 		$contents = preg_replace('/{{term.location}}/', lang('term.location'), $contents);
 		$contents = preg_replace('/{{term.primary}}/', lang('term.primary'), $contents);
 		$contents = preg_replace('/{{term.secondary}}/', lang('term.secondary'), $contents);
+		$contents = preg_replace('/{{term.search}}/', lang('term.search'), $contents);
 		$contents = preg_replace('/{{turtles.option_number_of_items}}/', lang('turtles.option_number_of_items'), $contents);
 		$contents = preg_replace('/{{turtles.option_zoom}}/', lang('turtles.option_zoom'), $contents);
 
@@ -106,6 +107,7 @@ class Turtle extends CI_Model {
 		$contents = preg_replace('/{{turtle.finance_secondary_alt}}/', lang('turtle.finance_secondary_alt'), $contents);
 		$contents = preg_replace('/{{turtle.finance_primary_note}}/', lang('turtle.finance_primary_note'), $contents);
 		$contents = preg_replace('/{{turtle.finance_secondary_note}}/', lang('turtle.finance_secondary_note'), $contents);
+		$contents = preg_replace('/{{turtle.twitter_search_alt}}/', lang('turtle.twitter_search_alt'), $contents);
 
 
 		// Get RSS links
