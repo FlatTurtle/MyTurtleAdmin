@@ -52,6 +52,7 @@ $lang['term.seconds'] = "Seconds";
 $lang['term.primary'] = "Primary";
 $lang['term.secondary'] = "Secondary";
 $lang['term.search'] = "Search";
+$lang['term.feed'] = "Feed";
 
 
 /**
@@ -96,6 +97,8 @@ $lang['turtle.finance_secondary_alt'] = "(e.g. GOOG, AAPL, DUV.BR)";
 $lang['turtle.finance_primary_note'] = "Stock symbol, this one is shown bigger than the secondary stocks";
 $lang['turtle.finance_secondary_note'] = "List of comma separated stock symbols";
 $lang['turtle.twitter_search_alt'] = "Twitter search (e.g. #flatturtle)";
+$lang['turtle.rss_alt'] = "A URL to an RSS feed";
+$lang['turtle.rss_custom'] = "Custom feed";
 
 
 /**

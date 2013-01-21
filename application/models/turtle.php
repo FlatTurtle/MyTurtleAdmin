@@ -14,6 +14,7 @@ class Turtle extends CI_Model {
 	public function __construct() {
 		parent::__construct();
 		$this->API = $this->config->item('api_url');
+		$this->load->model('option');
 	}
 
 	/**
@@ -92,6 +93,7 @@ class Turtle extends CI_Model {
 		$contents = preg_replace('/{{term.primary}}/', lang('term.primary'), $contents);
 		$contents = preg_replace('/{{term.secondary}}/', lang('term.secondary'), $contents);
 		$contents = preg_replace('/{{term.search}}/', lang('term.search'), $contents);
+		$contents = preg_replace('/{{term.feed}}/', lang('term.feed'), $contents);
 		$contents = preg_replace('/{{turtles.option_number_of_items}}/', lang('turtles.option_number_of_items'), $contents);
 		$contents = preg_replace('/{{turtles.option_zoom}}/', lang('turtles.option_zoom'), $contents);
 
@@ -112,7 +114,31 @@ class Turtle extends CI_Model {
 
 		// Get RSS links
 		if($turtle->type == "rss"){
+			$rss_links = $this->option->get('turtle_rss_feed');
 
+			$rss_links_html = "";
+			$feed = "";
+			$custom_class = "";
+			if(!empty($turtle->options->feed)) $feed = $turtle->options->feed;
+
+			foreach($rss_links as $rss_link){
+				$rss_links_html .= "<option value='$rss_link->url'";
+				if($feed == $rss_link->url){
+					$rss_links_html .= " selected='selected'";
+					$custom_class = "hide";
+				}
+				$rss_links_html .=  ">".$rss_link->name."</option>";
+			}
+			// Add custom option
+			$rss_links_html .= "<option value='custom'";
+			if(empty($custom_class)){
+				$rss_links_html .= " selected='selected'";
+			}
+			$rss_links_html .= ">(".lang('turtle.rss_custom').")</option>";
+
+			$contents = preg_replace('/{{rss-links}}/', $rss_links_html, $contents);
+			$contents = preg_replace('/{{turtle.rss_alt}}/', lang('turtle.rss_alt'), $contents);
+			$contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
 		}
 
 		// Limit options

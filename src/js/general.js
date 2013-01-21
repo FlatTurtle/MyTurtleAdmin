@@ -368,6 +368,17 @@ function bind_event_to_turtles(){
 			});
 		}
 	});
+
+	// RSS turtle selector
+	$('.turtle_rss .rss-feed-type').off().on('change', function(e){
+		var turtle =  $(e.target).parents('.turtle_rss');
+		var value = $(e.target).val();
+		if(value == 'custom'){
+			$('.rss-feed', turtle).val('').fadeIn();
+		}else{
+			$('.rss-feed', turtle).hide().val(value);
+		}
+	});
 }
 
 // Turtle update ajax request
