@@ -2,8 +2,11 @@
 <div class="control-group">
     <label class="control-label" for="{{id}}-location">{{term.location}}</label>
     <div class="controls">
-		<input type="text" id="{{id}}-name" name="{{id}}-name" placeholder="{{turtle.mapbox_alt}}" class='input-block-level mapbox-name' value="{{name}}"/>
-	    <input type="hidden" id="{{id}}-location" name="{{id}}-location" class='input-block-level mapbox-location' value="{{location}}"/>
+        <select class='map-location-type'>
+            {{map-options}}
+        </select>
+		<input type="text" id="{{id}}-name" name="{{id}}-name" placeholder="{{turtle.mapbox_alt}}" class='input-block-level mapbox-name {{custom_hide}} location' value="{{name}}"  style='margin-top: 10px'/>
+	    <input type="hidden" id="{{id}}-location" name="{{id}}-location" class='input-block-level mapbox-location location' value="{{location}}"/>
     </div>
 </div>
 <div class="control-group">

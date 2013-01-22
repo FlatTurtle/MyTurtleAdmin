@@ -68,6 +68,7 @@ class Turtle extends CI_Model {
 	 * Get template and fill out the data
 	 */
 	public function template($turtle) {
+		// Fetch template files
 		$http = curl_init();
 		curl_setopt($http, CURLOPT_URL, base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php');
 		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
@@ -97,7 +98,7 @@ class Turtle extends CI_Model {
 		$contents = preg_replace('/{{turtles.option_number_of_items}}/', lang('turtles.option_number_of_items'), $contents);
 		$contents = preg_replace('/{{turtles.option_zoom}}/', lang('turtles.option_zoom'), $contents);
 
-
+		// Turtle specific language replaces
 		$contents = preg_replace('/{{turtle.airport_alt}}/', lang('turtle.airport_alt'), $contents);
 		$contents = preg_replace('/{{turtle.delijn_alt}}/', lang('turtle.delijn_alt'), $contents);
 		$contents = preg_replace('/{{turtle.mivb_alt}}/', lang('turtle.mivb_alt'), $contents);
@@ -139,6 +140,28 @@ class Turtle extends CI_Model {
 			$contents = preg_replace('/{{rss-links}}/', $rss_links_html, $contents);
 			$contents = preg_replace('/{{turtle.rss_alt}}/', lang('turtle.rss_alt'), $contents);
 			$contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
+		}else if($turtle->type == "map" || $turtle->type == "mapbox"){
+			// Mapbox and map location of screen or custom one
+			$map_options = "";
+			$location = "";
+			$custom_class = "";
+			if(!empty($turtle->options->location)) $location = $turtle->options->location;
+
+
+			$map_options .= "<option value='screen'";
+			if(empty($location)){
+				$map_options .= " selected='selected'";
+				$custom_class = "hide";
+			}
+			$map_options .= ">".lang('turtle.screen_location')."</option>";
+
+			$map_options .= "<option value='custom'";
+			if(empty($custom_class)){
+				$map_options .= " selected='selected'";
+			}
+			$map_options .= ">(".lang('turtle.custom_location').")</option>";
+			$contents = preg_replace('/{{map-options}}/', $map_options, $contents);
+			$contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
 		}
 
 		// Limit options
@@ -165,6 +188,7 @@ class Turtle extends CI_Model {
 			$contents = preg_replace('/{{zoom-options}}/', $zoom_options, $contents);
 		}
 
+		// Fill out known values
 		foreach ($turtle->options as $key => $value) {
 			$contents = preg_replace('/{{' . $key . '}}/', $value, $contents);
 		}

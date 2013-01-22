@@ -99,6 +99,8 @@ $lang['turtle.finance_secondary_note'] = "List of comma separated stock symbols"
 $lang['turtle.twitter_search_alt'] = "Twitter search (e.g. #FlatTurtle)";
 $lang['turtle.rss_alt'] = "A URL to an RSS feed";
 $lang['turtle.rss_custom'] = "Custom feed";
+$lang['turtle.screen_location'] = "Screen location";
+$lang['turtle.custom_location'] = "Custom";
 
 
 /**

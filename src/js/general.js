@@ -307,14 +307,16 @@ function bind_event_to_turtles(){
 			var option_data = new Object();
 			var inputs = $('form :input',turtle_instance);
 			inputs.each(function(){
-				var option_name = $(this).attr('name').split(turtle_id + '-')[1];
-				if(option_name){
-					option_data[option_name] = $(this).val();
+				if($(this).attr('name')){
+					var option_name = $(this).attr('name').split(turtle_id + '-')[1];
+					if(option_name){
+						option_data[option_name] = $(this).val();
+					}
 				}
 			});
 
 			// Resolve MapBox location to geocode first
-			if(turtle_instance.hasClass('turtle_mapbox')){
+			if(turtle_instance.hasClass('turtle_mapbox') && option_data['name'] != ""){
 				$.ajax({
 					url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+ encodeURIComponent(option_data['name']) +'&sensor=false',
 					type: 'GET',
@@ -369,7 +371,7 @@ function bind_event_to_turtles(){
 		}
 	});
 
-	// RSS turtle selector
+	// RSS type selector
 	$('.turtle_rss .rss-feed-type').off().on('change', function(e){
 		var turtle =  $(e.target).parents('.turtle_rss');
 		var value = $(e.target).val();
@@ -379,6 +381,22 @@ function bind_event_to_turtles(){
 			$('.rss-feed', turtle).hide().val(value);
 		}
 	});
+
+
+	// Map & mapbox type selector
+	$('.turtle_map .map-location-type').off().on('change', changedMapType);
+	$('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
+}
+
+function changedMapType(e){
+	var turtle =  $(e.target).parents('.turtle_instance');
+	var value = $(e.target).val();
+	console.log('j');
+	if(value == 'custom'){
+		$('.location', turtle).val('').fadeIn();
+	}else{
+		$('.location', turtle).hide().val('');
+	}
 }
 
 // Turtle update ajax request
