@@ -66,7 +66,7 @@ $lang['screen.toggle_screen_alt'] = "Switch the screen on and off";
 
 $lang['screen.left_side'] = "Left side";
 $lang['screen.right_side'] = "Right side";
-$lang['screen.address_alt'] = "Building location (e.g.: Veldstraat 10, Gent)";
+$lang['screen.address_alt'] = "Building location (e.g.: Rue de la Loi 1, Brussels)";
 $lang['screen.geographic_coordinates'] = "Geographic coordinates";
 $lang['screen.pin_for_tablet'] = "PIN for tablet";
 
@@ -85,7 +85,7 @@ $lang['turtles.error_blank'] = "Momentarily there are no options to configure fo
 /**
  * Specific for a turtle
  */
-$lang['turtle.airport_alt'] =  "Code of an airport (ex. BRU)";
+$lang['turtle.airport_alt'] =  "Code of an airport (e.g. BRU, AMS)";
 $lang['turtle.delijn_alt'] =  "Name of a stop (e.g. Gent Veergrep, 1658)";
 $lang['turtle.mivb_alt'] =  "Name of a stop (e.g. Mozart)";
 $lang['turtle.nmbs_alt'] =  "Name of a station (e.g. Gent Sint-Pieters)";
@@ -96,7 +96,7 @@ $lang['turtle.finance_primary_alt'] = "(e.g. KBC.BR)";
 $lang['turtle.finance_secondary_alt'] = "(e.g. GOOG, AAPL, DUV.BR)";
 $lang['turtle.finance_primary_note'] = "Stock symbol, this one is shown bigger than the secondary stocks";
 $lang['turtle.finance_secondary_note'] = "List of comma separated stock symbols";
-$lang['turtle.twitter_search_alt'] = "Twitter search (e.g. #flatturtle)";
+$lang['turtle.twitter_search_alt'] = "Twitter search (e.g. #FlatTurtle)";
 $lang['turtle.rss_alt'] = "A URL to an RSS feed";
 $lang['turtle.rss_custom'] = "Custom feed";
 
