@@ -66,7 +66,7 @@ $lang['screen.toggle_screen_alt'] = "Switch the screen on and off";
 
 $lang['screen.left_side'] = "Left side";
 $lang['screen.right_side'] = "Right side";
-$lang['screen.address_alt'] = "Building location (e.g.: Rue de la Loi 1, Brussels)";
+$lang['screen.address_alt'] = "Location (e.g.: Rue de la Loi 1, Brussels)";
 $lang['screen.geographic_coordinates'] = "Geographic coordinates";
 $lang['screen.pin_for_tablet'] = "PIN for tablet";
 
@@ -74,10 +74,10 @@ $lang['screen.pin_for_tablet'] = "PIN for tablet";
 /**
  * Turtles page
  */
-$lang['turtles.available'] = "Available turtles";
-$lang['turtles.drag_to_screen'] = "Drag turtles to the screen";
+$lang['turtles.available'] = "Available Turtles";
+$lang['turtles.drag_to_screen'] = "Drag Turtles to the screen";
 $lang['turtles.screen_title'] = "Left side of the screen";
-$lang['turtles.drag_to_sort'] = "Drag turtles to sort";
+$lang['turtles.drag_to_sort'] = "Drag Turtles to sort";
 $lang['turtles.option_number_of_items'] = "Items to show";
 $lang['turtles.option_zoom'] = "Zoom";
 $lang['turtles.error_blank'] = "Momentarily there are no options to configure for this turtle.";
@@ -85,8 +85,8 @@ $lang['turtles.error_blank'] = "Momentarily there are no options to configure fo
 /**
  * Specific for a turtle
  */
-$lang['turtle.airport_alt'] =  "Code of an airport (e.g. BRU, AMS)";
-$lang['turtle.delijn_alt'] =  "Name of a stop (e.g. Gent Veergrep, 1658)";
+$lang['turtle.airport_alt'] =  "Code of an airport (e.g. BRU or AMS)";
+$lang['turtle.delijn_alt'] =  "Name of a stop (e.g. Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Name of a stop (e.g. Mozart)";
 $lang['turtle.nmbs_alt'] =  "Name of a station (e.g. Gent Sint-Pieters)";
 $lang['turtle.velo_alt'] =  "Name of a Velo station (e.g. Theater)";
@@ -117,7 +117,7 @@ $lang['panes.general_options'] = "General pane options";
 /**
  * Error messages
  */
-$lang['error.logo_upload'] = "Something went wrong while trying to upload a new logo.";
+$lang['error.logo_upload'] = "Something went wrong while trying to upload a new logo. Try again.";
 $lang['error.color_check_hex'] = "The color {{value}} is not a valid hexadecimal color.";
 $lang['error.resolve_address'] = "Couldn't resolve location to geocode, try to be more specific.";
 
