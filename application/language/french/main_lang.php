@@ -22,7 +22,7 @@
   $lang['term.cancel'] = "Annuler";
   $lang['term.send'] = "Envoyer";
   $lang['term.browse'] = "Feuilleter";
-  $lang['term.log_in'] = "Connexion";
+  $lang['term.log_in'] = "Connectez";
   $lang['term.log_out'] = "Déconnecter";
   $lang['term.retry'] = "Réessayez"; 
   $lang['term.delete'] = "Effacer"; 
@@ -36,8 +36,8 @@
   $lang['term.password'] = "Mot de passe";
   $lang['term.title'] = "Titre";
   $lang['term.address'] = "Adresse";
-  $lang['term.color'] = "Couleurr";
-  $lang['term.footer'] = "Pied de page";
+  $lang['term.color'] = "Couleur";
+  $lang['term.footer'] = "Bas de page";
   $lang['term.logo'] = "Logo";
   $lang['term.hostname'] = "Nom d'hôte";
   $lang['term.none'] = "Aucun";
@@ -61,11 +61,11 @@
   $lang['screen.toggle_clock_alt'] = "Activer l'horloge";
   $lang['screen.toggle_screen_alt'] = "Eteindre ou allumer l'écran";
 
-  $lang['screen.left_side'] = "côté gauche";
-  $lang['screen.right_side'] = "côté droit";
-  $lang['screen.address_alt'] = "L'adresse (par example: Rue de la Loi 1, Bruxelles)";
+  $lang['screen.left_side'] = "Côté gauche";
+  $lang['screen.right_side'] = "Côté droit";
+  $lang['screen.address_alt'] = "L'adresse (par exemple: Rue de la Loi 1, Bruxelles)";
   $lang['screen.geographic_coordinates'] = "Coordonnées géographiques";
-  $lang['screen.pin_for_tablet'] = "Code PIN pour tablet";
+  $lang['screen.pin_for_tablet'] = "Code PIN pour tablette";
 
 
  /**
@@ -85,24 +85,24 @@
   $lang['turtle.airport_alt'] =  "Code de l'aéroport (ex: BRU ou CDG)";
   $lang['turtle.delijn_alt'] =  "Nom d'un arrêt (ex: Grimbergen Dorp)";
   $lang['turtle.mivb_alt'] =  "Nom d'un arrêt (ex: Mozart)";
-  $lang['turtle.nmbs_alt'] =  "Name d'une station (ex: Liege Guillemins)";
-  $lang['turtle.velo_alt'] =  "Name d'une station Velo (ex: Theater)";
-  $lang['turtle.villo_alt'] =  "Name d'une station Villo (ex: Botanique/Kruidtuin)";
+  $lang['turtle.nmbs_alt'] =  "Nom d'une station (ex: Liege Guillemins)";
+  $lang['turtle.velo_alt'] =  "Nom d'une station Velo (ex: Theater)";
+  $lang['turtle.villo_alt'] =  "Nom d'une station Villo (ex: Botanique/Kruidtuin)";
   $lang['turtle.mapbox_alt'] =  "L'adresse d'un emplacement (ex: Gent Korenmarkt)";
   $lang['turtle.finance_primary_alt'] = "(ex: KBC.BR)";
   $lang['turtle.finance_secondary_alt'] = "(ex: GOOG, AAPL, DUV.BR)";
-  $lang['turtle.finance_primary_note'] = "Symbole boursier, Celui-ci est représenté plus grand que les stocks secondaires";
+  $lang['turtle.finance_primary_note'] = "Symbole boursier, celui-ci est représenté plus grand que les stocks secondaires";
   $lang['turtle.finance_secondary_note'] = "Liste virgules des symboles boursiers";
   $lang['turtle.twitter_search_alt'] = "Twitter recherche (ex: #FlatTurtle)";
   $lang['turtle.rss_alt'] = "L'adresse web d'un flux RSS";
-  $lang['turtle.rss_custom'] = "Flux adaptée";
+  $lang['turtle.rss_custom'] = "Flux adapté";
 
 
  /**
   * Panes page
   */
-  $lang['panes.available'] = "Panneau disponibles";
-  $lang['panes.enabled'] = "Panneaux activée";
+  $lang['panes.available'] = "Panneau disponible";
+  $lang['panes.enabled'] = "Panneaux activés";
   $lang['panes.screen_title'] = "Côté droit de l'écran";
   $lang['panes.drag_to_sort'] = "Glisser les panneaux pour trier";
   $lang['panes.click_to_enable'] = "Cliquez pour activer un panneau";
@@ -114,7 +114,7 @@
   */
   $lang['error.logo_upload'] = "L'envoi a échoué. Essayez à nouveau.";
   $lang['error.color_check_hex'] = "The couleur {{value}} n'est pas une couleur hexadécimal correcte.";
-  $lang['error.resolve_address'] = "Impossible de géocoder l'adresse. Essayez d'être plus précis.";
+  $lang['error.resolve_address'] = "Impossible de localiser l'adresse. Essayez d'être plus précis.";
 
  /**
   * Footer
