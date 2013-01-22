@@ -100,7 +100,7 @@ class Turtles extends CI_Controller {
 
 		if(!empty($data['type']) && is_numeric($data['pane'])){
 			$turtle = $this->turtle->create($alias, $data);
-			echo $this->_template($turtle);
+			echo $this->turtle->template($turtle);
 			return;
 		}
 		echo "false";
