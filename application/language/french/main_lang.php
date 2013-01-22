@@ -96,12 +96,14 @@
   $lang['turtle.twitter_search_alt'] = "Twitter recherche (ex: #FlatTurtle)";
   $lang['turtle.rss_alt'] = "L'adresse web d'un flux RSS";
   $lang['turtle.rss_custom'] = "Flux adapté";
+  $lang['turtle.screen_location'] = "Location de l'écran";
+  $lang['turtle.custom_location'] = "Emplacement personnalisé";
 
 
  /**
   * Panes page
   */
-  $lang['panes.available'] = "Panneau disponible";
+  $lang['panes.available'] = "Panneaux disponibles";
   $lang['panes.enabled'] = "Panneaux activés";
   $lang['panes.screen_title'] = "Côté droit de l'écran";
   $lang['panes.drag_to_sort'] = "Glisser les panneaux pour trier";
