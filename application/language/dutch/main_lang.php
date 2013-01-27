@@ -78,7 +78,7 @@ $lang['turtles.available'] = "Beschikbare Turtles";
 $lang['turtles.drag_to_screen'] = "Sleep een Turtle naar het scherm";
 $lang['turtles.screen_title'] = "Linkerkant van het scherm";
 $lang['turtles.drag_to_sort'] = "Sleep de Turtles om ze te sorteren";
-$lang['turtles.option_number_of_items'] = "Elementen om weer te geven;
+$lang['turtles.option_number_of_items'] = "Elementen om weer te geven";
 $lang['turtles.option_zoom'] = "Zoom";
 $lang['turtles.error_blank'] = "Er zijn geen te configureren opties voor deze Turtle.";
 
