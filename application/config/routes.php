@@ -41,8 +41,8 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['^fr$'] = $route['default_controller'];
-$route['^en$'] = $route['default_controller'];
+$route['^[a-z]{2}/?$'] = $route['default_controller'];
+
 
 $route['^[a-z]{2}/login/do/*'] = 'home/login_post';
 $route['^[a-z]{2}/login/*'] = 'home/login';
