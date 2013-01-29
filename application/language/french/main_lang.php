@@ -109,9 +109,9 @@ $lang['login.title'] = "Connectez-vous s'il vous plaît";
  $lang['panes.drag_to_sort'] = "Glisser les panneaux pour trier";
  $lang['panes.click_to_enable'] = "Cliquez pour activer un panneau";
  $lang['panes.general_options'] = "Options générales du panneau";
- $lang['panes.disable_note'] = "";
- $lang['panes.adding'] = "";
- $lang['panes.deleting'] = "";
+ $lang['panes.disable_note'] = "Êtes-vous sûr de vouloir supprimer ce panneau?";
+ $lang['panes.adding'] = "Ajout du panneau en cours";
+ $lang['panes.deleting'] = "Retirage du panneau en cours";
 
 
  /**
