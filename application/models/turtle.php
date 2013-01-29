@@ -190,7 +190,7 @@ class Turtle extends CI_Model {
 
 		// Fill out known values
 		foreach ($turtle->options as $key => $value) {
-			$contents = preg_replace('/{{' . $key . '}}/', $value, $contents);
+			$contents = preg_replace('/{{' . $key . '}}/', htmlentities($value), $contents);
 		}
 		return $contents;
 	}

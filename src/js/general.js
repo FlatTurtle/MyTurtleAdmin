@@ -440,8 +440,85 @@ if($('#inputColor')[0]){
 	});
 }
 
+var PANE_DELAY = 3000;
+
 /**
- * Better file uploads
+ * Add a pane with checkbox selection
+ */
+$('input.add_pane').on('change', function(){
+
+	// Get pane type
+	var type = $(this).attr('id').split('_')[2];
+
+	// Show modal for delay
+	var options = {};
+	// Non-clickable backdrop
+	options.backdrop = "static";
+	$('.adding_pane_modal').modal(options);
+
+	var path = pathname;
+	var split = pathname.split("right");
+	if(split.length > 1){
+		path = split[0] ;
+	}
+
+	// Actually add the pane
+	$.ajax({
+		url: path + "right/add/" + type,
+		type: 'GET',
+		success: function( data ) {
+			setTimeout(function(){
+				location = path + "right/";
+			}, PANE_DELAY);
+		},
+		error: function(data, status){
+			$('.adding_pane_modal').modal('hide');
+			alert('Could not add the pane at this moment: ' + status);
+		}
+	});
+});
+
+/**
+ * Delete a pane
+ */
+$('.delete_pane').on('click', function(e){
+	e.preventDefault();
+
+	// Get pane ID
+	var delID = $(this).attr('id').split('_')[2];
+
+	if(confirm($(this).attr('data-confirm'))){
+		// Show modal for delay
+		var options = {};
+		// Non-clickable backdrop
+		options.backdrop = "static";
+		$('.deleting_pane_modal').modal(options);
+
+		var path = pathname;
+		var split = pathname.split("right");
+		if(split.length > 1){
+			path = split[0] ;
+		}
+
+		// Actually delete the pane
+		$.ajax({
+			url: path + "right/delete/" + delID,
+			type: 'GET',
+			success: function( data ) {
+				setTimeout(function(){
+					location = path + "right/";
+				}, PANE_DELAY);
+			},
+			error: function(data, status){
+				$('.deleting_pane_modal').modal('hide');
+				alert('Could not delete the pane at this moment: ' + status);
+			}
+		});
+	}
+});
+
+/**
+ * Nicer looking file uploads
  */
 $('input.better-file-upload').change(function() {
    $('input.file-value', $(this).next()).val($(this).val());
@@ -454,7 +531,7 @@ $('.file-button').on('click', function(){
 });
 
 /**
- *
+ * Footer selector functions
  */
 $('#inputFooterMessage').hide();
 $('#inputFooterUpdates').hide();
@@ -464,4 +541,7 @@ $('#footerType').on('change', function(){
 	$('#inputFooter' + $(this).val().charAt(0).toUpperCase() + $(this).val().slice(1)).show();
 });
 
+/**
+ * General functions
+ */
 $('.shown').show();

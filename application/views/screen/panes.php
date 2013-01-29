@@ -1,3 +1,13 @@
+<div class="adding_pane_modal modal hide fade">
+  <div class="modal-body">
+  	<i class='loading'></i> <?= lang('panes.adding') ?>
+  </div>
+</div>
+<div class="deleting_pane_modal modal hide fade">
+  <div class="modal-body">
+  	<i class='loading'></i> <?= lang('panes.deleting') ?>
+  </div>
+</div>
 <div class='row'>
 	<div class='span12'>
 		<h2>
@@ -38,24 +48,29 @@
 		?>
 		<span class='note'><?= lang('panes.drag_to_sort') ?></span>
 
-		<h4><?= lang('panes.available') ?></h4>
 		<?
-		// Show the other available panes
-		foreach($available_panes as $pane => $pane_value){
+			$array_available_panes = (array) $available_panes;
+			if(!empty($array_available_panes)){
 		?>
-			<div id="<?= $pane; ?>" class='pane'>
-				<div class='holder'>
-					<input type='checkbox' />
-					<?
-						echo $pane;
-						if(!empty($pane_value->description)){
-							echo "<span class='note'>".$pane_value->description."</span>";
-						}
-					?>
+			<h4><?= lang('panes.available') ?></h4>
+			<?
+			// Show the other available panes
+			foreach($available_panes as $pane => $pane_value){
+			?>
+				<div id="<?= $pane; ?>" class='pane'>
+					<div class='holder'>
+						<input id='add_pane_<?= $pane ?>' type='checkbox' class='add_pane'/>
+						<?
+							echo $pane_value->name;
+							if(!empty($pane_value->description)){
+								echo "<span class='note'>".$pane_value->description."</span>";
+							}
+						?>
+					</div>
 				</div>
-			</div>
+			<? } ?>
+			<span class='note'><?= lang('panes.click_to_enable') ?></span>
 		<? } ?>
-		<span class='note'><?= lang('panes.click_to_enable') ?></span>
 	</div>
 	<div class='pane-holder span9'>
 
@@ -87,7 +102,7 @@
 						<div class="control-group">
 							<div class="controls">
 								<input type='submit' name='save' class="btn pane_save" value="<?= lang('term.save') ?>"/>
-								<a href='#' class="btn btn-danger"><?= lang('term.disable') ?></a>
+								<a id='delete_pane_<?= $current_pane->id ?>' href='#' class="btn btn-danger delete_pane" data-confirm='<?= lang('panes.disable_note') ?>'><?= lang('term.disable') ?></a>
 							</div>
 						</div>
 					</form>

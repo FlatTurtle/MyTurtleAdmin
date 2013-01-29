@@ -112,6 +112,9 @@ $lang['panes.screen_title'] = "Right side of the screen";
 $lang['panes.drag_to_sort'] = "Drag panes to sort";
 $lang['panes.click_to_enable'] = "Click to enable a pane";
 $lang['panes.general_options'] = "General pane options";
+$lang['panes.disable_note'] = "Are you sure you want to disable this pane?";
+$lang['panes.adding'] = "Adding a new pane to the screen";
+$lang['panes.deleting'] = "Deleting the pane from the screen";
 
 
 /**

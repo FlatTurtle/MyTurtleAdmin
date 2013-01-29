@@ -1,5 +1,6 @@
 {
-    "News": {
+    "news": {
+        "name": "News",
         "description": "Show the weather expectations and news from an RSS feed.",
         "description_fr": "Voir les prévisions météorologiques et les nouvelles à partir d'un flux RSS.",
         "turtles": [
@@ -13,7 +14,8 @@
             }
         ]
     },
-    "Social": {
+    "social": {
+        "name": "Social",
         "description": "Feeds from twitter.",
         "turtles": [
             {
@@ -22,7 +24,8 @@
             }
         ]
     },
-    "Traffic": {
+    "traffic": {
+        "name": "Traffic",
         "description": "A map with live traffic information on it.",
         "turtles": [
             {
@@ -31,7 +34,8 @@
             }
         ]
     },
-    "Location": {
+    "location": {
+        "name": "Location",
         "description": "A map focusses around a location.",
         "turtles": [
             {
@@ -40,7 +44,8 @@
             }
         ]
     },
-    "Finance": {
+    "finance": {
+        "name": "Finance",
         "description": "Stock information, own stock and secondary ones.",
         "turtles": [
             {
@@ -49,7 +54,8 @@
             }
         ]
     },
-    "Signage": {
+    "signage": {
+        "name": "Signage",
         "description": "What is on which floor?",
         "turtles": [
             {

@@ -50,8 +50,22 @@ class Pane extends CI_Model {
 	/**
 	 * Update pane information
 	 */
-	public function post($alias, $pane_id, $post_data) {
+	public function post($alias, $pane_id, $post_data){
 		return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '/'. $pane_id, $post_data));
+	}
+
+	/**
+	 * Delete pane
+	 */
+	public function delete($alias, $pane_id) {
+		return json_decode($this->api->delete($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '/'. $pane_id));
+	}
+
+	/**
+	 * Add a pane
+	 */
+	public function put($alias, $put_data) {
+		return json_decode($this->api->put($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '/', $put_data));
 	}
 }
 

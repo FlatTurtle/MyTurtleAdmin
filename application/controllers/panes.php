@@ -57,9 +57,9 @@ class Panes extends CI_Controller {
 		// Get desciption an unset enabled panes, get selected pane
 		foreach($data['panes'] as $pane){
 			$pane->description = "";
-			if(!empty($data['available_panes']->{ucfirst($pane->template)})){
-				$pane->description = $data['available_panes']->{ucfirst($pane->template)}->description;
-				unset($data['available_panes']->{ucfirst($pane->template)});
+			if(!empty($data['available_panes']->{strtolower($pane->template)})){
+				$pane->description = $data['available_panes']->{strtolower($pane->template)}->description;
+				unset($data['available_panes']->{strtolower($pane->template)});
 			}
 			if($pane_id == $pane->id){
 				$data['current_pane'] = $pane;
@@ -100,6 +100,42 @@ class Panes extends CI_Controller {
 			$this->pane->post($alias, $pane->id, $post_data);
 			redirect(site_url($alias.'/right/'.$pane->template . '/' . $pane->id . '#config'));
 		}
+	}
+
+	/**
+	 * Add a pane with corresponding turtles
+	 */
+	public function add($alias, $pane_type){
+		// Get pane specification
+		$pane_types = $this->pane->panes;
+		if(!empty($pane_types->{$pane_type})){
+			// Add all required turtles
+			if(!empty($pane_types->{$pane_type}->turtles)){
+				$data = array();
+
+				foreach($pane_types->{$pane_type}->turtles as $turtle){
+					// Check order
+					if(empty($turtle->order)){
+						$turtle->order = 0;
+					}
+				}
+
+				$data['turtles'] = json_encode($pane_types->{$pane_type}->turtles);
+				$data['type'] = 'widget';
+				$data['title'] = ucfirst($pane_type);
+				$data['template'] = $pane_type;
+				$this->pane->put($alias, $data);
+			}
+		}
+	}
+
+	/**
+	 * Delete a pane
+	 */
+	public function delete($alias, $pane_id){
+		$pane = $this->pane->delete($alias, $pane_id);
+
+		redirect(site_url($alias.'/right/'));
 	}
 }
 
