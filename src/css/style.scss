@@ -518,6 +518,12 @@ footer[role=footer] {
 			margin-right: 10px;
 		}
 	}
+
+	footer[role=footer] {
+		.span5.right-align{
+			text-align: left;
+		}
+	}
 }
 
 /* JQuery UI Autocomplete */
@@ -542,6 +548,10 @@ footer[role=footer] {
 
 .padding-5{
 	padding: 5px;
+}
+
+.right-align{
+	text-align: right;
 }
 
 select{

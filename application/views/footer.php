@@ -4,8 +4,8 @@
 	<footer role="footer">
 		<div class="container">
 			<div class="row">
-				<div class="span12">
-					&copy; <?= date('Y', time()) ?> <a href="https://flatturtle.com" target="_blank">FlatTurtle</a> - <?= lang('footer.rights') ?>
+				<div class="span7">
+					&copy; <?= date('Y', time()) ?> <a href="https://flatturtle.com" target="_blank">FlatTurtle</a> - <?= lang('footer.rights') ?><br/>
 <!--
                                                    Are you a developer who would like to know more about FlatTurtle?
                                                    Did you know you can control your FlatTurtle through an API?
@@ -16,6 +16,10 @@
                                                       info@flatturtle.com
 -->
 				</div>
+				<div class='span5 right-align'>
+					Helpdesk: <a href='mailto:help@FlatTurtle.com'>help@FlatTurtle.com</a><br/>
+							  <a href='tel:0032 2 6690999'>+32 (0) 2 669 09 99</a>
+				<div>
 			</div>
 		</div>
 	</footer>

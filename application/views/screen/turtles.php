@@ -35,7 +35,7 @@
 		<?
 		$extra_class = "";
 		foreach($panes as $pane){
-			echo "<div id='pane_".$pane->id."' class='turtle-area droppable sortable'>";
+			echo "<div id='pane_".$pane->id."' class='turtle-area droppable sortable ".$extra_class."'>";
 			foreach($turtle_instances as $turtle){
 				if($pane->id == $turtle->pane_id){
 					echo $turtle->content;
