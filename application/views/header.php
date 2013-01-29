@@ -34,7 +34,7 @@
 					<div class="span8">
 						<header role="banner">
 							<hgroup>
-								<h1><img src="<?= base_url(); ?>assets/img/logo_320_2x.gif" alt="FlatTurtle" /></h1>
+								<h1><a href='<?= site_url(''); ?>'><img src="<?= base_url(); ?>assets/img/logo_320_2x.gif" alt="FlatTurtle" /></a></h1>
 							</hgroup>
 						</header>
 					</div>

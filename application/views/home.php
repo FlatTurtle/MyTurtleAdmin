@@ -7,6 +7,11 @@
 					<div class='infoscreen'>
 						<div class='screen'>
 							<div class='inside'>
+								<div class='color-side' style='background-color:<?= $infoscreen->color; ?>'>
+								</div>
+								<div class="logo-holder">
+									<div class='logo' style="background-image:url('<?= $infoscreen->logo; ?>?<?= rand(0, 999999) ?>');"></div>
+								</div>
 							</div>
 						</div>
 						<?= $infoscreen->title ?>

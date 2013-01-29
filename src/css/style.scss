@@ -108,6 +108,34 @@ nav[role=navigation] {
 				height: 100%;
 				background-color: #fff;
 				text-align: center;
+				position: relative;
+
+				.color-side{
+					width: 50%;
+					height: 100%;
+					position: absolute;
+					left: 50%;
+				}
+
+				.logo-holder{
+					height: 20px;
+					max-width: 220px;
+					max-height: 39px;
+					position: absolute;
+					background-color: #fff;
+					bottom: 0px;
+					left: 0px;
+					right: 0px;
+					padding: 5px;
+
+					.logo{
+						width: 100%;
+						height: 100%;
+						background-size: contain;
+						background-repeat: no-repeat;
+						background-position: right bottom;
+					}
+				}
 			}
 		}
 	}
@@ -178,13 +206,13 @@ nav[role=navigation] {
 			.logo-holder{
 				width: 100%;
 				height: 100%;
-				max-width: 220px;
+				max-width: 240px;
 				max-height: 39px;
 				position: absolute;
 				background-color: #fff;
 				bottom: 0px;
 				right: 0px;
-				padding: 15px;
+				padding: 5px;
 
 				.logo{
 					width: 100%;
@@ -465,6 +493,10 @@ nav[role=navigation] {
 				padding-left: 0px;
 			}
 		}
+	}
+
+	.available_pane{
+		cursor: default !important;
 	}
 }
 

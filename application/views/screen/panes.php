@@ -63,7 +63,7 @@
 			// Show the other available panes
 			foreach($available_panes as $pane => $pane_value){
 			?>
-				<div id="<?= $pane; ?>" class='pane'>
+				<div id="<?= $pane; ?>" class='pane available_pane'>
 					<div class='holder'>
 						<input id='add_pane_<?= $pane ?>' type='checkbox' class='add_pane'/>
 						<?
