@@ -19,34 +19,40 @@
 </div>
 <div class='row'>
 	<div class='pane-chooser span3'>
+		<?
+		if(!empty($panes)){
+		?>
 		<h4><?= lang('panes.enabled') ?></h4>
 		<?
-		// Show all enabled panes
-		foreach($panes as $pane){
-			$extra_class = "";
-			if($pane->id == $current_pane->id)	$extra_class = "active";
+			// Show all enabled panes
+			foreach($panes as $pane){
+				$extra_class = "";
+				if($pane->id == $current_pane->id)	$extra_class = "active";
 		?>
-			<div id="pane_<?= $pane->id; ?>" class='pane draggable <?= $extra_class ?>'>
-				<a href='<?= site_url($infoscreen->alias.'/right/'.$pane->template.'/'.$pane->id. "#config"); ?>'>
-					<div class='holder'>
-					<?
-						echo ucfirst($pane->template);
-						// Show title, when a custom title was set
-						if(strtolower($pane->title) != $pane->template){
-							echo " (".$pane->title.")";
-						}
+					<div id="pane_<?= $pane->id; ?>" class='pane draggable <?= $extra_class ?>'>
+						<a href='<?= site_url($infoscreen->alias.'/right/'.$pane->template.'/'.$pane->id. "#config"); ?>'>
+							<div class='holder'>
+							<?
+								echo ucfirst($pane->template);
+								// Show title, when a custom title was set
+								if(strtolower($pane->title) != $pane->template){
+									echo " (".$pane->title.")";
+								}
 
-						if(!empty($pane->description)){
-							echo "<span class='note'>".$pane->description."</span>";
-						}
-					?>
+								if(!empty($pane->description)){
+									echo "<span class='note'>".$pane->description."</span>";
+								}
+							?>
+							</div>
+						</a>
 					</div>
-				</a>
-			</div>
+		<?
+			}
+		?>
+		<span class='note'><?= lang('panes.drag_to_sort') ?></span>
 		<?
 		}
 		?>
-		<span class='note'><?= lang('panes.drag_to_sort') ?></span>
 
 		<?
 			$array_available_panes = (array) $available_panes;

@@ -24,9 +24,20 @@ class Panes extends CI_Controller {
 	 * Redirect to first enabled pane (when available)
 	 */
 	public function first($alias){
-		$panes = $this->pane->get_all($alias, 'widget');
+		$panes = array();
+		try{
+			$panes = $this->pane->get_all($alias, 'widget');
+		}catch(Exception $e){}
 		if(count($panes)> 0){
 			redirect(site_url($alias.'/right/'.$panes[0]->template . '/' . $panes[0]->id . '#config'));
+		}else{
+			$data['panes'] = $panes;
+			$data['infoscreen'] = $this->infoscreen->get($alias);
+			$data['available_panes'] = $this->pane->panes;
+
+			$this->load->view('header');
+			$this->load->view('screen/panes', $data);
+			$this->load->view('footer');
 		}
 	}
 
@@ -36,15 +47,15 @@ class Panes extends CI_Controller {
 	public function index($alias, $pane_id){
 		$data['infoscreen'] = $this->infoscreen->get($alias);
 		$data['available_panes'] = $this->pane->panes;
-		$data['panes'] = $this->pane->get_all($alias, 'widget');
 		$data['turtles'] = array();
+		$data['panes'] = $this->pane->get_all($alias, 'widget');
 
 		try{
 			$data['turtles'] = $this->turtle->get($alias, 'widget');
 			foreach ($data['turtles'] as $turtle) {
 				$turtle->content = $this->turtle->template($turtle);
 			}
-		}catch(ErrorException $e){}
+		}catch(Exception $e){}
 
 		// Check language specific description
 		$description_lang = "description_".$this->lang->lang();
