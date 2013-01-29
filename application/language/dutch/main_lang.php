@@ -112,6 +112,10 @@ $lang['panes.screen_title'] = "Rechterkant van het scherm";
 $lang['panes.drag_to_sort'] = "Sleep panes om te sorten";
 $lang['panes.click_to_enable'] = "Klik om een pane in te schakelen";
 $lang['panes.general_options'] = "Algemene pane opties";
+$lang['panes.disable_note'] = "Bent u zeker dat u deze pane wenst te verwijderen?";
+$lang['panes.adding'] = "Pane aan het toevoegen op het scherm";
+$lang['panes.deleting'] = "Pane aan het verwijderen van het scherm";
+
 
 
 /**
