@@ -467,8 +467,9 @@ $('input.add_pane').on('change', function(){
 		url: path + "right/add/" + type,
 		type: 'GET',
 		success: function( data ) {
+			console.log(data);
 			setTimeout(function(){
-				location = path + "right/";
+				location = path + "right/" + data.template + "/" + data.id + "#config";
 			}, PANE_DELAY);
 		},
 		error: function(data, status){

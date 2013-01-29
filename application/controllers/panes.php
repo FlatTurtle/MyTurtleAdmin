@@ -124,7 +124,10 @@ class Panes extends CI_Controller {
 				$data['type'] = 'widget';
 				$data['title'] = ucfirst($pane_type);
 				$data['template'] = $pane_type;
-				$this->pane->put($alias, $data);
+				$pane = $this->pane->put($alias, $data);
+				header('Cache-Control: no-cache, must-revalidate');
+				header('Content-type: application/json');
+				echo json_encode($pane);
 			}
 		}
 	}
