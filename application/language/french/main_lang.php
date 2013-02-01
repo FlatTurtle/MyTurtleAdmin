@@ -111,7 +111,7 @@ $lang['login.title'] = "Connectez-vous s'il vous plaît";
  $lang['panes.general_options'] = "Options générales du panneau";
  $lang['panes.disable_note'] = "Êtes-vous sûr de vouloir supprimer ce panneau?";
  $lang['panes.adding'] = "Ajout du panneau en cours";
- $lang['panes.deleting'] = "Retirage du panneau en cours";
+ $lang['panes.deleting'] = "Retrait du panneau en cours";
 
 
  /**
