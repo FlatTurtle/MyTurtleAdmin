@@ -98,6 +98,7 @@ $lang['login.title'] = "Connectez-vous s'il vous plaît";
  $lang['turtle.rss_custom'] = "Flux adapté";
  $lang['turtle.screen_location'] = "Location de l'écran";
  $lang['turtle.custom_location'] = "Emplacement personnalisé";
+$lang['turtle.weather_location'] = "";
 
 
  /**

@@ -111,6 +111,7 @@ class Turtle extends CI_Model {
 		$contents = preg_replace('/{{turtle.finance_primary_note}}/', lang('turtle.finance_primary_note'), $contents);
 		$contents = preg_replace('/{{turtle.finance_secondary_note}}/', lang('turtle.finance_secondary_note'), $contents);
 		$contents = preg_replace('/{{turtle.twitter_search_alt}}/', lang('turtle.twitter_search_alt'), $contents);
+		$contents = preg_replace('/{{turtle.weather_location}}/', lang('turtle.weather_location'), $contents);
 
 
 		// Get RSS links

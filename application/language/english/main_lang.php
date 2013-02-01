@@ -101,6 +101,7 @@ $lang['turtle.rss_alt'] = "A URL to an RSS feed";
 $lang['turtle.rss_custom'] = "Custom feed";
 $lang['turtle.screen_location'] = "Screen location";
 $lang['turtle.custom_location'] = "Custom";
+$lang['turtle.weather_location'] = "The weather turtle uses the location of the screen.";
 
 
 /**
