@@ -50,7 +50,7 @@
 						<nav role="navigation">
 							<? if ($this->session->userdata('logged_in')) { ?>
 								<h4>
-									<i class='icon-user'></i>&nbsp;&nbsp;<?= lang('greeting') ?>, <?= $this->session->userdata('username') ?>!
+									<i class='icon-user'></i>&nbsp;&nbsp;<?= lang('greeting') ?>, <?php echo ucfirst($this->session->userdata('username')); ?>!
 								</h4>
 								<a href="<?= site_url('/logout') ?>" alt="<?= lang('term.log_out') ?>" class="btn btn-small">
 									<?= lang('term.log_out') ?>
