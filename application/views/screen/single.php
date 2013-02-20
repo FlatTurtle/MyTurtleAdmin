@@ -59,11 +59,11 @@
 						</div>
 					</a>
 
-					<? if (!empty($logo)) { ?>
-						<div class="logo-holder">
+					<div class="logo-holder">
+						<? if (!empty($logo)) { ?>
 							<div class='logo' style="background-image:url('<?= base_url() . $logo; ?>?<?= rand(0, 999999) ?>');"></div>
-						</div>
-					<? } ?>
+						<? } ?>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -29,7 +29,7 @@
         "description": "A map with live traffic information on it.",
         "turtles": [
             {
-                "type": "map",
+                "type": "traffic",
                 "order": 0
             }
         ]
