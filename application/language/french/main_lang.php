@@ -9,7 +9,7 @@ $lang['title'] = "Votre FlatTurtle";
 
 // Greeting in front of name
 $lang['greeting'] = "Bonjour";
-$lang['mailing_list'] = "";
+$lang['mailing_list'] = "Abonnez-vous à nos mises à jour des produits";
 
 /**
 * Login page
@@ -51,8 +51,8 @@ $lang['term.primary'] = "Primaire";
 $lang['term.secondary'] = "Secondaire";
 $lang['term.search'] = "Rechercher";
 $lang['term.feed'] = "Flux";
-$lang['term.subscribe'] = "";
-$lang['term.mailing_list'] = "";
+$lang['term.subscribe'] = "Souscrire";
+$lang['term.mailing_list'] = "Liste de diffusion";
 
 
 /**
