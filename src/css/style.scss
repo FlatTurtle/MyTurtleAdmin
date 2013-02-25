@@ -506,6 +506,15 @@ footer[role=footer] {
 	bottom: 0;
 	padding: 20px 0px;
 	color: #fff;
+
+    a{
+        color:#21b0d7;
+    }
+
+    a:hover{
+        color:#fff;
+        text-decoration: none;
+    }
 }
 
 .blacklink{

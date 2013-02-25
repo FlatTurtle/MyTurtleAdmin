@@ -9,6 +9,7 @@ $lang['title'] = "Uw FlatTurtle";
 
 // Greeting in front of name
 $lang['greeting'] = "Dag";
+$lang['mailing_list'] = "";
 
 
 
@@ -53,6 +54,8 @@ $lang['term.primary'] = "Eerste";
 $lang['term.secondary'] = "Tweede";
 $lang['term.search'] = "Zoeken";
 $lang['term.feed'] = "Feed";
+$lang['term.subscribe'] = "";
+$lang['term.mailing_list'] = "";
 
 
 /**
