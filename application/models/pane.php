@@ -67,6 +67,13 @@ class Pane extends CI_Model {
 	public function put($alias, $put_data) {
 		return json_decode($this->api->put($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '/', $put_data));
 	}
+
+    /**
+     * Change turtle order
+     */
+    public function order($alias, $id, $data) {
+        return json_decode($this->api->post($this->API . API_INFOSCREENS . '/' . $alias . '/' . API_PANE_INSTANCES . '/' . API_PANE_ORDER . '/' . $id, $data));
+    }
 }
 
 ?>

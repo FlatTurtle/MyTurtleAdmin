@@ -55,6 +55,7 @@ $route['^[a-z]{2}/(.*)/left/*'] = 'turtles/index/$1';
 $route['^[a-z]{2}/(.*)/right/add/([A-z0-9]+)/*'] = 'panes/add/$1/$2';
 $route['^[a-z]{2}/(.*)/right/delete/([0-9]+)/*'] = 'panes/delete/$1/$2';
 $route['^[a-z]{2}/(.*)/right/save/([0-9]+)/*'] = 'panes/save/$1/$2';
+$route['^[a-z]{2}/(.*)/right/sort/*'] = 'panes/sort/$1';
 $route['^[a-z]{2}/(.*)/right/[A-z0-9\-_]*?/([0-9]+)/*'] = 'panes/index/$1/$2';
 $route['^[a-z]{2}/(.*)/right/*'] = 'panes/first/$1';
 $route['^[a-z]{2}/(.*)/plugin/(.*)'] = 'plugin/$2/$1';

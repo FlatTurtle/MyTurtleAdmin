@@ -151,6 +151,24 @@ class Panes extends CI_Controller {
 
 		redirect(site_url($alias.'/right/'));
 	}
+
+    /**
+     * AJAX URI for updating order
+     */
+    public function sort($alias) {
+        $order = $this->input->post('order');
+        if(!empty($order) && is_array($order)){
+            $counter = 1;
+            foreach($order as $id){
+                $data['order'] = $counter;
+                $this->pane->order($alias, $id, $data);
+                $counter++;
+            }
+            echo "true";
+            return;
+        }
+        echo "false";
+    }
 }
 
 ?>

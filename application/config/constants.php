@@ -48,6 +48,7 @@ define('API_PLUGIN_CLOCK','plugins/clock');
 define('API_PLUGIN_SCREEN_POWER','plugins/screen/power');
 define('API_PLUGIN_FOOTER','plugins/footer');
 define('API_PANE_INSTANCES','panes');
+define('API_PANE_ORDER','order');
 define('API_OPTION','option');
 
 

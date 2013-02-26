@@ -18,11 +18,12 @@
 	</div>
 </div>
 <div class='row'>
-	<div class='pane-chooser span3'>
+	<div class='pane-chooser sortable span3'>
 		<?
 		if(!empty($panes)){
 		?>
 		<h4><?= lang('panes.enabled') ?></h4>
+        <div class="sortable">
 		<?
 			// Show all enabled panes
 			foreach($panes as $pane){
@@ -49,12 +50,11 @@
 		<?
 			}
 		?>
+        </div>
 		<span class='note'><?= lang('panes.drag_to_sort') ?></span>
 		<?
 		}
-		?>
 
-		<?
 			$array_available_panes = (array) $available_panes;
 			if(!empty($array_available_panes)){
 		?>
