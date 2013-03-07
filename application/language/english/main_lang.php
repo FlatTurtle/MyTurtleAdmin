@@ -63,7 +63,7 @@ $lang['term.mailing_list'] = "Mailing list";
  * Screen detail page
  */
 $lang['screen.sent_message'] = "Send a message";
-$lang['screen.sent_message_note'] = "The message is displayed on the screen for a small time.";
+$lang['screen.sent_message_note'] = "The message is displayed on the screen for a short time.";
 $lang['screen.sent_message_alt'] = "Display a message on the screen";
 $lang['screen.toggle_clock_alt'] = "Toggle the clock";
 $lang['screen.toggle_screen_alt'] = "Switch the screen on and off";
