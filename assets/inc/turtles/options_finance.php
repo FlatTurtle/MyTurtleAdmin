@@ -2,9 +2,9 @@
 <div class="control-group">
     <label class="control-label" for="{{id}}-location">{{term.primary}}</label>
     <div class="controls">
-		<input type="text" id="{{id}}-primary" name="{{id}}-primary" placeholder="{{turtle.finance_primary_alt}}" class='input-small' value="{{primary}}"/>
-	    <br/><span class='note'>{{turtle.finance_primary_note}}</span>
-    </div>
+        <input type="text" id="{{id}}-primary" name="{{id}}-primary" placeholder="{{turtle.finance_primary_alt}}" class='input-small' value="{{primary}}"/>
+        <br/><span class='note'>{{turtle.finance_primary_note}}</span>
+  </div>
 </div>
 <div class="control-group">
     <label class="control-label" for="{{id}}-location">{{term.secondary}}</label>

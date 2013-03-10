@@ -5,7 +5,7 @@
         <select class='rss-feed-type'>
             {{rss-links}}
         </select>
-		<input type="text" id="{{id}}-feed" name="{{id}}-feed" placeholder="{{turtle.rss_alt}}" class='input-block-level rss-feed {{custom_hide}}' value="{{feed}}" style='margin-top: 10px'/>
+        <input type="text" id="{{id}}-feed" name="{{id}}-feed" placeholder="{{turtle.rss_alt}}" class='input-block-level rss-feed {{custom_hide}}' value="{{feed}}" style='margin-top: 10px'/>
     </div>
 </div>
 <? include 'footer.php'; ?>
