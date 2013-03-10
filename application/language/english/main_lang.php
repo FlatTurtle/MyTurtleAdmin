@@ -43,7 +43,7 @@ $lang['term.address'] = "Address";
 $lang['term.color'] = "Color";
 $lang['term.footer'] = "Footer";
 $lang['term.logo'] = "Logo";
-$lang['term.hostname'] = "Hostname";
+$lang['term.hostname'] = "TurtleBox";
 $lang['term.none'] = "None";
 $lang['term.message'] = "Message";
 $lang['term.updates'] = "Updates";
@@ -63,7 +63,7 @@ $lang['term.mailing_list'] = "Mailing list";
  * Screen detail page
  */
 $lang['screen.sent_message'] = "Send a message";
-$lang['screen.sent_message_note'] = "The message is displayed on the screen for a small time.";
+$lang['screen.sent_message_note'] = "The message is displayed on the screen for a short time.";
 $lang['screen.sent_message_alt'] = "Display a message on the screen";
 $lang['screen.toggle_clock_alt'] = "Toggle the clock";
 $lang['screen.toggle_screen_alt'] = "Switch the screen on and off";
@@ -105,7 +105,7 @@ $lang['turtle.rss_alt'] = "A URL to an RSS feed";
 $lang['turtle.rss_custom'] = "Custom feed";
 $lang['turtle.screen_location'] = "Screen location";
 $lang['turtle.custom_location'] = "Custom";
-$lang['turtle.weather_location'] = "The weather turtle uses the location of the screen.";
+$lang['turtle.weather_location'] = "The weather Turtle uses the location of the screen.";
 
 
 /**

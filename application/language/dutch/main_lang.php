@@ -43,7 +43,7 @@ $lang['term.address'] = "Adres";
 $lang['term.color'] = "Kleur";
 $lang['term.footer'] = "Onderkant";
 $lang['term.logo'] = "Logo";
-$lang['term.hostname'] = "Naam installatie";
+$lang['term.hostname'] = "TurtleBox";
 $lang['term.none'] = "Geen";
 $lang['term.message'] = "Bericht";
 $lang['term.updates'] = "Updates";
@@ -104,7 +104,7 @@ $lang['turtle.rss_alt'] = "Een URL naar een RSS-feed";
 $lang['turtle.rss_custom'] = "Eigen feed";
 $lang['turtle.screen_location'] = "Een andere locatie";
 $lang['turtle.custom_location'] = "Ander";
-$lang['turtle.weather_location'] = "De weer-turtle gebruikt de locatie van het scherm.";
+$lang['turtle.weather_location'] = "De weer-Turtle gebruikt de locatie van het scherm.";
 
 
 /**
