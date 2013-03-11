@@ -5,7 +5,7 @@
 
     <target name="-load.properties"
         description="Set properties for this build">
-		<property name="devdir" value="src"/>
+        <property name="devdir" value="src"/>
         <!--YUI Compressor location-->
         <property name="yui.dir" value="${devdir}/tools/yuicompressor-2.4.7.jar"/>
         <!--Source JS dir-->
@@ -32,8 +32,8 @@
     <!--Concatenate JS files-->
     <target name="-js.concatenate" depends="-init"
         description="Concatenates specified JavaScript files">
-		<copy file="${src.js.dir}/jquery-1.8.2.js" tofile="${build.dir}/js/jquery.js"/>
-		<copy file="${src.js.dir}/jquery-ui-1.9.1.js" tofile="${build.dir}/js/jquery-ui.js"/>
+        <copy file="${src.js.dir}/jquery-1.8.2.js" tofile="${build.dir}/js/jquery.js"/>
+        <copy file="${src.js.dir}/jquery-ui-1.9.1.js" tofile="${build.dir}/js/jquery-ui.js"/>
         <copy file="${src.js.dir}/spectrum.js" tofile="${build.dir}/js/spectrum.js"/>
         <copy file="${src.js.dir}/jquery-ui-touch-punch.js" tofile="${build.dir}/js/jquery-ui-touch-punch.js"/>
         <concat destfile="${build.dir}/js/script.js">
@@ -63,13 +63,13 @@
         <echo>Finished</echo>
     </target>
 
-	<target name="-clean" depends="-js.minify"
+    <target name="-clean" depends="-js.minify"
         description="Clean build directory">
-		<delete includeemptydirs="true">
-			<fileset dir="${build.dir}/js" defaultexcludes="false">
-				<exclude name="*-min.js" />
-			</fileset>
-		</delete>
+        <delete includeemptydirs="true">
+            <fileset dir="${build.dir}/js" defaultexcludes="false">
+                <exclude name="*-min.js" />
+            </fileset>
+        </delete>
     </target>
 
     <!--Build-->
@@ -80,6 +80,6 @@
             -init,
             -js.concatenate,
             -js.minify,
-			-clean">
+            -clean">
     </target>
 </project>

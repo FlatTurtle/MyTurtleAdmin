@@ -34,4 +34,3 @@ function sort_panes(event, ui){
         }
     });
 }
-console.log("test3");

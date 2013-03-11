@@ -66,6 +66,7 @@ $lang['screen.sent_message_note'] = "Dit bericht werd even op het scherm geplaat
 $lang['screen.sent_message_alt'] = "Toon een bericht op het scherm";
 $lang['screen.toggle_clock_alt'] = "Zet de klok aan of uit";
 $lang['screen.toggle_screen_alt'] = "Zet het scherm aan of uit";
+$lang['screen.refresh'] = "";
 
 $lang['screen.left_side'] = "Linkerkant";
 $lang['screen.right_side'] = "Rechterkant";

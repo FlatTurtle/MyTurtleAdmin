@@ -34,4 +34,3 @@ $('input.add_pane').on('change', function(){
         }
     });
 });
-console.log("test2");

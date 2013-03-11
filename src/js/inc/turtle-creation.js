@@ -15,4 +15,3 @@ $(".turtle-chooser .draggable" ).draggable({
     stack: ".turtle-chooser .turtle",
     connectToSortable: ".turtle-area.sortable"
 });
-console.log("test5");

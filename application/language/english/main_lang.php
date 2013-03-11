@@ -67,6 +67,7 @@ $lang['screen.sent_message_note'] = "The message is displayed on the screen for 
 $lang['screen.sent_message_alt'] = "Display a message on the screen";
 $lang['screen.toggle_clock_alt'] = "Toggle the clock";
 $lang['screen.toggle_screen_alt'] = "Switch the screen on and off";
+$lang['screen.refresh'] = "Refresh the entire screen";
 
 $lang['screen.left_side'] = "Left side";
 $lang['screen.right_side'] = "Right side";

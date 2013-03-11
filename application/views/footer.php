@@ -1,11 +1,11 @@
-			</div>
-		</div>
-	</div>
-	<footer role="footer">
-		<div class="container">
-			<div class="row">
-				<div class="span7">
-					&copy; <?= date('Y', time()) ?> <a href="https://flatturtle.com" target="_blank">FlatTurtle</a> &mdash; <?= lang('footer.rights') ?><br/>
+            </div>
+        </div>
+    </div>
+    <footer role="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span7">
+                    &copy; <?= date('Y', time()) ?> <a href="https://flatturtle.com" target="_blank">FlatTurtle</a> &mdash; <?= lang('footer.rights') ?><br/>
 <!--
                                                    Are you a developer who would like to know more about FlatTurtle?
                                                    Did you know you can control your FlatTurtle through an API?
@@ -15,16 +15,16 @@
                                                    or mail us at
                                                       info@flatturtle.com
 -->
-				</div>
-				<div class='span5 right-align'>
+                </div>
+                <div class='span5 right-align'>
                     <?= lang('term.mailing_list')?> &mdash;  <a href='#mailChimp' data-toggle="modal"><?= strtolower(lang('mailing_list')) ?></a><br/>
-					Helpdesk &mdash; <a href='mailto:help@FlatTurtle.com'>help@FlatTurtle.com</a><br/>
-							  <a href='tel:0032 2 6690999'>+32 (0) 2 669 09 99</a>
-				<div>
-			</div>
-		</div>
-	</footer>
-	<script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=1.0.3"></script>
+                    Helpdesk &mdash; <a href='mailto:help@FlatTurtle.com'>help@FlatTurtle.com</a><br/>
+                              <a href='tel:0032 2 6690999'>+32 (0) 2 669 09 99</a>
+                <div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=1.0.4"></script>
 </body>
 </html>
 

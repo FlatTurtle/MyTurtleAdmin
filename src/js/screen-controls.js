@@ -8,8 +8,7 @@ $('#messageModal input').keypress(function (e) {
 // Send a message to the screen
 $('#btnSendMessage').click(function(e){
 	e.preventDefault();
-	var pathname = window.location.pathname;
-	
+
 	if($('#btnSendMessage').attr('disabled') != 'disabled'){
 		$('#btnSendMessage').attr('disabled', 'disabled').addClass('disable');
 
@@ -34,10 +33,9 @@ $('#btnSendMessage').click(function(e){
 // Toggle clock on screen
 $('#btnToggleClock').click(function(e){
 	e.preventDefault();
-	
+
 	if($('#btnToggleClock').attr('disabled') != 'disabled'){
-		
-		var pathname = window.location.pathname;
+
 		$('#btnToggleClock').attr('disabled', 'disabled').addClass('disable');
 
 		$.ajax({
@@ -62,7 +60,6 @@ $('#btnToggleScreen').click(function(e){
 
 	if($('#btnToggleScreen').attr('disabled') != 'disabled'){
 
-		var pathname = window.location.pathname;
 		$('#btnToggleScreen').attr('disabled', 'disabled').addClass('disable');
 
 		$.ajax({
@@ -84,4 +81,24 @@ $('#btnToggleScreen').click(function(e){
 			}
 		});
 	}
+});
+
+// Toggle screen power
+$('#btnRefreshScreen').click(function(e){
+    e.preventDefault();
+
+    if($('#btnRefreshScreen').attr('disabled') != 'disabled'){
+
+        $('#btnRefreshScreen').attr('disabled', 'disabled').addClass('disable');
+
+        $.ajax({
+            type: 'POST',
+            url: pathname + '/plugin/screen_reload',
+            success: function(html){
+                setTimeout(function() {
+                    $('#btnRefreshScreen').removeAttr('disabled');
+                }, 5000);
+            }
+        });
+    }
 });

@@ -38,4 +38,3 @@ $('.delete_pane').on('click', function(e){
         });
     }
 });
-console.log("test1");

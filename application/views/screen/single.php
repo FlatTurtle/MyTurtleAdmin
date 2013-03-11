@@ -47,6 +47,9 @@
                     <a href='#' id="btnToggleScreen" role='button' class="btn"  title="<?= lang('screen.toggle_screen_alt') ?>">
                         <i class="<?= $screen_class ?> icon-large"></i>
                     </a>
+                    <a href='#' id='btnRefreshScreen' role='button' class="btn" title="<?= lang('screen.refresh') ?>">
+                        <i class="icon-refresh icon-large"></i>
+                    </a>
                 </div>
 
                 <div class='inner'>
@@ -135,12 +138,19 @@
                     </div>
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label" for="inputHostname"><?= lang('term.hostname') ?></label>
-                <div class="controls">
-                    <input type="text" id="inputHostname" class="" value="<?= $infoscreen->hostname; ?>" disabled>
+            <?php
+                // Show hostname if super-admin
+                if($this->session->userdata('rights')){
+            ?>
+                <div class="control-group">
+                    <label class="control-label" for="inputHostname"><?= lang('term.hostname') ?></label>
+                    <div class="controls">
+                        <input type="text" id="inputHostname" name="hostname" class="" value="<?= $infoscreen->hostname; ?>">
+                    </div>
                 </div>
-            </div>
+            <?php
+                }
+            ?>
             <? if($infoscreen->pincode){ ?>
             <div class="control-group">
                 <label class="control-label" for="inputPin"><?= lang('screen.pin_for_tablet') ?></label>

@@ -10,5 +10,3 @@ $('#pane-selector li').on('click', function(e){
         $('#pane_' + selected).fadeIn();
     }
 });
-
-console.log("test4");

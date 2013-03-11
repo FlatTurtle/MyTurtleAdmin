@@ -69,4 +69,3 @@ function sort_turtles(event, ui){
         }
     });
 }
-console.log("test6");
