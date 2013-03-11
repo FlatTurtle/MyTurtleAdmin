@@ -39,7 +39,7 @@
         <concat destfile="${build.dir}/js/script.js">
             <fileset
                 dir="${src.js.dir}"
-                includes="*.js"
+                includes="*.js, inc/turtle-general.js, inc/turtle-creation.js, inc/turtle-sorting.js, inc/pane-general.js, inc/pane-creation.js, inc/pane-sorting.js"
                 excludes="jquery-1.8.2.js, jquery-ui-1.9.1.js, spectrum.js, jquery-ui-touch-punch.js"/>
         </concat>
         <echo>Finished</echo>

@@ -22,7 +22,7 @@ textarea{
 }
 
 header[role=banner] {
-	padding: 40px 0px;
+	padding: 20px 0px;
 	margin: 0 auto;
 	overflow: hidden;
 	background-color: #fff;
@@ -37,11 +37,17 @@ header[role=banner] {
 nav[role=navigation] {
 	width: 100%;
 	text-align: right;
-	padding: 65px 0px;
+    padding-top: 35px;
 
 	i{
 		color: #0578bd;
 	}
+}
+
+nav[role=navigation] h4{
+    display:inline;
+    padding:0px;
+    padding-right: 20px;
 }
 
 .language_switcher a{

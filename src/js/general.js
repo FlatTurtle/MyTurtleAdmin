@@ -11,110 +11,6 @@ String.prototype.camelcase = function() {
 }
 
 /**
- * Turtle sorting
- */
-var sortableIn = 0;
-$(".turtle-area.sortable").sortable({
-    cursor: 'pointer',
-    update: sort_turtles,
-    receive: function(event, ui){
-        if(sortableIn == 1){
-            var dragged =  ui.item;
-            var droppable = $(this);
-            var turtle_type = dragged.attr('id');
-            var pane_id = droppable.attr('id').split('_')[1];
-            $('.turtle',droppable).html("<div style='padding:20px;'><i class='loading'></i> Adding turtle </div>");
-
-            $.ajax({
-                url: pathname + '/create',
-                dataType: 'html',
-                type: 'POST',
-                data:{
-                    type: turtle_type,
-                    pane: pane_id
-                },
-                success: function(content){
-                    var turtle = $(content);
-                    turtle.hide();
-
-                    $('.turtle',droppable).replaceWith(turtle);
-
-                    bind_event_to_turtles();
-                    turtle.slideDown(400);
-
-                    // Force re-sort
-                    $(".turtle-area.sortable").sortable('refresh');
-                    sort_turtles();
-                },
-                error: function(error, status){
-                    alert('Could not create turtle: ' + status);
-                }
-            });
-        }
-    },
-    over: function(event, ui)
-    {
-        sortableIn = 1;
-    },
-    out: function(event, ui)
-    {
-        sortableIn = 0;
-    }
-});
-
-/**
- * Post the new order on change
- */
-function sort_turtles(event, ui){
-    var order = $(".turtle-area.sortable").sortable('toArray');
-
-    for(var i=0; i<order.length; i++) {
-        order[i] = order[i].split("_")[1];
-    }
-
-    $.ajax({
-        url: pathname + '/sort',
-        type: 'POST',
-        data: {
-            order: order
-        }
-    });
-}
-
-/**
- * Creating new turtles by drag and drop
- */
-$(".turtle-chooser .draggable" ).draggable({
-    revert: true,
-    helper: function(event) {
-        helper = $(event.target).clone();
-        helper.css('padding','30px');
-        helper.css('min-width','100px');
-        helper.css('line-height','0px');
-        helper.css('display','block');
-        return helper;
-    },
-    stack: ".turtle-chooser .turtle",
-    connectToSortable: ".turtle-area.sortable"
-});
-
-/**
- * Pane switcher for left side of the screen
- */
-$('#pane-selector li').on('click', function(e){
-    var selected = $(this).attr('id').split('_')[1];
-    if(!$(this).hasClass('active')){
-        $('#pane-selector li').removeClass('active');
-        $(this).addClass('active');
-        $('.turtle-area').fadeOut(0);
-        $('#pane_' + selected).fadeIn();
-    }
-});
-
-
-
-
-/**
  * Bind events to (new) turtles
  */
 function bind_event_to_turtles(){
@@ -430,6 +326,13 @@ function bind_event_to_turtles(){
                         updateTurtle(turtle_instance, button, turtle_id, option_data);
                     }
                 });
+            }else if(turtle_instance.hasClass('turtle_rss') && option_data['feed'] != ""){
+                // Add http:// in front of RSS feed when it's missing
+                var httpDetectRegExp = new RegExp('^http(s?)://');
+                if(!httpDetectRegExp.test(option_data['feed'])){
+                    option_data['feed'] = "http://" + option_data['feed'];
+                }
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
@@ -558,124 +461,6 @@ if($('#inputColor')[0]){
         showInput: true
     });
 }
-
-var PANE_DELAY = 3000;
-
-/**
- * Pane sorting
- */
-$(".pane-chooser .sortable").sortable({
-    cursor: 'pointer',
-    update: sort_panes
-});
-
-/**
- * Post the new order on change
- */
-function sort_panes(event, ui){
-    var order = $(".pane-chooser .sortable").sortable('toArray');
-
-    for(var i=0; i<order.length; i++) {
-        order[i] = order[i].split("_")[1];
-    }
-
-    var path = "";
-    var split = pathname.split("right");
-    if(split.length > 1){
-        path = split[0] + 'right/sort';
-    }
-
-    $.ajax({
-        url: path,
-        type: 'POST',
-        data: {
-            order: order
-        },
-        success: function(){
-            console.log('u');
-        },
-        error : function(){
-            console.log('k');
-        }
-    });
-}
-
-
-/**
- * Add a pane with checkbox selection
- */
-$('input.add_pane').on('change', function(){
-
-    // Get pane type
-    var type = $(this).attr('id').split('_')[2];
-
-    // Show modal for delay
-    var options = {};
-    // Non-clickable backdrop
-    options.backdrop = "static";
-    $('.adding_pane_modal').modal(options);
-
-    var path = pathname;
-    var split = pathname.split("right");
-    if(split.length > 1){
-        path = split[0] ;
-    }
-
-    // Actually add the pane
-    $.ajax({
-        url: path + "right/add/" + type,
-        type: 'GET',
-        success: function( data ) {
-            console.log(data);
-            setTimeout(function(){
-                location = path + "right/" + data.template + "/" + data.id + "#config";
-            }, PANE_DELAY);
-        },
-        error: function(data, status){
-            $('.adding_pane_modal').modal('hide');
-            alert('Could not add the pane at this moment: ' + status);
-        }
-    });
-});
-
-/**
- * Delete a pane
- */
-$('.delete_pane').on('click', function(e){
-    e.preventDefault();
-
-    // Get pane ID
-    var delID = $(this).attr('id').split('_')[2];
-
-    if(confirm($(this).attr('data-confirm'))){
-        // Show modal for delay
-        var options = {};
-        // Non-clickable backdrop
-        options.backdrop = "static";
-        $('.deleting_pane_modal').modal(options);
-
-        var path = pathname;
-        var split = pathname.split("right");
-        if(split.length > 1){
-            path = split[0] ;
-        }
-
-        // Actually delete the pane
-        $.ajax({
-            url: path + "right/delete/" + delID,
-            type: 'GET',
-            success: function( data ) {
-                setTimeout(function(){
-                    location = path + "right/";
-                }, PANE_DELAY);
-            },
-            error: function(data, status){
-                $('.deleting_pane_modal').modal('hide');
-                alert('Could not delete the pane at this moment: ' + status);
-            }
-        });
-    }
-});
 
 /**
  * Nicer looking file uploads

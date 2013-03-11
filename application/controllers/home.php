@@ -2,7 +2,7 @@
 
 /**
  * FlatTurtle bvba
- * @author: Michiel Vancoillie 
+ * @author: Michiel Vancoillie
  */
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
@@ -18,14 +18,18 @@ class Home extends CI_Controller {
 	}
 
 	/**
-	 * List infoscreens 
+	 * List infoscreens
 	 */
 	public function index() {
 		if (!$this->session->userdata('logged_in')) {
 			redirect('login');
 		}
-		
+
 		$data['infoscreens'] = $this->infoscreen->getAll();
+        // Redirect when there is only one screen
+        if(count($data['infoscreens']) == 1){
+            redirect(site_url($data['infoscreens'][0]->alias));
+        }
 
 		$this->load->view('header');
 		$this->load->view('home', $data);
@@ -39,7 +43,7 @@ class Home extends CI_Controller {
 		if ($this->session->userdata('logged_in')) {
 			redirect('/');
 		}
-		
+
 		$data['username'] = $this->session->flashdata('username');
 		$data['form_error'] = $this->session->flashdata('form_error');
 
@@ -64,7 +68,7 @@ class Home extends CI_Controller {
 		}
 
 		$this->session->set_flashdata('username', $this->input->post('username'));
-		
+
 		redirect('login');
 	}
 

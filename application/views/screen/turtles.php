@@ -2,7 +2,7 @@
 	<div class='span12'>
 		<h2>
 			<a href="<?= site_url($infoscreen->alias); ?>" class='blacklink'>
-				<i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>&nbsp;&gg;&nbsp;<?= lang('term.left') ?>
+				<i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>&nbsp;&#8811;&nbsp;<?= lang('term.left') ?>
 			</a>
 		</h2>
 	</div>

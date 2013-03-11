@@ -12,7 +12,7 @@
 	<div class='span12'>
 		<h2>
 			<a id='config' href="<?= site_url($infoscreen->alias); ?>" class='blacklink' >
-				<i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>&nbsp;&gg;&nbsp;Right
+				<i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>&nbsp;&#8811;&nbsp;Right
 			</a>
 		</h2>
 	</div>
