@@ -16,7 +16,7 @@
     },
     "social": {
         "name": "Social",
-        "description": "Feeds from twitter.",
+        "description": "Feeds from Twitter.",
         "turtles": [
             {
                 "type": "twitter",
@@ -46,7 +46,7 @@
     },
     "finance": {
         "name": "Finance",
-        "description": "Stock information, own stock and secondary ones.",
+        "description": "Stock information, own and secondary stock.",
         "turtles": [
             {
                 "type": "finance",
@@ -56,7 +56,7 @@
     },
     "signage": {
         "name": "Signage",
-        "description": "What is on which floor?",
+        "description": "Who is on which floor?",
         "turtles": [
             {
                 "type": "signage",
