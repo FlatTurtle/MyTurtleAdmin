@@ -8,8 +8,8 @@
 $lang['title'] = "Uw FlatTurtle";
 
 // Greeting in front of name
-$lang['greeting'] = "Dag";
-$lang['mailing_list'] = "";
+$lang['greeting'] = "Hallo";
+$lang['mailing_list'] = "Abonneer u op onze product updates";
 
 
 
@@ -54,8 +54,8 @@ $lang['term.primary'] = "Eerste";
 $lang['term.secondary'] = "Tweede";
 $lang['term.search'] = "Zoeken";
 $lang['term.feed'] = "Feed";
-$lang['term.subscribe'] = "";
-$lang['term.mailing_list'] = "";
+$lang['term.subscribe'] = "Abonneer";
+$lang['term.mailing_list'] = "Mailing lijst";
 
 
 /**
@@ -66,7 +66,7 @@ $lang['screen.sent_message_note'] = "Dit bericht werd even op het scherm geplaat
 $lang['screen.sent_message_alt'] = "Toon een bericht op het scherm";
 $lang['screen.toggle_clock_alt'] = "Zet de klok aan of uit";
 $lang['screen.toggle_screen_alt'] = "Zet het scherm aan of uit";
-$lang['screen.refresh'] = "";
+$lang['screen.refresh'] = "Vernieuw het scherm";
 
 $lang['screen.left_side'] = "Linkerkant";
 $lang['screen.right_side'] = "Rechterkant";

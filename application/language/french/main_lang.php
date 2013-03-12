@@ -63,7 +63,7 @@ $lang['screen.sent_message_note'] = "Le message est affiché sur l'écran pendan
 $lang['screen.sent_message_alt'] = "Afficher un message sur l'écran";
 $lang['screen.toggle_clock_alt'] = "Activer l'horloge";
 $lang['screen.toggle_screen_alt'] = "Eteindre ou allumer l'écran";
-$lang['screen.refresh'] = "";
+$lang['screen.refresh'] = "Actualisez l'écran";
 
 $lang['screen.left_side'] = "Côté gauche";
 $lang['screen.right_side'] = "Côté droit";
@@ -102,7 +102,7 @@ $lang['turtle.rss_alt'] = "L'adresse web d'un flux RSS";
 $lang['turtle.rss_custom'] = "Flux adapté";
 $lang['turtle.screen_location'] = "Location de l'écran";
 $lang['turtle.custom_location'] = "Emplacement personnalisé";
-$lang['turtle.weather_location'] = "";
+$lang['turtle.weather_location'] = "La météo utilise la localisation de l'écran";
 
 
 /**
