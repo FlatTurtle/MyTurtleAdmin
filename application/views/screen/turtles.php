@@ -1,11 +1,16 @@
 <div class='row'>
-	<div class='span12'>
-		<h2>
-			<a href="<?= site_url($infoscreen->alias); ?>" class='blacklink'>
-				<i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>&nbsp;&#8811;&nbsp;<?= lang('term.left') ?>
-			</a>
-		</h2>
-	</div>
+    <div class='span3'>
+        <ul class="pager backlink">
+            <li class="previous">
+                <a href="<?= site_url($infoscreen->alias); ?>">&larr; Back</a>
+            </li>
+        </ul>
+    </div>
+    <div class='span9'>
+        <h3>
+            <?= $infoscreen->title; ?>&nbsp;<i class='icon-chevron-right'></i>&nbsp;<?= lang('term.left') ?>
+        </h3>
+    </div>
 </div>
 <div class='row'>
 	<div class='turtle-chooser span3'>

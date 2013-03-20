@@ -15,14 +15,23 @@
     </div>
 </div>
 
+
+<div class='row'>
+    <div class='span3'>
+        <ul class="pager backlink">
+            <li class="previous">
+                <a href="<?= site_url(''); ?>">&larr; Back</a>
+            </li>
+        </ul>
+    </div>
+    <div class='span9'>
+        <h3>
+            <?= $infoscreen->title; ?>
+        </h3>
+    </div>
+</div>
 <div class='row'>
     <div class='span12'>
-        <h2>
-            <a href="<?= site_url('/'); ?>" class='blacklink'>
-                <i class="icon-chevron-left"></i>&nbsp;&nbsp;<?= $infoscreen->title; ?>
-            </a>
-        </h2>
-
         <div class="single-infoscreen">
             <div class="dummy"></div>
             <div class="screen">
