@@ -56,6 +56,7 @@ $lang['term.search'] = "Search";
 $lang['term.feed'] = "Feed";
 $lang['term.subscribe'] = "Subscribe";
 $lang['term.mailing_list'] = "Mailing list";
+$lang['term.floor'] = "Floor";
 
 
 
@@ -107,6 +108,11 @@ $lang['turtle.rss_custom'] = "Custom feed";
 $lang['turtle.screen_location'] = "Screen location";
 $lang['turtle.custom_location'] = "Custom";
 $lang['turtle.weather_location'] = "The weather Turtle uses the location of the screen.";
+$lang['turtle.signage_floor_location'] = "Floor location";
+$lang['turtle.signage_location_alt'] = "(e.g. +2,-1)";
+$lang['turtle.signage_add_floor'] = "Add a floor";
+$lang['turtle.signage_add_floor_listing'] = "Add a name on this floor";
+$lang['turtle.signage_save_alt'] = "Make all your changes to the floorplan, then hit save to push them to the screen.";
 
 
 /**

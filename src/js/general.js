@@ -333,6 +333,29 @@ function bind_event_to_turtles(){
                     option_data['feed'] = "http://" + option_data['feed'];
                 }
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_signage')){
+                // Construct data to be pushed as option
+                var signage_data = [];
+                $('.floors .control-group', turtle_instance).each(function(){
+                    var floor = new Object();
+                    // Get floor name
+                    floor.location = $(".location", this).val();
+                    floor.floors = [];
+
+                    //Get individual listing
+                    $(".listing", this).each(function(){
+                        var listing = new Object();
+                        listing.name = $('input', this).val();
+
+                        if(listing.name.length > 0)
+                            floor.floors.push(listing);
+                    });
+                    signage_data.push(floor);
+                });
+
+                option_data['data'] = JSON.stringify(signage_data);
+
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }

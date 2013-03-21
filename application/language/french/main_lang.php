@@ -53,6 +53,7 @@ $lang['term.search'] = "Rechercher";
 $lang['term.feed'] = "Flux";
 $lang['term.subscribe'] = "Souscrire";
 $lang['term.mailing_list'] = "Liste de diffusion";
+$lang['term.floor'] = "";
 
 
 /**
@@ -103,6 +104,11 @@ $lang['turtle.rss_custom'] = "Flux adapté";
 $lang['turtle.screen_location'] = "Location de l'écran";
 $lang['turtle.custom_location'] = "Emplacement personnalisé";
 $lang['turtle.weather_location'] = "La météo utilise la localisation de l'écran";
+$lang['turtle.signage_floor_location'] = "";
+$lang['turtle.signage_location_alt'] = "";
+$lang['turtle.signage_add_floor'] = "";
+$lang['turtle.signage_add_floor_listing'] = "";
+$lang['turtle.signage_save_alt'] = "";
 
 
 /**

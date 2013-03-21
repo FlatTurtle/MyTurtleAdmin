@@ -56,6 +56,7 @@ $lang['term.search'] = "Zoeken";
 $lang['term.feed'] = "Feed";
 $lang['term.subscribe'] = "Abonneer";
 $lang['term.mailing_list'] = "Mailing lijst";
+$lang['term.floor'] = "";
 
 
 /**
@@ -106,7 +107,11 @@ $lang['turtle.rss_custom'] = "Eigen feed";
 $lang['turtle.screen_location'] = "Een andere locatie";
 $lang['turtle.custom_location'] = "Ander";
 $lang['turtle.weather_location'] = "De weer-Turtle gebruikt de locatie van het scherm.";
-
+$lang['turtle.signage_floor_location'] = "";
+$lang['turtle.signage_location_alt'] = "";
+$lang['turtle.signage_add_floor'] = "";
+$lang['turtle.signage_add_floor_listing'] = "";
+$lang['turtle.signage_save_alt'] = "";
 
 /**
  * Panes page
