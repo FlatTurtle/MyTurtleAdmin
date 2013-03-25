@@ -97,6 +97,9 @@ class Turtle extends CI_Model {
         $contents = preg_replace('/{{term.feed}}/', lang('term.feed'), $contents);
         $contents = preg_replace('/{{term.floor}}/', lang('term.floor'), $contents);
         $contents = preg_replace('/{{term.delete}}/', lang('term.delete'), $contents);
+        $contents = preg_replace('/{{term.destination}}/', lang('term.destination'), $contents);
+        $contents = preg_replace('/{{term.via}}/', lang('term.via'), $contents);
+        $contents = preg_replace('/{{term.optional}}/', lang('term.optional'), $contents);
         $contents = preg_replace('/{{turtles.option_number_of_items}}/', lang('turtles.option_number_of_items'), $contents);
         $contents = preg_replace('/{{turtles.option_zoom}}/', lang('turtles.option_zoom'), $contents);
 
@@ -105,6 +108,7 @@ class Turtle extends CI_Model {
         $contents = preg_replace('/{{turtle.delijn_alt}}/', lang('turtle.delijn_alt'), $contents);
         $contents = preg_replace('/{{turtle.mivb_alt}}/', lang('turtle.mivb_alt'), $contents);
         $contents = preg_replace('/{{turtle.nmbs_alt}}/', lang('turtle.nmbs_alt'), $contents);
+        $contents = preg_replace('/{{turtle.nmbs_via_alt}}/', lang('turtle.nmbs_via_alt'), $contents);
         $contents = preg_replace('/{{turtle.velo_alt}}/', lang('turtle.velo_alt'), $contents);
         $contents = preg_replace('/{{turtle.villo_alt}}/', lang('turtle.villo_alt'), $contents);
         $contents = preg_replace('/{{turtle.mapbox_alt}}/', lang('turtle.mapbox_alt'), $contents);

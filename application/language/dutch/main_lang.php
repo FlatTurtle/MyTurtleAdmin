@@ -57,6 +57,9 @@ $lang['term.feed'] = "Feed";
 $lang['term.subscribe'] = "Abonneer";
 $lang['term.mailing_list'] = "Mailing lijst";
 $lang['term.floor'] = "";
+$lang['term.destination'] = "";
+$lang['term.via'] = "";
+$lang['term.optional'] = "";
 
 
 /**
@@ -93,7 +96,8 @@ $lang['turtles.error_blank'] = "Er zijn geen te configureren opties voor deze Tu
 $lang['turtle.airport_alt'] =  "Luchthavencode (bvb. BRU or AMS)";
 $lang['turtle.delijn_alt'] =  "Haltenaam (bvb. Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Haltenaam (bvb. Mozart)";
-$lang['turtle.nmbs_alt'] =  "Haltenaam (bvb. Gent Sint-Pieters)";
+$lang['turtle.nmbs_alt'] =  "Haltenaam (bvb. Ghent Sint-Pieters)";
+$lang['turtle.nmbs_via_alt'] =  "";
 $lang['turtle.velo_alt'] =  "Naam van een Velo plaats (bvb. Theater)";
 $lang['turtle.villo_alt'] =  "Naam van een Villo plaats (bvb. Botanique/Kruidtuin)";
 $lang['turtle.mapbox_alt'] =  "Adres van een locatie (bvb. Gent Korenmarkt)";

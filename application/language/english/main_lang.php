@@ -57,7 +57,9 @@ $lang['term.feed'] = "Feed";
 $lang['term.subscribe'] = "Subscribe";
 $lang['term.mailing_list'] = "Mailing list";
 $lang['term.floor'] = "Floor";
-
+$lang['term.destination'] = "Destination";
+$lang['term.via'] = "Via";
+$lang['term.optional'] = "Optional";
 
 
 /**
@@ -94,7 +96,8 @@ $lang['turtles.error_blank'] = "Momentarily there are no options to configure fo
 $lang['turtle.airport_alt'] =  "Code of an airport (e.g. BRU or AMS)";
 $lang['turtle.delijn_alt'] =  "Name of a stop (e.g. Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Name of a stop (e.g. Mozart)";
-$lang['turtle.nmbs_alt'] =  "Name of a station (e.g. Gent Sint-Pieters)";
+$lang['turtle.nmbs_alt'] =  "Name of a station (e.g. Ghent Sint-Pieters)";
+$lang['turtle.nmbs_via_alt'] =  "When 'via' is filled out, it will show if a train stops in that station and when.";
 $lang['turtle.velo_alt'] =  "Name of a Velo station (e.g. Theater)";
 $lang['turtle.villo_alt'] =  "Name of a Villo station (e.g. Botanique/Kruidtuin)";
 $lang['turtle.mapbox_alt'] =  "Address of a location (e.g. Gent Korenmarkt)";

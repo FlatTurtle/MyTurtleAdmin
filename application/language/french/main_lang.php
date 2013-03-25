@@ -54,6 +54,9 @@ $lang['term.feed'] = "Flux";
 $lang['term.subscribe'] = "Souscrire";
 $lang['term.mailing_list'] = "Liste de diffusion";
 $lang['term.floor'] = "";
+$lang['term.destination'] = "";
+$lang['term.via'] = "";
+$lang['term.optional'] = "";
 
 
 /**
@@ -91,6 +94,7 @@ $lang['turtle.airport_alt'] =  "Code de l'aéroport (ex: BRU ou CDG)";
 $lang['turtle.delijn_alt'] =  "Nom d'un arrêt (ex: Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Nom d'un arrêt (ex: Mozart)";
 $lang['turtle.nmbs_alt'] =  "Nom d'une station (ex: Liege Guillemins)";
+$lang['turtle.nmbs_via_alt'] =  "";
 $lang['turtle.velo_alt'] =  "Nom d'une station Velo (ex: Theater)";
 $lang['turtle.villo_alt'] =  "Nom d'une station Villo (ex: Botanique/Kruidtuin)";
 $lang['turtle.mapbox_alt'] =  "L'adresse d'un emplacement (ex: Gent Korenmarkt)";
