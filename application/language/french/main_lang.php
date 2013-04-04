@@ -5,7 +5,7 @@
 */
 
 // Page <title>
-$lang['title'] = "TurtleControl";
+$lang['title'] = "MyTurtleControl";
 
 // Greeting in front of name
 $lang['greeting'] = "Bonjour";
@@ -28,8 +28,6 @@ $lang['term.log_out'] = "Déconnecter";
 $lang['term.retry'] = "Réessayez";
 $lang['term.delete'] = "Effacer";
 $lang['term.disable'] = "Désactiver";
-
-
 $lang['term.infoscreens'] = "Infoscreens";
 $lang['term.left'] = "Gauche";
 $lang['term.right'] = "Droit";
@@ -53,12 +51,11 @@ $lang['term.search'] = "Rechercher";
 $lang['term.feed'] = "Flux";
 $lang['term.subscribe'] = "Souscrire";
 $lang['term.mailing_list'] = "Liste de diffusion";
-$lang['term.floor'] = "";
-$lang['term.destination'] = "";
-$lang['term.via'] = "";
-$lang['term.optional'] = "";
-$lang['term.advanced'] = "";
-
+$lang['term.floor'] = "Étage";
+$lang['term.destination'] = "Destination";
+$lang['term.via'] = "Via";
+$lang['term.optional'] = "Optionnel";
+$lang['term.advanced'] = "Avancé";
 
 /**
 * Screen detail page
@@ -69,13 +66,11 @@ $lang['screen.sent_message_alt'] = "Afficher un message sur l'écran";
 $lang['screen.toggle_clock_alt'] = "Activer l'horloge";
 $lang['screen.toggle_screen_alt'] = "Eteindre ou allumer l'écran";
 $lang['screen.refresh'] = "Actualiser l'écran";
-
 $lang['screen.left_side'] = "Côté gauche";
 $lang['screen.right_side'] = "Côté droit";
 $lang['screen.address_alt'] = "L'adresse (par exemple: Rue de la Loi 1, Bruxelles)";
 $lang['screen.geographic_coordinates'] = "Coordonnées géographiques";
 $lang['screen.pin_for_tablet'] = "Code PIN pour tablette";
-
 
 /**
 * Turtles page
@@ -108,16 +103,15 @@ $lang['turtle.rss_alt'] = "L'adresse web d'un flux RSS";
 $lang['turtle.rss_custom'] = "Flux adapté";
 $lang['turtle.screen_location'] = "Location de l'écran";
 $lang['turtle.custom_location'] = "Emplacement personnalisé";
-$lang['turtle.weather_location'] = "La météo utilise la localisation de l'écran";
-$lang['turtle.signage_floor_location'] = "";
-$lang['turtle.signage_location_alt'] = "";
-$lang['turtle.signage_add_floor'] = "";
-$lang['turtle.signage_add_floor_listing'] = "";
-$lang['turtle.signage_save_alt'] = "";
-$lang['turtle.signage_delete_floor_note'] = "";
-$lang['turtle.signage_delete_entry_note'] = "";
-$lang['turtle.delete_note'] = "";
-
+$lang['turtle.weather_location'] = "La météo utilise la localisation de l'écran.";
+$lang['turtle.signage_floor_location'] = "Location de l'étage";
+$lang['turtle.signage_location_alt'] = "(par example: +2, -1)";
+$lang['turtle.signage_add_floor'] = "Ajoutez un étage";
+$lang['turtle.signage_add_floor_listing'] = "Ajoutez un nom à cet étage";
+$lang['turtle.signage_save_alt'] = "Faites toutes les modifications au plan d'étage et cliquez sauver pour mettre l'écran à jour.";
+$lang['turtle.signage_delete_floor_note'] = "Êtes-vous sûr de vouloir supprimer l'étage complet?";
+$lang['turtle.signage_delete_entry_note'] = "Êtes-vous sûr de vouloir supprimer cette entrée?";
+$lang['turtle.delete_note'] = "Êtes-vous sûr de vouloir supprimer ce Turtle?";
 
 /**
 * Panes page
@@ -132,19 +126,18 @@ $lang['panes.disable_note'] = "Êtes-vous sûr de vouloir supprimer ce panneau?"
 $lang['panes.adding'] = "Ajout du panneau en cours";
 $lang['panes.deleting'] = "Retrait du panneau en cours";
 
-
 /**
 * Error messages
 */
 $lang['error.logo_upload'] = "L'envoi a échoué. Essayez à nouveau.";
 $lang['error.color_check_hex'] = "The couleur {{value}} n'est pas une couleur hexadécimal correcte.";
 $lang['error.resolve_address'] = "Impossible de localiser l'adresse. Essayez d'être plus précis.";
-$lang['error.resolve_time_walk'] = "";
-$lang['error.save'] = "";
-$lang['error.create_turtle'] = "";
-$lang['error.delete_turtle'] = "";
-$lang['error.add_pane'] = "";
-$lang['error.delete_pane'] = "";
+$lang['error.resolve_time_walk'] = "Impossible de calculer la durée de marche. Corrigez et réessayez.";
+$lang['error.save'] = "Impossible d'enregistrer. Veuillez réessayez";c
+$lang['error.create_turtle'] = "Impossible de créer le Turtle. Veuillez actualiser l'écran et réessayer";
+$lang['error.delete_turtle'] = "Impossible de supprimer le Turtle pour le moment";
+$lang['error.add_pane'] = "Impossible d'activer le panneau. Veuillez actualiser l'écran et réessayer";
+$lang['error.delete_pane'] = "Impossible de supprimer le panneau pour le moment";
 
 /**
 * Footer
