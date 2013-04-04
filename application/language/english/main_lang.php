@@ -117,6 +117,9 @@ $lang['turtle.signage_location_alt'] = "(e.g. +2,-1)";
 $lang['turtle.signage_add_floor'] = "Add a floor";
 $lang['turtle.signage_add_floor_listing'] = "Add a name on this floor";
 $lang['turtle.signage_save_alt'] = "Make all your changes to the floorplan, then hit save to push them to the screen.";
+$lang['turtle.signage_delete_floor_note'] = "Are you sure you want tot delete this entire floor?";
+$lang['turtle.signage_delete_entry_note'] = "Are you sure you want tot delete this entry?";
+$lang['turtle.delete_note'] = "Are you sure you want to delete this turtle?";
 
 
 /**
@@ -139,6 +142,12 @@ $lang['panes.deleting'] = "Deleting the pane from the screen";
 $lang['error.logo_upload'] = "Something went wrong while trying to upload a new logo. Try again.";
 $lang['error.color_check_hex'] = "The color {{value}} is not a valid hexadecimal color.";
 $lang['error.resolve_address'] = "Couldn't resolve location to geocode, try to be more specific.";
+$lang['error.resolve_time_walk'] = "Couldn't calculate walking duration. Correct and try again.";
+$lang['error.save'] = "Couldn't save, please try again";
+$lang['error.create_turtle'] = "Couldn't create turtle, please refresh and try again";
+$lang['error.delete_turtle'] = "Couldn't delete that turtle at the moment";
+$lang['error.add_pane'] = "Couldn't enable pane, please refresh and try again";
+$lang['error.delete_pane'] = "Couldn't delete that pane at the moment";
 
 /**
  * Footer

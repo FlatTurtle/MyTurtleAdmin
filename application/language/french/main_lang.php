@@ -114,6 +114,9 @@ $lang['turtle.signage_location_alt'] = "";
 $lang['turtle.signage_add_floor'] = "";
 $lang['turtle.signage_add_floor_listing'] = "";
 $lang['turtle.signage_save_alt'] = "";
+$lang['turtle.signage_delete_floor_note'] = "";
+$lang['turtle.signage_delete_entry_note'] = "";
+$lang['turtle.delete_note'] = "";
 
 
 /**
@@ -136,6 +139,12 @@ $lang['panes.deleting'] = "Retrait du panneau en cours";
 $lang['error.logo_upload'] = "L'envoi a échoué. Essayez à nouveau.";
 $lang['error.color_check_hex'] = "The couleur {{value}} n'est pas une couleur hexadécimal correcte.";
 $lang['error.resolve_address'] = "Impossible de localiser l'adresse. Essayez d'être plus précis.";
+$lang['error.resolve_time_walk'] = "";
+$lang['error.save'] = "";
+$lang['error.create_turtle'] = "";
+$lang['error.delete_turtle'] = "";
+$lang['error.add_pane'] = "";
+$lang['error.delete_pane'] = "";
 
 /**
 * Footer

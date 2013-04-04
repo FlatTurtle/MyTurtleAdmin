@@ -148,10 +148,10 @@ class Turtle extends CI_Model {
                             $floor->location = "";
 
                         $html .= "<div class='control-group'>
-                                    <label class='control-label'>Floor location</label>
+                                    <label class='control-label'>".lang('turtle.signage_floor_location')."</label>
                                     <div class='controls'>
                                         <input type='text' class='input-small location' value='".$floor->location."' placeholder=''/>
-                                        <button id='add-floor-item' class='btn btn-small'>Add a name on this floor</button>
+                                        <button id='add-floor-item' class='btn btn-small'>".lang('turtle.signage_add_floor_listing')."</button>
                                         <button id='delete-floor' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>
                                     </div>
                                     <div class='listings'>";

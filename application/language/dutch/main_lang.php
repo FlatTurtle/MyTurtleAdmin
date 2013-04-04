@@ -117,6 +117,9 @@ $lang['turtle.signage_location_alt'] = "";
 $lang['turtle.signage_add_floor'] = "";
 $lang['turtle.signage_add_floor_listing'] = "";
 $lang['turtle.signage_save_alt'] = "";
+$lang['turtle.signage_delete_floor_note'] = "";
+$lang['turtle.signage_delete_entry_note'] = "";
+$lang['turtle.delete_note'] = "";
 
 /**
  * Panes page
@@ -139,6 +142,12 @@ $lang['panes.deleting'] = "Pane aan het verwijderen van het scherm";
 $lang['error.logo_upload'] = "Er ging iets fout bij het opladen van een nieuwe foto. Gelieve opnieuw te proberen.";
 $lang['error.color_check_hex'] = "De kleur {{value}} is geen hexadecimaal getal.";
 $lang['error.resolve_address'] = "Kon geen locatie vinden voor de opgegeven tekst. Kunt u me iets specifieker geven?";
+$lang['error.resolve_time_walk'] = "";
+$lang['error.save'] = "";
+$lang['error.create_turtle'] = "";
+$lang['error.delete_turtle'] = "";
+$lang['error.add_pane'] = "";
+$lang['error.delete_pane'] = "";
 
 /**
  * Footer

@@ -4,10 +4,10 @@ function bindSignageEvents(){
         var turtle_signage = $(this).parents('.turtle_signage');
 
         var floor_html= $("<div class='control-group'>\
-            <label class='control-label'>Floor location</label>\
+            <label class='control-label'>" + lang['turtle.signage_floor_location'] + "</label>\
             <div class='controls'>\
                 <input type='text' class='input-small location' value='' placeholder=''/>\
-                <button id='add-floor-item' class='btn btn-small'>Add a name on this floor</button>\
+                <button id='add-floor-item' class='btn btn-small'>" + lang['turtle.signage_add_floor_listing'] + "</button>\
                 <button id='delete-floor' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>\
             </div>\
             <div class='listings'>\
@@ -39,7 +39,7 @@ function bindSignageEvents(){
     $(".turtle_signage #delete-floor").off().on('click', function(e){
         e.preventDefault();
 
-        if(confirm('Are you sure you want tot delete this entire floor?')){
+        if(confirm(lang['turtle.signage_delete_floor_note'])){
             $(this).parents('.control-group').remove();
         }
 
@@ -49,7 +49,7 @@ function bindSignageEvents(){
     $(".turtle_signage .delete-floor-item").off().on('click', function(e){
         e.preventDefault();
 
-        if(confirm('Are you sure you want tot delete this entry?')){
+        if(confirm(lang['turtle.signage_delete_entry_note'])){
             $(this).parents('.listing').remove();
         }
 

@@ -42,7 +42,7 @@ $(".turtle-area.sortable").sortable({
                     sort_turtles(event);
                 },
                 error: function(error, status){
-                    alert('Could not create turtle: ' + status);
+                    alert(lang['error.create_turtle'] + ": " + status);
                 }
             });
         }

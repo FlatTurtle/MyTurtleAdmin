@@ -30,7 +30,7 @@ $('input.add_pane').on('change', function(){
         },
         error: function(data, status){
             $('.adding_pane_modal').modal('hide');
-            alert('Could not add the pane at this moment: ' + status);
+            alert(lang['error.add_pane'] + ": "  + status);
         }
     });
 });

@@ -226,13 +226,13 @@ function bind_event_to_turtles(){
                                 updateTurtle(turtle_instance, button, turtle_id, option_data);
                             }
                         }else{
-                            alert("Couldn't resolve that address to geocode. Correct the address and try again.");
+                            alert(lang['error.resolve_address']);
                             $('.loading', turtle_instance).animate({'opacity':0}, 200);
                             button.removeAttr('disabled').removeClass('disable');
                         }
                     },
                     error: function(data, status){
-                        alert('Could not resolve that address to geocode, try to correct the address.');
+                        alert(lang['error.resolve_address']);
                         $('.loading', turtle_instance).animate({'opacity':0}, 200);
                         button.removeAttr('disabled').removeClass('disable');
                     }
@@ -367,7 +367,7 @@ function bind_event_to_turtles(){
     // Delete turtles
     $('.turtle_instance .delete').off().on('click',function(e){
         e.preventDefault();
-        if(confirm('Are you sure you want tot delete this turtle?')){
+        if(confirm(lang['turtle.delete_note'])){
             var turtle_instance = $(this).parents('.turtle_instance');
             var turtle_id = turtle_instance.attr('id').split('_')[1];
 
@@ -384,7 +384,7 @@ function bind_event_to_turtles(){
                     });
                 },
                 error: function(data, status){
-                    alert('Could not delete the turtle at this moment: ' + status);
+                    alert(lang['error.delete_turtle'] + ": " + status);
                 }
             });
         }
@@ -419,13 +419,13 @@ function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
                     updateTurtle(turtle_instance, button, turtle_id, option_data);
                 }
             }else{
-                console.log("Couldn't not calculate walking duration. Correct and try again.");
+                alert(lang['error.resolve_time_walk']);
                 option_data['time_walk'] = -1;
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
         },
         error: function(data, status){
-            console.log("Couldn't not calculate walking duration. Correct and try again.");
+            alert(lang['error.resolve_time_walk']);
             option_data['time_walk'] = -1;
             updateTurtle(turtle_instance, button, turtle_id, option_data);
         }
@@ -464,7 +464,7 @@ function updateTurtle(turtle_instance, button, turtle_id, option_data){
             button.removeAttr('disabled').removeClass('disable');
         },
         error: function(data, status){
-            alert('Could not save at this moment: ' + status);
+            alert(lang['error.save'] + ": " + status);
             $('.loading', turtle_instance).animate({'opacity':0}, 200);
             button.removeAttr('disabled').removeClass('disable');
         }
