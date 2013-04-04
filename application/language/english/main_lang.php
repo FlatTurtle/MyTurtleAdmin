@@ -60,6 +60,7 @@ $lang['term.floor'] = "Floor";
 $lang['term.destination'] = "Destination";
 $lang['term.via'] = "Via";
 $lang['term.optional'] = "Optional";
+$lang['term.advanced'] = "Advanced";
 
 
 /**

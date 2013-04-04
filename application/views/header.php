@@ -68,5 +68,40 @@
                     </div>
                 </div>
             </div>
+            <?
+                // Highlight correct navigation
+                $nav_screens = $nav_users = false;
+                switch($this->uri->segment(2)){
+                    case "users":
+                        $nav_users = true;
+                        break;
+                    default:
+                        $nav_screens = true;
+                        break;
+                }
+
+
+                if ($this->session->userdata('logged_in')) {
+            ?>
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <ul class="nav">
+                                <li <?php if($nav_screens) echo 'class="active"' ?>><a href="<?php echo site_url('') ?>"><?= lang('term.infoscreens') ?></a></li>
+                                <?
+                                // Show this only for superadmins
+                                if ($this->session->userdata('rights') == 1) {
+                                ?>
+                                    <li><a href="#">Users</a></li>
+                                <?
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <?
+                }
+            ?>
             <div class="grey_wrapper">
                 <div class="container">

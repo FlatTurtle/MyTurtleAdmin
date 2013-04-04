@@ -50,6 +50,23 @@ nav[role=navigation] h4{
     padding-right: 20px;
 }
 
+.navbar{
+    margin: 0px;
+    background-color: #FAFAFA;
+    background-image: linear-gradient(to bottom, #FFFFFF, #F2F2F2);
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4;
+    border-left: 0px;
+    border-right: 0px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+
+    .navbar-inner{
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+}
+
 .language_switcher a{
     font-size: 10px !important;
     padding: 2px 6px !important;
@@ -61,8 +78,23 @@ nav[role=navigation] h4{
 
 .grey_wrapper{
     background-color: #ededed;
-    padding-top: 20px;
     padding-bottom: 20px;
+
+    .row:first-child{
+        padding-top: 20px;
+    }
+
+    .row.submenu{
+        padding: 0px;
+
+        h3{
+            display: inline-block;
+        }
+
+        .backlink, .btn{
+            margin-top: 15px;
+        }
+    }
 }
 
 .form-signin {
@@ -602,10 +634,6 @@ footer[role=footer] {
 
 select{
     width: auto;
-}
-
-.backlink{
-    margin-top: 15px;
 }
 
 .turtle_signage{

@@ -57,6 +57,7 @@ $lang['term.floor'] = "";
 $lang['term.destination'] = "";
 $lang['term.via'] = "";
 $lang['term.optional'] = "";
+$lang['term.advanced'] = "";
 
 
 /**

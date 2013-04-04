@@ -24,7 +24,7 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=1.0.5"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=1.0.6"></script>
 </body>
 </html>
 

@@ -42,9 +42,8 @@ class Screen extends CI_Controller {
             $_POST['color'] = '#' . substr($_POST['color'], 0, 6);
         }
 
-        // Only superadmin is allowed to update hostname
-        if(!$this->session->userdata('rights'))
-          unset($_POST['hostname']);
+        unset($_POST['hostname']);
+        unset($_POST['pincode']);
 
         // Get longitude and latitude of the location with google API
         $location = $this->input->post('location');
@@ -198,7 +197,10 @@ class Screen extends CI_Controller {
             $data['infoscreen']->color = $this->session->flashdata('post_color');
         }
 
+        $data['back_link'] = "";
+
         $this->load->view('header');
+        $this->load->view('screen/menu', $data);
         $this->load->view('screen/single', $data);
         $this->load->view('footer');
     }

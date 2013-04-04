@@ -9,20 +9,6 @@
   </div>
 </div>
 <div class='row'>
-    <div class='span3'>
-        <ul class="pager backlink">
-            <li class="previous">
-                <a href="<?= site_url($infoscreen->alias); ?>">&larr; Back</a>
-            </li>
-        </ul>
-    </div>
-    <div class='span9'>
-        <h3>
-            <?= $infoscreen->title; ?>&nbsp;<i class='icon-chevron-right'></i>&nbsp;<?= lang('term.right') ?>
-        </h3>
-    </div>
-</div>
-<div class='row'>
     <div class='pane-chooser sortable span3'>
         <?
         if(!empty($panes)){
@@ -101,15 +87,22 @@
                                 <input type="text" id="pane-title" name="title" class='input-large' value="<?= $current_pane->title ?>"/>
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label" for="duration"><?= lang('term.duration') ?></label>
-                            <div class="controls">
-                                <select name="duration">
-                                    <?= $duration_options ?>
-                                </select>
-                                &nbsp;<?= strtolower(lang('term.seconds')) ?>
+                        <?
+                        // Don't show duration option for video pane
+                        if($current_pane->template != "video"){
+                        ?>
+                            <div class="control-group">
+                                <label class="control-label" for="duration"><?= lang('term.duration') ?></label>
+                                <div class="controls">
+                                    <select name="duration">
+                                        <?= $duration_options ?>
+                                    </select>
+                                    &nbsp;<?= strtolower(lang('term.seconds')) ?>
+                                </div>
                             </div>
-                        </div>
+                        <?
+                        }
+                        ?>
                         <div class="control-group">
                             <div class="controls">
                                 <input type='submit' name='save' class="btn pane_save" value="<?= lang('term.save') ?>"/>

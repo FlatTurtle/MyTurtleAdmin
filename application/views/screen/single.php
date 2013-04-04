@@ -15,21 +15,6 @@
     </div>
 </div>
 
-
-<div class='row'>
-    <div class='span3'>
-        <ul class="pager backlink">
-            <li class="previous">
-                <a href="<?= site_url(''); ?>">&larr; Back</a>
-            </li>
-        </ul>
-    </div>
-    <div class='span9'>
-        <h3>
-            <?= $infoscreen->title; ?>
-        </h3>
-    </div>
-</div>
 <div class='row'>
     <div class='span12'>
         <div class="single-infoscreen">
@@ -147,27 +132,6 @@
                     </div>
                 </div>
             </div>
-            <?php
-                // Show hostname if super-admin
-                if($this->session->userdata('rights')){
-            ?>
-                <div class="control-group">
-                    <label class="control-label" for="inputHostname"><?= lang('term.hostname') ?></label>
-                    <div class="controls">
-                        <input type="text" id="inputHostname" name="hostname" class="" value="<?= $infoscreen->hostname; ?>">
-                    </div>
-                </div>
-            <?php
-                }
-            ?>
-            <? if($infoscreen->pincode){ ?>
-            <div class="control-group">
-                <label class="control-label" for="inputPin"><?= lang('screen.pin_for_tablet') ?></label>
-                <div class="controls padding-5">
-                    <strong><? echo $infoscreen->pincode; ?></strong>
-                </div>
-            </div>
-            <? } ?>
             <div class="control-group">
                 <div class="controls">
                     <? if (!empty($all_errors) || !empty($file_error)) { ?>

@@ -69,63 +69,27 @@ class Turtle extends CI_Model {
      */
     public function template($turtle) {
         // Fetch template files
-        $http = curl_init();
-        curl_setopt($http, CURLOPT_URL, base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php');
-        curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($http, CURLOPT_SSL_VERIFYPEER, false);
-        $contents = curl_exec($http);
-        $http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
+        $contents = @file_get_contents(base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php');
 
-        if ($http_status != 200) {
+        if(!$contents) {
             // Load notice when template is not found
-            curl_setopt($http, CURLOPT_URL, base_url() . 'assets/inc/turtles/options_blank.php');
-            $contents = curl_exec($http);
-            $contents = preg_replace('/{{turtles.error_blank}}/', lang('turtles.error_blank'), $contents);
+            $contents = file_get_contents(base_url() . 'assets/inc/turtles/options_blank.php');
         }
-        curl_close($http);
 
+        // Turtle specific replaces
         $contents = preg_replace('/{{id}}/', $turtle->id, $contents);
         $contents = preg_replace('/{{title}}/', $turtle->name, $contents);
         $contents = preg_replace('/{{type}}/', $turtle->type, $contents);
 
         // Language specific replaces
-        $contents = preg_replace('/{{term.save}}/', lang('term.save'), $contents);
-        $contents = preg_replace('/{{term.location}}/', lang('term.location'), $contents);
-        $contents = preg_replace('/{{term.primary}}/', lang('term.primary'), $contents);
-        $contents = preg_replace('/{{term.secondary}}/', lang('term.secondary'), $contents);
-        $contents = preg_replace('/{{term.search}}/', lang('term.search'), $contents);
-        $contents = preg_replace('/{{term.feed}}/', lang('term.feed'), $contents);
-        $contents = preg_replace('/{{term.floor}}/', lang('term.floor'), $contents);
-        $contents = preg_replace('/{{term.delete}}/', lang('term.delete'), $contents);
-        $contents = preg_replace('/{{term.destination}}/', lang('term.destination'), $contents);
-        $contents = preg_replace('/{{term.via}}/', lang('term.via'), $contents);
-        $contents = preg_replace('/{{term.optional}}/', lang('term.optional'), $contents);
-        $contents = preg_replace('/{{turtles.option_number_of_items}}/', lang('turtles.option_number_of_items'), $contents);
-        $contents = preg_replace('/{{turtles.option_zoom}}/', lang('turtles.option_zoom'), $contents);
+        preg_match_all('/{{(.*?)}}/', $contents, $matches, PREG_SET_ORDER);
+        foreach($matches as $match){
+            if(lang($match[1]) !== false){
+                $contents = preg_replace('/'.$match[0].'/', lang($match[1]), $contents);
+            }
+        }
 
-        // Turtle specific language replaces
-        $contents = preg_replace('/{{turtle.airport_alt}}/', lang('turtle.airport_alt'), $contents);
-        $contents = preg_replace('/{{turtle.delijn_alt}}/', lang('turtle.delijn_alt'), $contents);
-        $contents = preg_replace('/{{turtle.mivb_alt}}/', lang('turtle.mivb_alt'), $contents);
-        $contents = preg_replace('/{{turtle.nmbs_alt}}/', lang('turtle.nmbs_alt'), $contents);
-        $contents = preg_replace('/{{turtle.nmbs_via_alt}}/', lang('turtle.nmbs_via_alt'), $contents);
-        $contents = preg_replace('/{{turtle.velo_alt}}/', lang('turtle.velo_alt'), $contents);
-        $contents = preg_replace('/{{turtle.villo_alt}}/', lang('turtle.villo_alt'), $contents);
-        $contents = preg_replace('/{{turtle.mapbox_alt}}/', lang('turtle.mapbox_alt'), $contents);
-        $contents = preg_replace('/{{turtle.finance_primary_alt}}/', lang('turtle.finance_primary_alt'), $contents);
-        $contents = preg_replace('/{{turtle.finance_secondary_alt}}/', lang('turtle.finance_secondary_alt'), $contents);
-        $contents = preg_replace('/{{turtle.finance_primary_note}}/', lang('turtle.finance_primary_note'), $contents);
-        $contents = preg_replace('/{{turtle.finance_secondary_note}}/', lang('turtle.finance_secondary_note'), $contents);
-        $contents = preg_replace('/{{turtle.twitter_search_alt}}/', lang('turtle.twitter_search_alt'), $contents);
-        $contents = preg_replace('/{{turtle.weather_location}}/', lang('turtle.weather_location'), $contents);
-        $contents = preg_replace('/{{turtle.signage_floor_location}}/', lang('turtle.signage_floor_location'), $contents);
-        $contents = preg_replace('/{{turtle.signage_location_alt}}/', lang('turtle.signage_location_alt'), $contents);
-        $contents = preg_replace('/{{turtle.signage_save_alt}}/', lang('turtle.signage_save_alt'), $contents);
-        $contents = preg_replace('/{{turtle.signage_add_floor}}/', lang('turtle.signage_add_floor'), $contents);
-        $contents = preg_replace('/{{turtle.signage_add_floor_listing}}/', lang('turtle.signage_add_floor_listing'), $contents);
-
-
-        // Get RSS links
+        // Get available RSS links
         if($turtle->type == "rss"){
             $rss_links = $this->option->get('turtle_rss_feed');
 
@@ -150,7 +114,6 @@ class Turtle extends CI_Model {
             $rss_links_html .= ">(".lang('turtle.rss_custom').")</option>";
 
             $contents = preg_replace('/{{rss-links}}/', $rss_links_html, $contents);
-            $contents = preg_replace('/{{turtle.rss_alt}}/', lang('turtle.rss_alt'), $contents);
             $contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
         }else if($turtle->type == "map" || $turtle->type == "mapbox"){
             // Mapbox and map location of screen or custom one
@@ -175,6 +138,7 @@ class Turtle extends CI_Model {
             $contents = preg_replace('/{{map-options}}/', $map_options, $contents);
             $contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
         }else if($turtle->type == "signage"){
+            // Build signage turtle html
             $html = "";;
             if(!empty($turtle->options->data)){
                 $floor_data = json_decode($turtle->options->data);
