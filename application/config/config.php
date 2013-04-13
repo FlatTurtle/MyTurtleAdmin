@@ -369,7 +369,7 @@ $config['proxy_ips'] = '';
 | Screenshots path on server
 |--------------------------------------------------------------------------
 */
-$config['screenshots_path'] = '';
+$config['screenshots_path'] = '/sites/screenshots/htdocs/';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

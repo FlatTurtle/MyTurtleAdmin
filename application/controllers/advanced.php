@@ -75,13 +75,44 @@ class Advanced extends CI_Controller {
         $data['menu_second_item'] = lang("term.advanced");
 
         $shots_path = $this->config->item('screenshots_path');
-        if(!empty($shots_path)){
-            echo $shots_path;
+        $shots_path .=  $data['infoscreen']->hostname . "/";
+        if(!is_dir($shots_path)){
+            redirect(site_url($alias . '/advanced'));
         }
+
+        $shots = array();
+        // Get all screenshots
+        if ($handle = opendir($shots_path)) {
+            /* This is the correct way to loop over the directory. */
+            while (false !== ($entry = readdir($handle))) {
+                array_push($shots, $entry);
+            }
+            sort($shots);
+            $shots = array_reverse($shots);
+            closedir($handle);
+        }
+
+        // Only show last 16 shots
+        $shots = array_slice($shots, 0, 16);
+
+        // Get all image data
+        $data['shots'] = array();
+        foreach($shots as $shot){
+            if(is_file($shots_path . $shot)){
+                $image = @file_get_contents($shots_path . $shot);
+                if($image){
+                    $image = base64_encode($image);
+                    array_push($data['shots'], $image);
+                }
+            }
+        }
+        $data['shots_path'] =  $shots_path;
+
+
 
         $this->load->view('header');
         $this->load->view('screen/menu', $data);
-        $this->load->view('screen/advanced/index', $data);
+        $this->load->view('screen/advanced/shots', $data);
         $this->load->view('footer');
     }
 
