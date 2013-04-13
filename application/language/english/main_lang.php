@@ -71,6 +71,8 @@ $lang['screen.right_side'] = "Right side";
 $lang['screen.address_alt'] = "Location (e.g.: Rue de la Loi 1, Brussels)";
 $lang['screen.geographic_coordinates'] = "Geographic coordinates";
 $lang['screen.pin_for_tablet'] = "PIN for tablet";
+$lang['screen.message_refresh'] = "Refreshing the entire screen, this will take a short while";
+$lang['screen.message_power'] = "Changing the power state of the screen, this will take a short while";
 
 /**
  * Turtles page

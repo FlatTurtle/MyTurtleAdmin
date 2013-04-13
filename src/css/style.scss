@@ -653,3 +653,18 @@ select{
         }
     }
 }
+
+.btn-group{
+    div.tooltip{
+        display: inline-block;
+        border: 0px;
+    }
+}
+
+.alert.fixed{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    margin: 0px;
+}

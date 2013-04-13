@@ -150,3 +150,7 @@
         </form>
     </div>
 </div>
+
+<div class="alert fixed alert-message hide">
+    <strong>Warning!</strong> Best check yo self, you're not looking too good.
+</div>

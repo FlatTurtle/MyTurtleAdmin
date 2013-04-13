@@ -11,7 +11,7 @@ String.prototype.camelcase = function() {
 }
 
 /**
- * Bind events to (new) turtles
+ * Bind events to (new) turtles§y
  */
 function bind_event_to_turtles(){
 
@@ -28,12 +28,21 @@ function bind_event_to_turtles(){
                         name: request.term
                     },
                     success: function( data ) {
-                        response( $.map( data.Stations, function( item ) {
-                            return {
-                                label: item.name,
-                                value: item.name
+                        if(data.Stations){
+                            // Filter duplicates
+                            var stations = {};
+                            for(var i in data.Stations){
+                                var station = data.Stations[i].name.camelcase();
+                                stations[station] = true;
                             }
-                        }));
+
+                            response( $.map( stations, function(value, key) {
+                                return {
+                                    label: key,
+                                    value: key
+                                }
+                            }));
+                        }
                     }
                 });
             }
@@ -81,15 +90,21 @@ function bind_event_to_turtles(){
                         name: request.term
                     },
                     success: function( data ) {
-                        var pattern = new RegExp(request.term.toLowerCase());
-                        response( $.map( data.Stations, function( item ) {
-                            if(item.name.toLowerCase().match(pattern)){
-                                return {
-                                    label: item.name.camelcase(),
-                                    value: item.name.camelcase()
-                                }
+                        if(data.Stations){
+                            // Filter duplicates
+                            var stations = {};
+                            for(var i in data.Stations){
+                                var station = data.Stations[i].name.camelcase();
+                                stations[station] = true;
                             }
-                        }));
+
+                            response( $.map( stations, function(value, key) {
+                                return {
+                                    label: key,
+                                    value: key
+                                }
+                            }));
+                        }
                     }
                 });
             }
