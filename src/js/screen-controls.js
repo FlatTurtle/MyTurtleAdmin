@@ -42,7 +42,6 @@ $('#btnToggleClock').click(function(e){
 	if($('#btnToggleClock').attr('disabled') != 'disabled'){
 
 		$('#btnToggleClock').attr('disabled', 'disabled').addClass('disable');
-        showAlert("test", 20);
 
 		$.ajax({
 			type: 'POST',
