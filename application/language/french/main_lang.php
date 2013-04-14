@@ -72,7 +72,7 @@ $lang['screen.address_alt'] = "L'adresse (par exemple: Rue de la Loi 1, Bruxelle
 $lang['screen.geographic_coordinates'] = "Coordonnées géographiques";
 $lang['screen.pin_for_tablet'] = "Code PIN pour tablette";
 $lang['screen.message_refresh'] = "L'écran est actualisé. Cela peut prendre un peu de temps.";
-$lang['screen.message_power'] = "L'alimentation de l'écran est modifié. Cela peut prendre un peu de temps.";
+$lang['screen.message_power'] = "L'alimentation de l'écran est modifiée. Cela peut prendre un peu de temps.";
 
 /**
 * Turtles page
