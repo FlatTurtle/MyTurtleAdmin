@@ -71,6 +71,8 @@ $lang['screen.right_side'] = "Rechterkant";
 $lang['screen.address_alt'] = "Locatie (bvb: Wetstraat 1, Brussel)";
 $lang['screen.geographic_coordinates'] = "Geographische coördinaten";
 $lang['screen.pin_for_tablet'] = "Pincode voor de tablet";
+$lang['screen.message_refresh'] = "Het scherm wordt opnieuw ingeladen. Dit duurt een klein momentje.";
+$lang['screen.message_power'] = "De energiestand wordt aangepast. Dit duurt een klein momentje.";
 
 /**
  * Turtles page
