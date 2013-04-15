@@ -35,7 +35,10 @@ class Turtles extends CI_Controller {
         }catch(ErrorException $e){}
         $data['turtle_types'] = $this->turtle->get_all_types();
 
+        $data['menu_second_item'] = lang("term.left");
+
         $this->load->view('header');
+        $this->load->view('screen/menu', $data);
         $this->load->view('screen/turtles', $data);
         $this->load->view('footer');
     }

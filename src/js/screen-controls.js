@@ -1,3 +1,8 @@
+var delayClock = 500;
+var delayRefresh = 15000;
+var delayPower = 20000;
+var alertTimeout = null;
+
 // Submit on enter
 $('#messageModal input').keypress(function (e) {
 	if (e.which == 13) {
@@ -48,7 +53,7 @@ $('#btnToggleClock').click(function(e){
 				setTimeout(function() {
 					$('#btnToggleClock i').toggleClass('active');
 					$('#btnToggleClock').removeAttr('disabled');
-				}, 100);
+				}, delayClock);
 			}
 		});
 	}
@@ -62,6 +67,7 @@ $('#btnToggleScreen').click(function(e){
 
 		$('#btnToggleScreen').attr('disabled', 'disabled').addClass('disable');
 
+        showAlert(lang['screen.message_power'], delayPower);
 		$.ajax({
 			type: 'POST',
 			url: pathname + '/plugin/screen_power',
@@ -77,7 +83,7 @@ $('#btnToggleScreen').click(function(e){
 					}
 					$('#btnToggleScreen i').addClass('icon-eye-' + end);
 					$('#btnToggleScreen').removeAttr('disabled');
-				}, 400);
+				}, delayPower);
 			}
 		});
 	}
@@ -91,14 +97,29 @@ $('#btnRefreshScreen').click(function(e){
 
         $('#btnRefreshScreen').attr('disabled', 'disabled').addClass('disable');
 
+        showAlert(lang['screen.message_refresh'], delayPower);
         $.ajax({
             type: 'POST',
             url: pathname + '/plugin/screen_reload',
             success: function(html){
                 setTimeout(function() {
                     $('#btnRefreshScreen').removeAttr('disabled');
-                }, 5000);
+                }, delayRefresh);
             }
         });
     }
 });
+
+function showAlert(text, duration){
+    if(alertTimeout)
+        clearTimeout(alertTimeout);
+
+    $(".alert-message").html("<i class='icon-info-sign'></i>&nbsp;&nbsp;&nbsp;"+text);
+
+    $(".alert-message").css('display', 'block').slideDown(0).fadeIn(300);
+    alertTimeout = setTimeout(function() {
+        $(".alert-message").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, duration);
+}

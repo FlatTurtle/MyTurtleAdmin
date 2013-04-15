@@ -1,3 +1,8 @@
+<?php
+
+$version_js = "1.0.7";
+
+?>
             </div>
         </div>
     </div>
@@ -24,7 +29,18 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=1.0.4"></script>
+    <script type="text/javascript">
+        var lang = [];
+<?php
+        // Javascript translations
+        if(isset($this->lang)){
+            foreach($this->lang->language as $key => $value){
+                echo "        lang['".$key ."'] =  \"". $value  . "\";\n";
+            }
+        }
+?>
+    </script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=<?= $version_js ?>"></script>
 </body>
 </html>
 

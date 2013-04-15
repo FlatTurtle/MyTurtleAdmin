@@ -35,7 +35,10 @@ class Panes extends CI_Controller {
             $data['infoscreen'] = $this->infoscreen->get($alias);
             $data['available_panes'] = $this->pane->panes;
 
+            $data['menu_second_item'] = lang("term.right");
+
             $this->load->view('header');
+            $this->load->view('screen/menu', $data);
             $this->load->view('screen/panes', $data);
             $this->load->view('footer');
         }
@@ -91,8 +94,10 @@ class Panes extends CI_Controller {
             $duration_options .= '<option ' . $selected . '>' . $i . '</option>';
         }
         $data['duration_options'] = $duration_options;
+        $data['menu_second_item'] = lang("term.right");
 
         $this->load->view('header');
+        $this->load->view('screen/menu', $data);
         $this->load->view('screen/panes', $data);
         $this->load->view('footer');
     }
@@ -106,7 +111,8 @@ class Panes extends CI_Controller {
         if(empty($pane)){
             redirect(site_url($alias.'/right/'));
         }else{
-            $post_data['duration'] = $this->input->post('duration')*1000;
+            if(isset($_POST['duration']))
+                $post_data['duration'] = $this->input->post('duration')*1000;
             $post_data['title'] = ucfirst($this->input->post('title'));
             $this->pane->post($alias, $pane->id, $post_data);
             redirect(site_url($alias.'/right/'.$pane->template . '/' . $pane->id . '#config'));

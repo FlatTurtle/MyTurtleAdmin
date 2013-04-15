@@ -11,13 +11,10 @@ $lang['title'] = "MyTurtleControl";
 $lang['greeting'] = "Hi";
 $lang['mailing_list'] = "Subscribe to our product updates";
 
-
-
 /**
  * Login page
  */
 $lang['login.title'] = "Please sign in";
-
 
 /**
  * General terms
@@ -31,8 +28,6 @@ $lang['term.log_out'] = "Log out";
 $lang['term.retry'] = "Retry";
 $lang['term.delete'] = "Delete";
 $lang['term.disable'] = "Disable";
-
-
 $lang['term.infoscreens'] = "Infoscreens";
 $lang['term.left'] = "Left";
 $lang['term.right'] = "Right";
@@ -56,8 +51,13 @@ $lang['term.search'] = "Search";
 $lang['term.feed'] = "Feed";
 $lang['term.subscribe'] = "Subscribe";
 $lang['term.mailing_list'] = "Mailing list";
-
-
+$lang['term.floor'] = "Floor";
+$lang['term.destination'] = "Destination";
+$lang['term.via'] = "Via";
+$lang['term.optional'] = "Optional";
+$lang['term.advanced'] = "Advanced";
+$lang['term.settings'] = "Settings";
+$lang['term.screenshots'] = "Screenshots";
 
 /**
  * Screen detail page
@@ -68,12 +68,17 @@ $lang['screen.sent_message_alt'] = "Display a message on the screen";
 $lang['screen.toggle_clock_alt'] = "Toggle the clock";
 $lang['screen.toggle_screen_alt'] = "Switch the screen on and off";
 $lang['screen.refresh'] = "Refresh the entire screen";
-
 $lang['screen.left_side'] = "Left side";
 $lang['screen.right_side'] = "Right side";
 $lang['screen.address_alt'] = "Location (e.g.: Rue de la Loi 1, Brussels)";
 $lang['screen.geographic_coordinates'] = "Geographic coordinates";
 $lang['screen.pin_for_tablet'] = "PIN for tablet";
+$lang['screen.message_refresh'] = "Refreshing the entire screen, this will take a short while";
+$lang['screen.message_power'] = "Changing the power state of the screen, this will take a short while";
+$lang['screen.btn_message'] = "Send message";
+$lang['screen.btn_clock'] = "Toggle clock";
+$lang['screen.btn_power'] = "Toggle power";
+$lang['screen.btn_refresh'] = "Refresh";
 
 
 /**
@@ -85,15 +90,16 @@ $lang['turtles.screen_title'] = "Left side of the screen";
 $lang['turtles.drag_to_sort'] = "Drag Turtles to sort";
 $lang['turtles.option_number_of_items'] = "Items to show";
 $lang['turtles.option_zoom'] = "Zoom";
-$lang['turtles.error_blank'] = "Momentarily there are no options to configure for this turtle.";
+$lang['turtles.error_blank'] = "Momentarily there are no options to configure for this Turtle.";
 
 /**
- * Specific for a turtle
+ * Specific for a Turtle
  */
 $lang['turtle.airport_alt'] =  "Code of an airport (e.g. BRU or AMS)";
 $lang['turtle.delijn_alt'] =  "Name of a stop (e.g. Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Name of a stop (e.g. Mozart)";
-$lang['turtle.nmbs_alt'] =  "Name of a station (e.g. Gent Sint-Pieters)";
+$lang['turtle.nmbs_alt'] =  "Name of a station (e.g. Ghent Sint-Pieters)";
+$lang['turtle.nmbs_via_alt'] =  "When 'via' is filled out, it will show if a train stops in that station and when.";
 $lang['turtle.velo_alt'] =  "Name of a Velo station (e.g. Theater)";
 $lang['turtle.villo_alt'] =  "Name of a Villo station (e.g. Botanique/Kruidtuin)";
 $lang['turtle.mapbox_alt'] =  "Address of a location (e.g. Gent Korenmarkt)";
@@ -107,7 +113,14 @@ $lang['turtle.rss_custom'] = "Custom feed";
 $lang['turtle.screen_location'] = "Screen location";
 $lang['turtle.custom_location'] = "Custom";
 $lang['turtle.weather_location'] = "The weather Turtle uses the location of the screen.";
-
+$lang['turtle.signage_floor_location'] = "Floor location";
+$lang['turtle.signage_location_alt'] = "(e.g. +2, -1)";
+$lang['turtle.signage_add_floor'] = "Add a floor";
+$lang['turtle.signage_add_floor_listing'] = "Add a name on this floor";
+$lang['turtle.signage_save_alt'] = "Make all your changes to the floor plan, then hit save to push them to the screen.";
+$lang['turtle.signage_delete_floor_note'] = "Are you sure you want to delete this entire floor?";
+$lang['turtle.signage_delete_entry_note'] = "Are you sure you want to delete this entry?";
+$lang['turtle.delete_note'] = "Are you sure you want to delete this Turtle?";
 
 /**
  * Panes page
@@ -129,6 +142,12 @@ $lang['panes.deleting'] = "Deleting the pane from the screen";
 $lang['error.logo_upload'] = "Something went wrong while trying to upload a new logo. Try again.";
 $lang['error.color_check_hex'] = "The color {{value}} is not a valid hexadecimal color.";
 $lang['error.resolve_address'] = "Couldn't resolve location to geocode, try to be more specific.";
+$lang['error.resolve_time_walk'] = "Couldn't calculate walking duration. Correct and try again.";
+$lang['error.save'] = "Couldn't save, please try again";
+$lang['error.create_turtle'] = "Couldn't create Turtle, please refresh and try again";
+$lang['error.delete_turtle'] = "Couldn't delete that Turtle at the moment";
+$lang['error.add_pane'] = "Couldn't enable pane, please refresh and try again";
+$lang['error.delete_pane'] = "Couldn't delete that pane at the moment";
 
 /**
  * Footer

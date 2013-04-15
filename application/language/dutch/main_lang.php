@@ -11,13 +11,10 @@ $lang['title'] = "MyTurtleControl";
 $lang['greeting'] = "Hallo";
 $lang['mailing_list'] = "Abonneer u op onze product updates";
 
-
-
 /**
  * Login page
  */
 $lang['login.title'] = "Gelieve in te loggen";
-
 
 /**
  * General terms
@@ -31,8 +28,6 @@ $lang['term.log_out'] = "Log uit";
 $lang['term.retry'] = "Opnieuw";
 $lang['term.delete'] = "Verwijder";
 $lang['term.disable'] = "Uitschakelen";
-
-
 $lang['term.infoscreens'] = "Infoschermen";
 $lang['term.left'] = "Links";
 $lang['term.right'] = "Rechts";
@@ -56,7 +51,13 @@ $lang['term.search'] = "Zoeken";
 $lang['term.feed'] = "Feed";
 $lang['term.subscribe'] = "Abonneer";
 $lang['term.mailing_list'] = "Mailing lijst";
-
+$lang['term.floor'] = "Verdieping";
+$lang['term.destination'] = "Bestemming";
+$lang['term.via'] = "Via";
+$lang['term.optional'] = "Optioneel";
+$lang['term.advanced'] = "Advanced";
+$lang['term.settings'] = "Instellingen";
+$lang['term.screenshots'] = "Screenshots";
 
 /**
  * Screen detail page
@@ -67,13 +68,17 @@ $lang['screen.sent_message_alt'] = "Toon een bericht op het scherm";
 $lang['screen.toggle_clock_alt'] = "Zet de klok aan of uit";
 $lang['screen.toggle_screen_alt'] = "Zet het scherm aan of uit";
 $lang['screen.refresh'] = "Vernieuw het scherm";
-
 $lang['screen.left_side'] = "Linkerkant";
 $lang['screen.right_side'] = "Rechterkant";
 $lang['screen.address_alt'] = "Locatie (bvb: Wetstraat 1, Brussel)";
 $lang['screen.geographic_coordinates'] = "Geographische coördinaten";
 $lang['screen.pin_for_tablet'] = "Pincode voor de tablet";
-
+$lang['screen.message_refresh'] = "Het scherm wordt opnieuw ingeladen. Dit duurt een klein momentje.";
+$lang['screen.message_power'] = "De energiestand wordt aangepast. Dit duurt een klein momentje.";
+$lang['screen.btn_message'] = "Stuur bericht";
+$lang['screen.btn_clock'] = "Schakel klok aan of uit";
+$lang['screen.btn_power'] = "Schakel scherm aan of uit";
+$lang['screen.btn_refresh'] = "Refresh";
 
 /**
  * Turtles page
@@ -92,7 +97,8 @@ $lang['turtles.error_blank'] = "Er zijn geen te configureren opties voor deze Tu
 $lang['turtle.airport_alt'] =  "Luchthavencode (bvb. BRU or AMS)";
 $lang['turtle.delijn_alt'] =  "Haltenaam (bvb. Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Haltenaam (bvb. Mozart)";
-$lang['turtle.nmbs_alt'] =  "Haltenaam (bvb. Gent Sint-Pieters)";
+$lang['turtle.nmbs_alt'] =  "Haltenaam (bvb. Ghent Sint-Pieters)";
+$lang['turtle.nmbs_via_alt'] =  "";
 $lang['turtle.velo_alt'] =  "Naam van een Velo plaats (bvb. Theater)";
 $lang['turtle.villo_alt'] =  "Naam van een Villo plaats (bvb. Botanique/Kruidtuin)";
 $lang['turtle.mapbox_alt'] =  "Adres van een locatie (bvb. Gent Korenmarkt)";
@@ -106,7 +112,14 @@ $lang['turtle.rss_custom'] = "Eigen feed";
 $lang['turtle.screen_location'] = "Een andere locatie";
 $lang['turtle.custom_location'] = "Ander";
 $lang['turtle.weather_location'] = "De weer-Turtle gebruikt de locatie van het scherm.";
-
+$lang['turtle.signage_floor_location'] = "Locatie Verdieping";
+$lang['turtle.signage_location_alt'] = "(bv.: +2, -1)";
+$lang['turtle.signage_add_floor'] = "Verdieping toevoegen";
+$lang['turtle.signage_add_floor_listing'] = "Voeg een naam toe aan de verdieping";
+$lang['turtle.signage_save_alt'] = "Maak al uw aanpassingen aan het plan, en druk daarna op opslaan om uw wijzigingen door te voeren.";
+$lang['turtle.signage_delete_floor_note'] = "Weet u zeker dat u de hele verdieping wilt verwijderen?";
+$lang['turtle.signage_delete_entry_note'] = "Weet u zeker dat u dit item wilt verwijderen?";
+$lang['turtle.delete_note'] = "Weet u zeker dat u deze Turtle wilt verwijderen?";
 
 /**
  * Panes page
@@ -121,14 +134,18 @@ $lang['panes.disable_note'] = "Bent u zeker dat u deze pane wenst te verwijderen
 $lang['panes.adding'] = "Pane aan het toevoegen op het scherm";
 $lang['panes.deleting'] = "Pane aan het verwijderen van het scherm";
 
-
-
 /**
  * Error messages
  */
 $lang['error.logo_upload'] = "Er ging iets fout bij het opladen van een nieuwe foto. Gelieve opnieuw te proberen.";
 $lang['error.color_check_hex'] = "De kleur {{value}} is geen hexadecimaal getal.";
 $lang['error.resolve_address'] = "Kon geen locatie vinden voor de opgegeven tekst. Kunt u me iets specifieker geven?";
+$lang['error.resolve_time_walk'] = "Kon de wandelduur niet berekenen. Corrigeer het en probeer opnieuw.";
+$lang['error.save'] = "Aanpassingen konden niet worden opgeslagen. Probeer het opnieuw.";
+$lang['error.create_turtle'] = "Kon de Turtle niet aanmaken. Refresh de pagina en probeer het opnieuw.";
+$lang['error.delete_turtle'] = "Kon de Turtle niet verwijderen. Refresh de pagina en probeer het opnieuw.";
+$lang['error.add_pane'] = "Kon de pane niet activeren. Refresh de pagina en probeer het opnieuw.";
+$lang['error.delete_pane'] = "Kon de pane niet verwijderen. Refresh de pagina en probeer het opnieuw.";
 
 /**
  * Footer

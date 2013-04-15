@@ -11,7 +11,7 @@ String.prototype.camelcase = function() {
 }
 
 /**
- * Bind events to (new) turtles
+ * Bind events to (new) turtles§y
  */
 function bind_event_to_turtles(){
 
@@ -28,12 +28,21 @@ function bind_event_to_turtles(){
                         name: request.term
                     },
                     success: function( data ) {
-                        response( $.map( data.Stations, function( item ) {
-                            return {
-                                label: item.name,
-                                value: item.name
+                        if(data.Stations){
+                            // Filter duplicates
+                            var stations = {};
+                            for(var i in data.Stations){
+                                var station = data.Stations[i].name.camelcase();
+                                stations[station] = true;
                             }
-                        }));
+
+                            response( $.map( stations, function(value, key) {
+                                return {
+                                    label: key,
+                                    value: key
+                                }
+                            }));
+                        }
                     }
                 });
             }
@@ -81,15 +90,21 @@ function bind_event_to_turtles(){
                         name: request.term
                     },
                     success: function( data ) {
-                        var pattern = new RegExp(request.term.toLowerCase());
-                        response( $.map( data.Stations, function( item ) {
-                            if(item.name.toLowerCase().match(pattern)){
-                                return {
-                                    label: item.name.camelcase(),
-                                    value: item.name.camelcase()
-                                }
+                        if(data.Stations){
+                            // Filter duplicates
+                            var stations = {};
+                            for(var i in data.Stations){
+                                var station = data.Stations[i].name.camelcase();
+                                stations[station] = true;
                             }
-                        }));
+
+                            response( $.map( stations, function(value, key) {
+                                return {
+                                    label: key,
+                                    value: key
+                                }
+                            }));
+                        }
                     }
                 });
             }
@@ -226,13 +241,13 @@ function bind_event_to_turtles(){
                                 updateTurtle(turtle_instance, button, turtle_id, option_data);
                             }
                         }else{
-                            alert("Couldn't resolve that address to geocode. Correct the address and try again.");
+                            alert(lang['error.resolve_address']);
                             $('.loading', turtle_instance).animate({'opacity':0}, 200);
                             button.removeAttr('disabled').removeClass('disable');
                         }
                     },
                     error: function(data, status){
-                        alert('Could not resolve that address to geocode, try to correct the address.');
+                        alert(lang['error.resolve_address']);
                         $('.loading', turtle_instance).animate({'opacity':0}, 200);
                         button.removeAttr('disabled').removeClass('disable');
                     }
@@ -333,6 +348,29 @@ function bind_event_to_turtles(){
                     option_data['feed'] = "http://" + option_data['feed'];
                 }
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_signage')){
+                // Construct data to be pushed as option
+                var signage_data = [];
+                $('.floors .control-group', turtle_instance).each(function(){
+                    var floor = new Object();
+                    // Get floor name
+                    floor.location = $(".location", this).val();
+                    floor.floors = [];
+
+                    //Get individual listing
+                    $(".listing", this).each(function(){
+                        var listing = new Object();
+                        listing.name = $('input', this).val();
+
+                        if(listing.name.length > 0)
+                            floor.floors.push(listing);
+                    });
+                    signage_data.push(floor);
+                });
+
+                option_data['data'] = JSON.stringify(signage_data);
+
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
@@ -344,7 +382,7 @@ function bind_event_to_turtles(){
     // Delete turtles
     $('.turtle_instance .delete').off().on('click',function(e){
         e.preventDefault();
-        if(confirm('Are you sure you want tot delete this turtle?')){
+        if(confirm(lang['turtle.delete_note'])){
             var turtle_instance = $(this).parents('.turtle_instance');
             var turtle_id = turtle_instance.attr('id').split('_')[1];
 
@@ -361,7 +399,7 @@ function bind_event_to_turtles(){
                     });
                 },
                 error: function(data, status){
-                    alert('Could not delete the turtle at this moment: ' + status);
+                    alert(lang['error.delete_turtle'] + ": " + status);
                 }
             });
         }
@@ -396,13 +434,13 @@ function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
                     updateTurtle(turtle_instance, button, turtle_id, option_data);
                 }
             }else{
-                console.log("Couldn't not calculate walking duration. Correct and try again.");
+                alert(lang['error.resolve_time_walk']);
                 option_data['time_walk'] = -1;
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
         },
         error: function(data, status){
-            console.log("Couldn't not calculate walking duration. Correct and try again.");
+            alert(lang['error.resolve_time_walk']);
             option_data['time_walk'] = -1;
             updateTurtle(turtle_instance, button, turtle_id, option_data);
         }
@@ -441,7 +479,7 @@ function updateTurtle(turtle_instance, button, turtle_id, option_data){
             button.removeAttr('disabled').removeClass('disable');
         },
         error: function(data, status){
-            alert('Could not save at this moment: ' + status);
+            alert(lang['error.save'] + ": " + status);
             $('.loading', turtle_instance).animate({'opacity':0}, 200);
             button.removeAttr('disabled').removeClass('disable');
         }

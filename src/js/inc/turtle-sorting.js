@@ -10,9 +10,13 @@ $(".turtle-area.sortable").sortable({
         if(sortableIn == 1){
             var dragged =  ui.item;
             var droppable = $(this);
-            var turtle_type = dragged.attr('id');
             var pane_id = droppable.attr('id').split('_')[1];
-            $('.turtle',droppable).html("<div style='padding:20px;'><i class='loading'></i> Adding turtle </div>");
+            if(current_pane_id > 0){
+                droppable = $("#pane_" + current_pane_id + ".turtle-area");
+                pane_id = current_pane_id;
+            }
+            var turtle_type = dragged.attr('id');
+            $('.turtle', droppable).html("<div style='padding:20px;'><i class='loading'></i> Adding turtle </div>");
 
             $.ajax({
                 url: pathname + '/create',
@@ -26,17 +30,19 @@ $(".turtle-area.sortable").sortable({
                     var turtle = $(content);
                     turtle.hide();
 
-                    $('.turtle',droppable).replaceWith(turtle);
+                    $('.turtle', droppable).replaceWith(turtle);
 
                     bind_event_to_turtles();
                     turtle.slideDown(400);
 
                     // Force re-sort
                     $(".turtle-area.sortable").sortable('refresh');
-                    sort_turtles();
+                    var event = new Object();
+                    event.target = droppable[0];
+                    sort_turtles(event);
                 },
                 error: function(error, status){
-                    alert('Could not create turtle: ' + status);
+                    alert(lang['error.create_turtle'] + ": " + status);
                 }
             });
         }
@@ -55,10 +61,13 @@ $(".turtle-area.sortable").sortable({
  * Post the new order on change
  */
 function sort_turtles(event, ui){
-    var order = $(".turtle-area.sortable").sortable('toArray');
+    var order = $(event.target).sortable('toArray');
 
     for(var i=0; i<order.length; i++) {
         order[i] = order[i].split("_")[1];
+        if(isNaN(parseInt(order[i], 10))){
+            return;
+        }
     }
 
     $.ajax({

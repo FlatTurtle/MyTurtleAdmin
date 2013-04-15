@@ -33,7 +33,7 @@ $('.delete_pane').on('click', function(e){
             },
             error: function(data, status){
                 $('.deleting_pane_modal').modal('hide');
-                alert('Could not delete the pane at this moment: ' + status);
+                alert(lang['error.delete_pane'] + ": "  + status);
             }
         });
     }

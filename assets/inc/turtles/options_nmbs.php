@@ -14,4 +14,13 @@
         </select>
     </div>
 </div>
+<div class="control-group">
+    <label class="control-label" for="{{id}}-destination">{{term.via}} ({{term.optional}})</label>
+    <div class="controls">
+        <input type="text" id="{{id}}-destination" name="{{id}}-destination" placeholder="{{turtle.nmbs_alt}}" class='input-block-level autocomplete nmbs-location' value="{{destination}}"/>
+        <span class='note'>
+            {{turtle.nmbs_via_alt}}
+        </span>
+    </div>
+</div>
 <? include 'footer.php'; ?>
