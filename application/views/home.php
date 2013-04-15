@@ -10,13 +10,23 @@
                 <a href="<?= site_url($infoscreen->alias); ?>">
                     <div class='infoscreen <?= $extra_css_class ?>'>
                         <div class='screen'>
-                            <div class='inside'>
-                                <div class='color-side' style='background-color:<?= $infoscreen->color; ?>'>
+                            <?php
+                                if($infoscreen->shot){
+                            ?>
+                                <img src="data:image/png;base64,<?= $infoscreen->shot ?>" />
+                            <?php
+                                }else{
+                            ?>
+                                <div class='inside'>
+                                    <div class='color-side' style='background-color:<?= $infoscreen->color; ?>'>
+                                    </div>
+                                    <div class="logo-holder">
+                                        <div class='logo' style="background-image:url('<?= $infoscreen->logo; ?>?<?= rand(0, 999999) ?>');"></div>
+                                    </div>
                                 </div>
-                                <div class="logo-holder">
-                                    <div class='logo' style="background-image:url('<?= $infoscreen->logo; ?>?<?= rand(0, 999999) ?>');"></div>
-                                </div>
-                            </div>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <?= $infoscreen->title ?>
                     </div>

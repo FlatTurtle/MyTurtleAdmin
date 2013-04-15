@@ -31,11 +31,47 @@ class Home extends CI_Controller {
             redirect(site_url($data['infoscreens'][0]->alias));
         }
 
+        $shots_path = $this->config->item('screenshots_path');
+        $data['shots_path'] =  $shots_path;
+
         foreach($data['infoscreens'] as $infoscreen){
+            // Get power state
             $plugin_states = $this->infoscreen->plugin_states($infoscreen->alias);
             $infoscreen->power = 1;
             if(isset($plugin_states->power))
                 $infoscreen->power = $plugin_states->power;
+
+            // Check screenshot availability
+            $current_path = $shots_path . $infoscreen->hostname . "/";
+            $infoscreen->shot = false;
+
+            if(is_dir($current_path)){
+                $shots = array();
+                // Get all screenshots
+                if ($handle = opendir($current_path)) {
+                    /* This is the correct way to loop over the directory. */
+                    while (false !== ($entry = readdir($handle))) {
+                        array_push($shots, $entry);
+                    }
+                    sort($shots);
+                    $shots = array_reverse($shots);
+                    closedir($handle);
+                }
+
+                if(count($shots) > 0){
+                    // Only get last shot
+                    $shot = $shots[0];
+
+                    // Get image data
+                    if(is_file($current_path . $shot)){
+                        $image = @file_get_contents($current_path . $shot);
+                        if($image){
+                            $image = base64_encode($image);
+                            $infoscreen->shot = $image;
+                        }
+                    }
+                }
+            }
         }
 
         $this->load->view('header');

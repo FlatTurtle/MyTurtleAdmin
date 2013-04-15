@@ -1,3 +1,8 @@
+<?php
+
+$version_js = "1.0.7";
+
+?>
             </div>
         </div>
     </div>
@@ -35,7 +40,7 @@
         }
 ?>
     </script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=<?= $version_js ?>"></script>
 </body>
 </html>
 
