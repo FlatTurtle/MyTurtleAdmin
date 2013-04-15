@@ -13,7 +13,7 @@
                             <?php
                                 if($infoscreen->shot){
                             ?>
-                                <img src="data:image/png;base64,<?= $infoscreen->shot ?>" />
+                                <img src="data:image/jpg;base64,<?= $infoscreen->shot ?>" />
                             <?php
                                 }else{
                             ?>

@@ -171,7 +171,7 @@ class Advanced extends CI_Controller {
         $data['menu_second_item'] = lang("term.screenshots");
 
         $shots_path = $this->config->item('screenshots_path');
-        $shots_path .=  $data['infoscreen']->hostname . "/";
+        $shots_path .=  $data['infoscreen']->hostname . "/thumbs/";
         if(!is_dir($shots_path)){
             redirect(site_url($alias));
         }
@@ -197,12 +197,14 @@ class Advanced extends CI_Controller {
             if(is_file($shots_path . $shot)){
                 $image = @file_get_contents($shots_path . $shot);
                 if($image){
-                    $title = explode('.', $shot);
-                    $title = @DateTime::createFromFormat("Ymd-Hi", $title[0]);
+                    $splitname = explode('.', $shot);
+                    $title = @DateTime::createFromFormat("Ymd-Hi", $splitname[0]);
 
                     $shotObj = new stdClass();
+                    $shotObj->name = $splitname[0];
                     $shotObj->title = $title->format('d/m/Y'). " &mdash; " .$title->format('H:i');
-                    $shotObj->data = base64_encode($image);
+                    $image = base64_encode($image);
+                    $shotObj->data = $image;
 
                     array_push($data['shots'], $shotObj);
                 }
@@ -216,6 +218,27 @@ class Advanced extends CI_Controller {
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/advanced/shots', $data);
         $this->load->view('footer');
+    }
+
+    /**
+     * Screenshots detail
+     */
+    public function shot($alias, $name){
+        $data['infoscreen'] = $this->infoscreen->get($alias);
+
+        $shots_path = $this->config->item('screenshots_path');
+        $shots_path .=  $data['infoscreen']->hostname . "/";
+        $name .= ".jpg";
+
+        if(is_file($shots_path . $name)){
+            $image = @file_get_contents($shots_path . $name);
+            if($image){
+                header("Content-type: image/jpg");
+                echo $image;
+            }
+        }else{
+            redirect(site_url($alias . '/shots'));
+        }
     }
 
 }
