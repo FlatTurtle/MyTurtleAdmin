@@ -18,7 +18,6 @@ class Advanced extends CI_Controller {
 
         $this->load->model('infoscreen');
         $this->load->library('my_formvalidation');
-        $this->load->library('images');
         $this->load->helper('directory');
 
         // Set validation rules
@@ -172,7 +171,7 @@ class Advanced extends CI_Controller {
         $data['menu_second_item'] = lang("term.screenshots");
 
         $shots_path = $this->config->item('screenshots_path');
-        $shots_path .=  $data['infoscreen']->hostname . "/";
+        $shots_path .=  $data['infoscreen']->hostname . "/thumbs/";
         if(!is_dir($shots_path)){
             redirect(site_url($alias));
         }
@@ -204,16 +203,8 @@ class Advanced extends CI_Controller {
                     $shotObj = new stdClass();
                     $shotObj->name = $splitname[0];
                     $shotObj->title = $title->format('d/m/Y'). " &mdash; " .$title->format('H:i');
-
-                    // Generate thumbnail
-                    $thumb = $this->images->resize_max(imagecreatefromstring($image), 408, 400);
-                    ob_start();
-                    imagepng($thumb);
-                    $thumb = ob_get_contents(); // read from buffer
-                    ob_end_clean(); // delete buffer
-
-                    $thumb = base64_encode($thumb);
-                    $shotObj->data = $thumb;
+                    $image = base64_encode($image);
+                    $shotObj->data = $image;
 
                     array_push($data['shots'], $shotObj);
                 }
