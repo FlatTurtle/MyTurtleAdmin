@@ -11,6 +11,7 @@ class Home extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->library('images');
         $this->load->model('infoscreen');
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
@@ -66,9 +67,17 @@ class Home extends CI_Controller {
                     if(is_file($current_path . $shot)){
                         $image = @file_get_contents($current_path . $shot);
                         if($image){
-                            $image = base64_encode($image);
-                            $infoscreen->shot = $image;
+                            // Generate thumbnail
+                            $thumb = $this->images->resize_max(imagecreatefromstring($image), 408, 400);
+                            ob_start();
+                            imagepng($thumb);
+                            $thumb = ob_get_contents(); // read from buffer
+                            ob_end_clean(); // delete buffer
+
+                            $thumb = base64_encode($thumb);
+                            $infoscreen->shot = $thumb;
                         }
+
                     }
                 }
             }

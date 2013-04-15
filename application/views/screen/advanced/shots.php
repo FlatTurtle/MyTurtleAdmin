@@ -8,8 +8,8 @@
 
                 <div class='infoscreen'>
                     <div class='screen'>
-                        <a href='data:image/png;base64,<?= $shot->data ?>' target="_blank">
-                            <img src="data:image/png;base64,<?= $shot->data ?>" />
+                        <a href='<?= site_url($infoscreen->alias.'/shot/'.$shot->name); ?>' target="_blank">
+                            <img src="data:image/jpg;base64,<?= $shot->data ?>" />
                         </a>
                         <br/>
                         <br/>
