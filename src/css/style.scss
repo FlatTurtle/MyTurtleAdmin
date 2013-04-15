@@ -87,10 +87,6 @@ nav[role=navigation] h4{
     .row.submenu{
         padding: 0px;
 
-        h3{
-            display: inline-block;
-        }
-
         .backlink, .btn{
             margin-top: 15px;
         }
@@ -132,14 +128,26 @@ nav[role=navigation] h4{
         float: left;
         text-align: center;
 
+
+        &.disabled{
+            *{
+                background-color:#222 !important;
+            }
+
+            .logo-holder{
+                display: none;
+            }
+        }
+
         .screen{
             -moz-box-shadow: 0px 0px 5px #aaa;
             -webkit-box-shadow: 0px 0px 5px #aaa;
             box-shadow: 0px 0px 5px #aaa;
-            height: 130px;
+            height: 115px;
             border: 5px solid #000;
             background-color: #fff;
-            margin-bottom: 5px;
+            overflow: hidden;
+            // margin-bottom: 5px;
 
             .inside{
                 width: 100%;
@@ -187,6 +195,13 @@ nav[role=navigation] h4{
     max-width: 500px;
     margin-bottom: 25px;
 
+    .pager{
+        position: absolute;
+        top:35%;
+        left: -30px;
+        right: -30px;
+    }
+
     .dummy{
         padding-top:55%;
     }
@@ -197,27 +212,10 @@ nav[role=navigation] h4{
         bottom: 0px;
         left: 0;
         right: 0;
-        padding-top: 40px;
 
-        .btn-group{
-            top: 0;
-            right: 0;
-            position: absolute;
-
-            .btn{
-                padding-top: 6px;
-
-                [class*=" icon-"]{
-                    line-height: inherit;
-                }
-
-                i.active{
-                    color: #08C;
-                }
-
-                .loading{
-                    margin-top: -5px;
-                }
+        &.disabled{
+            *{
+                background-color:#222 !important;
             }
         }
 
@@ -266,6 +264,57 @@ nav[role=navigation] h4{
 .form-horizontal.center{
     margin: 0px auto;
     max-width: 500px;
+
+    .btn-group{
+        padding-bottom: 20px;
+        text-align: center;
+
+        .btn{
+            padding-top: 6px;
+            width: 100px;
+            white-space: normal;
+            min-height: 75px;
+            vertical-align: middle;
+            display: table-cell;
+            border-right: none;
+
+            &.btn:last-child{
+                border-right: 1px solid rgba(0, 0, 0, 0.25);
+            }
+
+            span{
+                word-wrap: break-word;
+                color: #666;
+                font-size: 12px;
+                line-height: 10px;
+            }
+
+            [class*=" icon-"]{
+                line-height: inherit;
+            }
+
+            i.active{
+                color: #08C;
+            }
+
+            .loading{
+                margin-top: -5px;
+            }
+        }
+    }
+
+    .btn-secondrow{
+        text-align: right;
+        padding-bottom: 30px;
+
+        a{
+            margin-right: 20px;
+
+            &:last-child{
+                margin-right: 0px;
+            }
+        }
+    }
 }
 
 

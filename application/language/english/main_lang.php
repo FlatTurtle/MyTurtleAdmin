@@ -56,6 +56,8 @@ $lang['term.destination'] = "Destination";
 $lang['term.via'] = "Via";
 $lang['term.optional'] = "Optional";
 $lang['term.advanced'] = "Advanced";
+$lang['term.settings'] = "Settings";
+$lang['term.screenshots'] = "Screenshots";
 
 /**
  * Screen detail page
@@ -73,6 +75,11 @@ $lang['screen.geographic_coordinates'] = "Geographic coordinates";
 $lang['screen.pin_for_tablet'] = "PIN for tablet";
 $lang['screen.message_refresh'] = "Refreshing the entire screen, this will take a short while";
 $lang['screen.message_power'] = "Changing the power state of the screen, this will take a short while";
+$lang['screen.btn_message'] = "Send message";
+$lang['screen.btn_clock'] = "Toggle clock";
+$lang['screen.btn_power'] = "Toggle power";
+$lang['screen.btn_refresh'] = "Refresh";
+
 
 /**
  * Turtles page

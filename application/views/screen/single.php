@@ -1,5 +1,3 @@
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/spectrum-min.js"></script>
-<link rel="stylesheet" href="<?= base_url(); ?>assets/css/spectrum.css" type="text/css" />
 <div id="messageModal" class="modal hide fade">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -17,35 +15,21 @@
 
 <div class='row'>
     <div class='span12'>
+        <?
+            $clock_class = 'active';
+            if(!$state_clock){
+                $clock_class = '';
+            }
+            $screen_class = 'icon-eye-open active';
+            $extra_screen_class= '';
+            if(!$state_screen){
+                $screen_class = 'icon-eye-close';
+                $extra_screen_class= 'disabled';
+            }
+        ?>
         <div class="single-infoscreen">
             <div class="dummy"></div>
-            <div class="screen">
-                <?
-                    $clock_class = 'active';
-                    if(!$state_clock){
-                        $clock_class = '';
-                    }
-                    $screen_class = 'icon-eye-open active';
-                    if(!$state_screen){
-                        $screen_class = 'icon-eye-close';
-                    }
-                ?>
-
-                <div class="btn-group">
-                    <a href='#messageModal' role='button' class="btn" data-toggle="modal" title="<?= lang('screen.sent_message_alt') ?>">
-                        <i class="icon-comment icon-large"></i>
-                    </a>
-                    <a href='#' id="btnToggleClock" role='button' class="btn" title="<?= lang('screen.toggle_clock_alt') ?>">
-                        <i class="icon-time icon-large <?= $clock_class ?>"></i>
-                    </a>
-                    <a href='#' id="btnToggleScreen" role='button' class="btn"  title="<?= lang('screen.toggle_screen_alt') ?>">
-                        <i class="<?= $screen_class ?> icon-large"></i>
-                    </a>
-                    <a href='#' id='btnRefreshScreen' role='button' class="btn" title="<?= lang('screen.refresh') ?>">
-                        <i class="icon-refresh icon-large"></i>
-                    </a>
-                </div>
-
+            <div class="screen <?= $extra_screen_class ?>">
                 <div class='inner'>
                     <a href="<?= site_url($infoscreen->alias . '/left') ?>">
                         <div class='left-side'>
@@ -63,9 +47,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/update'); ?>" method="post" enctype="multipart/form-data">
 
             <ul class="pager">
                 <li class="previous">
@@ -75,28 +56,41 @@
                     <a href="<?= site_url($infoscreen->alias . '/right') ?>"><?= lang('screen.right_side') ?> &rarr;</a>
                 </li>
             </ul>
+        </div>
 
-            <div class="control-group<?= (!empty($errors['title'])) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputTitle"><?= lang('term.title') ?></label>
-                <div class="controls">
-                    <input type="text" id="inputTitle" name="title" placeholder="<?= lang('term.title') ?>" value="<?= $infoscreen->title; ?>" class="input-block-level">
-                </div>
+        <form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/update'); ?>" method="post" enctype="multipart/form-data">
+            <div class="btn-group">
+                <a href='#messageModal' role='button' class="btn" data-toggle="modal" title="<?= lang('screen.sent_message_alt') ?>">
+                    <i class="icon-comment icon-large"></i><br/>
+                    <span><?= lang('screen.btn_message') ?></span>
+                </a>
+                <a href='#' id="btnToggleClock" role='button' class="btn" title="<?= lang('screen.toggle_clock_alt') ?>">
+                    <i class="icon-time icon-large <?= $clock_class ?>"></i><br/>
+                    <span><?= lang('screen.btn_clock') ?></span>
+                </a>
+                <a href='#' id="btnToggleScreen" role='button' class="btn"  title="<?= lang('screen.toggle_screen_alt') ?>">
+                    <i class="<?= $screen_class ?> icon-large"></i><br/>
+                    <span><?= lang('screen.btn_power') ?></span>
+                </a>
+                <a href='#' id='btnRefreshScreen' role='button' class="btn" title="<?= lang('screen.refresh') ?>">
+                    <i class="icon-refresh icon-large"></i><br/>
+                    <span><?= lang('screen.btn_refresh') ?></span>
+                </a>
             </div>
-            <div class="control-group<?= (!empty($errors['location'])) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputLocation"><?= lang('term.address') ?></label>
-                <div class="controls">
-                    <input type="text" id="inputLocation" name="location" placeholder="<?= lang('screen.address_alt') ?>" value="<?= $infoscreen->location; ?>" class="input-block-level">
-                    <span class='note'><?= ($infoscreen->latitude)? lang('screen.geographic_coordinates').': '.$infoscreen->latitude.', '.$infoscreen->longitude:lang('error.resolve_address'); ?></span>
-                </div>
+
+
+            <div class="btn-secondrow">
+                <a href="<?php echo site_url($infoscreen->alias . '/settings') ?>" class=''>
+                    <i class='icon-cog'></i>&nbsp;
+                    <?= lang('term.settings') ?>
+                </a>
+                <a href="<?php echo site_url($infoscreen->alias . '/shots') ?>" class=''>
+                    <i class='icon-camera'></i>&nbsp;
+                    <?= lang('term.screenshots') ?>
+                </a>
             </div>
-            <div class="control-group<?= (!empty($errors['color'])) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputColor"><?= lang('term.color') ?></label>
-                <div class="controls">
-                    <div class="input-prepend input-append">
-                        <input type="text" id="inputColor" name="color" placeholder="#<?= strtolower(lang('term.color')) ?>" class="input-small" value="<?= $infoscreen->color; ?>" maxlength="7">
-                    </div>
-                </div>
-            </div>
+
+
             <div class="control-group">
                 <label class="control-label" for="inputFooter"><?= lang('term.footer') ?></label>
                 <input type="hidden" name="" value="<?= $footer ?>"/>
@@ -122,16 +116,7 @@
                     <input type="text" id="inputFooterMessage" name="footer_message" placeholder="Text" class="<?php if($footer_type == "message") echo "shown"; ?>" value="<?php if($footer_type == "message") echo $footer; ?>"/>
                 </div>
             </div>
-            <div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputLogo"><?= lang('term.logo') ?></label>
-                <div class="controls">
-                    <input type="file" id="inputLogo" name="logo" class="hide better-file-upload"/>
-                    <div class="input-append">
-                       <input id="inputLogoVal" class="input-large file-value" type="text">
-                       <a class="btn file-button"><?= lang('term.browse') ?></a>
-                    </div>
-                </div>
-            </div>
+
             <div class="control-group">
                 <div class="controls">
                     <? if (!empty($all_errors) || !empty($file_error)) { ?>
@@ -145,6 +130,11 @@
                     <? } else { ?>
                         <button type="submit" class="btn"><?= lang('term.save') ?></button>
                     <? } ?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
                 </div>
             </div>
         </form>

@@ -1,3 +1,8 @@
+<?php
+
+$version_css = "1.0.1"
+
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -13,7 +18,7 @@
         <!-- For everything else -->
         <link rel="shortcut icon" href="https://www.flatturtle.com/themes/site/img/favicon.ico">
 
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css?v=1.0" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css?v=<?= $version_css ?>" type="text/css" media="screen" />
         <link type="text/css" rel="stylesheet" href="https://fast.fonts.com/cssapi/66253153-9c89-413c-814d-60d3ba0d6ac2.css"/>
 
         <!--[if lte IE 8]><link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" /><![endif]-->
