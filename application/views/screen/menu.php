@@ -20,16 +20,5 @@
                     echo "&nbsp;<i class='icon-chevron-right'></i>&nbsp;". $menu_second_item;
             ?>
         </h3>
-        <?php
-        // Advanced is only for superadmins
-        if($this->uri->segment(3) != "advanced"){
-        ?>
-            <a href="<?php echo site_url($infoscreen->alias . '/advanced') ?>" class='btn pull-right'>
-                <i class='icon-cog'></i>&nbsp;
-                <?= lang('term.advanced') ?>
-            </a>
-        <?php
-        }
-        ?>
     </div>
 </div>

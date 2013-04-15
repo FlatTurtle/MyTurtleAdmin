@@ -31,6 +31,13 @@ class Home extends CI_Controller {
             redirect(site_url($data['infoscreens'][0]->alias));
         }
 
+        foreach($data['infoscreens'] as $infoscreen){
+            $plugin_states = $this->infoscreen->plugin_states($infoscreen->alias);
+            $infoscreen->power = 1;
+            if(isset($plugin_states->power))
+                $infoscreen->power = $plugin_states->power;
+        }
+
         $this->load->view('header');
         $this->load->view('home', $data);
         $this->load->view('footer');
