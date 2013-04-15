@@ -8,12 +8,13 @@
 
                 <div class='infoscreen'>
                     <div class='screen'>
-                        <a href='data:image/png;base64,<?= $shot ?>' target="_blank">
-                            <img src="data:image/png;base64,<?= $shot ?>" />
+                        <a href='data:image/png;base64,<?= $shot->data ?>' target="_blank">
+                            <img src="data:image/png;base64,<?= $shot->data ?>" />
                         </a>
                         <br/>
                         <br/>
                     </div>
+                    <?= $shot->title ?>
                 </div>
             <?
                 }

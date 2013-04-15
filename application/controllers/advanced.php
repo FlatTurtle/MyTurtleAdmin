@@ -197,8 +197,14 @@ class Advanced extends CI_Controller {
             if(is_file($shots_path . $shot)){
                 $image = @file_get_contents($shots_path . $shot);
                 if($image){
-                    $image = base64_encode($image);
-                    array_push($data['shots'], $image);
+                    $title = explode('.', $shot);
+                    $title = @DateTime::createFromFormat("Ymd-Hi", $title[0]);
+
+                    $shotObj = new stdClass();
+                    $shotObj->title = $title->format('d/m/Y'). " &mdash; " .$title->format('H:i');
+                    $shotObj->data = base64_encode($image);
+
+                    array_push($data['shots'], $shotObj);
                 }
             }
         }
