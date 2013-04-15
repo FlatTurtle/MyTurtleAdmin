@@ -56,6 +56,8 @@ $lang['term.destination'] = "Bestemming";
 $lang['term.via'] = "Via";
 $lang['term.optional'] = "Optioneel";
 $lang['term.advanced'] = "Advanced";
+$lang['term.settings'] = "Instellingen";
+$lang['term.screenshots'] = "Screenshots";
 
 /**
  * Screen detail page
@@ -73,6 +75,10 @@ $lang['screen.geographic_coordinates'] = "Geographische coördinaten";
 $lang['screen.pin_for_tablet'] = "Pincode voor de tablet";
 $lang['screen.message_refresh'] = "Het scherm wordt opnieuw ingeladen. Dit duurt een klein momentje.";
 $lang['screen.message_power'] = "De energiestand wordt aangepast. Dit duurt een klein momentje.";
+$lang['screen.btn_message'] = "Stuur bericht";
+$lang['screen.btn_clock'] = "Schakel klok aan of uit";
+$lang['screen.btn_power'] = "Schakel scherm aan of uit";
+$lang['screen.btn_refresh'] = "Refresh";
 
 /**
  * Turtles page
