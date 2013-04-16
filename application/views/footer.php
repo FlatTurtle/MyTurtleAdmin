@@ -1,6 +1,6 @@
 <?php
 
-$version_js = "1.0.7";
+$version_js = "1.0.8";
 
 ?>
             </div>
