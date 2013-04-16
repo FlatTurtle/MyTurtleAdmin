@@ -76,8 +76,8 @@ $lang['screen.pin_for_tablet'] = "Code PIN pour tablette";
 $lang['screen.message_refresh'] = "L'écran est actualisé. Cela peut prendre un peu de temps.";
 $lang['screen.message_power'] = "L'alimentation de l'écran est modifiée. Cela peut prendre un peu de temps.";
 $lang['screen.btn_message'] = "Envoyez un message";
-$lang['screen.btn_clock'] = "(Des)activez l'horloge";
-$lang['screen.btn_power'] = "(Des)activez l'écran";
+$lang['screen.btn_clock'] = "(Dés)activez l'horloge";
+$lang['screen.btn_power'] = "(Dés)activez l'écran";
 $lang['screen.btn_refresh'] = "Actualisez";
 
 /**
@@ -98,7 +98,7 @@ $lang['turtle.airport_alt'] =  "Code de l'aéroport (ex: BRU ou CDG)";
 $lang['turtle.delijn_alt'] =  "Nom d'un arrêt (ex: Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Nom d'un arrêt (ex: Mozart)";
 $lang['turtle.nmbs_alt'] =  "Nom d'une station (ex: Liege Guillemins)";
-$lang['turtle.nmbs_via_alt'] =  "";
+$lang['turtle.nmbs_via_alt'] =  "Lorsque 'Via' est utilisé, ça montrera les trains qui s'arrête dans cette gare et à quel moment.";
 $lang['turtle.velo_alt'] =  "Nom d'une station Velo (ex: Theater)";
 $lang['turtle.villo_alt'] =  "Nom d'une station Villo (ex: Botanique/Kruidtuin)";
 $lang['turtle.mapbox_alt'] =  "L'adresse d'un emplacement (ex: Gent Korenmarkt)";
