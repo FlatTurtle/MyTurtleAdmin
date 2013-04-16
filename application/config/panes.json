@@ -63,5 +63,15 @@
                 "order": 0
             }
         ]
+    },
+    "info": {
+        "name": "Information",
+        "description": "General information pane. Customize it with your own text.",
+        "turtles": [
+            {
+                "type": "info",
+                "order": 0
+            }
+        ]
     }
 }
