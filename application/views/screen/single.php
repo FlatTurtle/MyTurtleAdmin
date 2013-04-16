@@ -82,12 +82,10 @@
             <div class="btn-secondrow">
                 <a href="<?php echo site_url($infoscreen->alias . '/settings') ?>" class=''>
                     <i class='icon-cog'></i>&nbsp;
-                    <?= lang('term.settings') ?>
-                </a>
+                    <?= lang('term.settings') ?></a>
                 <a href="<?php echo site_url($infoscreen->alias . '/shots') ?>" class=''>
                     <i class='icon-camera'></i>&nbsp;
-                    <?= lang('term.screenshots') ?>
-                </a>
+                    <?= lang('term.screenshots') ?></a>
             </div>
 
 

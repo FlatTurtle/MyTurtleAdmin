@@ -86,7 +86,6 @@ class SecureLogin {
         $this->CI->db->update($this->user_table, array('password' => $user_pass_hashed));
 
         return true;
-
     }
 
     /**
@@ -144,5 +143,3 @@ class SecureLogin {
         $this->CI->session->sess_destroy();
     }
 }
-
-?>

@@ -5,6 +5,7 @@ Author: Michiel Vancoillie
 
 @import "bootstrap";
 @import "bootstrap-responsive";
+@import "bootstrap-wysihtml5";
 @import "font-awesome";
 
 
@@ -472,9 +473,15 @@ nav[role=navigation] h4{
                 .ui-helper-hidden-accessible{
                     display: none;
                 }
+
+                textarea{
+                    width: 98.5%;
+                    resize:vertical;
+                    min-height: 200px;
+                    margin-bottom: 20px;
+                }
             }
         }
-
     }
 }
 

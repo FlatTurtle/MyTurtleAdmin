@@ -42,7 +42,7 @@ class Home extends CI_Controller {
                 $infoscreen->power = $plugin_states->power;
 
             // Check screenshot availability
-            $current_path = $shots_path . $infoscreen->hostname . "/";
+            $current_path = $shots_path . $infoscreen->hostname . "/thumbs/";
             $infoscreen->shot = false;
 
             if(is_dir($current_path)){
@@ -69,6 +69,7 @@ class Home extends CI_Controller {
                             $image = base64_encode($image);
                             $infoscreen->shot = $image;
                         }
+
                     }
                 }
             }
