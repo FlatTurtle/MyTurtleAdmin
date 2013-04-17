@@ -41,8 +41,8 @@
                     </a>
 
                     <div class="logo-holder">
-                        <? if (!empty($logo)) { ?>
-                            <div class='logo' style="background-image:url('<?= base_url() . $logo; ?>?<?= rand(0, 999999) ?>');"></div>
+                        <? if (!empty($infoscreen->logo)) { ?>
+                            <div class='logo' style="background-image:url('<?= $infoscreen->logo; ?>?<?= rand(0, 999999) ?>');"></div>
                         <? } ?>
                     </div>
                 </div>

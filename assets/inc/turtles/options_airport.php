@@ -6,6 +6,14 @@
     </div>
 </div>
 <div class="control-group">
+    <label class="control-label" for="{{id}}-type">{{term.type}}</label>
+    <div class="controls">
+        <select name="{{id}}-type" class='input-medium'>
+            {{type-options}}
+        </select>
+    </div>
+</div>
+<div class="control-group">
     <label class="control-label" for="{{id}}-limit">{{turtles.option_number_of_items}}</label>
     <div class="controls">
         <select name="{{id}}-limit" class='input-small'>

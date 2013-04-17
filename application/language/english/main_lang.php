@@ -58,6 +58,9 @@ $lang['term.optional'] = "Optional";
 $lang['term.advanced'] = "Advanced";
 $lang['term.settings'] = "Settings";
 $lang['term.screenshots'] = "Screenshots";
+$lang['term.type'] = "Type";
+$lang['term.departures'] = "Departures";
+$lang['term.arrivals'] = "Arrivals";
 
 /**
  * Screen detail page

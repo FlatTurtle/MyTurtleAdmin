@@ -178,6 +178,19 @@ class Turtle extends CI_Model {
             $contents = preg_replace('/{{{data}}}/', $html, $contents);
         }
 
+        // Type options
+        $type_options = "";
+        $selected_dep = "selected='selected'";
+        $selected_arr = "";
+        if(!empty($turtle->options->type) && $turtle->options->type == "arrivals"){
+            $selected_dep = "";
+            $selected_arr = "selected='selected'";
+        }
+        $type_options .= '<option ' . $selected_dep . ' value="departures">' . lang('term.departures') . '</option>';
+        $type_options .= '<option ' . $selected_arr . ' value="arrivals">' . lang('term.arrivals') . '</option>';
+        $contents = preg_replace('/{{type-options}}/', $type_options, $contents);
+
+
         // Limit options
         $limit_options = "";
         $limit = (!empty($turtle->options->limit))? $turtle->options->limit : 5;
