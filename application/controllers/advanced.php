@@ -49,6 +49,8 @@ class Advanced extends CI_Controller {
         if ($data['errors']) {
             if($this->session->flashdata('post_title'))
             $data['infoscreen']->title = $this->session->flashdata('post_title');
+            if($this->session->flashdata('post_address'))
+            $data['infoscreen']->location = $this->session->flashdata('post_address');
             $data['infoscreen']->color = $this->session->flashdata('post_color');
             $data['infoscreen']->hostname = $this->session->flashdata('hostname');
             $data['infoscreen']->pincode = $this->session->flashdata('pincode');
@@ -158,6 +160,7 @@ class Advanced extends CI_Controller {
         if ($this->my_formvalidation->run()) {
             $this->infoscreen->post($alias, $this->input->post());
         } else {
+            $this->session->set_flashdata('post_address', $this->input->post('location'));
             $this->session->set_flashdata('post_title', $this->input->post('title'));
             $this->session->set_flashdata('post_color', $this->input->post('color'));
             $this->session->set_flashdata('pincode', $this->input->post('pincode'));
