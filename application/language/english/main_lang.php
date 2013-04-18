@@ -28,7 +28,7 @@ $lang['term.log_out'] = "Log out";
 $lang['term.retry'] = "Retry";
 $lang['term.delete'] = "Delete";
 $lang['term.disable'] = "Disable";
-$lang['term.infoscreens'] = "Infoscreens";
+$lang['term.infoscreens'] = "MyTurtles";
 $lang['term.left'] = "Left";
 $lang['term.right'] = "Right";
 $lang['term.username'] = "Username";
@@ -61,6 +61,9 @@ $lang['term.screenshots'] = "Screenshots";
 $lang['term.type'] = "Type";
 $lang['term.departures'] = "Departures";
 $lang['term.arrivals'] = "Arrivals";
+$lang['term.more'] = "More";
+$lang['term.less'] = "Less";
+$lang['term.searching_for'] = "Searching for";
 
 /**
  * Screen detail page
@@ -151,6 +154,12 @@ $lang['error.create_turtle'] = "Couldn't create Turtle, please refresh and try a
 $lang['error.delete_turtle'] = "Couldn't delete that Turtle at the moment";
 $lang['error.add_pane'] = "Couldn't enable pane, please refresh and try again";
 $lang['error.delete_pane'] = "Couldn't delete that pane at the moment";
+
+
+/**
+ * Warnings
+ */
+$lang['warn.no_screens_found'] = "<strong>No MyTurtles found!</strong> Try a different search string";
 
 /**
  * Footer

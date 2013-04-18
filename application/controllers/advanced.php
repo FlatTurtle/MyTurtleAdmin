@@ -26,7 +26,7 @@ class Advanced extends CI_Controller {
         $this->my_formvalidation->set_rules('longitude', 'longitude', 'callback_check_geocode');
         $this->my_formvalidation->set_rules('color', 'color', 'callback_check_color');
         $this->my_formvalidation->set_rules('hostname', 'hostname', 'required|trim|max_length[50]');
-        $this->my_formvalidation->set_rules('pincode', 'pincode', 'required|trim|max_length[20]');
+        $this->my_formvalidation->set_rules('pincode', 'pincode', 'trim|max_length[20]');
         $this->my_formvalidation->set_error_delimiters('&bull;&nbsp;', '<br/>');
     }
 
@@ -34,7 +34,12 @@ class Advanced extends CI_Controller {
      * Settings screen information
      */
     public function index($alias){
-        $data['infoscreen'] = $this->infoscreen->get($alias);
+        $data['infoscreens'] = getInfoscreens();
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
+
         $data['errors'] = $this->session->flashdata('errors');
         $data['all_errors'] = $this->session->flashdata('all_errors');
         $data['file_error'] = $this->session->flashdata('file_error');
@@ -44,6 +49,8 @@ class Advanced extends CI_Controller {
         if ($data['errors']) {
             if($this->session->flashdata('post_title'))
             $data['infoscreen']->title = $this->session->flashdata('post_title');
+            if($this->session->flashdata('post_address'))
+            $data['infoscreen']->location = $this->session->flashdata('post_address');
             $data['infoscreen']->color = $this->session->flashdata('post_color');
             $data['infoscreen']->hostname = $this->session->flashdata('hostname');
             $data['infoscreen']->pincode = $this->session->flashdata('pincode');
@@ -55,7 +62,7 @@ class Advanced extends CI_Controller {
             $data['logo'] = $logo_url;
         }
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/advanced/index', $data);
         $this->load->view('footer');
@@ -153,6 +160,7 @@ class Advanced extends CI_Controller {
         if ($this->my_formvalidation->run()) {
             $this->infoscreen->post($alias, $this->input->post());
         } else {
+            $this->session->set_flashdata('post_address', $this->input->post('location'));
             $this->session->set_flashdata('post_title', $this->input->post('title'));
             $this->session->set_flashdata('post_color', $this->input->post('color'));
             $this->session->set_flashdata('pincode', $this->input->post('pincode'));
@@ -167,7 +175,12 @@ class Advanced extends CI_Controller {
      * Screenshots tab
      */
     public function shots($alias){
-        $data['infoscreen'] = $this->infoscreen->get($alias);
+        $data['infoscreens'] = getInfoscreens();
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
+
         $data['menu_second_item'] = lang("term.screenshots");
 
         $shots_path = $this->config->item('screenshots_path');
@@ -214,7 +227,7 @@ class Advanced extends CI_Controller {
 
 
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/advanced/shots', $data);
         $this->load->view('footer');

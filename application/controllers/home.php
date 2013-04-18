@@ -25,7 +25,7 @@ class Home extends CI_Controller {
             redirect('login');
         }
 
-        $data['infoscreens'] = $this->infoscreen->getAll();
+        $data['infoscreens'] = getInfoscreens();
         // Redirect when there is only one screen
         if(count($data['infoscreens']) == 1){
             redirect(site_url($data['infoscreens'][0]->alias));
@@ -75,7 +75,7 @@ class Home extends CI_Controller {
             }
         }
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('home', $data);
         $this->load->view('footer');
     }

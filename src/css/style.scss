@@ -6,6 +6,7 @@ Author: Michiel Vancoillie
 @import "bootstrap";
 @import "bootstrap-responsive";
 @import "bootstrap-wysihtml5";
+@import "bootstrap-select";
 @import "font-awesome";
 
 
@@ -22,6 +23,18 @@ textarea{
     font-family: inherit;
 }
 
+select{
+    -webkit-appearance: menulist;
+}
+
+strong, b{
+    font-family: "Soho Gothic W01 Medium";
+}
+
+.alert strong{
+    margin-right: 10px;
+}
+
 header[role=banner] {
     padding: 20px 0px;
     margin: 0 auto;
@@ -32,6 +45,11 @@ header[role=banner] {
         width: 67%;
         min-width: 200px;
         max-width: 369px;
+        max-height: 70px;
+
+        img{
+            max-height: 50px;
+        }
     }
 }
 
@@ -43,12 +61,13 @@ nav[role=navigation] {
     i{
         color: #0578bd;
     }
-}
 
-nav[role=navigation] h4{
-    display:inline;
-    padding:0px;
-    padding-right: 20px;
+    h4{
+        display:inline;
+        padding:0px;
+        padding-right: 10px;
+        font-size: 12px;
+    }
 }
 
 .navbar{
@@ -65,6 +84,37 @@ nav[role=navigation] h4{
         background: none;
         border: none;
         box-shadow: none;
+    }
+
+    .dropdown-menu{
+        max-height:360px;
+        overflow-y: auto;
+        border-radius: 0px;
+        background-color:#f8f8f8;
+        border: 1px solid #d4d4d4;
+        margin-top: -1px;
+
+        a{
+            padding: 5px 15px !important;
+            color: #555;
+            text-shadow: 0 1px 0 #fff;
+        }
+
+        .active a{
+            background-image: none !important;
+            background-color: #e5e5e5 !important;
+            text-shadow: none;
+            -webkit-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+            -moz-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+            box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+        }
+
+        .active a:hover, a:hover, a:focus{
+            color:#fff;
+            background-image: none !important;
+            background-color: #0088cc !important;
+            text-shadow: none;
+        }
     }
 }
 
@@ -119,12 +169,44 @@ nav[role=navigation] h4{
     padding: 7px 9px;
 }
 
-#infoscreens{
+.infoscreens{
     width: 100%;
+
+    .more{
+        display: table-cell;
+        float:left;
+        vertical-align: middle;
+        width: 214px;
+        text-align: center;
+        padding: 10px;
+        height: 125px;
+
+        span{
+            display: inline-block;
+            padding: 5px 14px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+    }
+
+    a:hover{
+        .infoscreen{
+            margin: 8px;
+            width: 218px;
+
+            .screen{
+                height: 119px;
+            }
+        }
+    }
 
     .infoscreen{
         margin: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         width: 214px;
         float: left;
         text-align: center;
@@ -148,7 +230,7 @@ nav[role=navigation] h4{
             border: 5px solid #000;
             background-color: #fff;
             overflow: hidden;
-            // margin-bottom: 5px;
+            margin-bottom: 5px;
 
             .inside{
                 width: 100%;
@@ -177,16 +259,26 @@ nav[role=navigation] h4{
 
                     .logo{
                         width: 100%;
+                        max-width: 70px;
                         height: 100%;
+                        max-height: 20px;
                         background-size: contain;
                         background-repeat: no-repeat;
-                        background-position: right bottom;
+                        background-position: right center;
+                        position:absolute;
+                        top: 5px;
+                        right: 7px;
                     }
                 }
             }
         }
     }
+}
 
+.infoscreens.inactive{
+    .screen{
+        border: 5px solid #555;
+    }
 }
 
 .single-infoscreen{
@@ -196,11 +288,34 @@ nav[role=navigation] h4{
     max-width: 500px;
     margin-bottom: 25px;
 
+
+
+    .screen-links{
+        text-align: right;
+        padding-bottom: 30px;
+        position: absolute;
+        top: -30px;
+        right: 0px;
+
+        a{
+            margin-right: 20px;
+
+            &:last-child{
+                margin-right: 0px;
+            }
+        }
+    }
+
     .pager{
         position: absolute;
-        top:35%;
+        top:30%;
         left: -30px;
         right: -30px;
+        pointer-events: none;
+
+        a{
+            pointer-events: auto;
+        }
     }
 
     .dummy{
@@ -241,26 +356,89 @@ nav[role=navigation] h4{
             }
 
             .logo-holder{
-                height: 100%;
-                max-height: 39px;
+                height: 48px;
                 position: absolute;
                 background-color: #fff;
                 bottom: 0px;
                 right: 0px;
                 left: 0px;
-                padding: 5px;
+                padding: 15px;
+                font-size: 12px;
+
+                label{
+                    line-height: 50px;
+                    padding:0px 10px;
+                    width: auto;
+                    float: left;
+                }
+
+                button{
+                    display: inline-block;
+                    height: 20px;
+                    font-size: 12px;
+                    line-height: 0px;
+                    padding: 5px;
+                    margin-left: 8px;
+                    margin-top: -1px;
+                }
+
+                .footer-line.single{
+                    line-height: 50px;
+
+                    select{
+                        margin-top: 15px;
+                    }
+                }
 
                 .logo{
                     width: 100%;
                     height: 100%;
+                    max-width: 80px;
                     background-size: contain;
                     background-repeat: no-repeat;
-                    background-position: right bottom;
+                    background-position: right center;
+                    position:absolute;
+                    top: 0px;
+                    right: 20px;
                 }
+
+                select{
+                    outline: none;
+                    padding: 0px;
+                    height: 20px;
+                    font-size: 12px;
+                    max-width: 200px;
+                    float: left;
+                    display: block;
+
+                    &.updates{
+                        margin-top: 8px;
+                        float: none;
+                    }
+                }
+
+                input{
+                    outline: none;
+                    font-size: 10px;
+                    height: 16px;
+                    padding: 1px 5px;
+                    width: 250px;
+                    margin-top: 8px;
+                    line-height: 10px;
+                }
+
             }
         }
     }
 }
+
+
+@media (max-width: 979px) {
+    .single-infoscreen{
+        margin-top: 20px;
+    }
+}
+
 
 .form-horizontal.center{
     margin: 0px auto;
@@ -303,22 +481,7 @@ nav[role=navigation] h4{
             }
         }
     }
-
-    .btn-secondrow{
-        text-align: right;
-        padding-bottom: 30px;
-
-        a{
-            margin-right: 20px;
-
-            &:last-child{
-                margin-right: 0px;
-            }
-        }
-    }
 }
-
-
 
 .turtle-chooser{
     .turtle{
@@ -633,32 +796,7 @@ footer[role=footer] {
     color: #aaa;
 }
 
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
-    // Fix margin container
-    .container{
-        margin-left: 25px;
-        margin-right: 25px;
-    }
 
-    nav[role=navigation] {
-        padding: 0px;
-        padding-bottom: 20px;
-        text-align: left;
-
-        h4{
-            display: inline;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-    }
-
-    footer[role=footer] {
-        .span5.right-align{
-            text-align: left;
-        }
-    }
-}
 
 /* JQuery UI Autocomplete */
 .ui-autocomplete {
@@ -710,17 +848,91 @@ select{
     }
 }
 
-.btn-group{
-    div.tooltip{
-        display: inline-block;
-        border: 0px;
-    }
-}
-
 .alert.fixed{
     position: fixed;
     width: 100%;
     bottom: 0px;
     left: 0px;
     margin: 0px;
+}
+
+@media (max-width: 550px){
+    .navbar{
+        .navbar-search{
+            display: none;
+        }
+    }
+
+    .single-infoscreen{
+        .screen-links{
+            left: 0px;
+            text-align: left;
+        }
+
+        .logo-holder{
+            label{
+                font-size: 12px;
+            }
+
+            input{
+                width: 100px !important;
+            }
+
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar{
+        .container{
+            margin: 0px;
+        }
+    }
+
+    // Fix margin container
+    .container{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+
+    header[role=banner] {
+        margin: 0 auto;
+        padding: 0px;
+        padding-bottom: 10px;
+        overflow: hidden;
+
+        hgroup {
+            max-height: 30px;
+
+            img{
+                max-height: 30px;
+            }
+        }
+    }
+
+    nav[role=navigation]{
+        padding: 0px;
+        padding-bottom: 20px;
+        text-align: left;
+
+        h4{
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .language_switcher{
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+    }
+
+    footer[role=footer]{
+        font-size: 12px;
+
+        .span5.right-align{
+            text-align: left;
+        }
+    }
 }

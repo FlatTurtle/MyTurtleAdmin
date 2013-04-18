@@ -60,8 +60,6 @@
                     >
                 </div>
             </div>
-
-            <?php if($this->session->userdata('rights') == 1){ ?>
             <div class="control-group">
                 <div class="controls">
                     <? if (!empty($all_errors)) { ?>
@@ -75,7 +73,6 @@
                     <? } ?>
                 </div>
             </div>
-            <? } ?>
         </form>
     </div>
 </div>

@@ -32,12 +32,17 @@ class Panes extends CI_Controller {
             redirect(site_url($alias.'/right/'.$panes[0]->template . '/' . $panes[0]->id . '#config'));
         }else{
             $data['panes'] = $panes;
-            $data['infoscreen'] = $this->infoscreen->get($alias);
+            $data['infoscreens'] = getInfoscreens();
+            foreach($data['infoscreens'] as $infoscreen){
+                if($infoscreen->alias == $alias)
+                    $data['infoscreen'] = $infoscreen;
+            }
+
             $data['available_panes'] = $this->pane->panes;
 
             $data['menu_second_item'] = lang("term.right");
 
-            $this->load->view('header');
+            $this->load->view('header', $data);
             $this->load->view('screen/menu', $data);
             $this->load->view('screen/panes', $data);
             $this->load->view('footer');
@@ -48,7 +53,12 @@ class Panes extends CI_Controller {
      * Show pane details with turtles to configure
      */
     public function index($alias, $pane_id){
-        $data['infoscreen'] = $this->infoscreen->get($alias);
+        $data['infoscreens'] = getInfoscreens();
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
+
         $data['available_panes'] = $this->pane->panes;
         $data['turtles'] = array();
         $data['panes'] = $this->pane->get_all($alias, 'widget');
@@ -96,7 +106,7 @@ class Panes extends CI_Controller {
         $data['duration_options'] = $duration_options;
         $data['menu_second_item'] = lang("term.right");
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/panes', $data);
         $this->load->view('footer');

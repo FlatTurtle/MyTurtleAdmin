@@ -514,14 +514,24 @@ $('.file-button').on('click', function(){
 });
 
 /**
+ * Nicer looking select
+ */
+$('.selectpicker').selectpicker();
+
+
+/**
  * Footer selector functions
  */
 $('#inputFooterMessage').hide();
 $('#inputFooterUpdates').hide();
 $('#footerType').on('change', function(){
+    $('.footer-line').removeClass('single');
     $('#inputFooterMessage').hide();
     $('#inputFooterUpdates').hide();
     $('#inputFooter' + $(this).val().charAt(0).toUpperCase() + $(this).val().slice(1)).show();
+    if($(this).val() == "none"){
+        $('.footer-line').addClass('single');
+    }
 });
 
 /**
@@ -540,4 +550,58 @@ $(document).ready(function(){
         "image": false, //Button to insert an image. Default true,
         "color": false //Button to change color of font
     });
+});
+
+/**
+ * More link on homescreen
+ */
+$('.infoscreens .more').on('click', function(e){
+    e.preventDefault();
+    var target = $('.infoscreens.inactive');
+    if(target.hasClass('hide')){
+        target.removeClass('hide');
+        $('span', this).html(lang['term.less']);
+    }else{
+        target.addClass('hide');
+        $('span', this).html(lang['term.more']);
+    }
+});
+
+/**
+ * Navbar search
+ */
+$('.navbar .search-query').bind('input', function(){
+    var search = $(this).val().trim().toLowerCase();
+    var infoscreens = $(".infoscreens");
+    var inactive = $(".infoscreens.inactive");
+
+    if(inactive.hasClass('hide')){
+        inactive.removeClass('hide').addClass('washidden');
+    }
+
+    $(".search-message", infoscreens).html(lang['warn.no_screens_found']).show();
+    $(".more", infoscreens).hide();
+
+    if(search.length > 0){
+        var regexp = new RegExp(".*" + search.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + ".*");
+        $(".screen-link", infoscreens).hide();
+
+        var matched = false;
+        $(".screen-link", infoscreens).filter(function() {
+            var match = $(this).data("title").match(regexp);
+            if(match) matched = true;
+            return match;
+        }).show();
+        if(matched){
+            $(".search-message", infoscreens).html(lang['term.searching_for'] + ": <strong>" + search +"</strong>");
+        }
+    }else{
+        $(".search-message", infoscreens).hide();
+        $(".screen-link", infoscreens).show();
+        $(".more", infoscreens).show();
+        if(inactive.hasClass('washidden')){
+            inactive.removeClass('washidden');
+            inactive.addClass('hide');
+        }
+    }
 });

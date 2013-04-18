@@ -28,7 +28,7 @@ $lang['term.log_out'] = "Log uit";
 $lang['term.retry'] = "Opnieuw";
 $lang['term.delete'] = "Verwijder";
 $lang['term.disable'] = "Uitschakelen";
-$lang['term.infoscreens'] = "Infoschermen";
+$lang['term.infoscreens'] = "MyTurtles";
 $lang['term.left'] = "Links";
 $lang['term.right'] = "Rechts";
 $lang['term.username'] = "Gebruikersnaam";
@@ -58,6 +58,12 @@ $lang['term.optional'] = "Optioneel";
 $lang['term.advanced'] = "Advanced";
 $lang['term.settings'] = "Instellingen";
 $lang['term.screenshots'] = "Screenshots";
+$lang['term.type'] = "Type";
+$lang['term.departures'] = "Vertrekken";
+$lang['term.arrivals'] = "Aankomsten";
+$lang['term.more'] = "Meer";
+$lang['term.less'] = "Minder";
+$lang['term.searching_for'] = "Zoeken op";
 
 /**
  * Screen detail page
@@ -146,6 +152,11 @@ $lang['error.create_turtle'] = "Kon de Turtle niet aanmaken. Refresh de pagina e
 $lang['error.delete_turtle'] = "Kon de Turtle niet verwijderen. Refresh de pagina en probeer het opnieuw.";
 $lang['error.add_pane'] = "Kon de pane niet activeren. Refresh de pagina en probeer het opnieuw.";
 $lang['error.delete_pane'] = "Kon de pane niet verwijderen. Refresh de pagina en probeer het opnieuw.";
+
+/**
+ * Warnings
+ */
+$lang['warn.no_screens_found'] = "<strong>Geen MyTurtles gevonden!</strong> Probeer een andere zoekterm";
 
 /**
  * Footer
