@@ -1,6 +1,6 @@
 <div class="row">
     <div class='span12'>
-        <div id='infoscreens'>
+        <div class='infoscreens'>
             <?php
                 $item = 0;
                 foreach($shots as $shot){

@@ -93,24 +93,36 @@ $version_css = "1.0.3"
                         <div class="container">
                             <ul class="nav">
                                 <li class="dropdown <?php if($nav_screens) echo 'active' ?>">
-                                    <a href="<?php echo site_url('') ?>" class="dropdown-toggle" data-toggle="dropdown">
-                                        <?= lang('term.infoscreens') ?>
-                                        <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <?php
-                                        $reached_inactive = false;
-                                        foreach($infoscreens as $screen){
-                                            if(!$reached_inactive && empty($screen->hostname)){
-                                                $reached_inactive = true;
-                                                echo '<li class="divider"></li>';
-                                            }
-                                        ?>
-                                            <li class="<?php if($screen->alias == $this->uri->segment(2)) echo 'active' ?>">
-                                                <a tabindex="-1" href="<?php echo site_url($screen->alias) ?>"><?php echo $screen->title ?></a>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
+                                    <?php
+                                        if(count($infoscreens) > 1){
+                                    ?>
+                                        <a href="<?php echo site_url('') ?>" class="dropdown-toggle" data-toggle="dropdown">
+                                            <?= lang('term.infoscreens') ?>
+                                            <b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <?php
+                                            $reached_inactive = false;
+                                            foreach($infoscreens as $screen){
+                                                if(!$reached_inactive && empty($screen->hostname)){
+                                                    $reached_inactive = true;
+                                                    echo '<li class="divider"></li>';
+                                                }
+                                            ?>
+                                                <li class="<?php if($screen->alias == $this->uri->segment(2)) echo 'active' ?>">
+                                                    <a tabindex="-1" href="<?php echo site_url($screen->alias) ?>"><?php echo $screen->title ?></a>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>
+                                    <?php
+                                        }else{
+                                    ?>
+                                        <a href="<?php echo site_url('') ?>">
+                                            <?= lang('term.infoscreens') ?>
+                                        </a>
+                                    <?php
+                                        }
+                                    ?>
                                 </li>
                                 <?
                                 // Show this only for superadmins
@@ -123,7 +135,7 @@ $version_css = "1.0.3"
                             </ul>
                             <?
                                 // Show search only on homepage
-                                if ($this->session->userdata('rights') == 1 && !$this->uri->segment(2)) {
+                                if (count($infoscreens) > 5 && !$this->uri->segment(2)) {
                             ?>
                                     <form class="navbar-search pull-right">
                                         <i class='icon-search'></i>
