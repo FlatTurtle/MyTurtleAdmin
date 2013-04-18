@@ -61,6 +61,8 @@ $lang['term.screenshots'] = "Captures d'écran";
 $lang['term.type'] = "Type";
 $lang['term.departures'] = "Départs";
 $lang['term.arrivals'] = "Arrivées";
+$lang['term.more'] = "plus";
+$lang['term.less'] = "Moins";
 
 /**
 * Screen detail page
