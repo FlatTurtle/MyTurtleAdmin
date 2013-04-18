@@ -28,7 +28,7 @@ $lang['term.log_out'] = "Déconnectez";
 $lang['term.retry'] = "Réessayez";
 $lang['term.delete'] = "Effacez";
 $lang['term.disable'] = "Désactivez";
-$lang['term.infoscreens'] = "Infoscreens";
+$lang['term.infoscreens'] = "MyTurtles";
 $lang['term.left'] = "Gauche";
 $lang['term.right'] = "Droit";
 $lang['term.username'] = "Nom d'utilisateur";
@@ -61,7 +61,7 @@ $lang['term.screenshots'] = "Captures d'écran";
 $lang['term.type'] = "Type";
 $lang['term.departures'] = "Départs";
 $lang['term.arrivals'] = "Arrivées";
-$lang['term.more'] = "plus";
+$lang['term.more'] = "Plus";
 $lang['term.less'] = "Moins";
 
 /**

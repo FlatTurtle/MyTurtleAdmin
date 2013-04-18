@@ -566,3 +566,37 @@ $('.infoscreens .more').on('click', function(e){
         $('span', this).html(lang['term.more']);
     }
 });
+
+/**
+ * Navbar search
+ */
+$('.navbar .search-query').bind('input', function(){
+    var search = $(this).val().trim().toLowerCase();
+    var infoscreens = $(".infoscreens");
+
+    $(".search-message", infoscreens).html(lang['warn.no_screens_found']).show();
+    $(".infoscreen.inactive").show();
+    $(".more", infoscreens).hide();
+
+    if(search.length > 0){
+        var regexp = new RegExp(".*" + search + ".*");
+        $(".screen-link", infoscreens).hide();
+
+        var matched = false;
+        $(".screen-link", infoscreens).filter(function() {
+            var match = $(this).data("title").match(regexp);
+            if(match) matched = true;
+            return match;
+        }).show();
+        if(matched){
+            $(".search-message", infoscreens).html(lang['term.searching_for'] + ": <strong>" + search +"</strong>");
+        }
+    }else{
+        $(".search-message", infoscreens).hide();
+        $(".screen-link", infoscreens).show();
+        $(".more", infoscreens).show();
+        if($(".infoscreen.inactive").hasClass('hide')){
+            $(".infoscreen.inactive").hide();
+        }
+    }
+});

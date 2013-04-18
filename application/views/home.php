@@ -1,6 +1,9 @@
 <div class="row">
     <div class="span12">
         <div class='infoscreens'>
+            <div class="alert alert-info alert-block search-message hide">
+                <?php echo lang('warn.no_screens_found') ?>
+            </div>
             <?
                 $reached_inactive = false;
                 foreach ($infoscreens as $infoscreen) {
@@ -24,7 +27,7 @@
                     if(!$infoscreen->power)
                         $extra_css_class = "disabled"
             ?>
-                <a href="<?= site_url($infoscreen->alias); ?>">
+                <a href="<?= site_url($infoscreen->alias); ?>" data-title="<?= strtolower($infoscreen->title) ?>" class="screen-link">
                     <div class='infoscreen <?= $extra_css_class ?>'>
                         <div class='screen'>
                             <?php

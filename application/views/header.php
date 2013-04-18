@@ -121,6 +121,17 @@ $version_css = "1.0.2"
                                 }
                                 ?>
                             </ul>
+                            <?
+                                // Show search only on homepage
+                                if ($this->session->userdata('rights') == 1 && !$this->uri->segment(2)) {
+                            ?>
+                                    <form class="navbar-search pull-right">
+                                        <i class='icon-search'></i>
+                                        <input type="text" class="search-query" placeholder="" tabindex="1">
+                                    </form>
+                            <?
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
