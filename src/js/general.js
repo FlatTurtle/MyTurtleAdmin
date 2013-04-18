@@ -514,14 +514,24 @@ $('.file-button').on('click', function(){
 });
 
 /**
+ * Nicer looking select
+ */
+$('.selectpicker').selectpicker();
+
+
+/**
  * Footer selector functions
  */
 $('#inputFooterMessage').hide();
 $('#inputFooterUpdates').hide();
 $('#footerType').on('change', function(){
+    $('.footer-line').removeClass('single');
     $('#inputFooterMessage').hide();
     $('#inputFooterUpdates').hide();
     $('#inputFooter' + $(this).val().charAt(0).toUpperCase() + $(this).val().slice(1)).show();
+    if($(this).val() == "none"){
+        $('.footer-line').addClass('single');
+    }
 });
 
 /**
