@@ -573,13 +573,17 @@ $('.infoscreens .more').on('click', function(e){
 $('.navbar .search-query').bind('input', function(){
     var search = $(this).val().trim().toLowerCase();
     var infoscreens = $(".infoscreens");
+    var inactive = $(".infoscreens.inactive");
+
+    if(inactive.hasClass('hide')){
+        inactive.removeClass('hide').addClass('washidden');
+    }
 
     $(".search-message", infoscreens).html(lang['warn.no_screens_found']).show();
-    $(".infoscreen.inactive").show();
     $(".more", infoscreens).hide();
 
     if(search.length > 0){
-        var regexp = new RegExp(".*" + search + ".*");
+        var regexp = new RegExp(".*" + search.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + ".*");
         $(".screen-link", infoscreens).hide();
 
         var matched = false;
@@ -595,8 +599,9 @@ $('.navbar .search-query').bind('input', function(){
         $(".search-message", infoscreens).hide();
         $(".screen-link", infoscreens).show();
         $(".more", infoscreens).show();
-        if($(".infoscreen.inactive").hasClass('hide')){
-            $(".infoscreen.inactive").hide();
+        if(inactive.hasClass('washidden')){
+            inactive.removeClass('washidden');
+            inactive.addClass('hide');
         }
     }
 });
