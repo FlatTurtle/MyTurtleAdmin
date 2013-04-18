@@ -63,6 +63,7 @@ $lang['term.departures'] = "Vertrekken";
 $lang['term.arrivals'] = "Aankomsten";
 $lang['term.more'] = "Meer";
 $lang['term.less'] = "Minder";
+$lang['term.searching_for'] = "Zoeken op";
 
 /**
  * Screen detail page
@@ -151,6 +152,11 @@ $lang['error.create_turtle'] = "Kon de Turtle niet aanmaken. Refresh de pagina e
 $lang['error.delete_turtle'] = "Kon de Turtle niet verwijderen. Refresh de pagina en probeer het opnieuw.";
 $lang['error.add_pane'] = "Kon de pane niet activeren. Refresh de pagina en probeer het opnieuw.";
 $lang['error.delete_pane'] = "Kon de pane niet verwijderen. Refresh de pagina en probeer het opnieuw.";
+
+/**
+ * Warnings
+ */
+$lang['warn.no_screens_found'] = "<strong>Geen MyTurtles gevonden!</strong> Probeer een andere zoekterm";
 
 /**
  * Footer

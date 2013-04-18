@@ -63,6 +63,7 @@ $lang['term.departures'] = "Départs";
 $lang['term.arrivals'] = "Arrivées";
 $lang['term.more'] = "Plus";
 $lang['term.less'] = "Moins";
+$lang['term.searching_for'] = "Recherche de";
 
 /**
 * Screen detail page
@@ -151,6 +152,11 @@ $lang['error.create_turtle'] = "Impossible de créer le Turtle. Veuillez actuali
 $lang['error.delete_turtle'] = "Impossible de supprimer le Turtle pour le moment";
 $lang['error.add_pane'] = "Impossible d'activer le panneau. Veuillez actualiser l'écran et réessayer";
 $lang['error.delete_pane'] = "Impossible de supprimer le panneau pour le moment";
+
+/**
+ * Warnings
+ */
+$lang['warn.no_screens_found'] = "<strong>Pas de MyTurtles trouvé!</strong> Esseyez une requête différente";
 
 /**
 * Footer
