@@ -50,7 +50,12 @@ class Screen extends CI_Controller {
      * Infoscreen view
      */
     public function show($alias) {
-        $data['infoscreen'] = $this->infoscreen->get($alias);
+        $data['infoscreens'] = getInfoscreens();
+        $data['infoscreen_count'] = count($data['infoscreens']);
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
 
         $plugin_states = $this->infoscreen->plugin_states($alias);
         $data['state_clock'] = 1;
@@ -77,7 +82,7 @@ class Screen extends CI_Controller {
 
         $data['back_link'] = "";
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/single', $data);
         $this->load->view('footer');

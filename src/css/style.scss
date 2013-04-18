@@ -147,6 +147,25 @@ nav[role=navigation] h4{
 .infoscreens{
     width: 100%;
 
+    .more{
+        display: table-cell;
+        vertical-align: middle;
+        width: 214px;
+        text-align: center;
+        padding: 10px;
+        height: 125px;
+
+        span{
+            display: inline-block;
+            padding: 5px 14px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+        }
+    }
+
     .infoscreen{
         margin: 10px;
         padding-bottom: 10px;

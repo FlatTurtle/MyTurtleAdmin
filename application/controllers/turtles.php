@@ -24,7 +24,12 @@ class Turtles extends CI_Controller {
      * Turtle page
      */
     public function index($alias) {
-        $data['infoscreen'] = $this->infoscreen->get($alias);
+        $data['infoscreens'] = getInfoscreens();
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
+
         $data['panes'] = $this->pane->get_all($alias, 'list');
         $data['turtle_instances'] = array();
         try{
@@ -37,7 +42,7 @@ class Turtles extends CI_Controller {
 
         $data['menu_second_item'] = lang("term.left");
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/turtles', $data);
         $this->load->view('footer');

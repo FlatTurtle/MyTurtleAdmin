@@ -45,14 +45,14 @@ $version_css = "1.0.2"
         <div class="wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="span8">
+                    <div class="span6">
                         <header role="banner">
                             <hgroup>
                                 <h1><a href='<?= site_url(''); ?>'><img src="<?= base_url(); ?>assets/img/logo_320_2x.gif" alt="FlatTurtle" /></a></h1>
                             </hgroup>
                         </header>
                     </div>
-                    <div class="span4">
+                    <div class="span6">
                         <nav role="navigation">
                             <? if ($this->session->userdata('logged_in')) { ?>
                                 <h4>
@@ -92,7 +92,26 @@ $version_css = "1.0.2"
                     <div class="navbar-inner">
                         <div class="container">
                             <ul class="nav">
-                                <li <?php if($nav_screens) echo 'class="active"' ?>><a href="<?php echo site_url('') ?>"><?= lang('term.infoscreens') ?></a></li>
+                                <li class="dropdown <?php if($nav_screens) echo 'active' ?>">
+                                    <a href="<?php echo site_url('') ?>" class="dropdown-toggle" data-toggle="dropdown">
+                                        <?= lang('term.infoscreens') ?>
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <?php
+                                        $reached_inactive = false;
+                                        foreach($infoscreens as $screen){
+                                            if(!$reached_inactive && empty($screen->hostname)){
+                                                $reached_inactive = true;
+                                                echo '<li class="divider"></li>';
+                                            }
+                                        ?>
+                                            <li class="<?php if($screen->alias == $this->uri->segment(2)) echo 'active' ?>">
+                                                <a tabindex="-1" href="<?php echo site_url($screen->alias) ?>"><?php echo $screen->title ?></a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
                                 <?
                                 // Show this only for superadmins
                                 if ($this->session->userdata('rights') == 1) {

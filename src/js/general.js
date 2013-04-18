@@ -551,3 +551,18 @@ $(document).ready(function(){
         "color": false //Button to change color of font
     });
 });
+
+/**
+ * More link on homescreen
+ */
+$('.infoscreens .more').on('click', function(e){
+    e.preventDefault();
+    var target = $('.infoscreens.inactive');
+    if(target.hasClass('hide')){
+        target.removeClass('hide');
+        $('span', this).html(lang['term.less']);
+    }else{
+        target.addClass('hide');
+        $('span', this).html(lang['term.more']);
+    }
+});

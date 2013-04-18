@@ -1,8 +1,25 @@
 <div class="row">
     <div class="span12">
-        <div id='infoscreens'>
+        <div class='infoscreens'>
             <?
+                $reached_inactive = false;
                 foreach ($infoscreens as $infoscreen) {
+                    // Check for inactive screens
+                    if(!$reached_inactive && empty($infoscreen->hostname)){
+                        $reached_inactive = true;
+                        echo '
+                                        <a href="#" class="more">
+                                            <span>'.lang('term.more').'</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="infoscreens inactive hide">';
+                    }
+
+
                     $extra_css_class = "";
                     if(!$infoscreen->power)
                         $extra_css_class = "disabled"

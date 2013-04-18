@@ -34,7 +34,12 @@ class Advanced extends CI_Controller {
      * Settings screen information
      */
     public function index($alias){
-        $data['infoscreen'] = $this->infoscreen->get($alias);
+        $data['infoscreens'] = getInfoscreens();
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
+
         $data['errors'] = $this->session->flashdata('errors');
         $data['all_errors'] = $this->session->flashdata('all_errors');
         $data['file_error'] = $this->session->flashdata('file_error');
@@ -55,7 +60,7 @@ class Advanced extends CI_Controller {
             $data['logo'] = $logo_url;
         }
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/advanced/index', $data);
         $this->load->view('footer');
@@ -167,7 +172,12 @@ class Advanced extends CI_Controller {
      * Screenshots tab
      */
     public function shots($alias){
-        $data['infoscreen'] = $this->infoscreen->get($alias);
+        $data['infoscreens'] = getInfoscreens();
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
+
         $data['menu_second_item'] = lang("term.screenshots");
 
         $shots_path = $this->config->item('screenshots_path');
@@ -214,7 +224,7 @@ class Advanced extends CI_Controller {
 
 
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
         $this->load->view('screen/advanced/shots', $data);
         $this->load->view('footer');
