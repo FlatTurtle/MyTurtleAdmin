@@ -605,3 +605,23 @@ $('.navbar .search-query').bind('input', function(){
         }
     }
 });
+
+/**
+ * Intro.js
+ */
+
+// Only show on pages with help data
+if($("*[data-intro]").length > 0){
+    $("#help").removeClass("hide");
+}
+
+// Help a brother out!
+$("#help").on('click', function(e){
+    e.preventDefault();
+    introJs().start();
+})
+
+// Close Intro.js on resize
+$(window).resize(function() {
+    introJs().exit();
+});

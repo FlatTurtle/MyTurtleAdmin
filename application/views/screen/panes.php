@@ -14,7 +14,7 @@
         if(!empty($panes)){
         ?>
         <h4><?= lang('panes.enabled') ?></h4>
-        <div class="sortable">
+        <div class="sortable" data-step="1" data-intro="<?php echo lang('help.panes_enabled'); ?>">
         <?
             // Show all enabled panes
             foreach($panes as $pane){
@@ -43,38 +43,40 @@
         ?>
         </div>
         <span class='note'><?= lang('panes.drag_to_sort') ?></span>
-        <?
-        }
-
-            $array_available_panes = (array) $available_panes;
-            if(!empty($array_available_panes)){
-        ?>
-            <h4><?= lang('panes.available') ?></h4>
             <?
-            // Show the other available panes
-            foreach($available_panes as $pane => $pane_value){
+            }
+
+                $array_available_panes = (array) $available_panes;
+                if(!empty($array_available_panes)){
             ?>
-                <div id="<?= $pane; ?>" class='pane available_pane'>
-                    <div class='holder'>
-                        <input id='add_pane_<?= $pane ?>' type='checkbox' class='add_pane'/>
-                        <?
-                            echo $pane_value->name;
-                            if(!empty($pane_value->description)){
-                                echo "<span class='note'>".$pane_value->description."</span>";
-                            }
-                        ?>
+        <div data-step="2" data-intro="<?php echo lang('help.panes_available'); ?>" data-position="top">
+                <h4><?= lang('panes.available') ?></h4>
+                <?
+                // Show the other available panes
+                foreach($available_panes as $pane => $pane_value){
+                ?>
+                    <div id="<?= $pane; ?>" class='pane available_pane'>
+                        <div class='holder'>
+                            <input id='add_pane_<?= $pane ?>' type='checkbox' class='add_pane'/>
+                            <?
+                                echo $pane_value->name;
+                                if(!empty($pane_value->description)){
+                                    echo "<span class='note'>".$pane_value->description."</span>";
+                                }
+                            ?>
+                        </div>
                     </div>
-                </div>
+                <? } ?>
+                <span class='note'><?= lang('panes.click_to_enable') ?></span>
             <? } ?>
-            <span class='note'><?= lang('panes.click_to_enable') ?></span>
-        <? } ?>
+        </div>
     </div>
     <div class='pane-holder span9'>
 
         <h4><?= lang('panes.screen_title') ?></h4>
-        <div class='pane-area'>
+        <div class='pane-area' data-step="3" data-intro="<?php echo lang('help.panes_area'); ?>" data-position="top">
             <? if(!empty($current_pane)){ ?>
-                <div class='pane-options'>
+                <div class='pane-options' data-step="4" data-intro="<?php echo lang('help.panes_general_options'); ?>" data-position="left">
                     <form action='<?= site_url($infoscreen->alias.'/right/save/'.$current_pane->id); ?>' class="form-horizontal" method='post'>
                         <div class="control-group">
                             <div class="controls">

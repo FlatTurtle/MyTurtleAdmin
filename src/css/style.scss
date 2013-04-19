@@ -8,6 +8,7 @@ Author: Michiel Vancoillie
 @import "bootstrap-wysihtml5";
 @import "bootstrap-select";
 @import "font-awesome";
+@import "introjs";
 
 
 html, body{
@@ -63,8 +64,8 @@ nav[role=navigation] {
     }
 
     h4{
-        display:inline;
-        padding:0px;
+        display: inline;
+        padding: 0px;
         padding-right: 10px;
         font-size: 12px;
     }
@@ -87,10 +88,10 @@ nav[role=navigation] {
     }
 
     .dropdown-menu{
-        max-height:360px;
+        max-height: 360px;
         overflow-y: auto;
         border-radius: 0px;
-        background-color:#f8f8f8;
+        background-color: #f8f8f8;
         border: 1px solid #d4d4d4;
         margin-top: -1px;
 
@@ -110,10 +111,31 @@ nav[role=navigation] {
         }
 
         .active a:hover, a:hover, a:focus{
-            color:#fff;
+            color: #fff;
             background-image: none !important;
             background-color: #0088cc !important;
             text-shadow: none;
+        }
+    }
+
+    #help{
+        display: inline-block;
+        font-size: 18px;
+        line-height: 38px;
+        margin-right: 20px;
+        color: #666;
+
+        &.hide{
+            display: none;
+        }
+
+        &:hover, &:focus{
+            text-decoration: none;
+            color: #0088cc;
+        }
+
+        &:last-child{
+            margin-right: 0px;
         }
     }
 }
@@ -174,7 +196,7 @@ nav[role=navigation] {
 
     .more{
         display: table-cell;
-        float:left;
+        float: left;
         vertical-align: middle;
         width: 214px;
         text-align: center;
@@ -214,7 +236,7 @@ nav[role=navigation] {
 
         &.disabled{
             *{
-                background-color:#222 !important;
+                background-color: #222 !important;
             }
 
             .logo-holder{
@@ -265,7 +287,7 @@ nav[role=navigation] {
                         background-size: contain;
                         background-repeat: no-repeat;
                         background-position: right center;
-                        position:absolute;
+                        position: absolute;
                         top: 5px;
                         right: 7px;
                     }
@@ -308,7 +330,7 @@ nav[role=navigation] {
 
     .pager{
         position: absolute;
-        top:30%;
+        top: 30%;
         left: -30px;
         right: -30px;
         pointer-events: none;
@@ -319,7 +341,7 @@ nav[role=navigation] {
     }
 
     .dummy{
-        padding-top:55%;
+        padding-top: 55%;
     }
 
     .screen{
@@ -331,7 +353,7 @@ nav[role=navigation] {
 
         &.disabled{
             *{
-                background-color:#222 !important;
+                background-color: #222 !important;
             }
         }
 
@@ -367,7 +389,7 @@ nav[role=navigation] {
 
                 label{
                     line-height: 50px;
-                    padding:0px 10px;
+                    padding: 0px 10px;
                     width: auto;
                     float: left;
                 }
@@ -397,7 +419,7 @@ nav[role=navigation] {
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: right center;
-                    position:absolute;
+                    position: absolute;
                     top: 0px;
                     right: 20px;
                 }
@@ -504,7 +526,7 @@ nav[role=navigation] {
         right: -5px;
 
         ul{
-            display:inline;
+            display: inline;
             margin: 0px;
             padding: 0px;
         }
@@ -548,7 +570,7 @@ nav[role=navigation] {
                 display: block;
                 margin: 0px;
                 background-color: #333;
-                border:1px solid #555;
+                border: 1px solid #555;
                 border-bottom: none;
                 color: #fff;
                 padding: 7px;
@@ -628,9 +650,9 @@ nav[role=navigation] {
             }
 
             .edit_area{
-                padding:10px;
+                padding: 10px;
                 padding-bottom: 0px;
-                border:1px solid #ddd;
+                border: 1px solid #ddd;
                 border-top: none;
 
                 .ui-helper-hidden-accessible{
@@ -639,7 +661,7 @@ nav[role=navigation] {
 
                 textarea{
                     width: 98.5%;
-                    resize:vertical;
+                    resize: vertical;
                     min-height: 200px;
                     margin-bottom: 20px;
                 }
@@ -731,13 +753,13 @@ nav[role=navigation] {
         }
 
         input[type=checkbox]{
-            margin:0px;
+            margin: 0px;
             margin-top: -2px;
             margin-right: 10px;
         }
 
         .note{
-            display:block;
+            display: block;
             padding-left: 25px;
             font-size: 11px;
             line-height: 14px;
@@ -757,7 +779,7 @@ nav[role=navigation] {
 }
 
 footer[role=footer] {
-    width:100%;
+    width: 100%;
     background-color: #2257a6;
     border-top: 10px solid #0578bd;
     bottom: 0;
@@ -765,11 +787,11 @@ footer[role=footer] {
     color: #fff;
 
     a{
-        color:#21b0d7;
+        color: #21b0d7;
     }
 
     a:hover{
-        color:#fff;
+        color: #fff;
         text-decoration: none;
     }
 }
@@ -787,12 +809,12 @@ footer[role=footer] {
 }
 
 .nomargin{
-    margin:0;
+    margin: 0;
 }
 
 .note{
     line-height: 2.5em;
-    font-size:13px;
+    font-size: 13px;
     color: #aaa;
 }
 

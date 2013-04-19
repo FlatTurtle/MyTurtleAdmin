@@ -21,7 +21,10 @@ $version_css = "1.0.3"
         <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css?v=<?= $version_css ?>" type="text/css" media="screen" />
         <link type="text/css" rel="stylesheet" href="https://fast.fonts.com/cssapi/66253153-9c89-413c-814d-60d3ba0d6ac2.css"/>
 
-        <!--[if lte IE 8]><link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" /><![endif]-->
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="<?= base_url(); ?>assets/css/ie7-font-awesome.css" type="text/css" media="screen" />
+            <link href="<?= base_url(); ?>assets/css/introjs-ie.css" rel="stylesheet" type="text/css">
+        <!-- <![endif]-->
 
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
@@ -63,7 +66,13 @@ $version_css = "1.0.3"
                                 </a>
                             <? } ?>
                             <div class="language_switcher btn-toolbar">
-                                <div class="btn-group">
+                                <div class="btn-group"
+                                    <?php
+                                        // Show language help only on the homepage
+                                        if(!$this->uri->segment(2))
+                                            echo 'data-step="1" data-intro="'.lang('help.language_selector').'" data-position="left"';
+                                    ?>
+                                >
                                     <a href='<?= $this->lang->switch_uri('en'); ?>' class="btn <? echo ($this->lang->lang() == "en")? 'active':''; ?>">EN</a>
                                     <a href='<?= $this->lang->switch_uri('nl'); ?>' class="btn <? echo ($this->lang->lang() == "nl")? 'active':''; ?>">NL</a>
                                     <a href='<?= $this->lang->switch_uri('fr'); ?>' class="btn <? echo ($this->lang->lang() == "fr")? 'active':''; ?>">FR</a>
@@ -133,17 +142,20 @@ $version_css = "1.0.3"
                                 }
                                 ?>
                             </ul>
-                            <?
-                                // Show search only on homepage
-                                if (count($infoscreens) > 5 && !$this->uri->segment(2)) {
-                            ?>
-                                    <form class="navbar-search pull-right">
-                                        <i class='icon-search'></i>
-                                        <input type="text" class="search-query" placeholder="" tabindex="1">
-                                    </form>
-                            <?
-                                }
-                            ?>
+                            <div class="pull-right">
+                                <a id="help" href="" class="pull-left hide"><i class='icon-question-sign'></i></a>
+                                <?
+                                    // Show search only on homepage
+                                    if (count($infoscreens) > 5 && !$this->uri->segment(2)) {
+                                ?>
+                                        <form class="navbar-search">
+                                            <i class='icon-search'></i>
+                                            <input type="text" class="search-query" placeholder="" tabindex="1">
+                                        </form>
+                                <?
+                                    }
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
