@@ -31,10 +31,10 @@
         <form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/update'); ?>" method="post" enctype="multipart/form-data">
             <div class="single-infoscreen">
                 <div class="screen-links">
-                    <a href="<?php echo site_url($infoscreen->alias . '/settings') ?>" class=''>
+                    <a href="<?php echo site_url($infoscreen->alias . '/settings') ?>" class=''  data-step="5" data-intro="<?php echo lang('help.screen_settings'); ?>">
                         <i class='icon-cog'></i>&nbsp;
                         <?= lang('term.settings') ?></a>
-                    <a href="<?php echo site_url($infoscreen->alias . '/shots') ?>" class=''>
+                    <a href="<?php echo site_url($infoscreen->alias . '/shots') ?>" class=''  data-step="6" data-intro="<?php echo lang('help.screen_shots'); ?>">
                         <i class='icon-camera'></i>&nbsp;
                         <?= lang('term.screenshots') ?></a>
                 </div>
@@ -45,13 +45,14 @@
                         <a href="<?= site_url($infoscreen->alias . '/left') ?>">
                             <div class='left-side'>
                             </div>
+                            <div class="clear"></div>
                         </a>
                         <a href="<?= site_url($infoscreen->alias . '/right') ?>">
                             <div class='right-side' style='background-color:<?= $infoscreen->color; ?>;'>
                             </div>
                         </a>
 
-                        <div class="logo-holder">
+                        <div class="logo-holder" data-step="3" data-intro="<?php echo lang('help.screen_footer'); ?>">
                             <label for="inputFooter"><?= lang('term.footer') ?>:</label>
                             <div class="footer-line <?php if($footer_type == 'none') echo 'single';?>">
                                 <select id='footerType' name='footer_type'>
@@ -84,15 +85,15 @@
 
                 <ul class="pager">
                     <li class="previous">
-                        <a href="<?= site_url($infoscreen->alias . '/left') ?>">&larr; <?= lang('screen.left_side') ?></a>
+                        <a href="<?= site_url($infoscreen->alias . '/left') ?>" data-step="1" data-intro="<?php echo lang('help.screen_left'); ?>">&larr; <?= lang('screen.left_side') ?></a>
                     </li>
                     <li class="next">
-                        <a href="<?= site_url($infoscreen->alias . '/right') ?>"><?= lang('screen.right_side') ?> &rarr;</a>
+                        <a href="<?= site_url($infoscreen->alias . '/right') ?>"  data-step="2" data-intro="<?php echo lang('help.screen_right'); ?>"><?= lang('screen.right_side') ?> &rarr;</a>
                     </li>
                 </ul>
             </div>
 
-            <div class="btn-group">
+            <div class="btn-group" data-step="4" data-intro="<?php echo lang('help.screen_footer'); ?>">
                 <a href='#messageModal' role='button' class="btn" data-toggle="modal" title="<?= lang('screen.sent_message_alt') ?>">
                     <i class="icon-comment icon-large"></i><br/>
                     <span><?= lang('screen.btn_message') ?></span>

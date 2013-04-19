@@ -73,5 +73,16 @@
                 "order": 0
             }
         ]
+    },
+    "rss": {
+        "name": "RSS",
+        "description": "Show news from an RSS feed.",
+        "description_fr": "Voir les nouvelles à partir d'un flux RSS.",
+        "turtles": [
+            {
+                "type": "rss",
+                "order": 0
+            }
+        ]
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-$version_js = "1.0.9";
+$version_js = "1.0.10";
 
 ?>
             </div>
@@ -35,6 +35,9 @@ $version_js = "1.0.9";
         // Javascript translations
         if(isset($this->lang)){
             foreach($this->lang->language as $key => $value){
+                if(preg_match("/^help/", $key)){
+                    continue;
+                }
                 echo "        lang['".$key ."'] =  \"". $value  . "\";\n";
             }
         }

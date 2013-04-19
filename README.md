@@ -5,9 +5,9 @@ Admin for the infoscreens ([my.flatturtle.com](https://My.FlatTurtle.com)).
 
 MyTurtleAdmin makes use of the [Codeigniter framework](http://codeigniter.com/), [Twitter Bootstrap](http://twitter.github.com/bootstrap),
 [Font Awesome](http://fortawesome.github.com/Font-Awesome/),
-[SASS](http://sass-lang.com) and the [ControlBay API](https://github.com/FlatTurtle/)
+[SASS](http://sass-lang.com), [WYSIHTML5](https://github.com/jhollingworth/bootstrap-wysihtml5/), [Intro.js](http://usablica.github.io/intro.js/) and the [ControlBay API](https://github.com/FlatTurtle/)
 
-* [Michiel Vancoillie](http://twitter.com/ntynmichiel) (project leader)
+* [Michiel Vancoillie](http://twitter.com/ntynmichiel) (project lead)
 
 Install
 =======
