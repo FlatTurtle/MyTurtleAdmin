@@ -1,3 +1,7 @@
+/**
+ * Screen control buttons
+ */
+
 var delayClock = 500;
 var delayRefresh = 15000;
 var delayPower = 20000;
@@ -110,6 +114,9 @@ $('#btnRefreshScreen').click(function(e){
     }
 });
 
+/**
+ * Show an alert fixed to the bottom of the page
+ */
 function showAlert(text, duration){
     if(alertTimeout)
         clearTimeout(alertTimeout);

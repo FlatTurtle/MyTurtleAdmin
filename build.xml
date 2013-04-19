@@ -32,15 +32,27 @@
     <!--Concatenate JS files-->
     <target name="-js.concatenate" depends="-init"
         description="Concatenates specified JavaScript files">
-        <copy file="${src.js.dir}/jquery-1.8.2.js" tofile="${build.dir}/js/jquery.js"/>
-        <copy file="${src.js.dir}/jquery-ui-1.9.1.js" tofile="${build.dir}/js/jquery-ui.js"/>
-        <copy file="${src.js.dir}/spectrum.js" tofile="${build.dir}/js/spectrum.js"/>
-        <copy file="${src.js.dir}/jquery-ui-touch-punch.js" tofile="${build.dir}/js/jquery-ui-touch-punch.js"/>
+        <copy file="${src.js.dir}/lib/jquery-1.8.2.js" tofile="${build.dir}/js/jquery.js"/>
+        <copy file="${src.js.dir}/lib/jquery-ui-1.9.1.js" tofile="${build.dir}/js/jquery-ui.js"/>
+        <copy file="${src.js.dir}/lib/spectrum.js" tofile="${build.dir}/js/spectrum.js"/>
+        <copy file="${src.js.dir}/lib/jquery-ui-touch-punch.js" tofile="${build.dir}/js/jquery-ui-touch-punch.js"/>
         <concat destfile="${build.dir}/js/script.js">
             <fileset
                 dir="${src.js.dir}"
-                includes="*.js, inc/turtle-general.js, inc/turtle-creation.js, inc/turtle-sorting.js, inc/pane-general.js, inc/pane-creation.js, inc/pane-sorting.js, inc/turtle-signage.js"
-                excludes="jquery-1.8.2.js, jquery-ui-1.9.1.js, spectrum.js, jquery-ui-touch-punch.js"/>
+                includes="  *.js,
+                            lib/bootstrap-select.js,
+                            lib/bootstrap.js,
+                            lib/dropzone.js,
+                            lib/intro.js,
+                            lib/wysihtml5.js,
+                            inc/turtle-general.js,
+                            inc/turtle-creation.js,
+                            inc/turtle-sorting.js,
+                            inc/pane-general.js,
+                            inc/pane-creation.js,
+                            inc/pane-sorting.js,
+                            inc/turtle-signage.js"
+                excludes=""/>
         </concat>
         <echo>Finished</echo>
     </target>
