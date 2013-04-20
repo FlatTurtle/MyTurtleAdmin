@@ -167,7 +167,7 @@ $lang['footer.rights'] = "Certains droits réservés"; // Rights reserved
  * Help text
  * NOT AVAILABLE IN JAVASCRIPT
  */
-$lang['help.language_selector'] = "Choisissez votre langue préférée.";
+$lang['help.language_selector'] = "Choisissez votre langue.";
 $lang['help.select_screen'] = "Voici tous vos MyTurtles, sélectionnez celui que vous souhaitez modifier.";
 $lang['help.screen_left'] = "Allez ici pour éditer le côté gauche de votre MyTurtle. Vous pouvez activer en configurer les Turtles.";
 $lang['help.screen_right'] = "Allez ici pour éditer le côté droit de vous MyTurtle. Vous pouvez activer en configurer les Turtles.";

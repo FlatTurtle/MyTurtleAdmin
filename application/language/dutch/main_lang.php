@@ -167,19 +167,19 @@ $lang['footer.rights'] = "Sommige rechten voorbehouden"; // Rights reserved
  * Help text
  * NOT AVAILABLE IN JAVASCRIPT
  */
-$lang['help.language_selector'] = "Kies uw voorkeur taal.";
-$lang['help.select_screen'] = "Ziehier al uw MyTurtles. Selecteer degene u wilt aanpassen.";
-$lang['help.screen_left'] = "Hier kan u de linker zijde van uw MyTurtle aanpassen, door Turtles toe te voegen en te configureren.";
-$lang['help.screen_right'] = "Hier kan u de rechter zijde van uw MyTurtle aanpassen, door Turtles toe te voegen en te configureren.";
-$lang['help.screen_footer'] = "Schakel de voettekst aan of uit. Hier kan u een bericht plaatsen of updates tonen.";
+$lang['help.language_selector'] = "Kies uw taal.";
+$lang['help.select_screen'] = "Alle beschikbare MyTurtles. Selecteer degene u wilt aanpassen.";
+$lang['help.screen_left'] = "Gebruik de linkerzijde om de MyTurtle aan te passen, door Turtles toe te voegen en/of in te stellen.";
+$lang['help.screen_right'] = "Gebruik de rechterzijde om de MyTurtle aan te passen, door Turtles toe te voegen en/of in te stellen.";
+$lang['help.screen_footer'] = "Schakel de voettekst aan of uit. U kan een bericht plaatsen of updates tonen.";
 $lang['help.screen_buttons'] = "Met deze knoppen krijgt u controle over uw MyTurtle.";
 $lang['help.screen_settings'] = "Pas hier de instellingen aan van de MyTurtle.";
 $lang['help.screen_shots'] = "Bekijk een lijst van de laatste screenshots.";
 
 $lang['help.turtles_available'] = "Een lijst van beschikbare Turtles. Sleep deze naar de rechterkant (zie stap 2) om deze te activeren.";
-$lang['help.turtles_area'] = "Sleep Turtles van de linkerkant en nieuwe aan te maken. Hier kan u de beschikbare opties van elk van uw geactiveerde Turtles aanpassen. Versleep de Turtles om de volgorde te wijzigen.";
+$lang['help.turtles_area'] = "Sleep Turtles van de linkerkant en nieuwe aan te maken. U kan de beschikbare opties van elk van uw geactiveerde Turtles aanpassen. Versleep de Turtles om de volgorde te wijzigen.";
 
-$lang['help.panes_enabled'] = "Een lijst van geactiveerde panes. Klik op de panes om de opties te bekijken en te wijzigen in de rechterkant (zie stap 3). Versleep ze om de volgorde te wijzigen.";
+$lang['help.panes_enabled'] = "Een lijst van actieve panes. Selecteer eeb pane om de opties te bekijken en te wijzigen in de rechterkant (zie stap 3). Versleep ze om de volgorde te wijzigen.";
 $lang['help.panes_available'] = "Een lijst van beschikbare panes. Klik op het vinkje om ze te activeren.";
 $lang['help.panes_area'] = "Bekijk en pas de opties aan van de geselecteerde pane.";
 $lang['help.panes_general_options'] = "Stel de algemene opties in van de geselecteerde pane.";
