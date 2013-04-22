@@ -1,6 +1,6 @@
 <?php
 
-$version_js = "1.0.10";
+$version_js = "1.0.11";
 
 ?>
             </div>
@@ -31,19 +31,29 @@ $version_js = "1.0.10";
     </footer>
     <script type="text/javascript">
         var lang = [];
-<?php
-        // Javascript translations
-        if(isset($this->lang)){
-            foreach($this->lang->language as $key => $value){
-                if(preg_match("/^help/", $key)){
-                    continue;
+        <?php
+            // Javascript translations
+            if(isset($this->lang)){
+                foreach($this->lang->language as $key => $value){
+                    if(preg_match("/^help/", $key)){
+                        // Skip help translation
+                        continue;
+                    }
+                    echo "lang['".$key ."'] =  \"". $value  . "\";";
                 }
-                echo "        lang['".$key ."'] =  \"". $value  . "\";\n";
             }
-        }
-?>
+        ?>
     </script>
     <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=<?= $version_js ?>"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-31282630-2', 'flatturtle.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>
 
