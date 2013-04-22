@@ -159,8 +159,8 @@ $lang['error.delete_pane'] = "Impossible de supprimer le panneau pour le moment"
 $lang['warn.no_screens_found'] = "<strong>Pas de MyTurtles trouvé!</strong> Esseyez une requête différente";
 
 /**
-* Footer
-*/
+ * Footer
+ */
 $lang['footer.rights'] = "Certains droits réservés"; // Rights reserved
 
 /**
