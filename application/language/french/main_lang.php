@@ -168,20 +168,20 @@ $lang['footer.rights'] = "Certains droits réservés"; // Rights reserved
  * NOT AVAILABLE IN JAVASCRIPT
  */
 $lang['help.language_selector'] = "Choisissez votre langue.";
-$lang['help.select_screen'] = "Voici tous vos MyTurtles, sélectionnez celui que vous souhaitez modifier.";
-$lang['help.screen_left'] = "Allez ici pour éditer le côté gauche de votre MyTurtle. Vous pouvez activer en configurer les Turtles.";
-$lang['help.screen_right'] = "Allez ici pour éditer le côté droit de vous MyTurtle. Vous pouvez activer en configurer les Turtles.";
-$lang['help.screen_footer'] = "Activer / désactiver un pied de page sur votre MyTurtle. Vous pouvez définir un message ou affichage des mises à jour.";
-$lang['help.screen_buttons'] = "Contrôler votre MyTurtle avec ces boutons.";
-$lang['help.screen_settings'] = "Modifiez les paramètres de votre MyTurtle ici.";
-$lang['help.screen_shots'] = "Afficher la liste des captures d'écran récents.";
+$lang['help.select_screen'] = "Sélectionnez, parmi vos MyTurtles, celui que vous souhaitez modifier.";
+$lang['help.screen_left'] = "Cliquez ici pour afficher le côté gauche de votre MyTurtle. Vous pouvez activer et configurer les Turtles.";
+$lang['help.screen_right'] = "Cliquez ici pour afficher le côté droit de votre MyTurtle. Vous pouvez activer et configurer les Turtles.";
+$lang['help.screen_footer'] = "Activez/désactivez un pied de page sur votre MyTurtle. Vous pouvez définir un message ou affichage des mises à jour.";
+$lang['help.screen_buttons'] = "Contrôlez votre MyTurtle avec ces boutons.";
+$lang['help.screen_settings'] = "Modifiez ici les paramètres de votre MyTurtle ici.";
+$lang['help.screen_shots'] = "Affichez la liste des captures d'écran récentes.";
 
-$lang['help.turtles_available'] = "Une liste des Turtles disponibles. Glissez les de la zone de droite (voir étape 2) pour les activer.";
-$lang['help.turtles_area'] = "Glissez les Turtles de la liste gauche pour créer des nouveaux. Ici, vous pouvez modifier les options disponibles pour chacun de vos Turtles activés. Glissez les pour modifier leurs ordre.";
+$lang['help.turtles_available'] = "Liste des Turtles disponibles. Glissez-les de la zone de droite (voir étape 2) pour les activer.";
+$lang['help.turtles_area'] = "Glissez les Turtles de la liste gauche pour en créer de nouveaux. Ici, vous pouvez modifier les options disponibles pour chacun de vos Turtles activés. Glissez les pour modifier leur ordre.";
 
-$lang['help.panes_enabled'] = "Une liste de panneaux activés. Cliquez dessus pour voir/modifier leurs options dans la zone droite (voir étape 3). Glissez les pour modifier l'ordre.";
-$lang['help.panes_available'] = "Une liste de panneaux disponibles. Cochez la case pour activer le panneau désiré.";
-$lang['help.panes_area'] = "Voir / modifier les options du  panneau sélectionnée.";
+$lang['help.panes_enabled'] = "Liste de panneaux activés. Cliquez dessus pour voir/modifier leurs options dans la zone droite (voir étape 3). Glissez-les pour en modifier l'ordre.";
+$lang['help.panes_available'] = "Liste de panneaux disponibles. Cochez la case pour activer le panneau désiré.";
+$lang['help.panes_area'] = "Voir/modifier les options du  panneau sélectionné.";
 $lang['help.panes_general_options'] = "Définissez les options générales du panneau sélectionné.";
 
 /**
