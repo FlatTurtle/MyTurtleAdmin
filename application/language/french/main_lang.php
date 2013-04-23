@@ -91,7 +91,7 @@ $lang['screen.btn_refresh'] = "Actualisez";
 */
 $lang['turtles.available'] = "Turtles disponibles";
 $lang['turtles.drag_to_screen'] = "Glissez les Turtles vers l'écran";
-$lang['turtles.screen_title'] = "Le côté gauche de l'écran";
+$lang['turtles.screen_title'] = "Côté gauche de l'écran";
 $lang['turtles.drag_to_sort'] = "Glissez les Turtles pour trier";
 $lang['turtles.option_number_of_items'] = "Eléments à afficher";
 $lang['turtles.option_zoom'] = "Zoom";
