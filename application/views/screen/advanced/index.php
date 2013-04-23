@@ -1,6 +1,6 @@
 <?php
     $admin = false;
-    if($this->session->userdata('rights') == 1){
+    if($this->session->userdata('rights') == 100){
         $admin = true;
     }
 ?>

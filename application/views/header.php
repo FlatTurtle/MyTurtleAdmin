@@ -135,7 +135,7 @@ $version_css = "1.0.5"
                                 </li>
                                 <?
                                 // Show this only for superadmins
-                                if ($this->session->userdata('rights') == 1) {
+                                if ($this->session->userdata('rights') == 100) {
                                 ?>
                                     <li><a href="#">Users</a></li>
                                 <?
