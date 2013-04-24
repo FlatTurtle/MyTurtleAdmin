@@ -116,9 +116,15 @@ class API {
                         throw new ErrorException($http_status . " - " . $response);
                 }
                 break;
-            default:
+            case 404:
                 if (ENVIRONMENT == 'production')
                     show_404();
+                else
+                    throw new ErrorException($http_status . " - " . $response);
+                break;
+            default:
+                if (ENVIRONMENT == 'production')
+                    show_error("Oops we are doing something wrong here, if this problem persists, please contact us!", $http_status);
                 else
                     throw new ErrorException($http_status . " - " . $response);
                 break;
