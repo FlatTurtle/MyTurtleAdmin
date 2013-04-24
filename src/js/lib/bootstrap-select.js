@@ -56,7 +56,9 @@
             if(this.multiple) {
                  this.$newElement.addClass('show-tick');
             }
-            this.button.addClass(this.options.style);
+            if(this.options){
+                this.button.addClass(this.options.style);
+            }
             this.checkDisabled();
             this.checkTabIndex();
             this.clickListener();
