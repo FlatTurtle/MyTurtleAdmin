@@ -32,7 +32,7 @@ $('.file-button').on('click', function(){
 });
 
 // Nicer looking select
-$('.selectpicker').selectpicker();
+$('.niceselect').selectpicker();
 
 
 // Footer selector functions
@@ -50,6 +50,7 @@ $('#footerType').on('change', function(){
 
 // Force show elements with class shown
 $('.shown').show();
+
 
 // Bootstrap WYSIHTML5
 $(document).ready(function(){

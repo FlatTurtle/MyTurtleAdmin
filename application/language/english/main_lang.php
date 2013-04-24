@@ -79,8 +79,8 @@ $lang['screen.right_side'] = "Right side";
 $lang['screen.address_alt'] = "Location (e.g.: Rue de la Loi 1, Brussels)";
 $lang['screen.geographic_coordinates'] = "Geographic coordinates";
 $lang['screen.pin_for_tablet'] = "PIN for tablet";
-$lang['screen.message_refresh'] = "Refreshing the entire screen, this will take a short while";
-$lang['screen.message_power'] = "Changing the power state of the screen, this will take a short while";
+$lang['screen.message_refresh'] = "Refreshing the entire screen. This will take a short while.";
+$lang['screen.message_power'] = "Changing the power state of the screen. This will take a short while.";
 $lang['screen.btn_message'] = "Send message";
 $lang['screen.btn_clock'] = "Toggle clock";
 $lang['screen.btn_power'] = "Toggle power";
@@ -170,22 +170,22 @@ $lang['footer.rights'] = "Some rights reserved"; // Rights reserved
  * Help text
  * NOT AVAILABLE IN JAVASCRIPT
  */
-$lang['help.language_selector'] = "Choose your preferred language";
-$lang['help.select_screen'] = "Here are all your MyTurtles, select the one you want to edit";
-$lang['help.screen_left'] = "Go here to edit the left side of your MyTurtle, by adding and configuring Turtles";
-$lang['help.screen_right'] = "Go here to edit the right side of you MyTurtle, by enabling and configuring panes";
-$lang['help.screen_footer'] = "Enable/disable a footer on your MyTurtle, set a message or display updates";
-$lang['help.screen_buttons'] = "Control the MyTurtle with these buttons";
-$lang['help.screen_settings'] = "Edit the MyTurtle settings here";
-$lang['help.screen_shots'] = "View a list of recent screenshots";
+$lang['help.language_selector'] = "First of all: choose your language.";
+$lang['help.select_screen'] = "This is a list of all your MyTurtles. You can select the one you want to edit.";
+$lang['help.screen_left'] = "Clicking here allows you to edit the left side of your MyTurtle. You can add and confige Turtles.";
+$lang['help.screen_right'] = "And here you can edit the right side of you MyTurtle. It gives you the possibility to enable and configure panes.";
+$lang['help.screen_footer'] = "You can also enable or disable a footer on your MyTurtle, set a message or display other updates.";
+$lang['help.screen_buttons'] = "These buttons give you control over the MyTurtle.";
+$lang['help.screen_settings'] = "This allows you to edit the MyTurtle settings.";
+$lang['help.screen_shots'] = "A list of recent screenshots is available here.";
 
-$lang['help.turtles_available'] = "A list of available Turtles. Drag these to the right area (see step 2) to enabled them";
-$lang['help.turtles_area'] = "Drop Turtles from the left to create new ones. Here you can edit the avaiable options for each of your enabled Turtles. Drag and drop them to change their order";
+$lang['help.turtles_available'] = "This is a list of available Turtles. Drag these to the right area (see step 2) to enabled them.";
+$lang['help.turtles_area'] = "You can drop Turtles from the left to create new ones. Here you can edit the available options for each of your enabled Turtles. Drag and drop them to change their order.";
 
-$lang['help.panes_enabled'] = "A list of enabled panes. Click them to view/change their options in the right area (see step 3). Drag and drop to change the order";
-$lang['help.panes_available'] = "A list of available panes. Check the checkbox to enable the desired pane";
-$lang['help.panes_area'] = "View/set the options of the selected pane";
-$lang['help.panes_general_options'] = "Set the general options of the selected pane";
+$lang['help.panes_enabled'] = "This is a list of enabled panes. Click them to view/change their options in the right area (see step 3). Drag and drop to change the order.";
+$lang['help.panes_available'] = "All the available panes are listed here. Check the checkbox to enable the desired pane.";
+$lang['help.panes_area'] = "And view/set the options of the selected pane.";
+$lang['help.panes_general_options'] = "Here you can set the general options of the selected pane.";
 
 /**
  * EOF

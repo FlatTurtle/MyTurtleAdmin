@@ -6,158 +6,172 @@
 
 class MY_Lang extends CI_Lang {
 
-	/**************************************************
-	 configuration
-	***************************************************/
+    /**************************************************
+     configuration
+    ***************************************************/
 
-	// languages
-	var $languages = array(
-		'en' => 'english',
-		'fr' => 'french',
-		'nl' => 'dutch'
-	);
+    // languages
+    var $languages = array(
+        'en' => 'english',
+        'fr' => 'french',
+        'nl' => 'dutch'
+    );
 
-	// special URIs (not localized)
-	var $special = array ();
+    // special URIs (not localized)
+    var $special = array ();
 
-	// where to redirect if no language in URI
-	var $default_uri = '';
+    // where to redirect if no language in URI
+    var $default_uri = '';
 
-	/**************************************************/
+    /**************************************************/
 
 
-	function __construct()
-	{
-		parent::__construct();
+    function __construct()
+    {
+        parent::__construct();
 
-		global $CFG;
-		global $URI;
-		global $RTR;
+        global $CFG;
+        global $URI;
+        global $RTR;
 
-		$segment = $URI->segment(1);
+        $segment = $URI->segment(1);
 
-		if (isset($this->languages[$segment]))	// URI with language -> ok
-		{
-			$language = $this->languages[$segment];
-			$CFG->set_item('language', $language);
+        if (isset($this->languages[$segment]))  // URI with language -> ok
+        {
+            // If language changes update cookie
+            if (isset($_COOKIE['ft_myadmin_lang']) && $_COOKIE['ft_myadmin_lang'] != $segment){
+                // Set cookie (expires in 10 year from now)
+                setcookie("ft_myadmin_lang", $segment,  time() + (10 * 365 * 24 * 60 * 60));
+            }
 
-		}
-		else if($this->is_special($segment)) // special URI -> no redirect
-		{
-			return;
-		}
-		else	// URI without language -> redirect to default_uri
-		{
-			// set default language
-			$CFG->set_item('language', $this->languages[$this->default_lang()]);
 
-			// redirect
-			header("Location: " . $CFG->site_url($this->localized($this->default_uri)), TRUE, 302);
-			exit;
-		}
-	}
+            $language = $this->languages[$segment];
+            $CFG->set_item('language', $language);
 
-	// get current language
-	// ex: return 'en' if language in CI config is 'english'
-	function lang()
-	{
-		global $CFG;
-		$language = $CFG->item('language');
+        }
+        else if($this->is_special($segment)) // special URI -> no redirect
+        {
+            return;
+        }
+        else    // URI without language -> redirect to default_uri
+        {
+            // Check language cookie
+            if (isset($_COOKIE['ft_myadmin_lang'])){
+                // redirect to correct language setting
+                $CFG->set_item('language', $this->languages[$_COOKIE['ft_myadmin_lang']]);
+            }else{
+                // set default language
+                $CFG->set_item('language', $this->languages[$this->default_lang()]);
+            }
 
-		$lang = array_search($language, $this->languages);
-		if ($lang)
-		{
-			return $lang;
-		}
 
-		return NULL;	// this should not happen
-	}
+            // redirect
+            header("Location: " . $CFG->site_url($this->localized($this->default_uri)), TRUE, 302);
+            exit;
+        }
+    }
 
-	function is_special($uri)
-	{
-		$exploded = explode('/', $uri);
-		if (in_array($exploded[0], $this->special))
-		{
-			return TRUE;
-		}
-		if(isset($this->languages[$uri]))
-		{
-			return TRUE;
-		}
-		return FALSE;
-	}
+    // get current language
+    // ex: return 'en' if language in CI config is 'english'
+    function lang()
+    {
+        global $CFG;
+        $language = $CFG->item('language');
 
-	function switch_uri($lang)
-	{
-		$CI =& get_instance();
+        $lang = array_search($language, $this->languages);
+        if ($lang)
+        {
+            return $lang;
+        }
 
-		$uri = $CI->uri->uri_string();
-		if ($uri != "")
-		{
-			$exploded = explode('/', $uri);
-			if($exploded[0] == $this->lang())
-			{
-				$exploded[0] = $lang;
-			}
-			$uri = implode('/',$exploded);
-		}
-		return base_url().$uri;
-	}
+        return NULL;    // this should not happen
+    }
 
-	// is there a language segment in this $uri?
-	function has_language($uri)
-	{
-		$first_segment = NULL;
+    function is_special($uri)
+    {
+        $exploded = explode('/', $uri);
+        if (in_array($exploded[0], $this->special))
+        {
+            return TRUE;
+        }
+        if(isset($this->languages[$uri]))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
 
-		$exploded = explode('/', $uri);
-		if(isset($exploded[0]))
-		{
-			if($exploded[0] != '')
-			{
-				$first_segment = $exploded[0];
-			}
-			else if(isset($exploded[1]) && $exploded[1] != '')
-			{
-				$first_segment = $exploded[1];
-			}
-		}
+    function switch_uri($lang)
+    {
+        $CI =& get_instance();
 
-		if($first_segment != NULL)
-		{
-			return isset($this->languages[$first_segment]);
-		}
+        $uri = $CI->uri->uri_string();
+        if ($uri != "")
+        {
+            $exploded = explode('/', $uri);
+            if($exploded[0] == $this->lang())
+            {
+                $exploded[0] = $lang;
+            }
+            $uri = implode('/',$exploded);
+        }
+        return base_url().$uri;
+    }
 
-		return FALSE;
-	}
+    // is there a language segment in this $uri?
+    function has_language($uri)
+    {
+        $first_segment = NULL;
 
-	// default language: first element of $this->languages
-	function default_lang()
-	{
-		foreach ($this->languages as $lang => $language)
-		{
-			return $lang;
-		}
-	}
+        $exploded = explode('/', $uri);
+        if(isset($exploded[0]))
+        {
+            if($exploded[0] != '')
+            {
+                $first_segment = $exploded[0];
+            }
+            else if(isset($exploded[1]) && $exploded[1] != '')
+            {
+                $first_segment = $exploded[1];
+            }
+        }
 
-	// add language segment to $uri (if appropriate)
-	function localized($uri)
-	{
-		if($this->has_language($uri)
-				|| $this->is_special($uri)
-				|| preg_match('/(.+)\.[a-zA-Z0-9]{2,4}$/', $uri))
-		{
-			// we don't need a language segment because:
-			// - there's already one or
-			// - it's a special uri (set in $special) or
-			// - that's a link to a file
-		}
-		else
-		{
-			$uri = $this->lang() . '/' . $uri;
-		}
+        if($first_segment != NULL)
+        {
+            return isset($this->languages[$first_segment]);
+        }
 
-		return $uri;
-	}
+        return FALSE;
+    }
+
+    // default language: first element of $this->languages
+    function default_lang()
+    {
+        foreach ($this->languages as $lang => $language)
+        {
+            return $lang;
+        }
+    }
+
+    // add language segment to $uri (if appropriate)
+    function localized($uri)
+    {
+        if($this->has_language($uri)
+                || $this->is_special($uri)
+                || preg_match('/(.+)\.[a-zA-Z0-9]{2,4}$/', $uri))
+        {
+            // we don't need a language segment because:
+            // - there's already one or
+            // - it's a special uri (set in $special) or
+            // - that's a link to a file
+        }
+        else
+        {
+            $uri = $this->lang() . '/' . $uri;
+        }
+
+        return $uri;
+    }
 
 }
 

@@ -91,7 +91,7 @@ $lang['screen.btn_refresh'] = "Actualisez";
 */
 $lang['turtles.available'] = "Turtles disponibles";
 $lang['turtles.drag_to_screen'] = "Glissez les Turtles vers l'écran";
-$lang['turtles.screen_title'] = "Le côté gauche de l'écran";
+$lang['turtles.screen_title'] = "Côté gauche de l'écran";
 $lang['turtles.drag_to_sort'] = "Glissez les Turtles pour trier";
 $lang['turtles.option_number_of_items'] = "Eléments à afficher";
 $lang['turtles.option_zoom'] = "Zoom";
@@ -104,7 +104,7 @@ $lang['turtle.airport_alt'] =  "Code de l'aéroport (ex: BRU ou CDG)";
 $lang['turtle.delijn_alt'] =  "Nom d'un arrêt (ex: Grimbergen Dorp)";
 $lang['turtle.mivb_alt'] =  "Nom d'un arrêt (ex: Mozart)";
 $lang['turtle.nmbs_alt'] =  "Nom d'une station (ex: Liege Guillemins)";
-$lang['turtle.nmbs_via_alt'] =  "Lorsque 'Via' est utilisé, ça montrera les trains qui s'arrête dans cette gare et à quel moment.";
+$lang['turtle.nmbs_via_alt'] =  "Lorsque 'Via' est utilisé, les trains qui s'arrêtent dans cette gare s'affichent avec leurs horaires.";
 $lang['turtle.velo_alt'] =  "Nom d'une station Velo (ex: Theater)";
 $lang['turtle.villo_alt'] =  "Nom d'une station Villo (ex: Botanique/Kruidtuin)";
 $lang['turtle.mapbox_alt'] =  "L'adresse d'un emplacement (ex: Gent Korenmarkt)";
@@ -159,30 +159,30 @@ $lang['error.delete_pane'] = "Impossible de supprimer le panneau pour le moment"
 $lang['warn.no_screens_found'] = "<strong>Pas de MyTurtles trouvé!</strong> Esseyez une requête différente";
 
 /**
-* Footer
-*/
+ * Footer
+ */
 $lang['footer.rights'] = "Certains droits réservés"; // Rights reserved
 
 /**
  * Help text
  * NOT AVAILABLE IN JAVASCRIPT
  */
-$lang['help.language_selector'] = "Choisissez votre langue préférée";
-$lang['help.select_screen'] = "Voici tous vos MyTurtles, sélectionnez celui que vous souhaitez modifier";
-$lang['help.screen_left'] = "Allez ici pour éditer le côté gauche de votre MyTurtle. Vous pouvez activer en configurer les Turtles";
-$lang['help.screen_right'] = "Allez ici pour éditer le côté droit de vous MyTurtle. Vous pouvez activer en configurer les Turtles";
-$lang['help.screen_footer'] = "Activer / désactiver un pied de page sur votre MyTurtle. Vous pouvez définir un message ou affichage des mises à jour";
-$lang['help.screen_buttons'] = "Contrôler votre MyTurtle avec ces boutons";
-$lang['help.screen_settings'] = "Modifiez les paramètres de votre MyTurtle ici";
-$lang['help.screen_shots'] = "Afficher la liste des captures d'écran récents";
+$lang['help.language_selector'] = "Choisissez votre langue.";
+$lang['help.select_screen'] = "Sélectionnez, parmi vos MyTurtles, celui que vous souhaitez modifier.";
+$lang['help.screen_left'] = "Cliquez ici pour afficher le côté gauche de votre MyTurtle. Vous pouvez activer et configurer les Turtles.";
+$lang['help.screen_right'] = "Cliquez ici pour afficher le côté droit de votre MyTurtle. Vous pouvez activer et configurer les Turtles.";
+$lang['help.screen_footer'] = "Activez/désactivez un pied de page sur votre MyTurtle. Vous pouvez définir un message ou un affichage des mises à jour.";
+$lang['help.screen_buttons'] = "Contrôlez votre MyTurtle avec ces boutons.";
+$lang['help.screen_settings'] = "Modifiez ici les paramètres de votre MyTurtle.";
+$lang['help.screen_shots'] = "Affichez la liste des captures d'écran récentes.";
 
-$lang['help.turtles_available'] = "Une liste des Turtles disponibles. Glissez les de la zone de droite (voir étape 2) pour les activer";
-$lang['help.turtles_area'] = "Glissez les Turtles de la liste gauche pour créer des nouveaux. Ici, vous pouvez modifier les options disponibles pour chacun de vos Turtles activés. Glissez les pour modifier leurs ordre";
+$lang['help.turtles_available'] = "Liste des Turtles disponibles. Glissez-les de la zone de droite (voir étape 2) pour les activer.";
+$lang['help.turtles_area'] = "Glissez les Turtles de la liste gauche pour en créer de nouveaux. Ici, vous pouvez modifier les options disponibles pour chacun de vos Turtles activés. Glissez-les pour modifier leur ordre.";
 
-$lang['help.panes_enabled'] = "Une liste de panneaux activés. Cliquez dessus pour voir/modifier leurs options dans la zone droite (voir étape 3). Glissez les pour modifier l'ordre";
-$lang['help.panes_available'] = "Une liste de panneaux disponibles. Cochez la case pour activer le panneau désiré";
-$lang['help.panes_area'] = "Voir / modifier les options du  panneau sélectionnée";
-$lang['help.panes_general_options'] = "Définissez les options générales du panneau sélectionné";
+$lang['help.panes_enabled'] = "Liste de panneaux activés. Cliquez dessus pour voir/modifier leurs options dans la zone droite (voir étape 3). Glissez-les pour en modifier l'ordre.";
+$lang['help.panes_available'] = "Liste de panneaux disponibles. Cochez la case pour activer le panneau désiré.";
+$lang['help.panes_area'] = "Voir/modifier les options du  panneau sélectionné.";
+$lang['help.panes_general_options'] = "Définissez les options générales du panneau sélectionné.";
 
 /**
  * EOF

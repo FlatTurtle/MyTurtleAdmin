@@ -645,13 +645,19 @@ nav[role=navigation] {
 
             .delete{
                 position: absolute;
-                right: 5px;
-                width: 15px;
-                height: 15px;
-                margin-top: 8px;
+                right: 0px;
+                width: 50px;
+                height: 36px;
                 cursor: pointer;
                 color: #fff;
                 text-decoration: none;
+                text-align: center;
+
+                i{
+                    margin-left: 14px;
+                    margin-top: 7px;
+                    display: inline-block;
+                }
             }
 
             .edit_area{
@@ -884,9 +890,27 @@ select{
 }
 
 @media (max-width: 550px){
+    .grey_wrapper{
+        padding-top: 40px;
+    }
+
     .navbar{
-        .navbar-search{
+        position: relative;
+
+        #help{
             display: none;
+        }
+
+        .navbar-search{
+            position:absolute;
+            top: 60px;
+            text-align: center;
+            width: 100%;
+            left: 0px;
+
+            &>span{
+                display: inline-block;
+            }
         }
     }
 
@@ -907,9 +931,21 @@ select{
 
         }
     }
+
+    #uvTab{
+        display: none !important;
+    }
 }
 
 @media (max-width: 768px) {
+    .infoscreens{
+        text-align: center;
+
+        .screen-link{
+            display: inline-block;
+        }
+    }
+
     .navbar{
         .container{
             margin: 0px;
@@ -946,12 +982,6 @@ select{
         h4{
             display: inline;
             vertical-align: middle;
-        }
-
-        .language_switcher{
-            position: absolute;
-            right: 20px;
-            top: 10px;
         }
     }
 

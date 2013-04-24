@@ -21,12 +21,14 @@ class Advanced extends CI_Controller {
         $this->load->helper('directory');
 
         // Set validation rules
-        $this->my_formvalidation->set_rules('title', 'title', 'required|trim|max_length[255]');
+        if($this->session->userdata('rights') == 100){
+            $this->my_formvalidation->set_rules('title', 'title', 'required|trim|max_length[255]');
+            $this->my_formvalidation->set_rules('hostname', 'hostname', 'trim|max_length[50]');
+            $this->my_formvalidation->set_rules('pincode', 'pincode', 'trim|max_length[20]');
+        }
         $this->my_formvalidation->set_rules('location', 'location', 'required|trim');
         $this->my_formvalidation->set_rules('longitude', 'longitude', 'callback_check_geocode');
         $this->my_formvalidation->set_rules('color', 'color', 'callback_check_color');
-        $this->my_formvalidation->set_rules('hostname', 'hostname', 'trim|max_length[50]');
-        $this->my_formvalidation->set_rules('pincode', 'pincode', 'trim|max_length[20]');
         $this->my_formvalidation->set_error_delimiters('&bull;&nbsp;', '<br/>');
     }
 

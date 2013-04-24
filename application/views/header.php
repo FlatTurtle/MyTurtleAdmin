@@ -1,6 +1,6 @@
 <?php
 
-$version_css = "1.0.4"
+$version_css = "1.0.5"
 
 ?>
 <!doctype html>
@@ -61,9 +61,6 @@ $version_css = "1.0.4"
                                 <h4>
                                     <i class='icon-user'></i>&nbsp;&nbsp;<?= lang('greeting') ?>, <?php echo ucfirst($this->session->userdata('username')); ?>!
                                 </h4>
-                                <a href="<?= site_url('/logout') ?>" alt="<?= lang('term.log_out') ?>" class="btn btn-small">
-                                    <?= lang('term.log_out') ?>
-                                </a>
                             <? } ?>
                             <div class="language_switcher btn-toolbar">
                                 <div class="btn-group"
@@ -76,6 +73,12 @@ $version_css = "1.0.4"
                                     <a href='<?= $this->lang->switch_uri('en'); ?>' class="btn <? echo ($this->lang->lang() == "en")? 'active':''; ?>">EN</a>
                                     <a href='<?= $this->lang->switch_uri('nl'); ?>' class="btn <? echo ($this->lang->lang() == "nl")? 'active':''; ?>">NL</a>
                                     <a href='<?= $this->lang->switch_uri('fr'); ?>' class="btn <? echo ($this->lang->lang() == "fr")? 'active':''; ?>">FR</a>
+
+                                    <? if ($this->session->userdata('logged_in')) { ?>
+                                        <a href="<?= site_url('/logout') ?>" alt="<?= lang('term.log_out') ?>" class="btn">
+                                            <?= lang('term.log_out') ?>
+                                        </a>
+                                    <? } ?>
                                 </div>
                             </div>
                         </nav>
@@ -135,7 +138,7 @@ $version_css = "1.0.4"
                                 </li>
                                 <?
                                 // Show this only for superadmins
-                                if ($this->session->userdata('rights') == 1) {
+                                if ($this->session->userdata('rights') == 100) {
                                 ?>
                                     <li><a href="#">Users</a></li>
                                 <?
@@ -149,8 +152,10 @@ $version_css = "1.0.4"
                                     if (count($infoscreens) > 5 && !$this->uri->segment(2)) {
                                 ?>
                                         <form class="navbar-search">
-                                            <i class='icon-search'></i>
-                                            <input type="text" class="search-query" placeholder="" tabindex="1">
+                                            <span>
+                                                <i class='icon-search'></i>
+                                                <input type="text" class="search-query" placeholder="" tabindex="1">
+                                            </span>
                                         </form>
                                 <?
                                     }
