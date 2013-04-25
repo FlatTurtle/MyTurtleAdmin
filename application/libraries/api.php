@@ -124,7 +124,7 @@ class API {
                 break;
             default:
                 if (ENVIRONMENT == 'production')
-                    show_error("Oops we are doing something wrong here, if this problem persists, please contact us!", $http_status);
+                    show_error("We are doing something wrong here, if this problem persists, please contact us!", $http_status);
                 else
                     throw new ErrorException($http_status . " - " . $response);
                 break;

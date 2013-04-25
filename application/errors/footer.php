@@ -3,7 +3,7 @@
             </div>
         </div>
     </div>
-    <footer role="footer">
+    <footer role="footer" class='error'>
         <div class="container">
             <div class="row">
                 <div class="span7">
