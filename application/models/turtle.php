@@ -137,45 +137,6 @@ class Turtle extends CI_Model {
             $map_options .= ">(".lang('turtle.custom_location').")</option>";
             $contents = preg_replace('/{{map-options}}/', $map_options, $contents);
             $contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
-        }else if($turtle->type == "signage"){
-            // Build signage turtle html
-            $html = "";;
-            if(!empty($turtle->options->data)){
-                $floor_data = json_decode($turtle->options->data);
-                if($floor_data != null){
-                    foreach($floor_data as $floor){
-                        if(is_null($floor->location))
-                            $floor->location = "";
-
-                        $html .= "<div class='control-group'>
-                                    <label class='control-label'>".lang('turtle.signage_floor_location')."</label>
-                                    <div class='controls'>
-                                        <input type='text' class='input-small location' value='".$floor->location."' placeholder=''/>
-                                        <button id='add-floor-item' class='btn btn-small'>".lang('turtle.signage_add_floor_listing')."</button>
-                                        <button id='delete-floor' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>
-                                    </div>
-                                    <div class='listings'>";
-                        if(!empty($floor->floors)){
-                            foreach ($floor->floors as $f) {
-
-                                if(is_null($f->name))
-                                    $f->name = "";
-
-                                $html .= "<div class='controls listing'>
-                                            <i class='icon-caret-right'></i>
-                                            <input type='text' placeholder='' class='input' value='".$f->name."'/>
-                                            <button class='btn btn-small delete-floor-item'><i class='icon-trash'></i></button>
-                                        </div>";
-                            }
-                        }
-
-                        $html .=  "</div>
-                                    <hr/>
-                                </div>";
-                    }
-                }
-            }
-            $contents = preg_replace('/{{{data}}}/', $html, $contents);
         }
 
         // Type options
