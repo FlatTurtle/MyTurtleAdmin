@@ -897,14 +897,50 @@ select{
         margin-bottom: 0px;
     }
 
+    .floor .btn{
+        margin-left: 10px;
+
+        &.delete-floor-item{
+            margin-left: 5px;
+        }
+    }
+
+    .controls{
+        margin-bottom: 10px;
+    }
+
     .listing{
         margin-top: 3px;
-        padding-left: 10px;
+        margin-bottom: 10px;
+        padding-left: 190px;
 
         & > i{
             margin-right: 10px;
             color: #aaa;
         }
+
+        input[type=text]{
+            width: 150px;
+        }
+
+        .floor_logo_holder{
+            display: inline-block;
+        }
+
+        form{
+            margin: 0px;
+            padding: 0px;
+        }
+    }
+
+    img{
+        max-width: 120px;
+        margin-left: 10px;
+        max-height: 20px;
+    }
+
+    .small-file-upload{
+        margin-left: 30px !important;
     }
 }
 
@@ -961,6 +997,12 @@ select{
 
     #uvTab{
         display: none !important;
+    }
+
+    .turtle_signage{
+        .listing{
+            padding-left: 10px !important;
+        }
     }
 }
 
@@ -1022,5 +1064,41 @@ select{
         .span5.right-align{
             text-align: left;
         }
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .turtle_signage{
+        .floor_logo_holder{
+            clear:both;
+            display: block !important;
+            margin-top: 7px;
+        }
+
+        .listing{
+            margin-bottom: 20px;
+
+            .small-file-upload{
+                margin-left: 16px !important;
+            }
+        }
+    }
+}
+
+.small-file-upload{
+    position: relative;
+
+    input{
+        position:absolute;
+        z-index:2;
+        top:0;
+        left:0;
+        width: 100%;
+        filter: alpha(opacity=0);
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity:0;
+        background-color:transparent;
+        color:transparent;
     }
 }

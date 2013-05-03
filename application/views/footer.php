@@ -43,6 +43,9 @@ $version_js = "1.0.11";
                 }
             }
         ?>
+
+        var base_url = "<?php echo base_url(); ?>";
+        var upload_path = base_url + "uploads/";
     </script>
     <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=<?= $version_js ?>"></script>
     <script>

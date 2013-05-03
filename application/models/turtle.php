@@ -137,6 +137,20 @@ class Turtle extends CI_Model {
             $map_options .= ">(".lang('turtle.custom_location').")</option>";
             $contents = preg_replace('/{{map-options}}/', $map_options, $contents);
             $contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
+        }else if($turtle->type == "signage"){
+            // Check for logo existance
+            if(!empty($turtle->options->data)){
+                $data = json_decode($turtle->options->data);
+                foreach($data as $floor){
+                    foreach($floor->floors as $floor_item){
+                        if(file_exists(SIGNAGE_UPLOAD_DIR. $turtle->id . "/". $floor_item->id. ".png")){
+                            $floor_item->logo = base_url(). "/uploads/signage/". $turtle->id . "/". $floor_item->id. ".png";
+                        }
+                    }
+                }
+                $data = json_encode($data);
+                $contents = preg_replace('/{{data}}/', $data, $contents);
+            }
         }
 
         // Type options
