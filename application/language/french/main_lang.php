@@ -64,6 +64,9 @@ $lang['term.arrivals'] = "Arrivées";
 $lang['term.more'] = "Plus";
 $lang['term.less'] = "Moins";
 $lang['term.searching_for'] = "Recherche de";
+$lang['term.upload'] = "Télécharger";
+$lang['term.uploading'] = "Téléchargement";
+$lang['term.change'] = "Modifiez";
 
 /**
 * Screen detail page
