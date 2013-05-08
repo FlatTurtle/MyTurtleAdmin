@@ -404,29 +404,38 @@ function bind_event_to_turtles(){
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
 }
 
+
+/**
+ * Calculate walking distance between screen and (new) location
+ */
 function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
-    $.ajax({
-        url: 'https://data.flatturtle.com/Geo/Distance/'+ from.lat + ',' + from.lon +'/'+to+'.json',
-        type: 'GET',
-        success: function( data ) {
-            if(data.Distance.rows[0].elements[0].duration != null){
-                var distance_el = data.Distance.rows[0].elements[0].duration;
-                if(typeof distance_el !='undefined'){
-                    option_data['time_walk'] = distance_el.value / 60;
+    // Is the screen location set?
+    if(from && from.hasOwnProperty('lat') && from.hasOwnProperty('lon')){
+
+        // Get results with AJAX
+        $.ajax({
+            url: 'https://data.flatturtle.com/Geo/Distance/'+ from.lat + ',' + from.lon +'/'+to+'.json',
+            type: 'GET',
+            success: function( data ) {
+                if(data.Distance.rows[0].elements[0].duration != null){
+                    var distance_el = data.Distance.rows[0].elements[0].duration;
+                    if(typeof distance_el !='undefined'){
+                        option_data['time_walk'] = distance_el.value / 60;
+                        updateTurtle(turtle_instance, button, turtle_id, option_data);
+                    }
+                }else{
+                    alert(lang['error.resolve_time_walk']);
+                    option_data['time_walk'] = -1;
                     updateTurtle(turtle_instance, button, turtle_id, option_data);
                 }
-            }else{
+            },
+            error: function(data, status){
                 alert(lang['error.resolve_time_walk']);
                 option_data['time_walk'] = -1;
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
-        },
-        error: function(data, status){
-            alert(lang['error.resolve_time_walk']);
-            option_data['time_walk'] = -1;
-            updateTurtle(turtle_instance, button, turtle_id, option_data);
-        }
-    });
+        });
+    }
 }
 
 
