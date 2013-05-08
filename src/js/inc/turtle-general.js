@@ -26,7 +26,7 @@ function bind_event_to_turtles(){
             minLength: 4,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/DeLijn/Stations.json",
+                    url: "https://data.irail.be/DeLijn/Stations.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -60,7 +60,7 @@ function bind_event_to_turtles(){
             minLength: 3,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/NMBS/Stations.json",
+                    url: "https://data.irail.be/NMBS/Stations.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -88,7 +88,7 @@ function bind_event_to_turtles(){
             minLength: 3,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/MIVBSTIB/Stations.json",
+                    url: "https://data.irail.be/MIVBSTIB/Stations.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -126,7 +126,7 @@ function bind_event_to_turtles(){
             autoSelect: true,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/Bikes/Velo.json",
+                    url: "https://data.irail.be/Bikes/Velo.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -166,7 +166,7 @@ function bind_event_to_turtles(){
             autoSelect: true,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/Bikes/Villo.json",
+                    url: "https://data.irail.be/Bikes/Villo.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
