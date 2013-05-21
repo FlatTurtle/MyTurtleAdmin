@@ -3,6 +3,8 @@
 
 nbproject/*
 uploads/*
+*.lock
+vendor
 
 # Codeigniter #
 ###############
