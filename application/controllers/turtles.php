@@ -40,7 +40,7 @@ class Turtles extends CI_Controller {
         }catch(ErrorException $e){}
         $data['turtle_types'] = $this->turtle->get_all_types();
 
-        $data['menu_second_item'] = lang("term.left");
+        $data['menu_second_item'] = lang("term_left");
 
         $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
@@ -112,6 +112,93 @@ class Turtles extends CI_Controller {
             return;
         }
         echo "false";
+    }
+
+    /**
+     * Uploads for signage turtle
+     */
+    public function signage_upload_logo($alias, $turtle_id, $file_id){
+        header('Content-type: application/json');
+        $data = false;
+
+        if(isset($_FILES['file-'.$file_id]['name'])){
+            $filename = basename($_FILES['file-'.$file_id]['name']);
+
+            if(!is_dir(SIGNAGE_UPLOAD_DIR. $turtle_id)){
+                mkdir(SIGNAGE_UPLOAD_DIR. $turtle_id, 0777, true);
+            }
+
+            $uploaddir = SIGNAGE_UPLOAD_DIR;
+            $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
+
+           $data = $uploadfile;
+
+            if (@move_uploaded_file($_FILES['file-'.$file_id]['tmp_name'], $uploadfile)) {
+                $data = base_url() . "uploads/signage/" . $turtle_id . "/" . $file_id . ".png";
+
+                // Resize the image
+                list($source_image_width, $source_image_height, $source_image_type) = getimagesize($uploadfile);
+                switch ($source_image_type) {
+                    case IMAGETYPE_GIF:
+                        $source_gd_image = imagecreatefromgif($uploadfile);
+                        break;
+                    case IMAGETYPE_JPEG:
+                        $source_gd_image = imagecreatefromjpeg($uploadfile);
+                        break;
+                    case IMAGETYPE_PNG:
+                        $source_gd_image = imagecreatefrompng($uploadfile);
+                        break;
+                }
+
+                if ($source_gd_image) {
+                    $source_aspect_ratio = $source_image_width / $source_image_height;
+                    $logo_aspect_ratio = LOGO_MAX_WIDTH / LOGO_MAX_HEIGHT;
+                    if ($source_image_width <= LOGO_MAX_WIDTH && $source_image_height <= LOGO_MAX_HEIGHT) {
+                        $logo_image_width = $source_image_width;
+                        $logo_image_height = $source_image_height;
+                    } elseif ($logo_aspect_ratio > $source_aspect_ratio) {
+                        $logo_image_width = (int) (LOGO_MAX_HEIGHT * $source_aspect_ratio);
+                        $logo_image_height = LOGO_MAX_HEIGHT;
+                    } else {
+                        $logo_image_width = LOGO_MAX_WIDTH;
+                        $logo_image_height = (int) (LOGO_MAX_WIDTH / $source_aspect_ratio);
+                    }
+
+
+                    $logo_gd_image = imagecreatetruecolor($logo_image_width, $logo_image_height);
+                    imagesavealpha($logo_gd_image, true);
+                    $color = imagecolorallocatealpha($logo_gd_image, 0, 0, 0, 127);
+                    imagefill($logo_gd_image, 0, 0, $color);
+                    imagecopyresampled($logo_gd_image, $source_gd_image, 0, 0, 0, 0, $logo_image_width, $logo_image_height, $source_image_width, $source_image_height);
+                    imagepng($logo_gd_image, $uploadfile);
+                    imagedestroy($source_gd_image);
+                    imagedestroy($logo_gd_image);
+                }
+            }
+        }
+
+        echo json_encode($data);
+        exit();
+    }
+
+
+    /**
+     * Uploads for signage turtle
+     */
+    public function signage_delete_logo($alias, $turtle_id, $file_id){
+        header('Content-type: application/json');
+        $data = false;
+
+        $uploaddir = SIGNAGE_UPLOAD_DIR;
+        $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
+
+        if(is_file($uploadfile)){
+           @unlink($uploadfile);
+           $data = true;
+        }
+
+        echo json_encode($data);
+        exit();
     }
 }
 

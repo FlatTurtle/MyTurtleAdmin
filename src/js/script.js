@@ -71,10 +71,10 @@ $('.infoscreens .more').on('click', function(e){
     var target = $('.infoscreens.inactive');
     if(target.hasClass('hide')){
         target.removeClass('hide');
-        $('span', this).html(lang['term.less']);
+        $('span', this).html(lang['term_less']);
     }else{
         target.addClass('hide');
-        $('span', this).html(lang['term.more']);
+        $('span', this).html(lang['term_more']);
     }
 });
 
@@ -88,7 +88,7 @@ $('.navbar .search-query').bind('input', function(){
         inactive.removeClass('hide').addClass('washidden');
     }
 
-    $(".search-message", infoscreens).html(lang['warn.no_screens_found']).show();
+    $(".search-message", infoscreens).html(lang['warn_no_screens_found']).show();
     $(".more", infoscreens).hide();
 
     if(search.length > 0){
@@ -105,7 +105,7 @@ $('.navbar .search-query').bind('input', function(){
         }).show();
         if(matched){
             // There was at least one match
-            $(".search-message", infoscreens).html(lang['term.searching_for'] + ": <strong>" + search +"</strong>");
+            $(".search-message", infoscreens).html(lang['term_searching_for'] + ": <strong>" + search +"</strong>");
         }
     }else{
         // Empty search term, exit search

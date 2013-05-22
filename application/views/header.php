@@ -67,7 +67,7 @@ $version_css = "1.0.5"
                                     <?php
                                         // Show language help only on the homepage
                                         if(!$this->uri->segment(2))
-                                            echo 'data-step="1" data-intro="'.lang('help.language_selector').'" data-position="left"';
+                                            echo 'data-step="1" data-intro="'.lang('help_language_selector').'" data-position="left"';
                                     ?>
                                 >
                                     <a href='<?= $this->lang->switch_uri('en'); ?>' class="btn <? echo ($this->lang->lang() == "en")? 'active':''; ?>">EN</a>
@@ -75,8 +75,8 @@ $version_css = "1.0.5"
                                     <a href='<?= $this->lang->switch_uri('fr'); ?>' class="btn <? echo ($this->lang->lang() == "fr")? 'active':''; ?>">FR</a>
 
                                     <? if ($this->session->userdata('logged_in')) { ?>
-                                        <a href="<?= site_url('/logout') ?>" alt="<?= lang('term.log_out') ?>" class="btn">
-                                            <?= lang('term.log_out') ?>
+                                        <a href="<?= site_url('/logout') ?>" alt="<?= lang('term_log_out') ?>" class="btn">
+                                            <?= lang('term_log_out') ?>
                                         </a>
                                     <? } ?>
                                 </div>
@@ -109,7 +109,7 @@ $version_css = "1.0.5"
                                         if(count($infoscreens) > 1){
                                     ?>
                                         <a href="<?php echo site_url('') ?>" class="dropdown-toggle" data-toggle="dropdown">
-                                            <?= lang('term.infoscreens') ?>
+                                            <?= lang('term_infoscreens') ?>
                                             <b class="caret"></b>
                                         </a>
                                         <ul class="dropdown-menu">
@@ -130,7 +130,7 @@ $version_css = "1.0.5"
                                         }else{
                                     ?>
                                         <a href="<?php echo site_url('') ?>">
-                                            <?= lang('term.infoscreens') ?>
+                                            <?= lang('term_infoscreens') ?>
                                         </a>
                                     <?php
                                         }

@@ -26,7 +26,7 @@ function bind_event_to_turtles(){
             minLength: 4,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/DeLijn/Stations.json",
+                    url: "https://data.irail.be/DeLijn/Stations.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -60,7 +60,7 @@ function bind_event_to_turtles(){
             minLength: 3,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/NMBS/Stations.json",
+                    url: "https://data.irail.be/NMBS/Stations.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -88,7 +88,7 @@ function bind_event_to_turtles(){
             minLength: 3,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/MIVBSTIB/Stations.json",
+                    url: "https://data.irail.be/MIVBSTIB/Stations.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -126,7 +126,7 @@ function bind_event_to_turtles(){
             autoSelect: true,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/Bikes/Velo.json",
+                    url: "https://data.irail.be/Bikes/Velo.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -166,7 +166,7 @@ function bind_event_to_turtles(){
             autoSelect: true,
             source: function( request, response ) {
                 $.ajax({
-                    url: "http://data.irail.be/Bikes/Villo.json",
+                    url: "https://data.irail.be/Bikes/Villo.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -246,13 +246,13 @@ function bind_event_to_turtles(){
                                 updateTurtle(turtle_instance, button, turtle_id, option_data);
                             }
                         }else{
-                            alert(lang['error.resolve_address']);
+                            alert(lang['error_resolve_address']);
                             $('.loading', turtle_instance).animate({'opacity':0}, 200);
                             button.removeAttr('disabled').removeClass('disable');
                         }
                     },
                     error: function(data, status){
-                        alert(lang['error.resolve_address']);
+                        alert(lang['error_resolve_address']);
                         $('.loading', turtle_instance).animate({'opacity':0}, 200);
                         button.removeAttr('disabled').removeClass('disable');
                     }
@@ -354,40 +354,18 @@ function bind_event_to_turtles(){
                 }
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else if(turtle_instance.hasClass('turtle_signage')){
-                // Construct data to be pushed as option
-                var signage_data = [];
-                $('.floors .control-group', turtle_instance).each(function(){
-                    var floor = new Object();
-                    // Get floor name
-                    floor.location = $(".location", this).val();
-                    floor.floors = [];
-
-                    //Get individual listing
-                    $(".listing", this).each(function(){
-                        var listing = new Object();
-                        listing.name = $('input', this).val();
-
-                        if(listing.name.length > 0)
-                            floor.floors.push(listing);
-                    });
-                    signage_data.push(floor);
-                });
-
-                option_data['data'] = JSON.stringify(signage_data);
-
+                option_data['data'] = saveSignage();
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
-
-
         }
     });
 
     // Delete turtles
     $('.turtle_instance .delete').off().on('click',function(e){
         e.preventDefault();
-        if(confirm(lang['turtle.delete_note'])){
+        if(confirm(lang['turtle_delete_note'])){
             var turtle_instance = $(this).parents('.turtle_instance');
             var turtle_id = turtle_instance.attr('id').split('_')[1];
 
@@ -404,7 +382,7 @@ function bind_event_to_turtles(){
                     });
                 },
                 error: function(data, status){
-                    alert(lang['error.delete_turtle'] + ": " + status);
+                    alert(lang['error_delete_turtle'] + ": " + status);
                 }
             });
         }
@@ -426,29 +404,38 @@ function bind_event_to_turtles(){
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
 }
 
+
+/**
+ * Calculate walking distance between screen and (new) location
+ */
 function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
-    $.ajax({
-        url: 'https://data.flatturtle.com/Geo/Distance/'+ from.lat + ',' + from.lon +'/'+to+'.json',
-        type: 'GET',
-        success: function( data ) {
-            if(data.Distance.rows[0].elements[0].duration != null){
-                var distance_el = data.Distance.rows[0].elements[0].duration;
-                if(typeof distance_el !='undefined'){
-                    option_data['time_walk'] = distance_el.value / 60;
+    // Is the screen location set?
+    if(from && from.hasOwnProperty('lat') && from.hasOwnProperty('lon')){
+
+        // Get results with AJAX
+        $.ajax({
+            url: 'https://data.flatturtle.com/Geo/Distance/'+ from.lat + ',' + from.lon +'/'+to+'.json',
+            type: 'GET',
+            success: function( data ) {
+                if(data.Distance.rows[0].elements[0].duration != null){
+                    var distance_el = data.Distance.rows[0].elements[0].duration;
+                    if(typeof distance_el !='undefined'){
+                        option_data['time_walk'] = distance_el.value / 60;
+                        updateTurtle(turtle_instance, button, turtle_id, option_data);
+                    }
+                }else{
+                    alert(lang['error_resolve_time_walk']);
+                    option_data['time_walk'] = -1;
                     updateTurtle(turtle_instance, button, turtle_id, option_data);
                 }
-            }else{
-                alert(lang['error.resolve_time_walk']);
+            },
+            error: function(data, status){
+                alert(lang['error_resolve_time_walk']);
                 option_data['time_walk'] = -1;
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
-        },
-        error: function(data, status){
-            alert(lang['error.resolve_time_walk']);
-            option_data['time_walk'] = -1;
-            updateTurtle(turtle_instance, button, turtle_id, option_data);
-        }
-    });
+        });
+    }
 }
 
 
@@ -483,7 +470,7 @@ function updateTurtle(turtle_instance, button, turtle_id, option_data){
             button.removeAttr('disabled').removeClass('disable');
         },
         error: function(data, status){
-            alert(lang['error.save'] + ": " + status);
+            alert(lang['error_save'] + ": " + status);
             $('.loading', turtle_instance).animate({'opacity':0}, 200);
             button.removeAttr('disabled').removeClass('disable');
         }

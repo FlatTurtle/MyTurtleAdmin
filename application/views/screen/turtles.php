@@ -1,15 +1,15 @@
 <div class='row'>
-    <div class='turtle-chooser span3' data-step="1" data-intro="<?php echo lang('help.turtles_available'); ?>">
-        <h4><?= lang('turtles.available') ?></h4>
+    <div class='turtle-chooser span3' data-step="1" data-intro="<?php echo lang('help_turtles_available'); ?>">
+        <h4><?= lang('turtles_available') ?></h4>
         <? foreach($turtle_types as $turtle_type){ ?>
         <div id="<?=$turtle_type->type ?>" class='turtle draggable'>
             <?= $turtle_type->name; ?>
         </div>
         <? } ?>
-        <span class='note'><?= lang('turtles.drag_to_screen') ?></span>
+        <span class='note'><?= lang('turtles_drag_to_screen') ?></span>
     </div>
-    <div class='turtle-holder span9' data-step="2" data-intro="<?php echo lang('help.turtles_area'); ?>" data-position="top">
-        <h4><?= lang('turtles.screen_title') ?></h4>
+    <div class='turtle-holder span9' data-step="2" data-intro="<?php echo lang('help_turtles_area'); ?>" data-position="top">
+        <h4><?= lang('turtles_screen_title') ?></h4>
         <nav id='pane-selector'>
             <ul>
                 <?
@@ -36,7 +36,7 @@
             $extra_class = "hide";
         }
         ?>
-        <span class='note'><?= lang('turtles.drag_to_sort') ?></span>
+        <span class='note'><?= lang('turtles_drag_to_sort') ?></span>
     </div>
 </div>
 <script type='text/javascript'>

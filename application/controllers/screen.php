@@ -93,7 +93,7 @@ class Screen extends CI_Controller {
      */
     public function check_color($value) {
         if (!preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $value)) {
-            $message = str_replace('{{value}}', $value, lang('error.color_check_hex'));
+            $message = str_replace('{{value}}', $value, lang('error_color_check_hex'));
             $this->my_formvalidation->set_message('check_color', $message);
             return false;
         }
@@ -105,7 +105,7 @@ class Screen extends CI_Controller {
      */
     public function check_geocode($value) {
         if ($value == null) {
-            $this->my_formvalidation->set_message('check_geocode', lang('error.resolve_address'));
+            $this->my_formvalidation->set_message('check_geocode', lang('error_resolve_address'));
             return false;
         }
         return true;

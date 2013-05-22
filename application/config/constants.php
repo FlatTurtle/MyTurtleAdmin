@@ -57,5 +57,8 @@ define('LOGO_MAX_WIDTH', 400);
 define('LOGO_MAX_HEIGHT', 120);
 define('ERROR_WRONG_USER_PASSWORD','Username and password mismatch!');
 
+
+define('SIGNAGE_UPLOAD_DIR', BASEPATH. "../uploads/signage/");
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

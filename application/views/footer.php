@@ -1,6 +1,6 @@
 <?php
 
-$version_js = "1.0.11";
+$version_js = "1.0.12";
 
 ?>
             </div>
@@ -10,7 +10,7 @@ $version_js = "1.0.11";
         <div class="container">
             <div class="row">
                 <div class="span7">
-                    &copy; <?= date('Y', time()) ?> <a href="https://flatturtle.com" target="_blank">FlatTurtle</a> &mdash; <?= lang('footer.rights') ?><br/>
+                    &copy; <?= date('Y', time()) ?> <a href="https://flatturtle.com" target="_blank">FlatTurtle</a> &mdash; <?= lang('footer_rights') ?><br/>
 <!--
                                                    Are you a developer who would like to know more about FlatTurtle?
                                                    Did you know you can control your FlatTurtle through an API?
@@ -22,7 +22,7 @@ $version_js = "1.0.11";
 -->
                 </div>
                 <div class='span5 right-align'>
-                    <?= lang('term.mailing_list')?> &mdash;  <a href='#mailChimp' data-toggle="modal"><?= strtolower(lang('mailing_list')) ?></a><br/>
+                    <?= lang('term_mailing_list')?> &mdash;  <a href='#mailChimp' data-toggle="modal"><?= strtolower(lang('mailing_list')) ?></a><br/>
                     Helpdesk &mdash; <a href='mailto:help@FlatTurtle.com'>help@FlatTurtle.com</a><br/>
                               <a href='tel:0032 2 6690999'>+32 (0) 2 669 09 99</a>
                 <div>
@@ -43,6 +43,9 @@ $version_js = "1.0.11";
                 }
             }
         ?>
+
+        var base_url = "<?php echo base_url(); ?>";
+        var upload_path = base_url + "uploads/";
     </script>
     <script type="text/javascript" src="<?= base_url(); ?>assets/js/script-min.js?v=<?= $version_js ?>"></script>
     <script>
@@ -63,7 +66,7 @@ $version_js = "1.0.11";
     <div id="mailChimp" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mailChimpLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="mailChimpLabel"><?= lang('term.mailing_list') ?></h3>
+        <h3 id="mailChimpLabel"><?= lang('term_mailing_list') ?></h3>
     </div>
     <div class="modal-body">
         <div id="mc_embed_signup">
@@ -71,8 +74,8 @@ $version_js = "1.0.11";
             <input type="email" value="" name="EMAIL" class="email input-block-level" id="mce-EMAIL" placeholder="email address" required>
         </div>
         <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true"><?= lang('term.cancel') ?></button>
-            <input type="submit" value="<?= lang('term.subscribe') ?>" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary" aria-hidden="true">
+            <button class="btn" data-dismiss="modal" aria-hidden="true"><?= lang('term_cancel') ?></button>
+            <input type="submit" value="<?= lang('term_subscribe') ?>" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary" aria-hidden="true">
         </div>
     </div>
 </form>

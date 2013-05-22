@@ -7,122 +7,148 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+use Guzzle\Http\Client;
+use Guzzle\Http\Exception\BadResponseException;
+
 class API {
 
     var $CI;
+    var $client;
+    var $API_PATH;
+
+    /**
+     * Create HTTP Client
+     */
+    public function __construct(){
+        // Get CI instance
+        $this->CI = &get_instance();
+
+        $this->API_PATH = $this->CI->config->item('api_url');
+
+        // Create a client and provide a base URL
+        $this->client = new Client($this->API_PATH);
+    }
 
     /**
      * Get a new admin token
      */
     public function auth() {
-        $this->CI = &get_instance();
-        $http = curl_init();
-        curl_setopt($http, CURLOPT_URL, $this->CI->config->item('api_url') . API_AUTH_ADMIN);
-        curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($http, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($http, CURLOPT_POST, true);
-        $data = array(
-            'username' => $this->CI->session->userdata('username'),
-            'password' => $this->CI->session->userdata('password')
-        );
-        curl_setopt($http, CURLOPT_POSTFIELDS, $data);
 
-        $response = curl_exec($http);
-        $http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
+        try{
 
-        if ($http_status == 200) {
-            $this->CI->session->set_userdata('token', json_decode($response));
-        } else {
-            throw new ErrorException(curl_error($http));
+            // Create auth request
+            $request = $this->client->post(API_AUTH_ADMIN, null, array(
+                'username' => $this->CI->session->userdata('username'),
+                'password' => $this->CI->session->userdata('password'),
+            ));
+
+            // Send the request and get the response
+            $response = $request->send();
+            if($response->isSuccessful()){
+                $this->CI->session->set_userdata('token', json_decode($response->getBody()));
+            }
+
+        }catch(BadResponseException $e){
+
+            // Catch 4xx and 5xx
+            if (ENVIRONMENT == 'production')
+                show_error("We are doing something wrong here, if this problem persists, please contact us!", $e->getResponse()->getStatusCode());
+            else
+                echo "<pre>";
+                throw new ErrorException($e->getMessage());
+
         }
-        curl_close($http);
+
     }
 
     /**
      * Various types of requests
      */
-    public function get($url) {
-        return $this->request($url);
+    public function get($uri) {
+        return $this->request($uri);
     }
 
-    public function post($url, $data = null) {
-        return $this->request($url, 'POST', $data);
+    public function post($uri, $data = null) {
+        return $this->request($uri, 'POST', $data);
     }
 
-    public function put($url, $data = null) {
-        return $this->request($url, 'PUT', $data);
+    public function put($uri, $data = null) {
+        return $this->request($uri, 'PUT', $data);
     }
 
-    public function delete($url) {
-        return $this->request($url, 'DELETE');
+    public function delete($uri) {
+        return $this->request($uri, 'DELETE');
     }
 
     /**
      * Do a request with the admin token
      */
-    private function request($url, $method = "GET", $data = null) {
-        $this->CI = &get_instance();
+    private function request($uri, $method = 'GET', $data = null) {
         if ($this->CI->session->userdata('token') == null) {
             $this->auth();
         }
 
-        // Use cURL to talk to API
-        $http = curl_init();
-        curl_setopt($http, CURLOPT_URL, $url);
-        curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($http, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($http, CURLOPT_LOW_SPEED_LIMIT, 1);   // cancel if below 1 byte/second
-        curl_setopt($http, CURLOPT_LOW_SPEED_TIME, 30);   // for a period of 30 seconds
-        curl_setopt($http, CURLOPT_CUSTOMREQUEST, $method);
-        // Set headers
-        curl_setopt($http, CURLOPT_HTTPHEADER, array(
-            'Authorization: ' . $this->CI->session->userdata('token')
-        ));
+        // Create auth request
+        $request = $this->client->createRequest(
+            $method,
+            $this->API_PATH . $uri,
+            null,
+            $data
+        )->addHeader('Authorization', $this->CI->session->userdata('token'));
 
-        switch ($method) {
-            case 'POST':
-                if (!empty($data) && is_array($data))
-                    curl_setopt($http, CURLOPT_POSTFIELDS, $data);
-                break;
-            case 'PUT':
-                if (!empty($data) && is_array($data))
-                    curl_setopt($http, CURLOPT_POSTFIELDS, http_build_query($data));
-                break;
-        }
+        try{
+            // Send the request and get the response
+            $response = $request->send();
+            if($response->isSuccessful()){
+                return json_decode($response->getBody());
+            }
 
-        $response = curl_exec($http);
-        $http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
-        curl_close($http);
+        }catch(BadResponseException $e){
 
-        // Check response code
-        switch ($http_status) {
-            case 200:
-                return $response;
-                break;
-            case 401:
-                if (ENVIRONMENT == 'production')
-                    show_error("You aren't the owner of that!", 401);
-                else
-                    throw new ErrorException($http_status . " - " . $response);
-            case 403:
-                if (strpos($response, 'token') && strpos($response, 'not valid')) {
-                    // Token expired, get new token and retry
-                    $this->auth();
-                    return $this->request($url, $method, $data);
-                } else {
+            // Error handling
+            $http_status = $e->getResponse()->getStatusCode();
+            $response = $e->getResponse()->getBody();
+
+            // Check response code
+            switch ($http_status) {
+                case 401:
                     if (ENVIRONMENT == 'production')
-                        show_error('You are not authorized to do this!', 403);
+                        show_error("You aren't the owner of that!", 401);
                     else
+                        echo "<pre>";
                         throw new ErrorException($http_status . " - " . $response);
-                }
-                break;
-            default:
-                if (ENVIRONMENT == 'production')
-                    show_404();
-                else
-                    throw new ErrorException($http_status . " - " . $response);
-                break;
+                case 403:
+                    if (strpos($response, 'token') && strpos($response, 'not valid')) {
+
+                        // Token expired, get new token and retry
+                        $this->auth();
+                        return $this->request($url, $method, $data);
+
+                    } else {
+                        if (ENVIRONMENT == 'production')
+                            show_error('You are not authorized to do this!', 403);
+                        else
+                            echo "<pre>";
+                            throw new ErrorException($http_status . " - " . $response);
+                    }
+                    break;
+                case 404:
+                    if (ENVIRONMENT == 'production')
+                        show_404();
+                    else
+                        echo "<pre>";
+                        throw new ErrorException($http_status . " - " . $response);
+                    break;
+                default:
+                    if (ENVIRONMENT == 'production')
+                        show_error("We are doing something wrong here, if this problem persists, please contact us!", $http_status);
+                    else
+                        echo "<pre>";
+                        throw new ErrorException($http_status . " - " . $response);
+                    break;
+            }
         }
+
     }
 
 }

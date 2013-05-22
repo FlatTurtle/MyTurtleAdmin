@@ -42,7 +42,6 @@
                 includes="  *.js,
                             lib/bootstrap-select.js,
                             lib/bootstrap.js,
-                            lib/dropzone.js,
                             lib/intro.js,
                             lib/wysihtml5.js,
                             inc/turtle-general.js,
