@@ -40,7 +40,7 @@ class Panes extends CI_Controller {
 
             $data['available_panes'] = $this->pane->panes;
 
-            $data['menu_second_item'] = lang("term.right");
+            $data['menu_second_item'] = lang("term_right");
 
             $this->load->view('header', $data);
             $this->load->view('screen/menu', $data);
@@ -104,7 +104,7 @@ class Panes extends CI_Controller {
             $duration_options .= '<option ' . $selected . '>' . $i . '</option>';
         }
         $data['duration_options'] = $duration_options;
-        $data['menu_second_item'] = lang("term.right");
+        $data['menu_second_item'] = lang("term_right");
 
         $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);

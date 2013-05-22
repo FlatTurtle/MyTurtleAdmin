@@ -46,7 +46,7 @@ class Advanced extends CI_Controller {
         $data['all_errors'] = $this->session->flashdata('all_errors');
         $data['file_error'] = $this->session->flashdata('file_error');
 
-        $data['menu_second_item'] = lang("term.settings");
+        $data['menu_second_item'] = lang("term_settings");
 
         if ($data['errors']) {
             if($this->session->flashdata('post_title'))
@@ -111,7 +111,7 @@ class Advanced extends CI_Controller {
             }
 
             if (!move_uploaded_file($_FILES['logo']['tmp_name'], $uploadfile)) {
-                $this->session->set_flashdata('file_error', '&bull;&nbsp;'. lang('error.logo_upload'));
+                $this->session->set_flashdata('file_error', '&bull;&nbsp;'. lang('error_logo_upload'));
             } else {
                 // Resize the image
                 list($source_image_width, $source_image_height, $source_image_type) = getimagesize($uploadfile);
@@ -183,7 +183,7 @@ class Advanced extends CI_Controller {
                 $data['infoscreen'] = $infoscreen;
         }
 
-        $data['menu_second_item'] = lang("term.screenshots");
+        $data['menu_second_item'] = lang("term_screenshots");
 
         $shots_path = $this->config->item('screenshots_path');
         $shots_path .=  $data['infoscreen']->hostname . "/thumbs/";

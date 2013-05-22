@@ -10,42 +10,42 @@
     <div class="span12">
         <form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/settings/update'); ?>" method="post" enctype="multipart/form-data">
             <div class="control-group<?= (!empty($errors['title'])) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputTitle"><?= lang('term.title') ?></label>
+                <label class="control-label" for="inputTitle"><?= lang('term_title') ?></label>
                 <div class="controls">
-                    <input type="text" id="inputTitle" name="title" placeholder="<?= lang('term.title') ?>" value="<?= $infoscreen->title; ?>" class="input-block-level"
+                    <input type="text" id="inputTitle" name="title" placeholder="<?= lang('term_title') ?>" value="<?= $infoscreen->title; ?>" class="input-block-level"
                         <?php if(!$admin) echo "disabled='disabled'" ?>
                     >
                 </div>
             </div>
             <div class="control-group<?= (!empty($errors['location'])) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputLocation"><?= lang('term.address') ?></label>
+                <label class="control-label" for="inputLocation"><?= lang('term_address') ?></label>
                 <div class="controls">
-                    <input type="text" id="inputLocation" name="location" placeholder="<?= lang('screen.address_alt') ?>" value="<?= $infoscreen->location; ?>" class="input-block-level">
-                    <span class='note'><?= ($infoscreen->latitude)? lang('screen.geographic_coordinates').': '.$infoscreen->latitude.', '.$infoscreen->longitude:lang('error.resolve_address'); ?></span>
+                    <input type="text" id="inputLocation" name="location" placeholder="<?= lang('screen_address_alt') ?>" value="<?= $infoscreen->location; ?>" class="input-block-level">
+                    <span class='note'><?= ($infoscreen->latitude)? lang('screen_geographic_coordinates').': '.$infoscreen->latitude.', '.$infoscreen->longitude:lang('error_resolve_address'); ?></span>
                 </div>
             </div>
             <div class="control-group<?= (!empty($errors['color'])) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputColor"><?= lang('term.color') ?></label>
+                <label class="control-label" for="inputColor"><?= lang('term_color') ?></label>
                 <div class="controls">
                     <div class="input-prepend input-append">
-                        <input type="text" id="inputColor" name="color" placeholder="#<?= strtolower(lang('term.color')) ?>" class="input-small" value="<?= $infoscreen->color; ?>" maxlength="7">
+                        <input type="text" id="inputColor" name="color" placeholder="#<?= strtolower(lang('term_color')) ?>" class="input-small" value="<?= $infoscreen->color; ?>" maxlength="7">
                     </div>
                 </div>
             </div>
 
             <div class="control-group <?= (!empty($file_error)) ? ' error' : ''; ?>">
-                <label class="control-label" for="inputLogo"><?= lang('term.logo') ?></label>
+                <label class="control-label" for="inputLogo"><?= lang('term_logo') ?></label>
                 <div class="controls">
                     <input type="file" id="inputLogo" name="logo" class="hide better-file-upload"/>
                     <div class="input-append">
                        <input id="inputLogoVal" class="input-large file-value" type="text">
-                       <a class="btn file-button"><?= lang('term.browse') ?></a>
+                       <a class="btn file-button"><?= lang('term_browse') ?></a>
                     </div>
                 </div>
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="inputHostname"><?= lang('term.hostname') ?></label>
+                <label class="control-label" for="inputHostname"><?= lang('term_hostname') ?></label>
                 <div class="controls">
                     <input type="text" id="inputHostname" name="hostname" class="" value="<?= $infoscreen->hostname; ?>"
                         <?php if(!$admin) echo "disabled='disabled'" ?>
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputPin"><?= lang('screen.pin_for_tablet') ?></label>
+                <label class="control-label" for="inputPin"><?= lang('screen_pin_for_tablet') ?></label>
                 <div class="controls">
                     <input type="text" id="inputPin" name="pincode" class="" value="<?= $infoscreen->pincode; ?>"
                         <?php if(!$admin) echo "disabled='disabled'" ?>
@@ -66,10 +66,10 @@
                         <div class="alert alert-error">
                             <?= $all_errors; ?>
                         </div>
-                        <button type="submit" class="btn"><?= lang('term.retry') ?></button>
-                        <a href="<?= site_url($infoscreen->alias. "/settings") ?>" class="btn"><?= lang('term.cancel') ?></a>
+                        <button type="submit" class="btn"><?= lang('term_retry') ?></button>
+                        <a href="<?= site_url($infoscreen->alias. "/settings") ?>" class="btn"><?= lang('term_cancel') ?></a>
                     <? } else { ?>
-                        <button type="submit" class="btn"><?= lang('term.save') ?></button>
+                        <button type="submit" class="btn"><?= lang('term_save') ?></button>
                     <? } ?>
                 </div>
             </div>

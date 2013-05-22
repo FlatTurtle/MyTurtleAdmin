@@ -80,12 +80,12 @@ function makeSignageFloor(location){
 
     // Contains all the floors HTML
     var control_group = $("<div class='control-group floor'></div>");
-    control_group.append("<label class='control-label'>" +  lang['turtle.signage_floor_location'] + "</label>");
+    control_group.append("<label class='control-label'>" +  lang['turtle_signage_floor_location'] + "</label>");
 
     // Container for the floor name and buttons
     var controls = $("<div class='controls'></div>");
     controls.append("<input type='text' class='input-small location' value='" + location + "' placeholder=''/>");
-    controls.append("<button id='add-floor-item' class='btn btn-small'>" + lang['turtle.signage_add_floor_listing'] + "</button>");
+    controls.append("<button id='add-floor-item' class='btn btn-small'>" + lang['turtle_signage_add_floor_listing'] + "</button>");
     controls.append("<button id='delete-floor' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);
 
@@ -118,9 +118,9 @@ function makeSignageFloorItem(name, id, logo){
     listing_controls.append("<button class='btn btn-small delete-floor-item'><i class='icon-trash'></i></button>");
 
 
-    var buttonLabel = lang["term.upload"] + " " + lang["term.logo"].toLowerCase();
+    var buttonLabel = lang["term_upload"] + " " + lang["term_logo"].toLowerCase();
     if(logo){
-        buttonLabel = lang["term.change"] + " " + lang["term.logo"].toLowerCase();
+        buttonLabel = lang["term_change"] + " " + lang["term_logo"].toLowerCase();
     }
 
     var logo_holder = $("<div class='floor_logo_holder'></div>");
@@ -180,7 +180,7 @@ function bindSignageEvents(){
     $(".turtle_signage #delete-floor").off().on('click', function(e){
         e.preventDefault();
 
-        if(confirm(lang['turtle.signage_delete_floor_note'])){
+        if(confirm(lang['turtle_signage_delete_floor_note'])){
             var component = $(this).parents('.control-group');
 
             // Remove logos
@@ -195,7 +195,7 @@ function bindSignageEvents(){
     $(".turtle_signage .delete-floor-item").off().on('click', function(e){
         e.preventDefault();
 
-        if(confirm(lang['turtle.signage_delete_entry_note'])){
+        if(confirm(lang['turtle_signage_delete_entry_note'])){
             var listing = $(this).parents('.listing');
 
             // Remove logos
@@ -217,7 +217,7 @@ function bindSignageEvents(){
 
 
         if(!button.hasClass('disabled')){
-            buttonLabel.html(lang['term.uploading'] + " ...");
+            buttonLabel.html(lang['term_uploading'] + " ...");
             inputFileEl.attr('disabled', 'disabled');
             button.attr('disabled', 'disabled').addClass('disable');
 
@@ -241,14 +241,14 @@ function bindSignageEvents(){
                     if(response){
                         button.removeAttr('disabled').removeClass('disable');
                         inputFileEl.removeAttr('disabled');
-                        buttonLabel.html(lang["term.change"] + " " + lang["term.logo"].toLowerCase());
+                        buttonLabel.html(lang["term_change"] + " " + lang["term_logo"].toLowerCase());
 
                         turtle_logo_holder.append(makeSignageLogoItem(response, turtle_id, id));
                         bindSignageEvents();
                     }else{
                         button.removeAttr('disabled').removeClass('disable');
                         inputFileEl.removeAttr('disabled');
-                        buttonLabel.html(lang["term.upload"] + " " + lang["term.logo"].toLowerCase());
+                        buttonLabel.html(lang["term_upload"] + " " + lang["term_logo"].toLowerCase());
                     }
                 },
                 error: function (response) {
@@ -256,7 +256,7 @@ function bindSignageEvents(){
                     console.log(response);
                     button.removeAttr('disabled').removeClass('disable');
                     inputFileEl.removeAttr('disabled');
-                    buttonLabel.html(lang["term.upload"] + " " + lang["term.logo"].toLowerCase());
+                    buttonLabel.html(lang["term_upload"] + " " + lang["term_logo"].toLowerCase());
                 },
                 //Options to tell JQuery not to process data or worry about content-type
                 cache: false,
@@ -289,7 +289,7 @@ function bindSignageEvents(){
             success : function (response) {
                 $('img',turtle_logo_holder).remove();
                 $('.signage_logo_delete',turtle_logo_holder).remove();
-                buttonLabel.html(lang["term.upload"] + " " + lang["term.logo"].toLowerCase());
+                buttonLabel.html(lang["term_upload"] + " " + lang["term_logo"].toLowerCase());
             },
             error: function (response) {
                 console.log("Signage logo delete error: ");

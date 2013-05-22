@@ -9,8 +9,15 @@ if (!defined('BASEPATH'))
 
 class Turtle extends CI_Model {
 
+    // Mustache engine
+    private $m;
+
     public function __construct() {
         parent::__construct();
+
+        // Init mustach engine
+        $this->m = new Mustache_Engine;
+
         $this->load->model('option');
     }
 
@@ -65,29 +72,63 @@ class Turtle extends CI_Model {
      * Get template and fill out the data
      */
     public function template($turtle) {
+
         // Fetch template files
-        $contents = @file_get_contents(base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php');
+        $template = @file_get_contents(base_url() . 'assets/inc/turtles/options_' . $turtle->type . '.php');
 
-        if(!$contents) {
+        if(!$template) {
             // Load notice when template is not found
-            $contents = file_get_contents(base_url() . 'assets/inc/turtles/options_blank.php');
+            $template = file_get_contents(base_url() . 'assets/inc/turtles/options_blank.php');
         }
 
-        // Turtle specific replaces
-        $contents = preg_replace('/{{id}}/', $turtle->id, $contents);
-        $contents = preg_replace('/{{title}}/', $turtle->name, $contents);
-        $contents = preg_replace('/{{type}}/', $turtle->type, $contents);
+        // Start create data array to fill template
+        $data = array();
 
-        // Language specific replaces
-        preg_match_all('/{{(.*?)}}/', $contents, $matches, PREG_SET_ORDER);
-        foreach($matches as $match){
-            if(lang($match[1]) !== false){
-                $contents = preg_replace('/'.$match[0].'/', lang($match[1]), $contents);
+        // Fill out known values
+        foreach ($turtle->options as $key => $value) {
+            $data[$key] = htmlentities($value);
+        }
+
+        // Limit options
+        $limit_options = "";
+        $limit = (!empty($turtle->options->limit))? $turtle->options->limit : 5;
+        for ($i = 2; $i < 19; $i++) {
+            $selected = '';
+            if ($i == $limit)
+                $selected = 'selected';
+            $limit_options .= '<option ' . $selected . '>' . $i . '</option>';
+        }
+        $data['limit_options'] = $limit_options;
+
+        // Zoom options
+        $zoom_options = "";
+        if(!empty($turtle->options->zoom)){
+            $zoom = (!empty($turtle->options->zoom))? $turtle->options->zoom : 12;
+            for ($i = 10; $i <= 20; $i++) {
+                $selected = '';
+                if ($i == $zoom)
+                    $selected = 'selected';
+                $zoom_options .= '<option ' . $selected . '>' . $i . '</option>';
             }
+            $data['zoom_options'] = $zoom_options;
         }
 
-        // Get available RSS links
+        // Type options
+        $type_options = "";
+        $selected_dep = "selected='selected'";
+        $selected_arr = "";
+        if(!empty($turtle->options->type) && $turtle->options->type == "arrivals"){
+            $selected_dep = "";
+            $selected_arr = "selected='selected'";
+        }
+        $type_options .= '<option ' . $selected_dep . ' value="departures">' . lang('term_departures') . '</option>';
+        $type_options .= '<option ' . $selected_arr . ' value="arrivals">' . lang('term_arrivals') . '</option>';
+        $data['type_options'] = $type_options;
+
+
         if($turtle->type == "rss"){
+
+            // Get available RSS links
             $rss_links = $this->option->get('turtle_rss_feed');
 
             $rss_links_html = "";
@@ -108,11 +149,13 @@ class Turtle extends CI_Model {
             if(empty($custom_class)){
                 $rss_links_html .= " selected='selected'";
             }
-            $rss_links_html .= ">(".lang('turtle.rss_custom').")</option>";
+            $rss_links_html .= ">(".lang('turtle_rss_custom').")</option>";
 
-            $contents = preg_replace('/{{rss-links}}/', $rss_links_html, $contents);
-            $contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
+            $data['rss_links'] = $rss_links_html;
+            $data['custom_hide'] = $custom_class;
+
         }else if($turtle->type == "map" || $turtle->type == "mapbox"){
+
             // Mapbox and map location of screen or custom one
             $map_options = "";
             $location = "";
@@ -125,72 +168,46 @@ class Turtle extends CI_Model {
                 $map_options .= " selected='selected'";
                 $custom_class = "hide";
             }
-            $map_options .= ">".lang('turtle.screen_location')."</option>";
+            $map_options .= ">".lang('turtle_screen_location')."</option>";
 
             $map_options .= "<option value='custom'";
             if(empty($custom_class)){
                 $map_options .= " selected='selected'";
             }
-            $map_options .= ">(".lang('turtle.custom_location').")</option>";
-            $contents = preg_replace('/{{map-options}}/', $map_options, $contents);
-            $contents = preg_replace('/{{custom_hide}}/', $custom_class, $contents);
+            $map_options .= ">(".lang('turtle_custom_location').")</option>";
+            $data['map_options'] = $map_options;
+            $data['custom_hide'] = $custom_class;
+
         }else if($turtle->type == "signage"){
+
             // Check for logo existance
             if(!empty($turtle->options->data)){
-                $data = json_decode($turtle->options->data);
-                foreach($data as $floor){
+                $floor_data = json_decode($turtle->options->data);
+                foreach($floor_data as $floor){
                     foreach($floor->floors as $floor_item){
                         if(file_exists(SIGNAGE_UPLOAD_DIR. $turtle->id . "/". $floor_item->id. ".png")){
                             $floor_item->logo = base_url(). "/uploads/signage/". $turtle->id . "/". $floor_item->id. ".png";
                         }
                     }
                 }
-                $data = json_encode($data);
-                $contents = preg_replace('/{{data}}/', $data, $contents);
+                $data['data'] = json_encode($floor_data);
             }
         }
 
-        // Type options
-        $type_options = "";
-        $selected_dep = "selected='selected'";
-        $selected_arr = "";
-        if(!empty($turtle->options->type) && $turtle->options->type == "arrivals"){
-            $selected_dep = "";
-            $selected_arr = "selected='selected'";
-        }
-        $type_options .= '<option ' . $selected_dep . ' value="departures">' . lang('term.departures') . '</option>';
-        $type_options .= '<option ' . $selected_arr . ' value="arrivals">' . lang('term.arrivals') . '</option>';
-        $contents = preg_replace('/{{type-options}}/', $type_options, $contents);
+        // Language specific data
+        $lang_data = $this->lang->language;
 
+        // Turtle specific data
+        $turtle_data = array(
+            'id'    => $turtle->id,
+            'title' => $turtle->name,
+            'type'  => $turtle->type,
+        );
 
-        // Limit options
-        $limit_options = "";
-        $limit = (!empty($turtle->options->limit))? $turtle->options->limit : 5;
-        for ($i = 2; $i < 19; $i++) {
-            $selected = '';
-            if ($i == $limit)
-                $selected = 'selected';
-            $limit_options .= '<option ' . $selected . '>' . $i . '</option>';
-        }
-        $contents = preg_replace('/{{limit-options}}/', $limit_options, $contents);
+        // Overwrite in order
+        $data = array_replace($lang_data, $data, $turtle_data);
 
-        // Zoom options
-        $zoom_options = "";
-        if(!empty($turtle->options->zoom)){
-            $zoom = (!empty($turtle->options->zoom))? $turtle->options->zoom : 12;
-            for ($i = 10; $i <= 20; $i++) {
-                $selected = '';
-                if ($i == $zoom)
-                    $selected = 'selected';
-                $zoom_options .= '<option ' . $selected . '>' . $i . '</option>';
-            }
-            $contents = preg_replace('/{{zoom-options}}/', $zoom_options, $contents);
-        }
-
-        // Fill out known values
-        foreach ($turtle->options as $key => $value) {
-            $contents = preg_replace('/{{' . $key . '}}/', htmlentities($value), $contents);
-        }
-        return $contents;
+        // Render the template
+        return $this->m->render($template, $data);
     }
 }

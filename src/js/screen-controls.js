@@ -71,7 +71,7 @@ $('#btnToggleScreen').click(function(e){
 
 		$('#btnToggleScreen').attr('disabled', 'disabled').addClass('disable');
 
-        showAlert(lang['screen.message_power'], delayPower);
+        showAlert(lang['screen_message_power'], delayPower);
 		$.ajax({
 			type: 'POST',
 			url: pathname + '/plugin/screen_power',
@@ -101,7 +101,7 @@ $('#btnRefreshScreen').click(function(e){
 
         $('#btnRefreshScreen').attr('disabled', 'disabled').addClass('disable');
 
-        showAlert(lang['screen.message_refresh'], delayPower);
+        showAlert(lang['screen_message_refresh'], delayPower);
         $.ajax({
             type: 'POST',
             url: pathname + '/plugin/screen_reload',

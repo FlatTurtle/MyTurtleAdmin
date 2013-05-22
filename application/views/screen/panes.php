@@ -1,11 +1,11 @@
 <div class="adding_pane_modal modal hide fade">
   <div class="modal-body">
-    <i class='loading'></i> <?= lang('panes.adding') ?>
+    <i class='loading'></i> <?= lang('panes_adding') ?>
   </div>
 </div>
 <div class="deleting_pane_modal modal hide fade">
   <div class="modal-body">
-    <i class='loading'></i> <?= lang('panes.deleting') ?>
+    <i class='loading'></i> <?= lang('panes_deleting') ?>
   </div>
 </div>
 <div class='row'>
@@ -13,8 +13,8 @@
         <?
         if(!empty($panes)){
         ?>
-        <h4><?= lang('panes.enabled') ?></h4>
-        <div class="sortable" data-step="1" data-intro="<?php echo lang('help.panes_enabled'); ?>">
+        <h4><?= lang('panes_enabled') ?></h4>
+        <div class="sortable" data-step="1" data-intro="<?php echo lang('help_panes_enabled'); ?>">
         <?
             // Show all enabled panes
             foreach($panes as $pane){
@@ -42,15 +42,15 @@
             }
         ?>
         </div>
-        <span class='note'><?= lang('panes.drag_to_sort') ?></span>
+        <span class='note'><?= lang('panes_drag_to_sort') ?></span>
             <?
             }
 
                 $array_available_panes = (array) $available_panes;
                 if(!empty($array_available_panes)){
             ?>
-        <div data-step="2" data-intro="<?php echo lang('help.panes_available'); ?>" data-position="top">
-                <h4><?= lang('panes.available') ?></h4>
+        <div data-step="2" data-intro="<?php echo lang('help_panes_available'); ?>" data-position="top">
+                <h4><?= lang('panes_available') ?></h4>
                 <?
                 // Show the other available panes
                 foreach($available_panes as $pane => $pane_value){
@@ -67,24 +67,24 @@
                         </div>
                     </div>
                 <? } ?>
-                <span class='note'><?= lang('panes.click_to_enable') ?></span>
+                <span class='note'><?= lang('panes_click_to_enable') ?></span>
             <? } ?>
         </div>
     </div>
     <div class='pane-holder span9'>
 
-        <h4><?= lang('panes.screen_title') ?></h4>
-        <div class='pane-area' data-step="3" data-intro="<?php echo lang('help.panes_area'); ?>" data-position="top">
+        <h4><?= lang('panes_screen_title') ?></h4>
+        <div class='pane-area' data-step="3" data-intro="<?php echo lang('help_panes_area'); ?>" data-position="top">
             <? if(!empty($current_pane)){ ?>
-                <div class='pane-options' data-step="4" data-intro="<?php echo lang('help.panes_general_options'); ?>" data-position="left">
+                <div class='pane-options' data-step="4" data-intro="<?php echo lang('help_panes_general_options'); ?>" data-position="left">
                     <form action='<?= site_url($infoscreen->alias.'/right/save/'.$current_pane->id); ?>' class="form-horizontal" method='post'>
                         <div class="control-group">
                             <div class="controls">
-                                <h4><?= lang('panes.general_options') ?></h4>
+                                <h4><?= lang('panes_general_options') ?></h4>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="title"><?= lang('term.title') ?></label>
+                            <label class="control-label" for="title"><?= lang('term_title') ?></label>
                             <div class="controls">
                                 <input type="text" id="pane-title" name="title" class='input-large' value="<?= $current_pane->title ?>"/>
                             </div>
@@ -94,12 +94,12 @@
                         if($current_pane->template != "video"){
                         ?>
                             <div class="control-group">
-                                <label class="control-label" for="duration"><?= lang('term.duration') ?></label>
+                                <label class="control-label" for="duration"><?= lang('term_duration') ?></label>
                                 <div class="controls">
                                     <select name="duration">
                                         <?= $duration_options ?>
                                     </select>
-                                    &nbsp;<?= strtolower(lang('term.seconds')) ?>
+                                    &nbsp;<?= strtolower(lang('term_seconds')) ?>
                                 </div>
                             </div>
                         <?
@@ -107,8 +107,8 @@
                         ?>
                         <div class="control-group">
                             <div class="controls">
-                                <input type='submit' name='save' class="btn pane_save" value="<?= lang('term.save') ?>"/>
-                                <a id='delete_pane_<?= $current_pane->id ?>' href='#' class="btn btn-danger delete_pane" data-confirm='<?= lang('panes.disable_note') ?>'><?= lang('term.disable') ?></a>
+                                <input type='submit' name='save' class="btn pane_save" value="<?= lang('term_save') ?>"/>
+                                <a id='delete_pane_<?= $current_pane->id ?>' href='#' class="btn btn-danger delete_pane" data-confirm='<?= lang('panes_disable_note') ?>'><?= lang('term_disable') ?></a>
                             </div>
                         </div>
                     </form>

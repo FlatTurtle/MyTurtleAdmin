@@ -1,5 +1,5 @@
             <? include 'header.php'; ?>
-            {{turtles.error_blank}}
+            {{turtles_error_blank}}
         </form>
     </div>
 </div>
