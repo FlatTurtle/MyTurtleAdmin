@@ -67,6 +67,7 @@ $lang['term_searching_for'] = "Searching for";
 $lang['term_upload'] = "Upload";
 $lang['term_uploading'] = "Uploading";
 $lang['term_change'] = "Change";
+$lang['term_larger'] = "Larger";
 
 /**
  * Screen detail page
@@ -117,6 +118,7 @@ $lang['turtle_finance_secondary_alt'] = "(e.g. GOOG, AAPL, DUV.BR)";
 $lang['turtle_finance_primary_note'] = "Stock symbol, this one is shown bigger than the secondary stocks";
 $lang['turtle_finance_secondary_note'] = "List of comma separated stock symbols";
 $lang['turtle_twitter_search_alt'] = "Twitter search (e.g. #FlatTurtle)";
+$lang['turtle_twitter_larger_note'] = "Check this box to show a bigger version of the tweets";
 $lang['turtle_rss_alt'] = "A URL to an RSS feed";
 $lang['turtle_rss_custom'] = "Custom feed";
 $lang['turtle_screen_location'] = "Screen location";

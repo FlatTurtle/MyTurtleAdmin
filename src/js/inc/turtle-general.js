@@ -399,9 +399,23 @@ function bind_event_to_turtles(){
         }
     });
 
+    // Twitter larger selector
+    $('.turtle_twitter .make-larger').off().on('click', function(){
+        $('.turtle_twitter .size-field').val('');
+        if($(this).is(':checked')){
+            $('.turtle_twitter .size-field').val('big');
+        }
+    });
+
     // Map & mapbox type selector
     $('.turtle_map .map-location-type').off().on('change', changedMapType);
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
+}
+
+
+// Check Twitter options default
+if($('.turtle_twitter .size-field').val() == "big"){
+    $('.turtle_twitter .make-larger').attr('checked', 'checked')
 }
 
 
