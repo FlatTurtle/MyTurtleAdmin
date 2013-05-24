@@ -130,6 +130,7 @@ $lang['turtle_signage_save_alt'] = "Make all your changes to the floor plan, the
 $lang['turtle_signage_delete_floor_note'] = "Are you sure you want to delete this entire floor?";
 $lang['turtle_signage_delete_entry_note'] = "Are you sure you want to delete this entry?";
 $lang['turtle_delete_note'] = "Are you sure you want to delete this Turtle?";
+$lang['turtle_calendar_alt'] = "A URL to an ICAL feed";
 
 /**
  * Panes page

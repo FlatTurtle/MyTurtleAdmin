@@ -27,7 +27,10 @@ class Panes extends CI_Controller {
         $panes = array();
         try{
             $panes = $this->pane->get_all($alias, 'widget');
-        }catch(Exception $e){}
+        }catch(Exception $e){
+            // There are no panes yet
+        }
+
         if(count($panes)> 0){
             redirect(site_url($alias.'/right/'.$panes[0]->template . '/' . $panes[0]->id . '#config'));
         }else{

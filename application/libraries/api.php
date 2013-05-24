@@ -130,8 +130,18 @@ class API {
 
                 case 404:
                     // Not found
-                    if (ENVIRONMENT == 'production')
+                    if (ENVIRONMENT == 'production'){
+                        list($null, $alias, $remainder) = explode("/", $uri);
+                        list($segment , $remainder) = explode("?", $remainder);
+
+                        // Fix for when a user has no panes (yet)
+                        if($segment == "panes"){
+                            throw new ErrorException($http_status);
+                        }
+
                         show_404();
+
+                    }
                     break;
 
                 default:
@@ -143,8 +153,7 @@ class API {
             if (ENVIRONMENT == 'production')
                 show_error($message, $http_status);
             else
-                echo "<pre>";
-                throw new ErrorException($http_status . " - " . $response);
+                throw new ErrorException("<pre>" . $http_status . " - " . $response . "</pre>");
         }
 
     }
