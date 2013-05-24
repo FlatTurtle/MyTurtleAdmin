@@ -129,6 +129,7 @@ $lang['turtle_signage_save_alt'] = "Faites toutes les modifications au plan d'é
 $lang['turtle_signage_delete_floor_note'] = "Êtes-vous sûr de vouloir supprimer l'étage complet?";
 $lang['turtle_signage_delete_entry_note'] = "Êtes-vous sûr de vouloir supprimer cette entrée?";
 $lang['turtle_delete_note'] = "Êtes-vous sûr de vouloir supprimer ce Turtle?";
+$lang['turtle_calendar_alt'] = "Un lien vers un flux iCal";
 
 /**
 * Panes page
