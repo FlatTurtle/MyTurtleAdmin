@@ -90,7 +90,6 @@ $lang['screen_btn_clock'] = "Toggle clock";
 $lang['screen_btn_power'] = "Toggle power";
 $lang['screen_btn_refresh'] = "Refresh";
 
-
 /**
  * Turtles page
  */
@@ -132,7 +131,7 @@ $lang['turtle_signage_save_alt'] = "Make all your changes to the floor plan, the
 $lang['turtle_signage_delete_floor_note'] = "Are you sure you want to delete this entire floor?";
 $lang['turtle_signage_delete_entry_note'] = "Are you sure you want to delete this entry?";
 $lang['turtle_delete_note'] = "Are you sure you want to delete this Turtle?";
-$lang['turtle_calendar_alt'] = "A URL to an ICAL feed";
+$lang['turtle_calendar_alt'] = "A URL to an iCal feed";
 
 /**
  * Panes page
@@ -147,7 +146,6 @@ $lang['panes_disable_note'] = "Are you sure you want to disable this pane?";
 $lang['panes_adding'] = "Adding a new pane to the screen";
 $lang['panes_deleting'] = "Deleting the pane from the screen";
 
-
 /**
  * Error messages
  */
@@ -160,7 +158,6 @@ $lang['error_create_turtle'] = "Couldn't create Turtle, please refresh and try a
 $lang['error_delete_turtle'] = "Couldn't delete that Turtle at the moment";
 $lang['error_add_pane'] = "Couldn't enable pane, please refresh and try again";
 $lang['error_delete_pane'] = "Couldn't delete that pane at the moment";
-
 
 /**
  * Warnings

@@ -129,6 +129,7 @@ $lang['turtle_signage_save_alt'] = "Maak al uw aanpassingen aan het plan en druk
 $lang['turtle_signage_delete_floor_note'] = "Weet u zeker dat u de hele verdieping wilt verwijderen?";
 $lang['turtle_signage_delete_entry_note'] = "Weet u zeker dat u dit item wilt verwijderen?";
 $lang['turtle_delete_note'] = "Weet u zeker dat u deze Turtle wilt verwijderen?";
+$lang['turtle_calendar_alt'] = "Een URL naar een iCal feed";
 
 /**
  * Panes page
