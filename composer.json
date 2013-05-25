@@ -1,17 +1,17 @@
 {
-    "name": "FlatTurtle/MyTurtleAdmin",
-    "description": "Admin for the infoscreens ",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Michiel Vancoillie",
-            "email": "michiel@irail.be",
-            "homepage": "http://michielvancoillie.be"
-        }
-    ],
     "require": {
         "php": ">=5.3",
-        "mustache/mustache" : "dev-master",
-        "guzzle/guzzle": "v3.5.0"
-    }
+        "guzzle/guzzle": "v3.5.0",
+        "mustache/mustache": "dev-master"
+    },
+    "authors": [
+        {
+            "homepage": "http://michielvancoillie.be",
+            "name": "Michiel Vancoillie",
+            "email": "michiel@irail.be"
+        }
+    ],
+    "type": "project",
+    "name": "FlatTurtle/MyTurtleAdmin",
+    "description": "Admin for the infoscreens "
 }

@@ -135,7 +135,7 @@ class API {
                         list($segment , $remainder) = explode("?", $remainder);
 
                         // Fix for when a user has no panes (yet)
-                        if($segment == "panes"){
+                        if($segment == "panes" || $segment == "turtles"){
                             throw new ErrorException($http_status);
                         }
 

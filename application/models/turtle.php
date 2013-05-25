@@ -15,7 +15,7 @@ class Turtle extends CI_Model {
     public function __construct() {
         parent::__construct();
 
-        // Init mustach engine
+        // Init mustache engine
         $this->m = new Mustache_Engine;
 
         $this->load->model('option');
