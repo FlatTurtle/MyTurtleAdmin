@@ -10,7 +10,7 @@
     <div class="controls">
         <input type="hidden" id="{{id}}-size" name="{{id}}-size" class='size-field' value="{{size}}"/>
         <input type="checkbox" id="{{id}}-larger" class='make-larger'/>
-        <span class='help-block'>{{turtle_twitter_larger_note}}</span>
+        <span class='help-block note'>{{turtle_twitter_larger_note}}</span>
     </div>
 </div>
 <? include 'footer.php'; ?>

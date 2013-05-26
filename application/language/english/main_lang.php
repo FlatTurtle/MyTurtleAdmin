@@ -68,6 +68,7 @@ $lang['term_upload'] = "Upload";
 $lang['term_uploading'] = "Uploading";
 $lang['term_change'] = "Change";
 $lang['term_larger'] = "Larger";
+$lang['term_filter'] = "Filter";
 
 /**
  * Screen detail page
@@ -132,6 +133,7 @@ $lang['turtle_signage_delete_floor_note'] = "Are you sure you want to delete thi
 $lang['turtle_signage_delete_entry_note'] = "Are you sure you want to delete this entry?";
 $lang['turtle_delete_note'] = "Are you sure you want to delete this Turtle?";
 $lang['turtle_calendar_alt'] = "A URL to an iCal feed";
+$lang['turtle_calendar_filter'] = "Filter the events to show, based on location";
 
 /**
  * Panes page
