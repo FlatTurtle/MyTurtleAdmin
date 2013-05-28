@@ -400,10 +400,10 @@ function bind_event_to_turtles(){
     });
 
     // Twitter larger selector
-    $('.turtle_twitter .make-larger').off().on('click', function(){
-        $('.turtle_twitter .size-field').val('');
+    $('.turtle_instance .make-larger').off().on('click', function(){
+        $('.turtle_instance .size-field').val('');
         if($(this).is(':checked')){
-            $('.turtle_twitter .size-field').val('big');
+            $('.turtle_instance .size-field').val('big');
         }
     });
 
@@ -414,8 +414,8 @@ function bind_event_to_turtles(){
 
 
 // Check Twitter options default
-if($('.turtle_twitter .size-field').val() == "big"){
-    $('.turtle_twitter .make-larger').attr('checked', 'checked')
+if($('.turtle_instance .size-field').val() == "big"){
+    $('.turtle_instance .make-larger').attr('checked', 'checked')
 }
 
 
