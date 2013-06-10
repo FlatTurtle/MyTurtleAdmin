@@ -9,6 +9,7 @@ Author: Michiel Vancoillie
 @import "bootstrap-select";
 @import "font-awesome";
 @import "introjs";
+@import "jcrop";
 
 
 html, body{
@@ -219,6 +220,15 @@ nav[role=navigation] {
     padding: 7px 9px;
 }
 
+/**
+ * Infoscreens
+ */
+$infoscreen_width: 272.5px;
+$infoscreen_height: 147px;
+$infoscreen_margin: 10px;
+$infoscreen_hover_expand: 4px;
+$infoscreen_border_width: 5px;
+
 .infoscreens{
     width: 100%;
 
@@ -226,7 +236,7 @@ nav[role=navigation] {
         display: table-cell;
         float: left;
         vertical-align: middle;
-        width: 214px;
+        width: $infoscreen_width;
         text-align: center;
         padding: 10px;
         height: 125px;
@@ -245,19 +255,19 @@ nav[role=navigation] {
 
     a:hover{
         .infoscreen{
-            margin: 8px;
-            width: 218px;
+            margin: $infoscreen_margin - ($infoscreen_hover_expand/2);
+            width: $infoscreen_width + $infoscreen_hover_expand;
 
             .screen{
-                height: 119px;
+                height: $infoscreen_height + $infoscreen_hover_expand;
             }
         }
     }
 
     .infoscreen{
-        margin: 10px;
+        margin: $infoscreen_margin;
         padding-bottom: 5px;
-        width: 214px;
+        width: $infoscreen_width;
         float: left;
         text-align: center;
 
@@ -276,8 +286,8 @@ nav[role=navigation] {
             -moz-box-shadow: 0px 0px 5px #aaa;
             -webkit-box-shadow: 0px 0px 5px #aaa;
             box-shadow: 0px 0px 5px #aaa;
-            height: 115px;
-            border: 5px solid #000;
+            height: $infoscreen_height;
+            border: $infoscreen_border_width solid #000;
             background-color: #fff;
             overflow: hidden;
             margin-bottom: 5px;
@@ -298,7 +308,7 @@ nav[role=navigation] {
 
                 .logo-holder{
                     height: 20px;
-                    max-width: 220px;
+                    max-width: $infoscreen_width - ($infoscreen_border_width*2);
                     max-height: 39px;
                     position: absolute;
                     background-color: #fff;
@@ -380,8 +390,13 @@ nav[role=navigation] {
         right: 0;
 
         &.disabled{
-            *{
+            .inner,
+            .right-side{
                 background-color: #222 !important;
+            }
+
+            .logo-holder{
+                opacity: 0.5;
             }
         }
 
@@ -957,8 +972,17 @@ select{
 }
 
 @media (max-width: 550px){
+    // Room for search on mobile
+    .row.home{
+        padding-top: 50px !important;
+    }
+
+    .pager.backlink{
+        display: none;
+    }
+
     .grey_wrapper{
-        padding-top: 40px;
+        padding-top: 15px;
     }
 
     .navbar{
@@ -1053,11 +1077,12 @@ select{
 
     nav[role=navigation]{
         padding: 0px;
-        padding-bottom: 20px;
-        text-align: left;
+        margin-top: -45px;
+        margin-bottom: 15px;
+        text-align: right;
 
         h4{
-            display: inline;
+            display: none;
             vertical-align: middle;
         }
     }

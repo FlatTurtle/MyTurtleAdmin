@@ -42,35 +42,15 @@ class Home extends CI_Controller {
                 $infoscreen->power = $plugin_states->power;
 
             // Check screenshot availability
-            $current_path = $shots_path . $infoscreen->hostname . "/thumbs/";
+            $screenshot_path = $shots_path . "/latest/thumbs/". $infoscreen->hostname . ".png";
             $infoscreen->shot = false;
 
-            if(is_dir($current_path)){
-                $shots = array();
-                // Get all screenshots
-                if ($handle = opendir($current_path)) {
-                    /* This is the correct way to loop over the directory. */
-                    while (false !== ($entry = readdir($handle))) {
-                        array_push($shots, $entry);
-                    }
-                    sort($shots);
-                    $shots = array_reverse($shots);
-                    closedir($handle);
-                }
-
-                if(count($shots) > 0){
-                    // Only get last shot
-                    $shot = $shots[0];
-
-                    // Get image data
-                    if(is_file($current_path . $shot)){
-                        $image = @file_get_contents($current_path . $shot);
-                        if($image){
-                            $image = base64_encode($image);
-                            $infoscreen->shot = $image;
-                        }
-
-                    }
+            // Get image data
+            if(is_file($screenshot_path)){
+                $image = @file_get_contents($screenshot_path);
+                if($image){
+                    $image = base64_encode($image);
+                    $infoscreen->shot = $image;
                 }
             }
         }
@@ -125,5 +105,3 @@ class Home extends CI_Controller {
     }
 
 }
-
-?>

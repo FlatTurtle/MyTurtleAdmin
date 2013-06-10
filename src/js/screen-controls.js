@@ -80,6 +80,7 @@ $('#btnToggleScreen').click(function(e){
 			},
 			success: function(html){
 				setTimeout(function() {
+                    // Update toggle button
 					$('#btnToggleScreen i').toggleClass('active').removeClass('icon-eye-close').removeClass('icon-eye-open');
 					var end = 'close';
 					if($('#btnToggleScreen i').hasClass('active')){
@@ -87,6 +88,13 @@ $('#btnToggleScreen').click(function(e){
 					}
 					$('#btnToggleScreen i').addClass('icon-eye-' + end);
 					$('#btnToggleScreen').removeAttr('disabled');
+
+                    // Update screen display
+                    if($('#btnToggleScreen i').hasClass('active')){
+                        $('.screen').removeClass('disabled');
+                    }else{
+                        $('.screen').addClass('disabled');
+                    }
 				}, delayPower);
 			}
 		});
