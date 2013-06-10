@@ -122,7 +122,7 @@ class API {
                     if (strpos($response, 'token') && strpos($response, 'not valid')) {
                         // Token expired, get new token and retry
                         $this->auth();
-                        return $this->request($url, $method, $data);
+                        return $this->request($uri, $method, $data);
                     } else {
                         $message = 'You are not authorized to do this!';
                     }
