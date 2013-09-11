@@ -909,6 +909,77 @@ select{
     width: auto;
 }
 
+.turtle_pricelist{
+    hr{
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 0px;
+    }
+
+    .btn{
+        margin-left: 10px;
+
+        &.delete-item{
+            margin-left: 5px;
+        }
+    }
+
+    .controls{
+        margin-bottom: 10px;
+    }
+
+    .listing{
+        margin-top: 3px;
+        margin-bottom: 10px;
+        padding-left: 160px;
+
+        & > i{
+            margin-right: 10px;
+            color: #aaa;
+        }
+
+        textarea{
+            margin-top: 10px;
+            margin-left: 20px;
+            height: 40px;
+            min-height: 0 !important;
+            width: 90% !important;
+            margin-bottom: 10px !important;
+        }
+
+        input{
+            margin-left: 5px;
+        }
+
+        input[type=text]{
+            width: 150px;
+        }
+
+        input[type=number]{
+            width: 50px;
+        }
+
+        .entry_image_holder{
+            display: inline-block;
+        }
+
+        form{
+            margin: 0px;
+            padding: 0px;
+        }
+    }
+
+    img{
+        max-width: 120px;
+        margin-left: 10px;
+        max-height: 20px;
+    }
+
+    .small-file-upload{
+        margin-left: 30px !important;
+    }
+}
+
 .turtle_signage{
     hr{
         border: 0;

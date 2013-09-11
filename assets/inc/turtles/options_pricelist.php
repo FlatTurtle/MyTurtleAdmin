@@ -5,7 +5,9 @@
     <div class="controls">
         <input type="text" id="title" name="title" class="input-block-level" placeholder="{{turtle_pricelist_title_alt}}" value="{{ pricelist_title }}"/>
     </div>
+    <hr/>
 </div>
+
 <div class="categories"></div>
 <div class="control-group">
     <div class="controls">

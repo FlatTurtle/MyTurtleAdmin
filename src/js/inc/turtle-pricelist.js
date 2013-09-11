@@ -29,7 +29,7 @@ function buildPriceListCategory(name){
     control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_name'] + "</label>");
 
     var controls = $("<div class='controls'></div>");
-    controls.append("<input type='text' class='input-small' value='" + name + "' placeholder=''/>");
+    controls.append("<input type='text' class='input-small' placeholder='' value='" + name + "'/>");
     controls.append("<button id='add-category-entry' class='btn btn-small'>" + lang['turtle_pricelist_add_entry'] + "</button>");
     controls.append("<button id='delete-category' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);
@@ -49,40 +49,39 @@ function buildPriceListCategoryEntries(category, categoryHTML){
 
         for(var i in entries){
             var name = entries[i].name;
-            if(typeof name === 'undefined'){
-                name = '';
-            }
-
             var description = entries[i].description;
-            if(typeof description === 'undefined'){
-                description = '';
-            }
-
             var price = entries[i].price;
             var image = entries[i].image;
+            var id = entries[i].id;
 
-            var item = buildPriceListCategoryEntry(name, description, price, image);
+            var item = buildPriceListCategoryEntry(name, description, price, image, id);
             listings.append(item);
         }
     }
 }
 
-function buildPriceListCategoryEntry(name, description, price, image){
+function buildPriceListCategoryEntry(name, description, price, image, id){
     if(!name){
         name = "";
     }
 
-    if(description){
+    if(!description){
         description = "";
     }
 
-    if(price){
-        price = 0;
+    if(!price){
+        price = 0.00;
     }
 
-    var entry_control = $("<div class='listing' ></div>");
+    if(!id){
+        id = Math.round((new Date()).getTime() / 1000) + "_" + Math.round(Math.random() * 10000);
+    }
+
+    var entry_control = $("<div id='listing-" + id + "' class='listing'></div>");
     entry_control.append("<i class='icon-caret-right'></i>");
-    entry_control.append("<input type='text' placeholder='' class='input' value='" + name + "'/>");
+    entry_control.append("<input type='text' class='input' value='" + name + "'/>");
+
+    entry_control.append("<input type='number' class='input' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
     entry_control.append("<button id='delete-item' class='btn btn-small'><i class='icon-trash'></i></button>");
 
     var buttonLabel = lang["term_upload"] + " " + lang["term_logo"].toLowerCase();
@@ -90,22 +89,33 @@ function buildPriceListCategoryEntry(name, description, price, image){
         buttonLabel = lang["term_change"] + " " + lang["term_logo"].toLowerCase();
     }
 
-    var image_holder = $("<div class=''></div>")
-    var image_upload = $("<a class='btn small-file-upload btn-small' href='javascript:;'><span>");
+    var image_holder = $("<div class='entry_image_holder'></div>");
+    var turtle_id = $('.turtle_pricelist').attr('id').split('_');
+
+    var image_upload = $("<a class='btn small-file-upload btn-small' href='javascript:;'>" +
+        "<span>" + buttonLabel + "</span>" +
+        "<form enctype='multipart/form-data'>" +
+        "<input type='file' name='file-"+id+"' class='pricelist-logo-file' data-turtle-id='"+ turtle_id[1] +"' data-id='"+ id + "'>" +
+        "</form></a>");
     image_holder.append(image_upload);
 
     if(image){
-        image_holder.append(buildPriceListImage(image));
+        image_holder.append(buildPriceListImage(image, turtle_id[1], id));
     }
     entry_control.append(image_holder);
+
+    // putting the description textarea on another line
+    entry_control.append("<br/>");
+
+    entry_control.append("<textarea rows='2' cols='35' class='styled'>" + description + "</textarea>");
 
     return entry_control;
 }
 
-function buildPriceListImage(image){
+function buildPriceListImage(image, turtle_id, id){
     var el = $('<span></span>');
     el.append("<img src='" + image + "' />");
-    el.append("<a class='btn btn-small' href='#'>&times;</a> ");
+    el.append("<a class='btn btn-small' href='#' data-turtle-id='"+ turtle_id +"' data-id='"+ id + "'>&times;</a> ");
 
     return el;
 }
