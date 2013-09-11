@@ -194,8 +194,7 @@ class Turtle extends CI_Model {
             }
         }else if($turtle->type == "pricelist"){
             if(!empty($turtle->options->data)){
-                $price_data = json_decode($turtle->options->data);
-                $data['data'] = json_encode($price_data);
+                $data['data'] = $turtle->options->data;
             }
         }
 

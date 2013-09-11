@@ -217,7 +217,7 @@ function bindSignageEvents(){
 
 
         if(!button.hasClass('disabled')){
-            buttonLabel.html(lang['term_uploading'] + " ...");
+            buttonLabel.html(lang['term_uploading'] + "  ...");
             inputFileEl.attr('disabled', 'disabled');
             button.attr('disabled', 'disabled').addClass('disable');
 

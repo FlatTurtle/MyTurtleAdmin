@@ -356,6 +356,9 @@ function bind_event_to_turtles(){
             }else if(turtle_instance.hasClass('turtle_signage')){
                 option_data['data'] = saveSignage();
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_pricelist')){
+                option_data['data'] = savePriceList();
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }

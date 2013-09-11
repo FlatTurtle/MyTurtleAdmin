@@ -29,7 +29,7 @@ function buildPriceListCategory(name){
     control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_name'] + "</label>");
 
     var controls = $("<div class='controls'></div>");
-    controls.append("<input type='text' class='input-small' placeholder='' value='" + name + "'/>");
+    controls.append("<input type='text' class='input-small name' placeholder='' value='" + name + "'/>");
     controls.append("<button id='add-category-entry' class='btn btn-small'>" + lang['turtle_pricelist_add_entry'] + "</button>");
     controls.append("<button id='delete-category' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);
@@ -79,14 +79,13 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
 
     var entry_control = $("<div id='listing-" + id + "' class='listing'></div>");
     entry_control.append("<i class='icon-caret-right'></i>");
-    entry_control.append("<input type='text' class='input' value='" + name + "'/>");
-
-    entry_control.append("<input type='number' class='input' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
+    entry_control.append("<input type='text' class='input name' value='" + name + "'/>");
+    entry_control.append("<input type='number' class='input price' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
     entry_control.append("<button id='delete-item' class='btn btn-small'><i class='icon-trash'></i></button>");
 
-    var buttonLabel = lang["term_upload"] + " " + lang["term_logo"].toLowerCase();
+    var buttonLabel = lang["term_upload"] + " " + lang["term_image"].toLowerCase();
     if(image){
-        buttonLabel = lang["term_change"] + " " + lang["term_logo"].toLowerCase();
+        buttonLabel = lang["term_change"] + " " + lang["term_image"].toLowerCase();
     }
 
     var image_holder = $("<div class='entry_image_holder'></div>");
@@ -107,7 +106,7 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     // putting the description textarea on another line
     entry_control.append("<br/>");
 
-    entry_control.append("<textarea rows='2' cols='35' class='styled'>" + description + "</textarea>");
+    entry_control.append("<textarea rows='2' cols='35' class='styled description'>" + description + "</textarea>");
 
     return entry_control;
 }
@@ -121,7 +120,43 @@ function buildPriceListImage(image, turtle_id, id){
 }
 
 function savePriceList(){
+    var data = {};
+    data.title = $('.turtle_pricelist .control-group .controls #title').val();
+    data.categories = [];
 
+    // get categories
+    $('.categories .control-group').each(function(){
+        var category = {};
+        category.name = $('.name', this).val();
+        category.entries = [];
+
+        // get entries
+        $('.listing', this).each(function(){
+            var entry = {};
+            entry.name = $('.name', this).val();
+            entry.price = $('.price', this).val();
+            entry.description = $('.description', this).val();
+
+            // Save id
+            var id = $(this).prop('id').split('-');
+            entry.id = id[1];
+
+            //save image url
+            if($(this).has('img')){
+                entry.image = $('img', $(this)).attr('src');
+            }
+
+            if(entry.name.length > 0){
+                category.entries.push(entry);
+            }
+        });
+
+        if(category.name.length > 0 && category.entries.length > 0){
+            data.categories.push(category);
+        }
+    });
+
+    return JSON.stringify(data);
 }
 
 function bindPriceListEvents(){
