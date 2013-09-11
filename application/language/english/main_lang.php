@@ -69,6 +69,7 @@ $lang['term_uploading'] = "Uploading";
 $lang['term_change'] = "Change";
 $lang['term_larger'] = "Larger";
 $lang['term_filter'] = "Filter";
+$lang['term_image'] = "Image";
 
 /**
  * Screen detail page
@@ -134,6 +135,11 @@ $lang['turtle_signage_delete_entry_note'] = "Are you sure you want to delete thi
 $lang['turtle_delete_note'] = "Are you sure you want to delete this Turtle?";
 $lang['turtle_calendar_alt'] = "A URL to an iCal feed";
 $lang['turtle_calendar_filter'] = "Filter the events to show, based on location";
+$lang['turtle_pricelist_add_category'] = "Add a category";
+$lang['turtle_pricelist_add_entry'] = "Add an item in this category";
+$lang['turtle_pricelist_category_name'] = "Category name";
+$lang['turtle_pricelist_delete_category_note'] = "Are you sure you want to remove this entire category and its items?";
+$lang['turtle_pricelist_delete_item_note'] = "Are you sure you want to remove this item from this category?";
 
 /**
  * Panes page
