@@ -1,9 +1,9 @@
 <? include 'header.php'; ?>
-<input type="hidden" id="{{id}}-data" name="{{id}}-data" class='input-block-level pricelis-data' value='{{{data}}}'/>
+<input type="hidden" id="{{id}}-data" name="{{id}}-data" class='input-block-level pricelist-data' value='{{{data}}}'/>
 <div class="control-group">
     <label class="control-label">{{ term_title }}</label>
     <div class="controls">
-        <input type="text" id="title" name="title" class="input-block-level" placeholder="{{turtle_pricelist_title_alt}}" value="{{ pricelist_title }}"/>
+        <input type="text" id="title" name="title" class="input-block-level" placeholder="{{turtle_pricelist_title_alt}}"/>
     </div>
     <hr/>
 </div>

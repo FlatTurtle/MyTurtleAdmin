@@ -4,11 +4,12 @@
 
 function buildPriceList(data){
     var priceData = JSON.parse(data);
+    $('#title').prop('value', priceData.title);
     if(priceData.categories){
+
         for(var i in priceData.categories){
             var category = priceData.categories[i];
-
-            var categoryHTML = buildPriceListCategory(category.name)
+            var categoryHTML = buildPriceListCategory(category.name);
 
             categoryHTML = buildPriceListCategoryEntries(category, categoryHTML);
 
@@ -58,6 +59,8 @@ function buildPriceListCategoryEntries(category, categoryHTML){
             listings.append(item);
         }
     }
+
+    return categoryHTML;
 }
 
 function buildPriceListCategoryEntry(name, description, price, image, id){
