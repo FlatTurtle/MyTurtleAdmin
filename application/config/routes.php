@@ -66,6 +66,8 @@ $route['^[a-z]{2}/(.*)/plugin/(.*)'] = 'plugin/$2/$1';
 $route['^[a-z]{2}/(.*)/update'] = 'screen/update/$1';
 $route['^[a-z]{2}/(.*)/signage/upload/([0-9]+)/(.*)'] = 'turtles/signage_upload_logo/$1/$2/$3';
 $route['^[a-z]{2}/(.*)/signage/delete/([0-9]+)/(.*)'] = 'turtles/signage_delete_logo/$1/$2/$3';
+$route['^[a-z]{2}/(.*)/image/upload/([0-9]+)/(.*)'] = 'turtles/upload_image/$1/$2/$3';
+$route['^[a-z]{2}/(.*)/image/delete/([0-9]+)/(.*)'] = 'turtles/delete_image/$1/$2/$3';
 $route['^[a-z]{2}/(.*)'] = 'screen/show/$1';
 
 

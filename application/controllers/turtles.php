@@ -200,6 +200,25 @@ class Turtles extends CI_Controller {
         echo json_encode($data);
         exit();
     }
+
+    /*
+     *  Deleting the uploaded image
+     */
+    public function delete_image($alias, $turtle_id, $file_id){
+        header('Content-type: application/json');
+        $data = false;
+
+        $uploaddir = UPLOAD_DIR;
+        $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
+
+        if(is_file($uploadfile)){
+            @unlink($uploadfile);
+            $data = true;
+        }
+
+        echo json_encode($data);
+        exit();
+    }
 }
 
 ?>

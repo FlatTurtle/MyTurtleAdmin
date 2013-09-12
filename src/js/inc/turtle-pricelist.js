@@ -84,7 +84,7 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     entry_control.append("<i class='icon-caret-right'></i>");
     entry_control.append("<input type='text' class='input name' value='" + name + "'/>");
     entry_control.append("<input type='number' class='input price' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
-    entry_control.append("<button id='delete-item' class='btn btn-small'><i class='icon-trash'></i></button>");
+
 
     var buttonLabel = lang["term_upload"] + " " + lang["term_image"].toLowerCase();
     if(image){
@@ -97,7 +97,7 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     var image_upload = $("<a class='btn small-file-upload btn-small' href='javascript:;'>" +
         "<span>" + buttonLabel + "</span>" +
         "<form enctype='multipart/form-data'>" +
-        "<input type='file' name='file-"+id+"' class='pricelist-logo-file' data-turtle-id='"+ turtle_id[1] +"' data-id='"+ id + "'>" +
+        "<input type='file' name='file-"+id+"' class='pricelist-image-file' data-turtle-id='"+ turtle_id[1] +"' data-id='"+ id + "'>" +
         "</form></a>");
     image_holder.append(image_upload);
 
@@ -105,6 +105,9 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
         image_holder.append(buildPriceListImage(image, turtle_id[1], id));
     }
     entry_control.append(image_holder);
+
+    // adding the delete button
+    entry_control.append("<button id='delete-item' class='btn btn-small pull-right'><i class='icon-trash'></i></button>");
 
     // putting the description textarea on another line
     entry_control.append("<br/>");
@@ -170,6 +173,7 @@ function bindPriceListEvents(){
         var pricelist_turtle = $(this).parents('.turtle_pricelist');
 
         var category_html = buildPriceListCategory();
+        $('.listings', category_html).append(buildPriceListCategoryEntry());
 
         $(".categories", pricelist_turtle).append(category_html);
         bindPriceListEvents();
@@ -193,6 +197,10 @@ function bindPriceListEvents(){
 
         if(confirm(lang['turtle_pricelist_delete_category_note'])){
             var component = $(this).parents('.control-group');
+
+            // Remove images
+            $('.pricelist_image_delete', component).click();
+
             component.remove();
         }
     });
@@ -203,8 +211,115 @@ function bindPriceListEvents(){
 
         if(confirm(lang['turtle_pricelist_delete_item_note'])){
             var component = $(this).parents('.listing');
+
+            // Remove images
+            $('.pricelist_image_delete', component).click();
+
+
             component.remove();
         }
+    });
+
+    // Image upload
+    $('.pricelist_image_file').off().on('change', function(e){
+        e.preventDefault();
+
+        var formData = new FormData($(this).parents('form')[0]);
+        var button = $(this).parents(".small-file-upload");
+        var buttonLabel = $('span', button);
+        var inputFileEl = $(this);
+
+
+        if(!button.hasClass('disabled')){
+            buttonLabel.html(lang['term_uploading'] + "  ...");
+            inputFileEl.attr('disabled', 'disabled');
+            button.attr('disabled', 'disabled').addClass('disable');
+
+
+            var upload_path = pathname;
+            //removing the last part of the url
+            if(!pathname.lastIndexOf('/') == pathname.length){
+                upload_path = pathname.substr(pathname.lastIndexOf('/') + 1);
+            }else{
+                upload_path = pathname.substr(0, pathname.length - 1)
+                upload_path = upload_path.substr(upload_path.lastIndexOf('/') + 1)
+            }
+            upload_path += "image/upload/";
+
+            var turtle_id = $(this).data('turtle-id');
+            var id = $(this).data('id');
+            var turtle_logo_holder = $(this).parents(".entry_image_holder");
+
+            $.ajax({
+                url : upload_path + turtle_id + "/" + id,
+                type: 'POST',
+                data: formData,
+                success : function (response) {
+                    if(response){
+                        button.removeAttr('disabled').removeClass('disable');
+                        inputFileEl.removeAttr('disabled');
+                        buttonLabel.html(lang["term_change"] + " " + lang["term_image"].toLowerCase());
+
+                        turtle_logo_holder.append(makeSignageLogoItem(response, turtle_id, id));
+                        bindSignageEvents();
+                    }else{
+                        button.removeAttr('disabled').removeClass('disable');
+                        inputFileEl.removeAttr('disabled');
+                        buttonLabel.html(lang["term_upload"] + " " + lang["term_image"].toLowerCase());
+                    }
+                },
+                error: function (response) {
+                    console.log("Pricelist image logo upload error: ");
+                    console.log(response);
+                    button.removeAttr('disabled').removeClass('disable');
+                    inputFileEl.removeAttr('disabled');
+                    buttonLabel.html(lang["term_upload"] + " " + lang["term_image"].toLowerCase());
+                },
+                //Options to tell JQuery not to process data or worry about content-type
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        }
+    });
+
+
+    // Image delete
+    $('.pricelist_image_delete').off().on('click', function(e){
+        e.preventDefault();
+        var delete_path = pathname;
+        //removing the last part of the url
+        if(!pathname.lastIndexOf('/') == pathname.length){
+            delete_path = pathname.substr(pathname.lastIndexOf('/') + 1);
+        }else{
+            delete_path = pathname.substr(0, pathname.length - 1)
+            delete_path = delete_path.substr(delete_path.lastIndexOf('/') + 1)
+        }
+        delete_path += "image/delete/";
+
+        var turtle_id = $(this).data('turtle-id');
+        var id = $(this).data('id');
+        var turtle_logo_holder = $(this).parents(".entry_image_holder");
+        var button = $(".small-file-upload", turtle_logo_holder);
+        var buttonLabel = $('span', button);
+
+        $.ajax({
+            url : delete_path + turtle_id + "/" + id,
+            type: 'GET',
+            success : function (response) {
+                $('img',turtle_logo_holder).remove();
+                $('.pricelist_image_delete',turtle_logo_holder).remove();
+                buttonLabel.html(lang["term_upload"] + " " + lang["term_image"].toLowerCase());
+            },
+            error: function (response) {
+                console.log("Pricelist image delete error: ");
+                console.log(response);
+            },
+            //Options to tell JQuery not to process data or worry about content-type
+            cache: false,
+            contentType: false,
+            processData: false
+        });
     });
 }
 

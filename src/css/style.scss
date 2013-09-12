@@ -951,6 +951,9 @@ select{
             margin-left: 5px;
         }
 
+        input[type=file]{
+            height: 10px;
+        }
         input[type=text]{
             width: 150px;
         }

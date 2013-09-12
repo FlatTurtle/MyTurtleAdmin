@@ -84,5 +84,16 @@
                 "order": 0
             }
         ]
+    },
+    "pricelist": {
+        "name": "PriceList",
+        "description": "Show a pricelist of your available products",
+        "description_fr": "",
+        "turtles": [
+            {
+                "type": "pricelist",
+                "order": 0
+            }
+        ]
     }
 }
