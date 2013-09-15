@@ -6,16 +6,16 @@
 function buildWeekMenu(data){
     var menu_data = JSON.parse(data);
 
-    if(menu_data.weekly){
+    if(menu_data.categories){
 
-        for(var i in menu_data.weekly){
-            var category = menu_data.weekly[i];
+        for(var i in menu_data.categories){
+            var category = menu_data.categories[i];
 
             var category_html = buildWeekMenuCategory(category.name, category.price);
 
             category_html = buildWeekMenuCategoryEntries(category, category_html);
 
-            $('.categories').append(category_html);
+            $('.turtle_weekmenu .categories').append(category_html);
         }
         bindWeekMenuEvents();
     }
@@ -27,7 +27,7 @@ function buildWeekMenu(data){
 
             var offer_html = buildWeekMenuOffer(offer.name, offer.description, offer.price, offer.image, offer.id);
 
-            $('.offers').append(offer_html);
+            $('.turtle_weekmenu .offers').append(offer_html);
         }
         bindWeekMenuEvents();
     }
@@ -74,8 +74,8 @@ function buildWeekMenuCategory(name, price){
 function buildWeekMenuCategoryEntries(category, category_html){
     var entries = [];
 
-    if(category.entries){
-        entries = category.entries;
+    if(category.meals){
+        entries = category.meals;
         var listings = $('.listings', category_html);
         var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday"];
         for(var i in days){
@@ -273,6 +273,7 @@ function saveWeekMenu(){
         var category = {};
 
         category.name = $('.name', this).val();
+        category.price = $('.price', this).val();
 
         // get meals
         category.meals = [];

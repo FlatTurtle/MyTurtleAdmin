@@ -13,7 +13,7 @@ function buildPriceList(data){
 
             categoryHTML = buildPriceListCategoryEntries(category, categoryHTML);
 
-            $('.categories').append(categoryHTML);
+            $('.turtle_pricelist .categories').append(categoryHTML);
         }
 
         bindPriceListEvents();
