@@ -67,6 +67,14 @@ $lang['term_searching_for'] = "Recherche de";
 $lang['term_upload'] = "Télécharger";
 $lang['term_uploading'] = "Téléchargement";
 $lang['term_change'] = "Modifiez";
+$lang['term_image'] = "Image";
+$lang['term_price'] = "Prix";
+$lang['term_monday'] = "Lundi";
+$lang['term_tuesday'] = "Mardi";
+$lang['term_wednesday'] = "Mercredi";
+$lang['term_thursday'] = "Jeudi";
+$lang['term_friday'] = "Vendredi";
+$lang['term_description'] = "Description";
 
 /**
 * Screen detail page
@@ -130,6 +138,16 @@ $lang['turtle_signage_delete_floor_note'] = "Êtes-vous sûr de vouloir supprime
 $lang['turtle_signage_delete_entry_note'] = "Êtes-vous sûr de vouloir supprimer cette entrée?";
 $lang['turtle_delete_note'] = "Êtes-vous sûr de vouloir supprimer ce Turtle?";
 $lang['turtle_calendar_alt'] = "Un lien vers un flux iCal";
+$lang['turtle_pricelist_add_category'] = "Créer une nouvelle rubrique";
+$lang['turtle_pricelist_add_entry'] = "Créer un nouvel élément dans cette rubrique";
+$lang['turtle_pricelist_category_name'] = "Nom de rubrique";
+$lang['turtle_pricelist_delete_category_note'] = "Êtes-vous sûr de vouloir supprimer la rubrique complet?";
+$lang['turtle_pricelist_delete_item_note'] = "Êtes-vous sûr de vouloir supprimer l'élément?";
+$lang['turtle_weekmenu_add_offer'] = "Créer une offre";
+$lang['turtle_weekmenu_delete_category_note'] = "Êtes-vous sûr de vouloir supprimer la rubrique complet?";
+$lang['turtle_weekmenu_offer_name'] = "Nom d'offre";
+$lang['turtle_weekmenu_delete_offer_note'] = "Êtes-vous sûr de vouloir supprimer l'offre?";
+
 
 /**
 * Panes page
