@@ -53,7 +53,8 @@
                             inc/pane-creation.js,
                             inc/pane-sorting.js,
                             inc/turtle-signage.js,
-                            inc/turtle-pricelist.js"
+                            inc/turtle-pricelist.js,
+                            inc/turtle-weekmenu.js"
                 excludes=""/>
         </concat>
         <echo>Finished</echo>

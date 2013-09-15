@@ -196,6 +196,10 @@ class Turtle extends CI_Model {
             if(!empty($turtle->options->data)){
                 $data['data'] = $turtle->options->data;
             }
+        }else if($turtle->type == "weekmenu"){
+            if(!empty($turtle->options->data)){
+                $data['data'] = $turtle->options->data;
+            }
         }
 
         // Language specific data

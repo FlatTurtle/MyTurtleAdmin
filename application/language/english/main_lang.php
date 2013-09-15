@@ -70,6 +70,14 @@ $lang['term_change'] = "Change";
 $lang['term_larger'] = "Larger";
 $lang['term_filter'] = "Filter";
 $lang['term_image'] = "Image";
+$lang['term_price'] = "Price";
+$lang['term_monday'] = "Monday";
+$lang['term_tuesday'] = "Tuesday";
+$lang['term_wednesday'] = "Wednesday";
+$lang['term_thursday'] = "Thursday";
+$lang['term_friday'] = "Friday";
+$lang['term_description'] = "Description";
+
 
 /**
  * Screen detail page
@@ -140,6 +148,10 @@ $lang['turtle_pricelist_add_entry'] = "Add an item in this category";
 $lang['turtle_pricelist_category_name'] = "Category name";
 $lang['turtle_pricelist_delete_category_note'] = "Are you sure you want to remove this entire category and its items?";
 $lang['turtle_pricelist_delete_item_note'] = "Are you sure you want to remove this item from this category?";
+$lang['turtle_weekmenu_add_offer'] = "Add an offer";
+$lang['turtle_weekmenu_delete_category_note'] = "Are you sure you want to remove this category?";
+$lang['turtle_weekmenu_offer_name'] = "Offer title";
+$lang['turtle_weekmenu_delete_offer_note'] = "Are you sure you want to remove this offer?";
 
 /**
  * Panes page
