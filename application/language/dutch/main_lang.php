@@ -74,6 +74,8 @@ $lang['term_tuesday'] = "Dinsdag";
 $lang['term_wednesday'] = "Woensdag";
 $lang['term_thursday'] = "Donderdag";
 $lang['term_friday'] = "Vrijdag";
+$lang['term_saturday'] = "Zaterdag";
+$lang['term_sunday'] = "Zondag";
 $lang['term_description'] = "Beschrijving";
 
 /**

@@ -77,12 +77,16 @@ function buildWeekMenuCategoryEntries(category, category_html){
     if(category.meals ){
         entries = category.meals;
         var listings = $('.listings', category_html);
-        var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday"];
+        var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday", "term_saturday", "term_sunday"];
         for(var i in days){
-            var entry = entries[i];
             var name_of_day = lang[days[i]];
-            var item = buildWeekMenuCategoryEntry(name_of_day, entry.name, entry.image, entry.id);
-
+            var item;
+            if(entries[i]){
+                var entry = entries[i];
+                item = buildWeekMenuCategoryEntry(name_of_day, entry.name, entry.image, entry.id);
+            }else{
+                item = buildWeekMenuCategoryEntry(name_of_day, "", "", "");
+            }
             listings.append(item);
         }
     }
@@ -222,7 +226,7 @@ function bindWeekMenuEvents(){
 
         var category_html = buildWeekMenuCategory();
 
-        var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday"];
+        var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday", "term_saturday", "term_sunday"];
         for(var i in days){
             var name_of_day = lang[days[i]];
             $('.listings', category_html).append(buildWeekMenuCategoryEntry(name_of_day));

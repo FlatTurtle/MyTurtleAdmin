@@ -76,6 +76,8 @@ $lang['term_tuesday'] = "Tuesday";
 $lang['term_wednesday'] = "Wednesday";
 $lang['term_thursday'] = "Thursday";
 $lang['term_friday'] = "Friday";
+$lang['term_saturday'] = "Saturday";
+$lang['term_sunday'] = "Sunday";
 $lang['term_description'] = "Description";
 
 
