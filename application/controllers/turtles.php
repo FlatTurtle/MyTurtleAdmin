@@ -118,23 +118,54 @@ class Turtles extends CI_Controller {
      * Uploads for signage turtle
      */
     public function signage_upload_logo($alias, $turtle_id, $file_id){
+        $this->upload_image($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR, LOGO_MAX_WIDTH, LOGO_MAX_HEIGHT, "uploads/signage/");
+    }
+
+
+    /**
+     * Uploads for signage turtle
+     */
+    public function signage_delete_logo($alias, $turtle_id, $file_id){
+        $this->delete_image($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR);
+    }
+
+
+    /**
+     * Uploads an image for pricelist/weekmenu
+     */
+    public function upload_menu_image($alias, $turtle_id, $file_id){
+        $this->upload_image($alias, $turtle_id, $file_id, MENU_IMAGE_UPLOAD_DIR, MENU_IMAGE_MAX_WIDTH, MENU_IMAGE_MAX_HEIGHT, "uploads/menu_images/");
+    }
+
+
+    /*
+     *  Deleting the uploaded pricelist/weekmenu image
+     */
+    public function delete_menu_image($alias, $turtle_id, $file_id){
+        $this->delete_image($alias, $turtle_id, $file_id, MENU_IMAGE_UPLOAD_DIR);
+    }
+
+    /*
+     * Generic upload image function
+     */
+    private function upload_image($alias, $turtle_id, $file_id, $upload_dir, $max_width, $max_height, $upload_path){
         header('Content-type: application/json');
         $data = false;
 
         if(isset($_FILES['file-'.$file_id]['name'])){
             $filename = basename($_FILES['file-'.$file_id]['name']);
 
-            if(!is_dir(SIGNAGE_UPLOAD_DIR. $turtle_id)){
-                mkdir(SIGNAGE_UPLOAD_DIR. $turtle_id, 0777, true);
+            if(!is_dir($upload_dir. $turtle_id)){
+                mkdir($upload_dir. $turtle_id, 0777, true);
             }
 
-            $uploaddir = SIGNAGE_UPLOAD_DIR;
+            $uploaddir = $upload_dir;
             $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
 
-           $data = $uploadfile;
+            $data = $uploadfile;
 
             if (@move_uploaded_file($_FILES['file-'.$file_id]['tmp_name'], $uploadfile)) {
-                $data = base_url() . "uploads/signage/" . $turtle_id . "/" . $file_id . ".png";
+                $data = base_url() . $upload_path . $turtle_id . "/" . $file_id . ".png";
 
                 // Resize the image
                 list($source_image_width, $source_image_height, $source_image_type) = getimagesize($uploadfile);
@@ -152,27 +183,27 @@ class Turtles extends CI_Controller {
 
                 if ($source_gd_image) {
                     $source_aspect_ratio = $source_image_width / $source_image_height;
-                    $logo_aspect_ratio = LOGO_MAX_WIDTH / LOGO_MAX_HEIGHT;
-                    if ($source_image_width <= LOGO_MAX_WIDTH && $source_image_height <= LOGO_MAX_HEIGHT) {
-                        $logo_image_width = $source_image_width;
-                        $logo_image_height = $source_image_height;
+                    $logo_aspect_ratio = $max_width / $max_height;
+                    if ($source_image_width <= $max_width && $source_image_height <= $max_height) {
+                        $image_width = $source_image_width;
+                        $image_height = $source_image_height;
                     } elseif ($logo_aspect_ratio > $source_aspect_ratio) {
-                        $logo_image_width = (int) (LOGO_MAX_HEIGHT * $source_aspect_ratio);
-                        $logo_image_height = LOGO_MAX_HEIGHT;
+                        $image_width = (int) ($max_width * $source_aspect_ratio);
+                        $image_height = $max_height;
                     } else {
-                        $logo_image_width = LOGO_MAX_WIDTH;
-                        $logo_image_height = (int) (LOGO_MAX_WIDTH / $source_aspect_ratio);
+                        $image_width = $max_width;
+                        $image_height = (int) ($max_height / $source_aspect_ratio);
                     }
 
 
-                    $logo_gd_image = imagecreatetruecolor($logo_image_width, $logo_image_height);
-                    imagesavealpha($logo_gd_image, true);
-                    $color = imagecolorallocatealpha($logo_gd_image, 0, 0, 0, 127);
-                    imagefill($logo_gd_image, 0, 0, $color);
-                    imagecopyresampled($logo_gd_image, $source_gd_image, 0, 0, 0, 0, $logo_image_width, $logo_image_height, $source_image_width, $source_image_height);
-                    imagepng($logo_gd_image, $uploadfile);
+                    $gd_image = imagecreatetruecolor($image_width, $image_height);
+                    imagesavealpha($gd_image, true);
+                    $color = imagecolorallocatealpha($gd_image, 0, 0, 0, 127);
+                    imagefill($gd_image, 0, 0, $color);
+                    imagecopyresampled($gd_image, $source_gd_image, 0, 0, 0, 0, $image_width, $image_height, $source_image_width, $source_image_height);
+                    imagepng($gd_image, $uploadfile);
                     imagedestroy($source_gd_image);
-                    imagedestroy($logo_gd_image);
+                    imagedestroy($gd_image);
                 }
             }
         }
@@ -181,34 +212,14 @@ class Turtles extends CI_Controller {
         exit();
     }
 
-
-    /**
-     * Uploads for signage turtle
-     */
-    public function signage_delete_logo($alias, $turtle_id, $file_id){
-        header('Content-type: application/json');
-        $data = false;
-
-        $uploaddir = SIGNAGE_UPLOAD_DIR;
-        $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
-
-        if(is_file($uploadfile)){
-           @unlink($uploadfile);
-           $data = true;
-        }
-
-        echo json_encode($data);
-        exit();
-    }
-
     /*
-     *  Deleting the uploaded image
+     * Generic image delete function
      */
-    public function delete_image($alias, $turtle_id, $file_id){
+    private function delete_image($alias, $turtle_id, $file_id, $upload_dir){
         header('Content-type: application/json');
         $data = false;
 
-        $uploaddir = UPLOAD_DIR;
+        $uploaddir = $upload_dir;
         $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
 
         if(is_file($uploadfile)){

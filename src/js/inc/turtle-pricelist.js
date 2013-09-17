@@ -120,7 +120,7 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
 function buildPriceListImage(image, turtle_id, id){
     var el = $('<span></span>');
     el.append("<img src='" + image + "' />");
-    el.append("<a class='btn btn-small' href='#' data-turtle-id='"+ turtle_id +"' data-id='"+ id + "'>&times;</a> ");
+    el.append("<a class='btn btn-small pricelist-image-delete' href='#' data-turtle-id='"+ turtle_id +"' data-id='"+ id + "'>&times;</a> ");
 
     return el;
 }
@@ -213,7 +213,7 @@ function bindPriceListEvents(){
             var component = $(this).parents('.listing');
 
             // Remove images
-            $('.pricelist_image_delete', component).click();
+            $('.pricelist-image-delete', component).click();
 
 
             component.remove();
@@ -221,7 +221,7 @@ function bindPriceListEvents(){
     });
 
     // Image upload
-    $('.pricelist_image_file').off().on('change', function(e){
+    $('.pricelist-image-file').off().on('change', function(e){
         e.preventDefault();
 
         var formData = new FormData($(this).parents('form')[0]);
@@ -237,14 +237,16 @@ function bindPriceListEvents(){
 
 
             var upload_path = pathname;
-            //removing the last part of the url
-            if(!pathname.lastIndexOf('/') == pathname.length){
-                upload_path = pathname.substr(pathname.lastIndexOf('/') + 1);
-            }else{
-                upload_path = pathname.substr(0, pathname.length - 1)
-                upload_path = upload_path.substr(upload_path.lastIndexOf('/') + 1)
+            var split = pathname.split("right");
+            if(split.length > 1){
+                upload_path = split[0];
             }
-            upload_path += "image/upload/";
+            // check for 'left' because there was no 'right' in path
+            else{
+                split = pathname.split("left");
+                upload_path = split[0]
+            }
+            upload_path += "menu-image/upload/";
 
             var turtle_id = $(this).data('turtle-id');
             var id = $(this).data('id');
@@ -260,8 +262,8 @@ function bindPriceListEvents(){
                         inputFileEl.removeAttr('disabled');
                         buttonLabel.html(lang["term_change"] + " " + lang["term_image"].toLowerCase());
 
-                        turtle_logo_holder.append(makeSignageLogoItem(response, turtle_id, id));
-                        bindSignageEvents();
+                        turtle_logo_holder.append(buildPriceListImage(response, turtle_id, id));
+                        bindPriceListEvents();
                     }else{
                         button.removeAttr('disabled').removeClass('disable');
                         inputFileEl.removeAttr('disabled');
@@ -285,17 +287,20 @@ function bindPriceListEvents(){
 
 
     // Image delete
-    $('.pricelist_image_delete').off().on('click', function(e){
+    $('.pricelist-image-delete').off().on('click', function(e){
         e.preventDefault();
         var delete_path = pathname;
-        //removing the last part of the url
-        if(!pathname.lastIndexOf('/') == pathname.length){
-            delete_path = pathname.substr(pathname.lastIndexOf('/') + 1);
-        }else{
-            delete_path = pathname.substr(0, pathname.length - 1)
-            delete_path = delete_path.substr(delete_path.lastIndexOf('/') + 1)
+        var split = pathname.split("right");
+        if(split.length > 1){
+            delete_path = split[0];
         }
-        delete_path += "image/delete/";
+        // check for 'left' because there was no 'right' in path
+        else{
+            split = pathname.split("left");
+            delete_path = split[0]
+        }
+        delete_path += "menu-image/delete/";
+
 
         var turtle_id = $(this).data('turtle-id');
         var id = $(this).data('id');
@@ -308,7 +313,7 @@ function bindPriceListEvents(){
             type: 'GET',
             success : function (response) {
                 $('img',turtle_logo_holder).remove();
-                $('.pricelist_image_delete',turtle_logo_holder).remove();
+                $('.pricelist-image-delete',turtle_logo_holder).remove();
                 buttonLabel.html(lang["term_upload"] + " " + lang["term_image"].toLowerCase());
             },
             error: function (response) {

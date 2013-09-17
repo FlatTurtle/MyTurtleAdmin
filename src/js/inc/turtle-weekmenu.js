@@ -74,7 +74,7 @@ function buildWeekMenuCategory(name, price){
 function buildWeekMenuCategoryEntries(category, category_html){
     var entries = [];
 
-    if(category.meals){
+    if(category.meals ){
         entries = category.meals;
         var listings = $('.listings', category_html);
         var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday"];
@@ -100,7 +100,7 @@ function buildWeekMenuCategoryEntry(name_of_day, name, image, id){
     }
 
     var entry_control = $("<div id='listing-" + id + "' class='listing control-group'></div>");
-    entry_control.append("<label class='control-label'>" + name_of_day + "</label> ");
+    entry_control.append("<label class='control-label day'>" + name_of_day + "</label> ");
     var controls = $("<div class='controls'></div>");
     controls.append("<input type='text' class='input name' value='" + name + "'/>");
 
@@ -110,23 +110,31 @@ function buildWeekMenuCategoryEntry(name_of_day, name, image, id){
     }
 
     var image_holder = $("<div class='entry_image_holder'></div>");
-    var turtle_id = $('.turtle_pricelist').attr('id').split('_');
+    var turtle_id = $('.turtle_weekmenu').attr('id').split('_');
 
     var image_upload = $("<a class='btn small-file-upload btn-small' href='javascript:;'>" +
         "<span>" + buttonLabel + "</span>" +
         "<form enctype='multipart/form-data'>" +
-        "<input type='file' name='file-"+id+"' class='pricelist-image-file' data-turtle-id='"+ turtle_id[1] +"' data-id='"+ id + "'>" +
+        "<input type='file' name='file-"+id+"' class='weekmenu-image-file' data-turtle-id='"+ turtle_id[1] +"' data-id='"+ id + "'>" +
         "</form></a>");
     image_holder.append(image_upload);
 
     if(image){
-        image_holder.append(buildPriceListImage(image, turtle_id[1], id));
+        image_holder.append(buildWeekMenuImage(image, turtle_id[1], id));
     }
     controls.append(image_holder);
 
     entry_control.append(controls);
 
     return entry_control;
+}
+
+function buildWeekMenuImage(image, turtle_id, id){
+    var el = $('<span></span>');
+    el.append("<img src='" + image + "' />");
+    el.append("<a class='btn btn-small weekmenu-image-delete' href='#' data-turtle-id='"+ turtle_id +"' data-id='"+ id + "'>&times;</a> ");
+
+    return el;
 }
 
 function buildWeekMenuOffer(name, description, price, image, id){
@@ -178,17 +186,17 @@ function buildWeekMenuOffer(name, description, price, image, id){
     }
 
     var image_holder = $("<div class='entry_image_holder'></div>");
-    var turtle_id = $('.turtle_pricelist').attr('id').split('_');
+    var turtle_id = $('.turtle_weekmenu').attr('id').split('-');
 
     var image_upload = $("<a class='btn small-file-upload btn-small' href='javascript:;'>" +
         "<span>" + buttonLabel + "</span>" +
         "<form enctype='multipart/form-data'>" +
-        "<input type='file' name='file-"+id+"' class='pricelist-image-file' data-turtle-id='"+ turtle_id[1] +"' data-id='"+ id + "'>" +
+        "<input type='file' name='file-"+id+"' class='weekmenu-image-file' data-turtle-id='"+ turtle_id[1] +"' data-id='"+ id + "'>" +
         "</form></a>");
     image_holder.append(image_upload);
 
     if(image){
-        image_holder.append(buildPriceListImage(image, turtle_id[1], id));
+        image_holder.append(buildWeekMenuImage(image, turtle_id[1], id));
     }
     controls.append(image_holder);
     control_group.append(controls);
@@ -232,7 +240,7 @@ function bindWeekMenuEvents(){
             var component = $(this).parents('.category');
 
             // Remove images
-            $('.weekmenu_image_delete', component).click();
+            $('.weekmenu-image-delete', component).click();
 
             component.remove();
         }
@@ -257,12 +265,122 @@ function bindWeekMenuEvents(){
             var component = $(this).parents('.offer');
 
             // Remove images
-            $('.weekmenu_image_delete', component).click();
+            $('.weekmenu-image-delete', component).click();
 
             component.remove();
         }
     });
+
+    // Image upload
+    $(".weekmenu-image-file").off().on('change', function(e){
+        e.preventDefault();
+
+        var formData = new FormData($(this).parents('form')[0]);
+        var button = $(this).parents(".small-file-upload");
+        var buttonLabel = $('span', button);
+        var inputFileEl = $(this);
+
+
+        if(!button.hasClass('disabled')){
+            buttonLabel.html(lang['term_uploading'] + "  ...");
+            inputFileEl.attr('disabled', 'disabled');
+            button.attr('disabled', 'disabled').addClass('disable');
+
+
+            var upload_path = pathname;
+            var split = pathname.split("right");
+            if(split.length > 1){
+                upload_path = split[0];
+            }
+            // check for 'left' because there was no 'right' in path
+            else{
+                split = pathname.split("left");
+                upload_path = split[0]
+            }
+            upload_path += "menu-image/upload/";
+
+            var turtle_id = $(this).data('turtle-id');
+            var id = $(this).data('id');
+            var turtle_logo_holder = $(this).parents(".entry_image_holder");
+
+            $.ajax({
+                url : upload_path + turtle_id + "/" + id,
+                type: 'POST',
+                data: formData,
+                success : function (response) {
+                    if(response){
+                        button.removeAttr('disabled').removeClass('disable');
+                        inputFileEl.removeAttr('disabled');
+                        buttonLabel.html(lang["term_change"] + " " + lang["term_image"].toLowerCase());
+
+                        turtle_logo_holder.append(buildPriceListImage(response, turtle_id, id));
+                        bindPriceListEvents();
+                    }else{
+                        button.removeAttr('disabled').removeClass('disable');
+                        inputFileEl.removeAttr('disabled');
+                        buttonLabel.html(lang["term_upload"] + " " + lang["term_image"].toLowerCase());
+                    }
+                },
+                error: function (response) {
+                    console.log("Weekenu image upload error: ");
+                    console.log(response);
+                    button.removeAttr('disabled').removeClass('disable');
+                    inputFileEl.removeAttr('disabled');
+                    buttonLabel.html(lang["term_upload"] + " " + lang["term_image"].toLowerCase());
+                },
+                //Options to tell JQuery not to process data or worry about content-type
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        }
+    });
+
+
+    // Image delete
+    $(".weekmenu-image-delete").off().on('click', function(e){
+        e.preventDefault();
+
+        var delete_path = pathname;
+        var split = pathname.split("right");
+        if(split.length > 1){
+            delete_path = split[0];
+        }
+        // check for 'left' because there was no 'right' in path
+        else{
+            split = pathname.split("left");
+            delete_path = split[0]
+        }
+        delete_path += "menu-image/delete/";
+
+        var turtle_id = $(this).data('turtle-id');
+        var id = $(this).data('id');
+        var turtle_logo_holder = $(this).parents(".entry_image_holder");
+        var button = $(".small-file-upload", turtle_logo_holder);
+        var buttonLabel = $('span', button);
+
+        console.log(id);
+        $.ajax({
+            url : delete_path + turtle_id + "/" + id,
+            type: 'GET',
+            success : function (response) {
+                $('img',turtle_logo_holder).remove();
+                $('.weekmenu-image-delete',turtle_logo_holder).remove();
+                buttonLabel.html(lang["term_upload"] + " " + lang["term_image"].toLowerCase());
+            },
+            error: function (response) {
+                console.log("Weekmenu image delete error: ");
+                console.log(response);
+            },
+            //Options to tell JQuery not to process data or worry about content-type
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+
 }
+
 
 function saveWeekMenu(){
     var data = {};
@@ -279,6 +397,7 @@ function saveWeekMenu(){
         category.meals = [];
         $('.listing', this).each(function(){
             var meal = {};
+            meal.day = $('.day', this).text();
             meal.name = $('.name', this).val();
 
             // Save id
@@ -321,7 +440,6 @@ function saveWeekMenu(){
         }
     });
 
-    console.log(data);
     return JSON.stringify(data);
 }
 

@@ -88,11 +88,22 @@
     "pricelist": {
         "name": "PriceList",
         "description": "Show a pricelist of your available products",
-        "description_fr": "",
+        "description_fr": "Montrer la liste de prix de vos produits disponibles",
         "turtles": [
             {
                 "type": "pricelist",
                 "order": 0
+            }
+        ]
+    },
+    "weekmenu": {
+        "name" : "WeekMenu",
+        "description" : "Show the weekmenu and offers of the week",
+        "description_fr" : "Montrer le menu de la semaine et les offres de la semaine",
+        "turtles" : [
+            {
+                "type" : "weekmenu",
+                "order" : 0
             }
         ]
     }
