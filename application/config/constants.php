@@ -55,7 +55,7 @@ define('API_OPTION','option');
 
 define('LOGO_MAX_WIDTH', 400);
 define('LOGO_MAX_HEIGHT', 120);
-define('MENU_IMAGE_MAX_WIDTH', 400);
+define('MENU_IMAGE_MAX_WIDTH', 160);
 define('MENU_IMAGE_MAX_HEIGHT', 120);
 define('ERROR_WRONG_USER_PASSWORD','Username and password mismatch!');
 

@@ -190,7 +190,7 @@ function buildWeekMenuOffer(name, description, price, image, id){
     }
 
     var image_holder = $("<div class='entry_image_holder'></div>");
-    var turtle_id = $('.turtle_weekmenu').attr('id').split('-');
+    var turtle_id = $('.turtle_weekmenu').attr('id').split('_');
 
     var image_upload = $("<a class='btn small-file-upload btn-small' href='javascript:;'>" +
         "<span>" + buttonLabel + "</span>" +

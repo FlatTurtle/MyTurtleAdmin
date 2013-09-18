@@ -187,12 +187,15 @@ class Turtles extends CI_Controller {
                     if ($source_image_width <= $max_width && $source_image_height <= $max_height) {
                         $image_width = $source_image_width;
                         $image_height = $source_image_height;
-                    } elseif ($logo_aspect_ratio > $source_aspect_ratio) {
+
+                    }
+                    // adding a small value to source aspect ratio to accommodate for very small differences in aspect ratio
+                    elseif ($logo_aspect_ratio > $source_aspect_ratio + 0.0005) {
                         $image_width = (int) ($max_width * $source_aspect_ratio);
                         $image_height = $max_height;
                     } else {
                         $image_width = $max_width;
-                        $image_height = (int) ($max_height / $source_aspect_ratio);
+                        $image_height = (int) ($max_width / $source_aspect_ratio);
                     }
 
 
