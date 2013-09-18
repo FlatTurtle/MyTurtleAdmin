@@ -2,6 +2,9 @@
  *
  * Construct the menu from existing data
  */
+// used for translation of weekdays
+//var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday", "term_saturday", "term_sunday"];
+var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 function buildWeekMenu(data){
     var menu_data = JSON.parse(data);
@@ -77,9 +80,8 @@ function buildWeekMenuCategoryEntries(category, category_html){
     if(category.meals ){
         entries = category.meals;
         var listings = $('.listings', category_html);
-        var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday", "term_saturday", "term_sunday"];
         for(var i in days){
-            var name_of_day = lang[days[i]];
+            var name_of_day = days[i];
             var item;
             if(entries[i]){
                 var entry = entries[i];
@@ -226,9 +228,9 @@ function bindWeekMenuEvents(){
 
         var category_html = buildWeekMenuCategory();
 
-        var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday", "term_saturday", "term_sunday"];
+
         for(var i in days){
-            var name_of_day = lang[days[i]];
+            var name_of_day = days[i];
             $('.listings', category_html).append(buildWeekMenuCategoryEntry(name_of_day));
         }
 
