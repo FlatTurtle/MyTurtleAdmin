@@ -98,11 +98,22 @@
     },
     "weekmenu": {
         "name" : "WeekMenu",
-        "description" : "Show the weekmenu and offers of the week",
-        "description_fr" : "Montrer le menu de la semaine et les offres de la semaine",
+        "description" : "Show the weekmenu a",
+        "description_fr" : "Montrer le menu de la semaine",
         "turtles" : [
             {
                 "type" : "weekmenu",
+                "order" : 0
+            }
+        ]
+    },
+    "weekmenu": {
+        "name" : "Offers",
+        "description" : "Show your special offers",
+        "description_fr" : "Montrer les offres de la semaine",
+        "turtles" : [
+            {
+                "type" : "offers",
                 "order" : 0
             }
         ]

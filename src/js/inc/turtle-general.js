@@ -362,6 +362,9 @@ function bind_event_to_turtles(){
             }else if(turtle_instance.hasClass('turtle_weekmenu')){
                 option_data['data'] = saveWeekMenu();
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_offers')){
+                option_data['data'] = saveOffers();
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }

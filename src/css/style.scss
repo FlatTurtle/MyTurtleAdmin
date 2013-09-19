@@ -1027,6 +1027,35 @@ select{
             padding: 0px;
         }
     }
+    img{
+        max-width: 120px;
+        margin-left: 10px;
+        max-height: 20px;
+    }
+
+    .small-file-upload{
+        margin-left: 30px !important;
+    }
+}
+
+.turtle_offers{
+    hr{
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 0px;
+    }
+
+    input[type=number]{
+        width: 50px;
+    }
+
+    .btn{
+        margin-left: 10px;
+
+        &.delete-item{
+            margin-left: 5px;
+        }
+    }
 
     .offer{
         textarea{

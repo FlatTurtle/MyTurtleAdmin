@@ -7,14 +7,6 @@
     </div>
     <hr/>
 </div>
-
-<div class="offers"></div>
-<div class="control-group">
-    <div class="controls">
-        <button id="add-offer" class="btn btn-small">{{ turtle_weekmenu_add_offer }}</button>
-    </div>
-    <hr/>
-</div>
 <script>
     $(document).ready(function(){
         buildWeekMenu($('#{{id}}-data').val());
