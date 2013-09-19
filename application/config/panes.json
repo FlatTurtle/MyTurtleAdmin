@@ -98,7 +98,7 @@
     },
     "weekmenu": {
         "name" : "WeekMenu",
-        "description" : "Show the weekmenu a",
+        "description" : "Show the weekmenu",
         "description_fr" : "Montrer le menu de la semaine",
         "turtles" : [
             {
