@@ -107,7 +107,7 @@
             }
         ]
     },
-    "weekmenu": {
+    "offers": {
         "name" : "Offers",
         "description" : "Show your special offers",
         "description_fr" : "Montrer les offres de la semaine",
