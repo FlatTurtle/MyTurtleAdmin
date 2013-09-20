@@ -16,8 +16,9 @@ function buildPriceList(data){
             $('.turtle_pricelist .categories').append(categoryHTML);
         }
 
-        bindPriceListEvents();
+
     }
+    bindPriceListEvents();
 }
 
 

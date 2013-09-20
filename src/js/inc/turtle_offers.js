@@ -10,8 +10,8 @@ function buildOffers(data){
 
             $('.turtle_offers .offer-wrapper').append(offer_html);
         }
-        bindOfferEvents();
     }
+    bindOfferEvents();
 }
 
 function buildOffer(name, description, price, image, id){

@@ -20,9 +20,9 @@ function buildWeekMenu(data){
 
             $('.turtle_weekmenu .categories').append(category_html);
         }
-        bindWeekMenuEvents();
-    }
 
+    }
+    bindWeekMenuEvents();
 }
 
 function buildWeekMenuCategory(name, price){
