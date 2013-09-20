@@ -1,14 +1,17 @@
 function buildOffers(data){
-    var offer_data = JSON.parse(data);
+    if(data){
+        var offer_data = JSON.parse(data);
+    
+        if(offer_data.offers){
 
-    if(offer_data.offers){
+            for(var i in offer_data.offers){
+                var offer = offer_data.offers[i];
 
-        for(var i in offer_data.offers){
-            var offer = offer_data.offers[i];
+                var offer_html = buildOffer(offer.name, offer.description, offer.price, offer.image, offer.id);
 
-            var offer_html = buildOffer(offer.name, offer.description, offer.price, offer.image, offer.id);
+                $('.turtle_offers .offer-wrapper').append(offer_html);
+            }
 
-            $('.turtle_offers .offer-wrapper').append(offer_html);
         }
     }
     bindOfferEvents();
