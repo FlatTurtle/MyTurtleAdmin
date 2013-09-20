@@ -7,22 +7,24 @@
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 function buildWeekMenu(data){
-    var menu_data = JSON.parse(data);
+    if(data){
+        var menu_data = JSON.parse(data);
 
-    if(menu_data.categories){
+        if(menu_data.categories){
 
-        for(var i in menu_data.categories){
-            var category = menu_data.categories[i];
+            for(var i in menu_data.categories){
+                var category = menu_data.categories[i];
 
-            var category_html = buildWeekMenuCategory(category.name, category.price);
+                var category_html = buildWeekMenuCategory(category.name, category.price);
 
-            category_html = buildWeekMenuCategoryEntries(category, category_html);
+                category_html = buildWeekMenuCategoryEntries(category, category_html);
 
-            $('.turtle_weekmenu .categories').append(category_html);
+                $('.turtle_weekmenu .categories').append(category_html);
+            }
+
         }
-        bindWeekMenuEvents();
     }
-
+    bindWeekMenuEvents();
 }
 
 function buildWeekMenuCategory(name, price){

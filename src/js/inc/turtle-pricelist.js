@@ -3,21 +3,22 @@
  */
 
 function buildPriceList(data){
-    var priceData = JSON.parse(data);
-    $('#title').prop('value', priceData.title);
-    if(priceData.categories){
+    if(data){
+        var priceData = JSON.parse(data);
+        $('#title').prop('value', priceData.title);
+        if(priceData.categories){
 
-        for(var i in priceData.categories){
-            var category = priceData.categories[i];
-            var categoryHTML = buildPriceListCategory(category.name);
+            for(var i in priceData.categories){
+                var category = priceData.categories[i];
+                var categoryHTML = buildPriceListCategory(category.name);
 
-            categoryHTML = buildPriceListCategoryEntries(category, categoryHTML);
+                categoryHTML = buildPriceListCategoryEntries(category, categoryHTML);
 
-            $('.turtle_pricelist .categories').append(categoryHTML);
+                $('.turtle_pricelist .categories').append(categoryHTML);
+            }
         }
-
-        bindPriceListEvents();
     }
+    bindPriceListEvents();
 }
 
 

@@ -1,7 +1,7 @@
 function buildOffers(data){
     if(data){
         var offer_data = JSON.parse(data);
-    
+
         if(offer_data.offers){
 
             for(var i in offer_data.offers){
