@@ -14,16 +14,6 @@
             }
         ]
     },
-    "social": {
-        "name": "Social",
-        "description": "Feeds from Twitter.",
-        "turtles": [
-            {
-                "type": "twitter",
-                "order": 0
-            }
-        ]
-    },
     "traffic": {
         "name": "Traffic",
         "description": "A map with live traffic information on it.",
