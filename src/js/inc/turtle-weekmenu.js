@@ -292,7 +292,8 @@ function saveWeekMenu(){
 
         // get meals
         category.meals = [];
-        $('.listing', this).each(function(){
+        $('.listing', this).each(function(index){
+            var wrapper = {};
             var meal = {};
             meal.day = $('.day', this).text();
             meal.name = $('.name', this).val();
@@ -306,8 +307,10 @@ function saveWeekMenu(){
                 meal.image = $('img', $(this)).attr('src');
             }
 
+
+
             if(meal.name.length > 0){
-                category.meals.push(meal);
+                category.meals[index.toString()]= meal;
             }
         });
 
