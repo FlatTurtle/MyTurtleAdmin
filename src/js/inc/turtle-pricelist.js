@@ -132,7 +132,7 @@ function savePriceList(){
     data.categories = [];
 
     // get categories
-    $('.categories .control-group').each(function(){
+    $('.turtle_pricelist .categories .control-group').each(function(){
         var category = {};
         category.name = $('.name', this).val();
         category.entries = [];
