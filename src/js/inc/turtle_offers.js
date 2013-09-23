@@ -2,6 +2,7 @@ function buildOffers(data, turtle_instance){
     if(data){
         var offer_data = JSON.parse(data);
 
+        $('#title', turtle_instance).prop('value', offer_data.title);
         if(offer_data.offers){
 
             for(var i in offer_data.offers){
@@ -238,6 +239,8 @@ function bindOfferEvents(){
 
 function saveOffers(turtle_instance){
     var data = {};
+
+    data.title = $('.control-group .controls #title', turtle_instance).val();
     data.offers = [];
     $('.offer-wrapper .offer', turtle_instance).each(function(){
         var offer = {};
