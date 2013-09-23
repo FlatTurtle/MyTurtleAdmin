@@ -16,7 +16,7 @@
 </div>
 <script>
     $(document).ready(function(){
-        buildPriceList($('#{{id}}-data').val());
+        buildPriceList($('#{{id}}-data').val(), $('#{{id}}-data').parents('.turtle_pricelist'));
     });
 </script>
 <? include 'footer.php'; ?>

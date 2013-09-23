@@ -1,4 +1,4 @@
-function buildOffers(data){
+function buildOffers(data, turtle_instance){
     if(data){
         var offer_data = JSON.parse(data);
 
@@ -9,7 +9,7 @@ function buildOffers(data){
 
                 var offer_html = buildOffer(offer.name, offer.description, offer.price, offer.image, offer.id);
 
-                $('.turtle_offers .offer-wrapper').append(offer_html);
+                $('.offer-wrapper', turtle_instance).append(offer_html);
             }
 
         }
@@ -236,10 +236,10 @@ function bindOfferEvents(){
     });
 }
 
-function saveOffers(){
+function saveOffers(turtle_instance){
     var data = {};
     data.offers = [];
-    $('.offer-wrapper .offer').each(function(){
+    $('.offer-wrapper .offer', turtle_instance).each(function(){
         var offer = {};
 
         offer.name = $('.name', this).val();

@@ -9,7 +9,7 @@
 </div>
 <script>
     $(document).ready(function(){
-        buildWeekMenu($('#{{id}}-data').val());
+        buildWeekMenu($('#{{id}}-data').val(), $('#{{id}}-data').parents('.turtle_weekmenu'));
     });
 </script>
 <? include 'footer.php' ?>

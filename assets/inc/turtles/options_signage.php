@@ -10,7 +10,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        buildSignage($('#{{id}}-data').val());
+        buildSignage($('#{{id}}-data').val(), $('#{{id}}-data').parents('.turtle_signage'));
     })
 </script>
 <? include 'footer.php'; ?>

@@ -10,7 +10,7 @@
 </div>
 <script>
     $(document).ready(function(){
-        buildOffers($('#{{id}}-data').val());
+        buildOffers($('#{{id}}-data').val(),$('#{{id}}-data').parents('.turtle_offers'));
     });
 </script>
 <? include 'footer.php' ?>

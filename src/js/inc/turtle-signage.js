@@ -1,7 +1,7 @@
 /**
  * Build signage turtle
  */
-function buildSignage(data){
+function buildSignage(data, turtle_instance){
     var signage_data = JSON.parse(data);
     if(signage_data){
         for(i in signage_data){
@@ -28,7 +28,7 @@ function buildSignage(data){
                 }
             }
 
-            $('.floors').append(floor_html);
+            $('.floors', turtle_instance).append(floor_html);
         }
 
         bindSignageEvents();
@@ -38,10 +38,10 @@ function buildSignage(data){
 /**
  * Get JSON to save
  */
-function saveSignage(){
+function saveSignage(turtle_instance){
     // Construct data to be pushed as option
     var signage_data = [];
-    $('.floors .control-group').each(function(){
+    $('.floors .control-group', turtle_instance).each(function(){
         var floor = new Object();
         // Get floor name
         floor.location = $(".location", this).val();

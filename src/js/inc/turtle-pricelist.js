@@ -2,10 +2,10 @@
  * (Re)construct the price list from the given data
  */
 
-function buildPriceList(data){
+function buildPriceList(data, turtle_instance){
     if(data){
         var priceData = JSON.parse(data);
-        $('#title').prop('value', priceData.title);
+        $('#title', turtle_instance).prop('value', priceData.title);
         if(priceData.categories){
 
             for(var i in priceData.categories){
@@ -14,7 +14,7 @@ function buildPriceList(data){
 
                 categoryHTML = buildPriceListCategoryEntries(category, categoryHTML);
 
-                $('.turtle_pricelist .categories').append(categoryHTML);
+                $('.categories', turtle_instance).append(categoryHTML);
             }
         }
     }
@@ -126,13 +126,13 @@ function buildPriceListImage(image, turtle_id, id){
     return el;
 }
 
-function savePriceList(){
+function savePriceList(turtle_instance){
     var data = {};
-    data.title = $('.turtle_pricelist .control-group .controls #title').val();
+    data.title = $('.control-group .controls #title', turtle_instance).val();
     data.categories = [];
 
     // get categories
-    $('.turtle_pricelist .categories .control-group').each(function(){
+    $('.categories .control-group', turtle_instance).each(function(){
         var category = {};
         category.name = $('.name', this).val();
         category.entries = [];

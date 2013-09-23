@@ -354,16 +354,16 @@ function bind_event_to_turtles(){
                 }
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else if(turtle_instance.hasClass('turtle_signage')){
-                option_data['data'] = saveSignage();
+                option_data['data'] = saveSignage(turtle_instance);
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else if(turtle_instance.hasClass('turtle_pricelist')){
-                option_data['data'] = savePriceList();
+                option_data['data'] = savePriceList(turtle_instance);
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else if(turtle_instance.hasClass('turtle_weekmenu')){
-                option_data['data'] = saveWeekMenu();
+                option_data['data'] = saveWeekMenu(turtle_instance);
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else if(turtle_instance.hasClass('turtle_offers')){
-                option_data['data'] = saveOffers();
+                option_data['data'] = saveOffers(turtle_instance);
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);

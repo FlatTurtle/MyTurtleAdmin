@@ -6,7 +6,7 @@
 //var days = ["term_monday", "term_tuesday", "term_wednesday", "term_thursday", "term_friday", "term_saturday", "term_sunday"];
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-function buildWeekMenu(data){
+function buildWeekMenu(data, turtle_instance){
     if(data){
         var menu_data = JSON.parse(data);
 
@@ -19,7 +19,7 @@ function buildWeekMenu(data){
 
                 category_html = buildWeekMenuCategoryEntries(category, category_html);
 
-                $('.turtle_weekmenu .categories').append(category_html);
+                $('.categories', turtle_instance).append(category_html);
             }
 
         }
@@ -279,12 +279,12 @@ function bindWeekMenuEvents(){
 }
 
 
-function saveWeekMenu(){
+function saveWeekMenu(turtle_instance){
     var data = {};
 
     // get categories and their meals
     data.categories = [];
-    $('.categories .category').each(function(){
+    $('.categories .category', turtle_instance).each(function(){
         var category = {};
 
         category.name = $('.name', this).val();
