@@ -3,7 +3,7 @@
 <div class="control-group">
     <label class="control-label">{{ turtle_weekmenu_title_alt }}</label>
     <div class="controls">
-        <input type="text" id="title" name="title" class="input-block-level" />
+        <input type="text" id="weekmenu-title" name="weekmenu-title" class="input-block-level" />
     </div>
 
 </div>

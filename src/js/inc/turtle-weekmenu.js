@@ -10,7 +10,7 @@ function buildWeekMenu(data, turtle_instance){
     if(data){
         var menu_data = JSON.parse(data);
 
-        $('#title', turtle_instance).prop('value', menu_data.title);
+        $('#weekmenu-title', turtle_instance).prop('value', menu_data.weekmenu_title);
         $('#today-title', turtle_instance).prop('value', menu_data.today_title);
 
         if(menu_data.categories){
@@ -285,7 +285,7 @@ function bindWeekMenuEvents(){
 function saveWeekMenu(turtle_instance){
     var data = {};
 
-    data.weekmenu_title = $('.control-group .controls #title', turtle_instance).val();
+    data.weekmenu_title = $('.control-group .controls #weekmenu-title', turtle_instance).val();
     data.today_title = $('.control-group .controls #today-title', turtle_instance).val();
 
     // get categories and their meals
