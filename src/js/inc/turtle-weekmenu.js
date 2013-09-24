@@ -285,7 +285,7 @@ function bindWeekMenuEvents(){
 function saveWeekMenu(turtle_instance){
     var data = {};
 
-    data.title = $('.control-group .controls #title', turtle_instance).val();
+    data.weekmenu_title = $('.control-group .controls #title', turtle_instance).val();
     data.today_title = $('.control-group .controls #today-title', turtle_instance).val();
 
     // get categories and their meals

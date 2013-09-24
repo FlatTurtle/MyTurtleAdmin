@@ -82,6 +82,65 @@ function bind_event_to_turtles(){
         });
     });
 
+    // Comma separated autocomplete via
+    function split( val ) {
+        return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+        return split( term ).pop();
+    }
+    $(".nmbs-via").off().on('keydown.autocomplete', function(){
+        $(this).autocomplete({
+            source: function( request, response ) {
+                $.ajax({
+                    url: "https://data.irail.be/NMBS/Stations.json",
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        name: extractLast( request.term )
+                    },
+                    success: function( data ) {
+                        var pattern = new RegExp(extractLast(request.term.toLowerCase()));
+                        response( $.map( data.Stations, function( item ) {
+                            if(item.name.toLowerCase().match(pattern)){
+                                return {
+                                    label: item.name,
+                                    value: item.name
+                                }
+                            }
+                        }));
+                    }
+                });
+            },
+            focus: function(event, ui){
+                var terms = split( this.value );
+                // remove empty entry if needed
+                if(terms[terms.length-1]==""){
+                    terms.pop();
+                }
+                // remove current input
+                terms.pop();
+                // add the selected item
+                terms.push( ui.item.value );
+                // add placeholder to get the comma-and-space at the end
+                terms.push( "" );
+                this.value = terms.join( ", " );
+                return false;
+            },
+            select: function( event, ui ) {
+                var terms = split( this.value );
+                // remove the current input
+                terms.pop();
+                // add the selected item
+                terms.push( ui.item.value );
+                // add placeholder to get the comma-and-space at the end
+                terms.push( "" );
+                this.value = terms.join( ", " );
+                return false;
+            }
+        });
+    });
+
     // Autocomplete MIVB
     $(".mivb-location").off().on('keydown.autocomplete', function(){
         $(this).autocomplete({
