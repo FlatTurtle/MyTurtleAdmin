@@ -129,6 +129,10 @@ function bind_event_to_turtles(){
             },
             select: function( event, ui ) {
                 var terms = split( this.value );
+                // remove empty entry if needed
+                if(terms[terms.length-1]==""){
+                    terms.pop();
+                }
                 // remove the current input
                 terms.pop();
                 // add the selected item

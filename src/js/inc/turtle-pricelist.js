@@ -31,7 +31,7 @@ function buildPriceListCategory(name){
     control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_name'] + "</label>");
 
     var controls = $("<div class='controls'></div>");
-    controls.append("<input type='text' class='input-small name' placeholder='' value='" + name + "'/>");
+    controls.append("<input type='text' class='input name' placeholder='' value='" + name + "'/>");
     controls.append("<button id='add-category-entry' class='btn btn-small'>" + lang['turtle_pricelist_add_entry'] + "</button>");
     controls.append("<button id='delete-category' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);

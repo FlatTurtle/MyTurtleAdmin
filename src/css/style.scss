@@ -928,6 +928,10 @@ select{
         margin-bottom: 10px;
     }
 
+    input[type=text]{
+        width: 250px;
+    }
+
     .listing{
         margin-top: 3px;
         margin-bottom: 10px;
@@ -954,9 +958,7 @@ select{
         input[type=file]{
             height: 10px;
         }
-        input[type=text]{
-            width: 150px;
-        }
+
 
         input[type=number]{
             width: 50px;
