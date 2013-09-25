@@ -3,14 +3,22 @@
 <div class="control-group">
     <label class="control-label">{{ turtle_weekmenu_title_alt }}</label>
     <div class="controls">
-        <input type="text" id="weekmenu-title" name="weekmenu-title" class="input-block-level" />
+        <input type="text" id="weekmenu-title" name="weekmenu-title" class="input-block-level" value="{{ turtle_weekmenu_title }}"/>
     </div>
 
 </div>
 <div class="control-group">
     <label class="control-label">{{ turtle_weekmenu_today_title_alt }}</label>
     <div class="controls">
-        <input type="text" id="today-title" name="today-title" class="input-block-level" />
+        <input type="text" id="today-title" name="today-title" class="input-block-level" value="{{ turtle_weekmenu_today_title }}"/>
+    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" id="show-today" class="btn active">{{ turtle_weekmenu_radio_today }}</button>
+            <button type="button" id="show-weekmenu" class="btn">{{ turtle_weekmenu_radio_full_weekmenu }}</button>
+        </div>
     </div>
     <hr/>
 </div>

@@ -149,8 +149,12 @@ $lang['turtle_weekmenu_add_offer'] = "Voeg een aanbieding toe";
 $lang['turtle_weekmenu_delete_category_note'] = "Weet u zeker dat u deze categorie wilt verwijderen?";
 $lang['turtle_weekmenu_offer_name'] = "Titel aanbieding";
 $lang['turtle_weekmenu_delete_offer_note'] = "Weet u zeker dat u deze aanbieding wilt verwijderen?";
-$lang['turtle_weekmenu_title_alt'] = "Titel hoofding voor menu van de week";
-$lang['turtle_weekmenu_today_title_alt'] = "Titel hoofding voor menu van de dag";
+$lang['turtle_weekmenu_title_alt'] = "Titel menu van de week";
+$lang['turtle_weekmenu_today_title_alt'] = "Titel menu van de dag";
+$lang['turtle_weekmenu_title'] = "Weekmenu";
+$lang['turtle_weekmenu_today_title'] = "Menu van de dag";
+$lang['turtle_weekmenu_radio_today'] = "Toon menu van de dag";
+$lang['turtle_weekmenu_radio_full_weekmenu'] = "Toon volledig week menu";
 
 
 

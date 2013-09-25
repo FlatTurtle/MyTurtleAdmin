@@ -13,6 +13,12 @@ function buildWeekMenu(data, turtle_instance){
         $('#weekmenu-title', turtle_instance).prop('value', menu_data.weekmenu_title);
         $('#today-title', turtle_instance).prop('value', menu_data.today_title);
 
+        if(data.show_today){
+           $('#show-today').button('toggle');
+        }else{
+           $('#show-weekmenu').button('toggle');
+        }
+
         if(menu_data.categories){
 
             for(var i in menu_data.categories){
@@ -287,6 +293,8 @@ function saveWeekMenu(turtle_instance){
 
     data.weekmenu_title = $('.control-group .controls #weekmenu-title', turtle_instance).val();
     data.today_title = $('.control-group .controls #today-title', turtle_instance).val();
+
+    data.show_today = $('#show-today', turtle_instance).hasClass('active');
 
     // get categories and their meals
     data.categories = [];

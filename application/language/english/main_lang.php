@@ -154,8 +154,12 @@ $lang['turtle_weekmenu_add_offer'] = "Add an offer";
 $lang['turtle_weekmenu_delete_category_note'] = "Are you sure you want to remove this category?";
 $lang['turtle_weekmenu_offer_name'] = "Offer title";
 $lang['turtle_weekmenu_delete_offer_note'] = "Are you sure you want to remove this offer?";
-$lang['turtle_weekmenu_title_alt'] = "Title menu of the week heading";
-$lang['turtle_weekmenu_today_title_alt'] = "Title menu of the day heading";
+$lang['turtle_weekmenu_title_alt'] = "Title menu of the week";
+$lang['turtle_weekmenu_today_title_alt'] = "Title menu of the day";
+$lang['turtle_weekmenu_title'] = "Weekmenu";
+$lang['turtle_weekmenu_today_title'] = "Menu of the day";
+$lang['turtle_weekmenu_radio_today'] = "Show menu of the day";
+$lang['turtle_weekmenu_radio_full_weekmenu'] = "Show full week menu";
 
 
 /**

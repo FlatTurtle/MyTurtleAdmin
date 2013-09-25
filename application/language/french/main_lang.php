@@ -149,8 +149,12 @@ $lang['turtle_weekmenu_add_offer'] = "Créer une offre";
 $lang['turtle_weekmenu_delete_category_note'] = "Êtes-vous sûr de vouloir supprimer la rubrique complet?";
 $lang['turtle_weekmenu_offer_name'] = "Nom d'offre";
 $lang['turtle_weekmenu_delete_offer_note'] = "Êtes-vous sûr de vouloir supprimer l'offre?";
-$lang['turtle_weekmenu_title_alt'] = "Titre de section 'menu de la semaine'";
-$lang['turtle_weekmenu_today_title_alt'] = "Titre de section 'menu today'";
+$lang['turtle_weekmenu_title_alt'] = "Titre de 'menu de la semaine'";
+$lang['turtle_weekmenu_today_title_alt'] = "Titre de 'plat du jour'";
+$lang['turtle_weekmenu_title'] = "Menu de la semaine";
+$lang['turtle_weekmenu_today_title'] = "Plat du jour";
+$lang['turtle_weekmenu_radio_today'] = "Montre le plat du jour";
+$lang['turtle_weekmenu_radio_full_weekmenu'] = "Montre menu de la semaine";
 
 
 
