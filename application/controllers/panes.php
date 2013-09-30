@@ -152,7 +152,7 @@ class Panes extends CI_Controller {
 
                 $data['turtles'] = json_encode($pane_types->{$pane_type}->turtles);
                 $data['type'] = 'widget';
-                $data['title'] = ucfirst($pane_type);
+                $data['title'] = $pane_types->$pane_type->name;
                 $data['template'] = $pane_type;
                 $pane = $this->pane->put($alias, $data);
                 header('Cache-Control: no-cache, must-revalidate');

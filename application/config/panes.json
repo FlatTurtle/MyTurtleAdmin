@@ -15,7 +15,7 @@
         ]
     },
     "traffic": {
-        "name": "Traffic",
+        "name": "Live Traffic",
         "description": "A map with live traffic information on it.",
         "turtles": [
             {
@@ -76,7 +76,7 @@
         ]
     },
     "pricelist": {
-        "name": "PriceList",
+        "name": "Price List",
         "description": "Show a pricelist of your available products",
         "description_fr": "Montrer la liste de prix de vos produits disponibles",
         "turtles": [
