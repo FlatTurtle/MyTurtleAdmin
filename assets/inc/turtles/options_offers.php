@@ -1,5 +1,10 @@
 <? include 'header.php' ?>
-<input type="hidden" id="{{id}}-data" name="{{id}}-data" class='input-block-level offers-data' value='{{{data}}}'/>
+<div id="{{id}}-data" style="display:none" >
+    <script  type="application/json">
+        {{{data}}}
+    </script>
+</div>
+
 <div class="control-group">
     <label class="control-label">{{ term_title }}</label>
     <div class="controls">
@@ -17,7 +22,7 @@
 </div>
 <script>
     $(document).ready(function(){
-        buildOffers($('#{{id}}-data').val(),$('#{{id}}-data').parents('.turtle_offers'));
+        buildOffers($('#{{id}}-data script').text().trim(),$('#{{id}}-data').parents('.turtle_offers'));
     });
 </script>
 <? include 'footer.php' ?>

@@ -7,11 +7,11 @@
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 function buildWeekMenu(data, turtle_instance){
-    if(data){
+    if(data && data != ""){
         var menu_data = JSON.parse(data);
 
-        $('#weekmenu-title', turtle_instance).prop('value', menu_data.weekmenu_title);
-        $('#today-title', turtle_instance).prop('value', menu_data.today_title);
+        $('#weekmenu-title', turtle_instance).val(menu_data.weekmenu_title);
+        $('#today-title', turtle_instance).val( menu_data.today_title);
 
         if(data.show_today){
            $('#show-today').button('toggle');
@@ -51,7 +51,8 @@ function buildWeekMenuCategory(name, price){
     control_group.append("<label class='control-label'>" + lang['turtle_pricelist_category_name'] + "</label> ");
     var controls = $("<div class='controls'></div>");
 
-    controls.append("<input type='text' class='input-small name' placeholder='' value='" + name + "'/>");
+    var input = $("<input type='text' class='input-small name' placeholder=''/>").val(name);
+    controls.append(input);
     controls.append("<button id='delete-category' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);
 
@@ -108,7 +109,8 @@ function buildWeekMenuCategoryEntry(name_of_day, name, image, id){
     var entry_control = $("<div id='listing-" + id + "' class='listing control-group'></div>");
     entry_control.append("<label class='control-label day'>" + name_of_day + "</label> ");
     var controls = $("<div class='controls'></div>");
-    controls.append("<input type='text' class='input name' value='" + name + "'/>");
+    var input = $("<input type='text' class='input name' />").val(name);
+    controls.append(input);
 
     var buttonLabel = lang["term_upload"] + " " + lang["term_image"].toLowerCase();
     if(image){

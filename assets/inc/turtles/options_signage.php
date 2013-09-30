@@ -1,5 +1,10 @@
 <? include 'header.php'; ?>
-<input type="hidden" id="{{id}}-data" name="{{id}}-data" class='input-block-level signage-data' value='{{{data}}}'/>
+<div id="{{id}}-data" style="display:none" >
+    <script  type="application/json">
+        {{{data}}}
+    </script>
+</div>
+
 <div class='floors'></div>
 <div class="control-group">
     <div class="controls">

@@ -3,7 +3,7 @@
  */
 
 function buildPriceList(data, turtle_instance){
-    if(data){
+    if(data && data != ""){
         var priceData = JSON.parse(data);
         $('#title', turtle_instance).prop('value', priceData.title);
         if(priceData.categories){
@@ -31,7 +31,8 @@ function buildPriceListCategory(name){
     control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_name'] + "</label>");
 
     var controls = $("<div class='controls'></div>");
-    controls.append("<input type='text' class='input name' placeholder='' value='" + name + "'/>");
+    var input = $("<input type='text' class='input name' placeholder=''/>").val(name);
+    controls.append(input);
     controls.append("<button id='add-category-entry' class='btn btn-small'>" + lang['turtle_pricelist_add_entry'] + "</button>");
     controls.append("<button id='delete-category' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);
@@ -83,7 +84,8 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
 
     var entry_control = $("<div id='listing-" + id + "' class='listing'></div>");
     entry_control.append("<i class='icon-caret-right'></i>");
-    entry_control.append("<input type='text' class='input name' value='" + name + "'/>");
+    var input = $("<input type='text' class='input name'/>").val(name);
+    entry_control.append(input);
     entry_control.append("<input type='number' class='input price' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
 
 

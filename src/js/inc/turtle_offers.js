@@ -1,5 +1,5 @@
 function buildOffers(data, turtle_instance){
-    if(data){
+    if(data && data != ""){
         var offer_data = JSON.parse(data);
 
         $('#title', turtle_instance).prop('value', offer_data.title);
@@ -45,7 +45,8 @@ function buildOffer(name, description, price, image, id){
     var control_group = $("<div class='control-group'></div>");
     control_group.append("<label class='control-label'>" + lang['turtle_weekmenu_offer_name'] + "</label> ");
     var controls = $("<div class='controls'></div>");
-    controls.append("<input type='text' class='input name' value='" + name + "'/>");
+    var input = $("<input type='text' class='input name'/>").val(name);
+    controls.append(input);
     controls.append("<button id='delete-offer' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);
     container.append(control_group);

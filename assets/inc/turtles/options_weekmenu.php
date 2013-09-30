@@ -1,5 +1,10 @@
 <? include 'header.php' ?>
-<input type="hidden" id="{{id}}-data" name="{{id}}-data" class='input-block-level weekmenu-data' value='{{{data}}}'/>
+<div id="{{id}}-data" style="display:none" >
+    <script  type="application/json">
+        {{{data}}}
+    </script>
+</div>
+<!--<input type="hidden" id="{{id}}-data" name="{{id}}-data" class='input-block-level weekmenu-data' value='{{{data}}}'/>-->
 <div class="control-group">
     <label class="control-label">{{ turtle_weekmenu_title_alt }}</label>
     <div class="controls">
@@ -33,7 +38,7 @@
 </div>
 <script>
     $(document).ready(function(){
-        buildWeekMenu($('#{{id}}-data').val(), $('#{{id}}-data').parents('.turtle_weekmenu'));
+        buildWeekMenu($('#{{id}}-data script').text().trim(), $('#{{id}}-data').parents('.turtle_weekmenu'));
     });
 </script>
 <? include 'footer.php' ?>
