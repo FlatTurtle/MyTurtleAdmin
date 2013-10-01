@@ -83,11 +83,22 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     }
 
     var entry_control = $("<div id='listing-" + id + "' class='listing'></div>");
-    entry_control.append("<i class='icon-caret-right'></i>");
-    var input = $("<input type='text' class='input name'/>").val(name);
-    entry_control.append(input);
-    entry_control.append("<input type='number' class='input price' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
 
+    // control group for 'name' input box and delete button
+    var control_group = $("<div class='control-group'></div>");
+    control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_entry_name'] + "</label>");
+    var controls = $("<div class='controls'></div>");
+    var input = $("<input type='text' class='input name'/>").val(name);
+    controls.append(input);
+    controls.append("<button id='delete-item' class='btn btn-small pull-right'><i class='icon-trash'></i></button>");
+    control_group.append(controls);
+    entry_control.append(control_group);
+
+    // control group for price and image upload
+    control_group = $("<div class='control-group'></div>");
+    control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_entry_price'] + "</label>");
+    controls = $("<div class='controls'></div>");
+    controls.append("<input type='number' class='input price' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
 
     var buttonLabel = lang["term_upload"] + " " + lang["term_image"].toLowerCase();
     if(image){
@@ -107,15 +118,17 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     if(image){
         image_holder.append(buildPriceListImage(image, turtle_id[1], id));
     }
-    entry_control.append(image_holder);
+    controls.append(image_holder);
+    control_group.append(controls);
+    entry_control.append(control_group);
 
-    // adding the delete button
-    entry_control.append("<button id='delete-item' class='btn btn-small pull-right'><i class='icon-trash'></i></button>");
 
-    // putting the description textarea on another line
-    entry_control.append("<br/>");
-
-    entry_control.append("<textarea rows='2' cols='35' class='styled description'>" + description + "</textarea>");
+    control_group = $("<div class='control-group'></div>");
+    control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_entry_description'] + "</label>");
+    controls = $("<div class='controls'></div>");
+    controls.append("<textarea rows='2' cols='35' class='styled description'>" + description + "</textarea>");
+    control_group.append(controls);
+    entry_control.append(control_group);
 
     return entry_control;
 }
