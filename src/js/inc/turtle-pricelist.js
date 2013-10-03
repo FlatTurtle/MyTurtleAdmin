@@ -173,7 +173,7 @@ function savePriceList(turtle_instance){
             }
         });
 
-        if(category.name.length > 0 && category.entries.length > 0){
+        if(category.name && category.name.length > 0 && category.entries.length > 0){
             data.categories.push(category);
         }
     });
