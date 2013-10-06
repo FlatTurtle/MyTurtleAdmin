@@ -77,6 +77,12 @@ $lang['term_friday'] = "Vendredi";
 $lang['term_saturday'] = "Samedi";
 $lang['term_sunday'] = "Dimanche";
 $lang['term_description'] = "Description";
+$lang['term_wifi_auki'] = "Vendor: Auki";
+$lang['term_wifi_normal'] = "FT: Normal";
+$lang['term_no_wifi'] = "Pas de WiFi";
+$lang['term_flatturtle_wifi'] = "FlatTurtle WiFi";
+$lang['term_wifi_enabled'] = "FlatTurtle WiFi est activée";
+$lang['term_wifi_disabled'] = "Pas de FlatTurtle WiFi installé";
 
 /**
 * Screen detail page

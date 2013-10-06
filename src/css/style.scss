@@ -509,6 +509,11 @@ $infoscreen_border_width: 5px;
     margin: 0px auto;
     max-width: 500px;
 
+    p{
+        margin:0;
+        margin-top: 5px;
+    }
+
     .btn-group{
         padding-bottom: 20px;
         text-align: center;

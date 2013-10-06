@@ -61,6 +61,24 @@
                 </div>
             </div>
             <div class="control-group">
+                <label class="control-label" for="wifi"><?= lang('term_flatturtle_wifi')?></label>
+                <div class="controls">
+                    <? if($admin){ ?>
+                        <select id="wifi" name="wifi">
+                            <option value="none" <?= $infoscreen->wifi == "none" ? ' selected="selected"' : '';?>><?= lang('term_no_wifi') ?></option>
+                            <option value="auki" <?= $infoscreen->wifi == "auki" ? ' selected="selected"' : '';?>><?= lang('term_wifi_auki') ?></option>
+                            <option value="normal" <?= $infoscreen->wifi == "normal" ? ' selected="selected"' : '';?>><?= lang('term_wifi_normal') ?></option>
+                        </select>
+                    <? } else { ?>
+                        <? if($infoscreen->wifi != "none"){ ?>
+                            <p><?= lang('term_wifi_enabled') ?></p>
+                        <? }else{ ?>
+                            <p><?= lang('term_wifi_disabled') ?></p>
+                        <? } ?>
+                    <? } ?>
+                </div>
+            </div>
+            <div class="control-group">
                 <div class="controls">
                     <? if (!empty($all_errors)) { ?>
                         <div class="alert alert-error">
