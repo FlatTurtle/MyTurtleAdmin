@@ -13,10 +13,10 @@ function buildWeekMenu(data, turtle_instance){
         $('#weekmenu-title', turtle_instance).val(menu_data.weekmenu_title);
         $('#today-title', turtle_instance).val( menu_data.today_title);
 
-        if(data.show_today){
-           $('#show-today').button('toggle');
+        if(menu_data.show_today){
+           $('#show-today', turtle_instance).button('toggle');
         }else{
-           $('#show-weekmenu').button('toggle');
+           $('#show-weekmenu', turtle_instance).button('toggle');
         }
 
         if(menu_data.categories){
