@@ -12,11 +12,11 @@ $version_css = "1.0.5"
         <title><?= lang('title') ?></title>
 
         <!-- For iPhone 4 -->
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-114.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://img.flatturtle.com/favicon/apple-touch-icon-114.png">
         <!-- For iPad 1-->
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.flatturtle.com/themes/site/img/apple-touch-icon-72.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://img.flatturtle.com/favicon/apple-touch-icon-72.png">
         <!-- For everything else -->
-        <link rel="shortcut icon" href="https://www.flatturtle.com/themes/site/img/favicon.ico">
+        <link rel="shortcut icon" href="https://img.flatturtle.com/favicon/favicon.ico">
 
         <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css?v=<?= $version_css ?>" type="text/css" media="screen" />
         <link type="text/css" rel="stylesheet" href="https://fast.fonts.com/cssapi/66253153-9c89-413c-814d-60d3ba0d6ac2.css"/>
