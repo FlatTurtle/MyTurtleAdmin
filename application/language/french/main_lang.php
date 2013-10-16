@@ -131,6 +131,7 @@ $lang['turtle_finance_primary_alt'] = "(ex: KBC.BR)";
 $lang['turtle_finance_secondary_alt'] = "(ex: GOOG, AAPL, DUV.BR)";
 $lang['turtle_finance_primary_note'] = "Symbole boursier, celui-ci est représenté plus grand que les stocks secondaires";
 $lang['turtle_finance_secondary_note'] = "Liste virgules des symboles boursiers";
+$lang['turtle_finance_lookup_note'] = "Use the next site to find the right stock symbols by typing the company name in the search bar: ";
 $lang['turtle_twitter_search_alt'] = "Twitter recherche (ex: #FlatTurtle)";
 $lang['turtle_rss_alt'] = "L'adresse web d'un flux RSS";
 $lang['turtle_rss_custom'] = "Flux adapté";
