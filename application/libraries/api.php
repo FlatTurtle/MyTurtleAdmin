@@ -111,42 +111,49 @@ class API {
 
             // Check response code
             switch ($http_status) {
-                case 401:
-                    if (ENVIRONMENT == 'production')
-                        show_error("You aren't the owner of that!", 401);
-                    else
-                        echo "<pre>";
-                        throw new ErrorException($http_status . " - " . $response);
-                case 403:
-                    if (strpos($response, 'token') && strpos($response, 'not valid')) {
 
+                case 401:
+                    // Not authorized
+                   $message = "You aren't the owner of that!";
+                   break;
+
+                case 403:
+                    // Forbidden
+                    if (strpos($response, 'token') && strpos($response, 'not valid')) {
                         // Token expired, get new token and retry
                         $this->auth();
-                        return $this->request($url, $method, $data);
-
+                        return $this->request($uri, $method, $data);
                     } else {
-                        if (ENVIRONMENT == 'production')
-                            show_error('You are not authorized to do this!', 403);
-                        else
-                            echo "<pre>";
-                            throw new ErrorException($http_status . " - " . $response);
+                        $message = 'You are not authorized to do this!';
                     }
                     break;
+
                 case 404:
-                    if (ENVIRONMENT == 'production')
+                    // Not found
+                    if (ENVIRONMENT == 'production'){
+                        list($null, $alias, $remainder) = explode("/", $uri);
+                        list($segment , $remainder) = explode("?", $remainder);
+
+                        // Fix for when a user has no panes (yet)
+                        if($segment == "panes" || $segment == "turtles"){
+                            throw new ErrorException($http_status);
+                        }
+
                         show_404();
-                    else
-                        echo "<pre>";
-                        throw new ErrorException($http_status . " - " . $response);
+
+                    }
                     break;
+
                 default:
-                    if (ENVIRONMENT == 'production')
-                        show_error("We are doing something wrong here, if this problem persists, please contact us!", $http_status);
-                    else
-                        echo "<pre>";
-                        throw new ErrorException($http_status . " - " . $response);
+                    $message = "We are doing something wrong here, if this problem persists, please contact us!";
                     break;
+
             }
+
+            if (ENVIRONMENT == 'production')
+                show_error($message, $http_status);
+            else
+                throw new ErrorException("<pre>" . $http_status . " - " . $response . "</pre>");
         }
 
     }

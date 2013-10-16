@@ -9,6 +9,7 @@ Author: Michiel Vancoillie
 @import "bootstrap-select";
 @import "font-awesome";
 @import "introjs";
+@import "jcrop";
 
 
 html, body{
@@ -219,6 +220,15 @@ nav[role=navigation] {
     padding: 7px 9px;
 }
 
+/**
+ * Infoscreens
+ */
+$infoscreen_width: 272.5px;
+$infoscreen_height: 147px;
+$infoscreen_margin: 10px;
+$infoscreen_hover_expand: 4px;
+$infoscreen_border_width: 5px;
+
 .infoscreens{
     width: 100%;
 
@@ -226,7 +236,7 @@ nav[role=navigation] {
         display: table-cell;
         float: left;
         vertical-align: middle;
-        width: 214px;
+        width: $infoscreen_width;
         text-align: center;
         padding: 10px;
         height: 125px;
@@ -245,19 +255,19 @@ nav[role=navigation] {
 
     a:hover{
         .infoscreen{
-            margin: 8px;
-            width: 218px;
+            margin: $infoscreen_margin - ($infoscreen_hover_expand/2);
+            width: $infoscreen_width + $infoscreen_hover_expand;
 
             .screen{
-                height: 119px;
+                height: $infoscreen_height + $infoscreen_hover_expand;
             }
         }
     }
 
     .infoscreen{
-        margin: 10px;
+        margin: $infoscreen_margin;
         padding-bottom: 5px;
-        width: 214px;
+        width: $infoscreen_width;
         float: left;
         text-align: center;
 
@@ -276,8 +286,8 @@ nav[role=navigation] {
             -moz-box-shadow: 0px 0px 5px #aaa;
             -webkit-box-shadow: 0px 0px 5px #aaa;
             box-shadow: 0px 0px 5px #aaa;
-            height: 115px;
-            border: 5px solid #000;
+            height: $infoscreen_height;
+            border: $infoscreen_border_width solid #000;
             background-color: #fff;
             overflow: hidden;
             margin-bottom: 5px;
@@ -298,7 +308,7 @@ nav[role=navigation] {
 
                 .logo-holder{
                     height: 20px;
-                    max-width: 220px;
+                    max-width: $infoscreen_width - ($infoscreen_border_width*2);
                     max-height: 39px;
                     position: absolute;
                     background-color: #fff;
@@ -380,8 +390,13 @@ nav[role=navigation] {
         right: 0;
 
         &.disabled{
-            *{
+            .inner,
+            .right-side{
                 background-color: #222 !important;
+            }
+
+            .logo-holder{
+                opacity: 0.5;
             }
         }
 
@@ -493,6 +508,11 @@ nav[role=navigation] {
 .form-horizontal.center{
     margin: 0px auto;
     max-width: 500px;
+
+    p{
+        margin:0;
+        margin-top: 5px;
+    }
 
     .btn-group{
         padding-bottom: 20px;
@@ -661,6 +681,10 @@ nav[role=navigation] {
 
                     &.image{
                         background-image: url('../img/turtle_image.png');
+                    }
+
+                    &.calendar{
+                        background-image: url('../img/turtle_calendar.png');
                     }
 
                 }
@@ -890,6 +914,198 @@ select{
     width: auto;
 }
 
+.turtle_pricelist{
+    hr{
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 0px;
+    }
+
+    .btn{
+        margin-left: 10px;
+
+        &.delete-item{
+            margin-left: 5px;
+        }
+    }
+
+    .controls{
+        margin-bottom: 10px;
+    }
+
+    input[type=text]{
+        width: 250px;
+    }
+
+    .listings{
+        margin-top: 30px;
+    }
+
+    .listing{
+        margin-left: 50px;
+
+        .control-group{
+            margin-bottom: 0px !important;
+        }
+
+        & > i{
+            margin-right: 10px;
+            color: #aaa;
+        }
+
+        textarea{
+            height: 40px;
+            margin-left: 5px;
+            min-height: 0 !important;
+            width: 90% !important;
+            margin-bottom:10px !important;
+        }
+
+        input{
+            margin-left: 5px;
+        }
+
+        input[type=file]{
+            height: 10px;
+        }
+
+
+        input[type=number]{
+            width: 50px;
+        }
+
+        .entry_image_holder{
+            display: inline-block;
+        }
+
+        form{
+            margin: 0px;
+            padding: 0px;
+        }
+    }
+
+    img{
+        max-width: 120px;
+        margin-left: 10px;
+        max-height: 20px;
+    }
+
+    .small-file-upload{
+        margin-left: 30px !important;
+    }
+}
+
+.turtle_weekmenu{
+    hr{
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 0px;
+    }
+
+    input[type=number]{
+        width: 50px;
+    }
+
+    .btn{
+        margin-left: 10px;
+
+        &.delete-item{
+            margin-left: 5px;
+        }
+    }
+
+    .listing{
+        margin-top: 3px;
+
+        & > i{
+            margin-right: 10px;
+            color: #aaa;
+            float:left;
+        }
+
+        input[type=file]{
+            height: 10px;
+        }
+        input[type=text]{
+            width: 250px;
+        }
+
+        .entry_image_holder{
+            display: inline-block;
+        }
+
+        form{
+            margin: 0px;
+            padding: 0px;
+        }
+    }
+    img{
+        max-width: 120px;
+        margin-left: 10px;
+        max-height: 20px;
+    }
+
+    .small-file-upload{
+        margin-left: 30px !important;
+    }
+}
+
+.turtle_offers{
+    hr{
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 0px;
+    }
+
+    input[type=number]{
+        width: 50px;
+    }
+
+    .btn{
+        margin-left: 10px;
+
+        &.delete-item{
+            margin-left: 5px;
+        }
+    }
+
+    .offer{
+        textarea{
+            margin-top: 10px;
+            height: 40px;
+            min-height: 0 !important;
+            width: 90% !important;
+            margin-bottom: 10px !important;
+        }
+
+
+        input[type=file]{
+            height: 10px;
+        }
+        input[type=text]{
+            width: 250px;
+        }
+
+        .small-file-upload{
+            margin-left: 0 !important;
+
+            form{
+                margin: 0;
+            }
+        }
+    }
+
+    img{
+        max-width: 120px;
+        margin-left: 10px;
+        max-height: 20px;
+    }
+
+    .small-file-upload{
+        margin-left: 30px !important;
+    }
+}
+
 .turtle_signage{
     hr{
         border: 0;
@@ -953,8 +1169,17 @@ select{
 }
 
 @media (max-width: 550px){
+    // Room for search on mobile
+    .row.home{
+        padding-top: 50px !important;
+    }
+
+    .pager.backlink{
+        display: none;
+    }
+
     .grey_wrapper{
-        padding-top: 40px;
+        padding-top: 15px;
     }
 
     .navbar{
@@ -1049,11 +1274,12 @@ select{
 
     nav[role=navigation]{
         padding: 0px;
-        padding-bottom: 20px;
-        text-align: left;
+        margin-top: -45px;
+        margin-bottom: 15px;
+        text-align: right;
 
         h4{
-            display: inline;
+            display: none;
             vertical-align: middle;
         }
     }

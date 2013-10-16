@@ -14,18 +14,8 @@
             }
         ]
     },
-    "social": {
-        "name": "Social",
-        "description": "Feeds from Twitter.",
-        "turtles": [
-            {
-                "type": "twitter",
-                "order": 0
-            }
-        ]
-    },
     "traffic": {
-        "name": "Traffic",
+        "name": "Live Traffic",
         "description": "A map with live traffic information on it.",
         "turtles": [
             {
@@ -82,6 +72,39 @@
             {
                 "type": "rss",
                 "order": 0
+            }
+        ]
+    },
+    "pricelist": {
+        "name": "Price List",
+        "description": "Show a pricelist of your available products",
+        "description_fr": "Montrer la liste de prix de vos produits disponibles",
+        "turtles": [
+            {
+                "type": "pricelist",
+                "order": 0
+            }
+        ]
+    },
+    "weekmenu": {
+        "name" : "WeekMenu",
+        "description" : "Show the weekmenu",
+        "description_fr" : "Montrer le menu de la semaine",
+        "turtles" : [
+            {
+                "type" : "weekmenu",
+                "order" : 0
+            }
+        ]
+    },
+    "offers": {
+        "name" : "Offers",
+        "description" : "Show your special offers",
+        "description_fr" : "Montrer les offres de la semaine",
+        "turtles" : [
+            {
+                "type" : "offers",
+                "order" : 0
             }
         ]
     }

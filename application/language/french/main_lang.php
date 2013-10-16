@@ -67,6 +67,22 @@ $lang['term_searching_for'] = "Recherche de";
 $lang['term_upload'] = "Télécharger";
 $lang['term_uploading'] = "Téléchargement";
 $lang['term_change'] = "Modifiez";
+$lang['term_image'] = "Image";
+$lang['term_price'] = "Prix";
+$lang['term_monday'] = "Lundi";
+$lang['term_tuesday'] = "Mardi";
+$lang['term_wednesday'] = "Mercredi";
+$lang['term_thursday'] = "Jeudi";
+$lang['term_friday'] = "Vendredi";
+$lang['term_saturday'] = "Samedi";
+$lang['term_sunday'] = "Dimanche";
+$lang['term_description'] = "Description";
+$lang['term_wifi_auki'] = "Vendor: Auki";
+$lang['term_wifi_normal'] = "FT: Normal";
+$lang['term_no_wifi'] = "Pas de WiFi";
+$lang['term_flatturtle_wifi'] = "FlatTurtle WiFi";
+$lang['term_wifi_enabled'] = "FlatTurtle WiFi est activée";
+$lang['term_wifi_disabled'] = "Pas de FlatTurtle WiFi installé";
 
 /**
 * Screen detail page
@@ -129,6 +145,27 @@ $lang['turtle_signage_save_alt'] = "Faites toutes les modifications au plan d'é
 $lang['turtle_signage_delete_floor_note'] = "Êtes-vous sûr de vouloir supprimer l'étage complet?";
 $lang['turtle_signage_delete_entry_note'] = "Êtes-vous sûr de vouloir supprimer cette entrée?";
 $lang['turtle_delete_note'] = "Êtes-vous sûr de vouloir supprimer ce Turtle?";
+$lang['turtle_calendar_alt'] = "Un lien vers un flux iCal";
+$lang['turtle_pricelist_add_category'] = "Créer une nouvelle rubrique";
+$lang['turtle_pricelist_add_entry'] = "Créer un nouvel élément dans cette rubrique";
+$lang['turtle_pricelist_category_name'] = "Nom de rubrique";
+$lang['turtle_pricelist_delete_category_note'] = "Êtes-vous sûr de vouloir supprimer la rubrique complet?";
+$lang['turtle_pricelist_delete_item_note'] = "Êtes-vous sûr de vouloir supprimer l'élément?";
+$lang['turtle_pricelist_category_entry_price'] = "Le prix du produit";
+$lang['turtle_pricelist_category_entry_name'] = "Le nom du produit";
+$lang['turtle_pricelist_category_entry_description'] = "La description du produit";
+$lang['turtle_weekmenu_add_offer'] = "Créer une offre";
+$lang['turtle_weekmenu_delete_category_note'] = "Êtes-vous sûr de vouloir supprimer la rubrique complet?";
+$lang['turtle_weekmenu_offer_name'] = "Nom d'offre";
+$lang['turtle_weekmenu_delete_offer_note'] = "Êtes-vous sûr de vouloir supprimer l'offre?";
+$lang['turtle_weekmenu_title_alt'] = "Titre de 'menu de la semaine'";
+$lang['turtle_weekmenu_today_title_alt'] = "Titre de 'plat du jour'";
+$lang['turtle_weekmenu_title'] = "Menu de la semaine";
+$lang['turtle_weekmenu_today_title'] = "Plat du jour";
+$lang['turtle_weekmenu_radio_today'] = "Montre le plat du jour";
+$lang['turtle_weekmenu_radio_full_weekmenu'] = "Montre menu de la semaine";
+
+
 
 /**
 * Panes page

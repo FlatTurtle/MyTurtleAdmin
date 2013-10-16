@@ -31,7 +31,7 @@ class Screen extends CI_Controller {
         // Update the footer
         $footerdata['type']  = trim($this->input->post('footer_type'));
         if($footerdata['type'] == "message"){
-            $footerdata['value']  = trim($this->input->post('footer_message'));
+            $footerdata['value']  = trim(htmlentities($this->input->post('footer_message')));
             if(empty($footerdata['value'])){
                 $footerdata['value'] = ' ';
             }

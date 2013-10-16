@@ -67,6 +67,22 @@ $lang['term_searching_for'] = "Zoeken op";
 $lang['term_upload'] = "Upload";
 $lang['term_uploading'] = "Uploaden";
 $lang['term_change'] = "Veranderen";
+$lang['term_image'] = "Afbeelding";
+$lang['term_price'] = "Prijs";
+$lang['term_monday'] = "Maandag";
+$lang['term_tuesday'] = "Dinsdag";
+$lang['term_wednesday'] = "Woensdag";
+$lang['term_thursday'] = "Donderdag";
+$lang['term_friday'] = "Vrijdag";
+$lang['term_saturday'] = "Zaterdag";
+$lang['term_sunday'] = "Zondag";
+$lang['term_description'] = "Beschrijving";
+$lang['term_wifi_auki'] = "Vendor: Auki";
+$lang['term_wifi_normal'] = "FT: Normal";
+$lang['term_no_wifi'] = "Geen WiFi";
+$lang['term_flatturtle_wifi'] = "FlatTurtle WiFi";
+$lang['term_wifi_enabled'] = "FlatTurtle WiFi is geactiveerd";
+$lang['term_wifi_disabled'] = "Geen FlatTurtle WiFi geïnstalleerd";
 
 /**
  * Screen detail page
@@ -129,6 +145,27 @@ $lang['turtle_signage_save_alt'] = "Maak al uw aanpassingen aan het plan en druk
 $lang['turtle_signage_delete_floor_note'] = "Weet u zeker dat u de hele verdieping wilt verwijderen?";
 $lang['turtle_signage_delete_entry_note'] = "Weet u zeker dat u dit item wilt verwijderen?";
 $lang['turtle_delete_note'] = "Weet u zeker dat u deze Turtle wilt verwijderen?";
+$lang['turtle_calendar_alt'] = "Een URL naar een iCal feed";
+$lang['turtle_pricelist_add_category'] = "Voeg een categorie toe";
+$lang['turtle_pricelist_add_entry'] = "Voeg een item toe aan deze categorie";
+$lang['turtle_pricelist_category_name'] = "Categorie naam";
+$lang['turtle_pricelist_delete_category_note'] = "Weet u zeker dat u deze categorie en zijn items wilt verwijderen?";
+$lang['turtle_pricelist_delete_item_note'] = "Weet u zeker dat u dit item wilt verwijderen?";
+$lang['turtle_pricelist_category_entry_price'] = "Productprijs";
+$lang['turtle_pricelist_category_entry_name'] = "Productnaam";
+$lang['turtle_pricelist_category_entry_description'] = "Productbeschrijving";
+$lang['turtle_weekmenu_add_offer'] = "Voeg een aanbieding toe";
+$lang['turtle_weekmenu_delete_category_note'] = "Weet u zeker dat u deze categorie wilt verwijderen?";
+$lang['turtle_weekmenu_offer_name'] = "Titel aanbieding";
+$lang['turtle_weekmenu_delete_offer_note'] = "Weet u zeker dat u deze aanbieding wilt verwijderen?";
+$lang['turtle_weekmenu_title_alt'] = "Titel menu van de week";
+$lang['turtle_weekmenu_today_title_alt'] = "Titel menu van de dag";
+$lang['turtle_weekmenu_title'] = "Weekmenu";
+$lang['turtle_weekmenu_today_title'] = "Menu van de dag";
+$lang['turtle_weekmenu_radio_today'] = "Toon menu van de dag";
+$lang['turtle_weekmenu_radio_full_weekmenu'] = "Toon volledig week menu";
+
+
 
 /**
  * Panes page

@@ -44,13 +44,18 @@
                             lib/bootstrap.js,
                             lib/intro.js,
                             lib/wysihtml5.js,
+                            lib/jquery.color.js,
+                            lib/jquery.jcrop.js,
                             inc/turtle-general.js,
                             inc/turtle-creation.js,
                             inc/turtle-sorting.js,
                             inc/pane-general.js,
                             inc/pane-creation.js,
                             inc/pane-sorting.js,
-                            inc/turtle-signage.js"
+                            inc/turtle-signage.js,
+                            inc/turtle-pricelist.js,
+                            inc/turtle-weekmenu.js,
+                            inc/turtle_offers.js"
                 excludes=""/>
         </concat>
         <echo>Finished</echo>

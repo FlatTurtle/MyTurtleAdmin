@@ -17,7 +17,7 @@
 <div class="control-group">
     <label class="control-label" for="{{id}}-destination">{{term_via}} ({{term_optional}})</label>
     <div class="controls">
-        <input type="text" id="{{id}}-destination" name="{{id}}-destination" placeholder="{{turtle_nmbs_alt}}" class='input-block-level autocomplete nmbs-location' value="{{destination}}"/>
+        <input type="text" id="{{id}}-destination" name="{{id}}-destination" placeholder="{{turtle_nmbs_alt}}" class='input-block-level autocomplete nmbs-via' value="{{destination}}"/>
         <span class='note'>
             {{turtle_nmbs_via_alt}}
         </span>

@@ -82,6 +82,69 @@ function bind_event_to_turtles(){
         });
     });
 
+    // Comma separated autocomplete via
+    function split( val ) {
+        return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+        return split( term ).pop();
+    }
+    $(".nmbs-via").off().on('keydown.autocomplete', function(){
+        $(this).autocomplete({
+            source: function( request, response ) {
+                $.ajax({
+                    url: "https://data.irail.be/NMBS/Stations.json",
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        name: extractLast( request.term )
+                    },
+                    success: function( data ) {
+                        var pattern = new RegExp(extractLast(request.term.toLowerCase()));
+                        response( $.map( data.Stations, function( item ) {
+                            if(item.name.toLowerCase().match(pattern)){
+                                return {
+                                    label: item.name,
+                                    value: item.name
+                                }
+                            }
+                        }));
+                    }
+                });
+            },
+            focus: function(event, ui){
+                var terms = split( this.value );
+                // remove empty entry if needed
+                if(terms[terms.length-1]==""){
+                    terms.pop();
+                }
+                // remove current input
+                terms.pop();
+                // add the selected item
+                terms.push( ui.item.value );
+                // add placeholder to get the comma-and-space at the end
+                terms.push( "" );
+                this.value = terms.join( ", " );
+                return false;
+            },
+            select: function( event, ui ) {
+                var terms = split( this.value );
+                // remove empty entry if needed
+                if(terms[terms.length-1]==""){
+                    terms.pop();
+                }
+                // remove the current input
+                terms.pop();
+                // add the selected item
+                terms.push( ui.item.value );
+                // add placeholder to get the comma-and-space at the end
+                terms.push( "" );
+                this.value = terms.join( ", " );
+                return false;
+            }
+        });
+    });
+
     // Autocomplete MIVB
     $(".mivb-location").off().on('keydown.autocomplete', function(){
         $(this).autocomplete({
@@ -354,7 +417,16 @@ function bind_event_to_turtles(){
                 }
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else if(turtle_instance.hasClass('turtle_signage')){
-                option_data['data'] = saveSignage();
+                option_data['data'] = saveSignage(turtle_instance);
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_pricelist')){
+                option_data['data'] = savePriceList(turtle_instance);
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_weekmenu')){
+                option_data['data'] = saveWeekMenu(turtle_instance);
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_offers')){
+                option_data['data'] = saveOffers(turtle_instance);
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
@@ -399,9 +471,23 @@ function bind_event_to_turtles(){
         }
     });
 
+    // Twitter larger selector
+    $('.turtle_instance .make-larger').off().on('click', function(){
+        $('.turtle_instance .size-field').val('');
+        if($(this).is(':checked')){
+            $('.turtle_instance .size-field').val('big');
+        }
+    });
+
     // Map & mapbox type selector
     $('.turtle_map .map-location-type').off().on('change', changedMapType);
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
+}
+
+
+// Check Twitter options default
+if($('.turtle_instance .size-field').val() == "big"){
+    $('.turtle_instance .make-larger').attr('checked', 'checked')
 }
 
 

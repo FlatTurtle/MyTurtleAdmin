@@ -176,7 +176,7 @@ class Advanced extends CI_Controller {
     /**
      * Screenshots tab
      */
-    public function shots($alias){
+    private function shots_overview($alias){
         $data['infoscreens'] = getInfoscreens();
         foreach($data['infoscreens'] as $infoscreen){
             if($infoscreen->alias == $alias)
@@ -238,7 +238,7 @@ class Advanced extends CI_Controller {
     /**
      * Screenshots detail
      */
-    public function shot($alias, $name){
+    private function shot($alias, $name){
         $data['infoscreen'] = $this->infoscreen->get($alias);
 
         $shots_path = $this->config->item('screenshots_path');
@@ -255,5 +255,12 @@ class Advanced extends CI_Controller {
             redirect(site_url($alias . '/shots'));
         }
     }
-
+    
+    public function shots($alias, $name = ""){
+        if($name === ""){
+            $this->shots_overview($alias);
+        }else{
+            $this->shot($alias,$name);
+        }
+    }
 }

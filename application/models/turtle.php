@@ -15,7 +15,7 @@ class Turtle extends CI_Model {
     public function __construct() {
         parent::__construct();
 
-        // Init mustach engine
+        // Init mustache engine
         $this->m = new Mustache_Engine;
 
         $this->load->model('option');
@@ -191,6 +191,18 @@ class Turtle extends CI_Model {
                     }
                 }
                 $data['data'] = json_encode($floor_data);
+            }
+        }else if($turtle->type == "pricelist"){
+            if(!empty($turtle->options->data)){
+                $data['data'] = $turtle->options->data;
+            }
+        }else if($turtle->type == "weekmenu"){
+            if(!empty($turtle->options->data)){
+                $data['data'] = $turtle->options->data;
+            }
+        }else if($turtle->type == "offers"){
+            if(!empty($turtle->options->data)){
+                $data['data'] = $turtle->options->data;
             }
         }
 

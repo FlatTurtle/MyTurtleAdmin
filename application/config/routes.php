@@ -49,7 +49,7 @@ $route['^[a-z]{2}/login/*'] = 'home/login';
 $route['^[a-z]{2}/logout/*'] = 'home/logout';
 $route['^[a-z]{2}/(.*)/settings'] = 'advanced/index/$1';
 $route['^[a-z]{2}/(.*)/settings/(.*)'] = 'advanced/$2/$1';
-$route['^[a-z]{2}/(.*)/shot/(.*)'] = 'advanced/shot/$1/$2';
+$route['^[a-z]{2}/(.*)/shots/(.*)'] = 'advanced/shots/$1/$2';
 $route['^[a-z]{2}/(.*)/shots'] = 'advanced/shots/$1';
 $route['^[a-z]{2}/(.*)/left/create/*'] = 'turtles/create/$1';
 $route['^[a-z]{2}/(.*)/left/delete/*'] = 'turtles/delete/$1';
@@ -66,6 +66,8 @@ $route['^[a-z]{2}/(.*)/plugin/(.*)'] = 'plugin/$2/$1';
 $route['^[a-z]{2}/(.*)/update'] = 'screen/update/$1';
 $route['^[a-z]{2}/(.*)/signage/upload/([0-9]+)/(.*)'] = 'turtles/signage_upload_logo/$1/$2/$3';
 $route['^[a-z]{2}/(.*)/signage/delete/([0-9]+)/(.*)'] = 'turtles/signage_delete_logo/$1/$2/$3';
+$route['^[a-z]{2}/(.*)/menu-image/upload/([0-9]+)/(.*)'] = 'turtles/upload_menu_image/$1/$2/$3';
+$route['^[a-z]{2}/(.*)/menu-image/delete/([0-9]+)/(.*)'] = 'turtles/delete_menu_image/$1/$2/$3';
 $route['^[a-z]{2}/(.*)'] = 'screen/show/$1';
 
 

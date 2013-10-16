@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row home">
     <div class="span12" data-step="2" data-intro="<?php echo lang('help_select_screen'); ?>">
         <div class='infoscreens'>
             <div class="alert alert-info alert-block search-message hide">

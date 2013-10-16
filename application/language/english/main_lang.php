@@ -67,6 +67,25 @@ $lang['term_searching_for'] = "Searching for";
 $lang['term_upload'] = "Upload";
 $lang['term_uploading'] = "Uploading";
 $lang['term_change'] = "Change";
+$lang['term_larger'] = "Larger";
+$lang['term_filter'] = "Filter";
+$lang['term_image'] = "Image";
+$lang['term_price'] = "Price";
+$lang['term_monday'] = "Monday";
+$lang['term_tuesday'] = "Tuesday";
+$lang['term_wednesday'] = "Wednesday";
+$lang['term_thursday'] = "Thursday";
+$lang['term_friday'] = "Friday";
+$lang['term_saturday'] = "Saturday";
+$lang['term_sunday'] = "Sunday";
+$lang['term_description'] = "Description";
+$lang['term_wifi_auki'] = "Vendor: Auki";
+$lang['term_wifi_normal'] = "FT: Normal";
+$lang['term_no_wifi'] = "No WiFi";
+$lang['term_flatturtle_wifi'] = "FlatTurtle WiFi";
+$lang['term_wifi_enabled'] = "FlatTurtle WiFi has been activated";
+$lang['term_wifi_disabled'] = "No FlatTurtle WiFi installed";
+
 
 /**
  * Screen detail page
@@ -88,7 +107,6 @@ $lang['screen_btn_message'] = "Send message";
 $lang['screen_btn_clock'] = "Toggle clock";
 $lang['screen_btn_power'] = "Toggle power";
 $lang['screen_btn_refresh'] = "Refresh";
-
 
 /**
  * Turtles page
@@ -117,6 +135,7 @@ $lang['turtle_finance_secondary_alt'] = "(e.g. GOOG, AAPL, DUV.BR)";
 $lang['turtle_finance_primary_note'] = "Stock symbol, this one is shown bigger than the secondary stocks";
 $lang['turtle_finance_secondary_note'] = "List of comma separated stock symbols";
 $lang['turtle_twitter_search_alt'] = "Twitter search (e.g. #FlatTurtle)";
+$lang['turtle_twitter_larger_note'] = "Check this box to show a bigger version of the tweets";
 $lang['turtle_rss_alt'] = "A URL to an RSS feed";
 $lang['turtle_rss_custom'] = "Custom feed";
 $lang['turtle_screen_location'] = "Screen location";
@@ -130,6 +149,27 @@ $lang['turtle_signage_save_alt'] = "Make all your changes to the floor plan, the
 $lang['turtle_signage_delete_floor_note'] = "Are you sure you want to delete this entire floor?";
 $lang['turtle_signage_delete_entry_note'] = "Are you sure you want to delete this entry?";
 $lang['turtle_delete_note'] = "Are you sure you want to delete this Turtle?";
+$lang['turtle_calendar_alt'] = "A URL to an iCal feed";
+$lang['turtle_calendar_filter'] = "Filter the events to show, based on location";
+$lang['turtle_pricelist_add_category'] = "Add a category";
+$lang['turtle_pricelist_add_entry'] = "Add an item in this category";
+$lang['turtle_pricelist_category_name'] = "Category name";
+$lang['turtle_pricelist_delete_category_note'] = "Are you sure you want to remove this entire category and its items?";
+$lang['turtle_pricelist_delete_item_note'] = "Are you sure you want to remove this item from this category?";
+$lang['turtle_pricelist_category_entry_price'] = "Product price";
+$lang['turtle_pricelist_category_entry_name'] = "Product name";
+$lang['turtle_pricelist_category_entry_description'] = "Product description";
+$lang['turtle_weekmenu_add_offer'] = "Add an offer";
+$lang['turtle_weekmenu_delete_category_note'] = "Are you sure you want to remove this category?";
+$lang['turtle_weekmenu_offer_name'] = "Offer title";
+$lang['turtle_weekmenu_delete_offer_note'] = "Are you sure you want to remove this offer?";
+$lang['turtle_weekmenu_title_alt'] = "Title menu of the week";
+$lang['turtle_weekmenu_today_title_alt'] = "Title menu of the day";
+$lang['turtle_weekmenu_title'] = "Weekmenu";
+$lang['turtle_weekmenu_today_title'] = "Menu of the day";
+$lang['turtle_weekmenu_radio_today'] = "Show menu of the day";
+$lang['turtle_weekmenu_radio_full_weekmenu'] = "Show full week menu";
+
 
 /**
  * Panes page
@@ -144,7 +184,6 @@ $lang['panes_disable_note'] = "Are you sure you want to disable this pane?";
 $lang['panes_adding'] = "Adding a new pane to the screen";
 $lang['panes_deleting'] = "Deleting the pane from the screen";
 
-
 /**
  * Error messages
  */
@@ -157,7 +196,6 @@ $lang['error_create_turtle'] = "Couldn't create Turtle, please refresh and try a
 $lang['error_delete_turtle'] = "Couldn't delete that Turtle at the moment";
 $lang['error_add_pane'] = "Couldn't enable pane, please refresh and try again";
 $lang['error_delete_pane'] = "Couldn't delete that pane at the moment";
-
 
 /**
  * Warnings
