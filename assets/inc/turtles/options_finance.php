@@ -15,7 +15,7 @@
 </div>
 <div class="control-group">
     <div class="controls">
-        <span class='note'>{{ turtle_finance_lookup_note }} <a href="http://finance.yahoo.com/marketupdate/overview">{{term_link}}</a></span>
+        <span class='note'>{{ turtle_finance_lookup_note }} <a href="http://finance.yahoo.com/marketupdate/overview" target="_blank">Yahoo finance</a></span>
     </div>
 
 </div>
