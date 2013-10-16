@@ -24,16 +24,6 @@
             }
         ]
     },
-    "location": {
-        "name": "Location",
-        "description": "A map focused around a location.",
-        "turtles": [
-            {
-                "type": "mapbox",
-                "order": 0
-            }
-        ]
-    },
     "finance": {
         "name": "Finance",
         "description": "Stock information, own and secondary stock.",
