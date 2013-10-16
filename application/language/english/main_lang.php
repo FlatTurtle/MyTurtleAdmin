@@ -134,6 +134,7 @@ $lang['turtle_finance_primary_alt'] = "(e.g. KBC.BR)";
 $lang['turtle_finance_secondary_alt'] = "(e.g. GOOG, AAPL, DUV.BR)";
 $lang['turtle_finance_primary_note'] = "Stock symbol, this one is shown bigger than the secondary stocks";
 $lang['turtle_finance_secondary_note'] = "List of comma separated stock symbols";
+$lang['turtle_finance_lookup_note'] = "Use the next site to find the right stock symbols by typing the company name in the search bar: ";
 $lang['turtle_twitter_search_alt'] = "Twitter search (e.g. #FlatTurtle)";
 $lang['turtle_twitter_larger_note'] = "Check this box to show a bigger version of the tweets";
 $lang['turtle_rss_alt'] = "A URL to an RSS feed";

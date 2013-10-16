@@ -13,4 +13,10 @@
         <span class='note'>{{turtle_finance_secondary_note}}</span>
     </div>
 </div>
+<div class="control-group">
+    <div class="controls">
+        <span class='note'>{{ turtle_finance_lookup_note }} <a href="http://finance.yahoo.com/marketupdate/overview">{{term_link}}</a></span>
+    </div>
+
+</div>
 <? include 'footer.php'; ?>

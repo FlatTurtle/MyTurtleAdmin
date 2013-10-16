@@ -131,6 +131,7 @@ $lang['turtle_finance_primary_alt'] = "(bvb. KBC.BR)";
 $lang['turtle_finance_secondary_alt'] = "(bvb. GOOG, AAPL, DUV.BR)";
 $lang['turtle_finance_primary_note'] = "Aandeelsymbool, deze staat het grootst op het scherm";
 $lang['turtle_finance_secondary_note'] = "Een lijst van aandeelsymbolen gescheiden door een komma";
+$lang['turtle_finance_lookup_note'] = "Gebruik de volgende site om het juiste aandeelsymbool te vinden door de bedrijfsnaam daar in de zoekbalk in te vullen: ";
 $lang['turtle_twitter_search_alt'] = "Twitter (bvb. #FlatTurtle)";
 $lang['turtle_rss_alt'] = "Een URL naar een RSS-feed";
 $lang['turtle_rss_custom'] = "Eigen feed";
