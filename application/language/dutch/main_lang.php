@@ -193,6 +193,7 @@ $lang['error_create_turtle'] = "Kon de Turtle niet aanmaken. Refresh de pagina e
 $lang['error_delete_turtle'] = "Kon de Turtle niet verwijderen. Refresh de pagina en probeer het opnieuw.";
 $lang['error_add_pane'] = "Kon de pane niet activeren. Refresh de pagina en probeer het opnieuw.";
 $lang['error_delete_pane'] = "Kon de pane niet verwijderen. Refresh de pagina en probeer het opnieuw.";
+$lang['error_resolve_walktime_geocodes'] = "Kon de wandelduur niet berekenen, de schermlocatie is niet gedefinieerd";
 
 /**
  * Warnings
