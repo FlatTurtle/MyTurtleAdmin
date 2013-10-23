@@ -1,6 +1,6 @@
 <?php
 
-$version_css = "1.0.5"
+$version_css = "1.0.6"
 
 ?>
 <!doctype html>
