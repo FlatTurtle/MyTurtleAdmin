@@ -39,8 +39,13 @@
         <span class='note'><?= lang('turtles_drag_to_sort') ?></span>
     </div>
 </div>
-<script type='text/javascript'>
-    var from = new Object();
-    from.lat = <?php echo $infoscreen->latitude ?>;
-    from.lon = <?php echo $infoscreen->longitude ?>;
-</script>
+
+<?php
+    if($infoscreen->latitude && $infoscreen->longitude) {
+        echo "<script type='text/javascript'>";
+        echo "var from = {}";
+        echo "from.lat = " . $infoscreen->latitude . ";";
+        echo "from.lon = " . $infoscreen->longitude . ";";
+        echo "</script>";
+    }
+?>

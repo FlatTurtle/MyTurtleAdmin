@@ -15,7 +15,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        buildSignage($('#{{id}}-data').val(), $('#{{id}}-data').parents('.turtle_signage'));
+        buildSignage($('#{{id}}-data script').text().trim(), $('#{{id}}-data').parents('.turtle_signage'));
     })
 </script>
 <? include 'footer.php'; ?>

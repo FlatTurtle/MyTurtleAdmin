@@ -197,6 +197,7 @@ $lang['error_create_turtle'] = "Couldn't create Turtle, please refresh and try a
 $lang['error_delete_turtle'] = "Couldn't delete that Turtle at the moment";
 $lang['error_add_pane'] = "Couldn't enable pane, please refresh and try again";
 $lang['error_delete_pane'] = "Couldn't delete that pane at the moment";
+$lang['error_resolve_walktime_geocodes'] = "Couldn't calculate the walking duration. The screens geo coordinates aren't set";
 
 /**
  * Warnings

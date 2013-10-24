@@ -330,7 +330,7 @@ function bind_event_to_turtles(){
                     type: 'GET',
                     success: function( data ) {
                         var pattern = new RegExp(option_data['location'].toLowerCase());
-                        var found = null
+                        var found = null;
                         $.map( data.Stations, function( item ) {
                             if(item.name.toLowerCase().match(pattern)){
                                 found = item.latitude + "," + item.longitude;
@@ -496,7 +496,7 @@ if($('.turtle_instance .size-field').val() == "big"){
  */
 function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
     // Is the screen location set?
-    if(from && from.hasOwnProperty('lat') && from.hasOwnProperty('lon')){
+    if(typeof from !== 'undefined' && from.hasOwnProperty('lat') && from.hasOwnProperty('lon')){
 
         // Get results with AJAX
         $.ajax({
@@ -521,6 +521,10 @@ function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
         });
+    }else{
+        alert(lang['error_resolve_walktime_geocodes']);
+        option_data['time_walk'] = -1;
+        updateTurtle(turtle_instance, button, turtle_id, option_data);
     }
 }
 

@@ -131,7 +131,7 @@ $lang['turtle_finance_primary_alt'] = "(ex: KBC.BR)";
 $lang['turtle_finance_secondary_alt'] = "(ex: GOOG, AAPL, DUV.BR)";
 $lang['turtle_finance_primary_note'] = "Symbole boursier, celui-ci est représenté plus grand que les stocks secondaires";
 $lang['turtle_finance_secondary_note'] = "Liste virgules des symboles boursiers";
-$lang['turtle_finance_lookup_note'] = "Use the next site to find the right stock symbols by typing the company name in the search bar: ";
+$lang['turtle_finance_lookup_note'] = "Utilisez le site suivant pour trouver les symboles boursiers correcte en faisant une recherche du nom de l'entreprise dans la barre de recherche: ";
 $lang['turtle_twitter_search_alt'] = "Twitter recherche (ex: #FlatTurtle)";
 $lang['turtle_rss_alt'] = "L'adresse web d'un flux RSS";
 $lang['turtle_rss_custom'] = "Flux adapté";
@@ -193,6 +193,7 @@ $lang['error_create_turtle'] = "Impossible de créer le Turtle. Veuillez actuali
 $lang['error_delete_turtle'] = "Impossible de supprimer le Turtle pour le moment";
 $lang['error_add_pane'] = "Impossible d'activer le panneau. Veuillez actualiser l'écran et réessayer";
 $lang['error_delete_pane'] = "Impossible de supprimer le panneau pour le moment";
+$lang['error_resolve_walktime_geocodes'] = "Couldn't calculate the walking duration. The screens geo coordinates aren't set";
 
 /**
  * Warnings
