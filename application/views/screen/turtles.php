@@ -43,7 +43,7 @@
 <?php
     if($infoscreen->latitude && $infoscreen->longitude) {
         echo "<script type='text/javascript'>";
-        echo "var from = {}";
+        echo "var from = new Object();";
         echo "from.lat = " . $infoscreen->latitude . ";";
         echo "from.lon = " . $infoscreen->longitude . ";";
         echo "</script>";

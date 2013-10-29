@@ -499,7 +499,7 @@ if($('.turtle_instance .size-field').val() == "big"){
  */
 function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
     // Is the screen location set?
-    if(typeof from !== 'undefined' && from.hasOwnProperty('lat') && from.hasOwnProperty('lon')){
+    if(from.hasOwnProperty('lat') && from.hasOwnProperty('lon')){
 
         // Get results with AJAX
         $.ajax({
