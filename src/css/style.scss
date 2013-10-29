@@ -995,6 +995,86 @@ select{
     }
 }
 
+.turtle_image{
+    #slide-sorter{
+        list-style-type:none;
+
+        li.slide{
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            float: left;
+            overflow:hidden;
+
+            .header{
+                margin: 3px 3px 3px 125px;
+                position:absolute;
+
+                .remove-slide{
+                    width: 15px;
+                    line-height: 15px;
+                    padding: 2px;
+                    float: right;
+                    margin-right: 2px;
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+
+    #modal-fade{
+        display: none;
+        position: fixed;
+        left: 0%;
+        top: 0%;
+        background-color: black;
+        -moz-opacity: 0.7;
+        opacity: .70;
+        filter: alpha(opacity=70);
+        width: 100%;
+        height: 100%;
+        z-index: 90;
+    }
+    #upload-modal{
+        padding:10px;
+        background-color: #eeeeee;
+        border: 1px solid #dddddd;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        left:10%;
+        top:10%;
+        position: fixed;
+        display: none;
+        width: 80%;
+        min-height: 300px;
+        z-index:100;
+
+        .header{
+            h1{
+                line-height: 1.25em;
+                font-size: 1.25em;
+            }
+            margin:1%;
+        }
+
+        input[type="file"]#slide-upload{
+            line-height: normal;
+        }
+
+        #portrait, #landscape{
+            float:left;
+            width:48%;
+            padding:1%;
+        }
+
+        .footer{
+            float:right;
+            margin:1%;
+        }
+    }
+}
+
 .turtle_weekmenu{
     hr{
         border: 0;

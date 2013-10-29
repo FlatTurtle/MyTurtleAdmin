@@ -68,6 +68,9 @@ $route['^[a-z]{2}/(.*)/signage/upload/([0-9]+)/(.*)'] = 'turtles/signage_upload_
 $route['^[a-z]{2}/(.*)/signage/delete/([0-9]+)/(.*)'] = 'turtles/signage_delete_logo/$1/$2/$3';
 $route['^[a-z]{2}/(.*)/menu-image/upload/([0-9]+)/(.*)'] = 'turtles/upload_menu_image/$1/$2/$3';
 $route['^[a-z]{2}/(.*)/menu-image/delete/([0-9]+)/(.*)'] = 'turtles/delete_menu_image/$1/$2/$3';
+$route['^[a-z]{2}/(.*)/slideshow/upload/([0-9]+)/(.*)'] = 'turtles/slideshow_upload/$1/$2/$3';
+$route['^[a-z]{2}/(.*)/slideshow/delete/([0-9]+)/(.*)'] = 'turtles/slideshow_delete/$1/$2/$3';
+$route['^[a-z]{2}/(.*)/slideshow/crop/([0-9]+)/(.*)'] = 'turtles/slideshow_crop/$1/$2/$3';
 $route['^[a-z]{2}/(.*)'] = 'screen/show/$1';
 
 

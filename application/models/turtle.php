@@ -204,6 +204,10 @@ class Turtle extends CI_Model {
             if(!empty($turtle->options->data)){
                 $data['data'] = $turtle->options->data;
             }
+        }else if($turtle->type == "image"){
+            if(!empty($turtle->options->urls)){
+                $data['data'] = $turtle->options->urls;
+            }
         }
 
         // Language specific data

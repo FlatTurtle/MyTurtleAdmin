@@ -428,6 +428,9 @@ function bind_event_to_turtles(){
             }else if(turtle_instance.hasClass('turtle_offers')){
                 option_data['data'] = saveOffers(turtle_instance);
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
+            }else if(turtle_instance.hasClass('turtle_image')){
+                option_data['urls'] = saveSlideshow(turtle_instance);
+                updateTurtle(turtle_instance, button, turtle_id, option_data);
             }else{
                 updateTurtle(turtle_instance, button, turtle_id, option_data);
             }
@@ -522,7 +525,7 @@ function calculateWalkTime(to, turtle_instance, button, turtle_id, option_data){
             }
         });
     }else{
-        alert(lang['error_resolve_walktime_geocodes']);
+        //alert(lang['error_resolve_walktime_geocodes']);
         option_data['time_walk'] = -1;
         updateTurtle(turtle_instance, button, turtle_id, option_data);
     }

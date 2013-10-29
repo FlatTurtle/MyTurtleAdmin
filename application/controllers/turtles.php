@@ -118,7 +118,7 @@ class Turtles extends CI_Controller {
      * Uploads for signage turtle
      */
     public function signage_upload_logo($alias, $turtle_id, $file_id){
-        $this->upload_image($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR, LOGO_MAX_WIDTH, LOGO_MAX_HEIGHT, "uploads/signage/");
+        $this->upload_image_auto_crop($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR, LOGO_MAX_WIDTH, LOGO_MAX_HEIGHT, "uploads/signage/");
     }
 
 
@@ -126,7 +126,13 @@ class Turtles extends CI_Controller {
      * Uploads for signage turtle
      */
     public function signage_delete_logo($alias, $turtle_id, $file_id){
-        $this->delete_image($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR);
+        header('Content-type: application/json');
+        $data = true;
+        if(!$this->delete_image($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR)){
+            $data = false;
+        }
+        echo json_encode($data);
+        exit();
     }
 
 
@@ -134,7 +140,7 @@ class Turtles extends CI_Controller {
      * Uploads an image for pricelist/weekmenu
      */
     public function upload_menu_image($alias, $turtle_id, $file_id){
-        $this->upload_image($alias, $turtle_id, $file_id, MENU_IMAGE_UPLOAD_DIR, MENU_IMAGE_MAX_WIDTH, MENU_IMAGE_MAX_HEIGHT, "uploads/menu_images/");
+        $this->upload_image_auto_crop($alias, $turtle_id, $file_id, MENU_IMAGE_UPLOAD_DIR, MENU_IMAGE_MAX_WIDTH, MENU_IMAGE_MAX_HEIGHT, "uploads/menu_images/");
     }
 
 
@@ -142,13 +148,191 @@ class Turtles extends CI_Controller {
      *  Deleting the uploaded pricelist/weekmenu image
      */
     public function delete_menu_image($alias, $turtle_id, $file_id){
-        $this->delete_image($alias, $turtle_id, $file_id, MENU_IMAGE_UPLOAD_DIR);
+        header('Content-type: application/json');
+        $data = true;
+        if(!$this->delete_image($alias, $turtle_id, $file_id, MENU_IMAGE_UPLOAD_DIR)){
+            $data = false;
+        }
+        echo json_encode($data);
+        exit();
+    }
+
+    public function slideshow_delete($alias, $turtle_id, $file_id){
+        header('Content-type: application/json');
+        $data = true;
+
+        if(!$this->delete_image($alias, $turtle_id, $file_id, SLIDESHOW_UPLOAD_DIR)){
+            $data = false;
+        }
+        if(!$this->delete_image($alias, $turtle_id, $file_id . "-portrait", SLIDESHOW_UPLOAD_DIR)){
+            $data = false;
+        }
+
+        if(!$this->delete_image($alias, $turtle_id, $file_id . "-landscape", SLIDESHOW_UPLOAD_DIR)){
+            $data = false;
+        }
+
+        echo json_encode($data);
+        exit();
+    }
+
+    /**
+     * upload an image for the slideshow
+     *
+     * @param $alias
+     * @param $turle_id
+     * @param $file_id
+     */
+    public function slideshow_upload($alias, $turle_id, $file_id){
+        header('Content-type: application/json');
+        $data = false;
+
+        $result = $this->upload_image($alias, $turle_id, $file_id, SLIDESHOW_UPLOAD_DIR, "uploads/slideshow_images/");
+        if($result){
+            $data = $result;
+        }
+        echo json_encode($data);
+        exit();
+    }
+
+    public function slideshow_crop($alias, $turtle_id, $file_id){
+        header('Content-type: application/json');
+        $data = false;
+
+        $directory = SLIDESHOW_UPLOAD_DIR . $alias . "/" . $turtle_id . "/";
+
+        //find file with id
+        $original_image = $directory . $file_id . ".png";
+
+        //post data
+        // _POST not populated so using input..
+        $post_data = json_decode(file_get_contents('php://input'));
+
+        //crop portrait
+        $portrait_coords = $post_data->portrait;
+        $portrait_crop = $this->crop($original_image, $portrait_coords, $file_id . "-portrait.png", $directory);
+
+        //crop landscape
+        $landscape_coords = $post_data->landscape;
+        $landscape_crop = $this->crop($original_image, $landscape_coords, $file_id . "-landscape.png", $directory);
+
+        if($landscape_crop && $portrait_crop){
+            // return portrait uri (temp)
+            $data = base_url() . "uploads/slideshow_images/" . $alias . "/" . $turtle_id . "/" . $file_id . "-portrait.png";
+        }
+
+        echo json_encode($data);
+        exit();
+    }
+
+    /**
+     * Crop an image to specified coordinates and save with specified filename in specified directory.
+     *
+     * @param $image
+     * @param $coords : associative array with x1, y1, x2, y2
+     * @param $filename
+     * @param $directory
+     * @return bool
+     */
+    private function crop($image, $coords, $filename, $directory){
+        $x1 = $coords->x1;
+        $y1 = $coords->y1;
+        $x2 = $coords->x2;
+        $y2 = $coords->y2;
+
+        // target width and height
+        $width = $x2 - $x1;
+        $height = $y2 - $y1;
+
+        //removing the 0 values if the image is smaller
+        if($x1 < 0) $x1 = 0;
+        if($y1 < 0) $y1 = 0;
+        if($x2 < 0) $x2 = 0;
+        if($y2 < 0) $y2 = 0;
+
+
+        // quality
+        $png_quality = 0;
+
+
+        list($source_image_width, $source_image_height, $source_image_type) = getimagesize($image);
+        switch ($source_image_type) {
+            case IMAGETYPE_GIF:
+                $original_image = imagecreatefromgif($image);
+                break;
+            case IMAGETYPE_JPEG:
+                $original_image = imagecreatefromjpeg($image);
+                break;
+            case IMAGETYPE_PNG:
+                $original_image = imagecreatefrompng($image);
+                break;
+        }
+        $new_image = ImageCreateTrueColor( $width, $height);
+
+
+        $dst_x1 = 0;
+        $dst_y1 = 0;
+        // center horizontally
+        if($source_image_width < $width){
+            $dst_x1 = ($width - $source_image_width)/2;
+            $width = $source_image_width;
+        }
+        //center vertically
+        if($source_image_height < $height){
+            $dst_y1 = ($height - $source_image_height)/2;
+            $height = $source_image_height;
+        }
+
+        imagecopyresampled($new_image,$original_image,$dst_x1,$dst_y1,$x1,$y1,
+            $width,$height,$width,$height);
+
+        if(imagepng($new_image, $directory . $filename, $png_quality)){
+            return true;
+        }
+        return false;
+    }
+    /**
+     * @param $alias
+     * @param $turtle_id
+     * @param $file_id
+     * @param $upload_dir : upload dir with trailing slash
+     * @param $upload_path : path to return to the client
+     *
+     * @return file path relative to the application root
+     */
+    private function upload_image($alias, $turtle_id, $file_id, $upload_dir, $upload_path){
+        if(isset($_FILES['slide-upload'])){
+
+            if(!is_dir($upload_dir)){
+                mkdir($upload_dir, 0777, true);
+            }
+
+            if(!is_dir($upload_dir . $alias)){
+                mkdir($upload_dir . $alias, 0777, true);
+            }
+
+            if(!is_dir($upload_dir . $alias . "/" . $turtle_id)){
+                mkdir($upload_dir . $alias . "/" . $turtle_id, 0777, true);
+            }
+
+            $uploaded_file = $upload_dir . $alias . "/" . $turtle_id . "/" . $file_id . ".png";
+            if(@move_uploaded_file($_FILES['slide-upload']['tmp_name'], $uploaded_file )){
+                $file_path =  $upload_path. $alias . "/" . $turtle_id . "/" . $file_id . ".png";
+
+
+                list($source_image_width, $source_image_height, $source_image_type) = getimagesize($uploaded_file);
+
+                return array("url"=>base_url() . $file_path, "width"=>$source_image_width, "height"=>$source_image_height);
+            }
+
+        }
+        return false;
     }
 
     /*
-     * Generic upload image function
+     * Generic upload image function that auto crops the file to the specified max width and height
      */
-    private function upload_image($alias, $turtle_id, $file_id, $upload_dir, $max_width, $max_height, $upload_path){
+    private function upload_image_auto_crop($alias, $turtle_id, $file_id, $upload_dir, $max_width, $max_height, $upload_path){
         header('Content-type: application/json');
         $data = false;
 
@@ -219,19 +403,14 @@ class Turtles extends CI_Controller {
      * Generic image delete function
      */
     private function delete_image($alias, $turtle_id, $file_id, $upload_dir){
-        header('Content-type: application/json');
-        $data = false;
-
         $uploaddir = $upload_dir;
-        $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
+        $uploadfile = $uploaddir . $alias . "/" . $turtle_id . "/" . $file_id . ".png";
 
         if(is_file($uploadfile)){
             @unlink($uploadfile);
-            $data = true;
+            return true;
         }
-
-        echo json_encode($data);
-        exit();
+        return false;
     }
 }
 

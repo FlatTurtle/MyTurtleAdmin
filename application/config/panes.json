@@ -107,5 +107,16 @@
                 "order" : 0
             }
         ]
+    },
+    "image": {
+        "name" : "Slide show",
+        "description" : "",
+        "description_fr" : "",
+        "turtles" : [
+            {
+                "type" : "image",
+                "order" : 0
+            }
+        ]
     }
 }
