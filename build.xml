@@ -55,7 +55,8 @@
                             inc/turtle-signage.js,
                             inc/turtle-pricelist.js,
                             inc/turtle-weekmenu.js,
-                            inc/turtle_offers.js"
+                            inc/turtle_offers.js,
+                            inc/turtle-image.js"
                 excludes=""/>
         </concat>
         <echo>Finished</echo>

@@ -193,7 +193,7 @@ $lang['error_create_turtle'] = "Impossible de créer le Turtle. Veuillez actuali
 $lang['error_delete_turtle'] = "Impossible de supprimer le Turtle pour le moment";
 $lang['error_add_pane'] = "Impossible d'activer le panneau. Veuillez actualiser l'écran et réessayer";
 $lang['error_delete_pane'] = "Impossible de supprimer le panneau pour le moment";
-$lang['error_resolve_walktime_geocodes'] = "Couldn't calculate the walking duration. The screens geo coordinates aren't set";
+$lang['error_resolve_walktime_geocodes'] = "Impossible de calculer la durée de marche. Les coordonnées géographiques de l'écran ne sont pas définies"
 
 /**
  * Warnings

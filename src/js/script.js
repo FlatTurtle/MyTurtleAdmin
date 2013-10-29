@@ -121,6 +121,24 @@ $('.navbar .search-query').bind('input', function(){
 
 
 /**
+ * Helper to find path without left or right
+ */
+function getNormalizedUrl(){
+    var path = pathname;
+    var split = pathname.split("right");
+    if(split.length > 1){
+        path = split[0];
+    }
+// check for 'left' because there was no 'right' in path
+    else{
+        split = pathname.split("left");
+        path = split[0]
+    }
+    return path;
+}
+
+
+/**
  * Intro.js
  */
 
