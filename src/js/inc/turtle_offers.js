@@ -145,16 +145,7 @@ function bindOfferEvents(){
             button.attr('disabled', 'disabled').addClass('disable');
 
 
-            var upload_path = pathname;
-            var split = pathname.split("right");
-            if(split.length > 1){
-                upload_path = split[0];
-            }
-            // check for 'left' because there was no 'right' in path
-            else{
-                split = pathname.split("left");
-                upload_path = split[0]
-            }
+            var upload_path = getNormalizedUrl();
             upload_path += "menu-image/upload/";
 
             var turtle_id = $(this).data('turtle-id');
@@ -199,16 +190,7 @@ function bindOfferEvents(){
     $(".offer-image-delete").off().on('click', function(e){
         e.preventDefault();
 
-        var delete_path = pathname;
-        var split = pathname.split("right");
-        if(split.length > 1){
-            delete_path = split[0];
-        }
-        // check for 'left' because there was no 'right' in path
-        else{
-            split = pathname.split("left");
-            delete_path = split[0]
-        }
+        var delete_path = getNormalizedUrl();
         delete_path += "menu-image/delete/";
 
         var turtle_id = $(this).data('turtle-id');

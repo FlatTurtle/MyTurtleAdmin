@@ -121,7 +121,7 @@ $('.navbar .search-query').bind('input', function(){
 
 
 /**
- * Helper to find path without left or right
+ * Helper to find url without left or right in it
  */
 function getNormalizedUrl(){
     var path = pathname;
