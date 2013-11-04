@@ -99,8 +99,8 @@
         ]
     },
     "image": {
-        "name" : "Slide show",
-        "description" : "",
+        "name" : "Image",
+        "description" : "Display a slide show of images",
         "description_fr" : "",
         "turtles" : [
             {
