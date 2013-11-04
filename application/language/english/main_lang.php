@@ -170,6 +170,12 @@ $lang['turtle_weekmenu_title'] = "Weekmenu";
 $lang['turtle_weekmenu_today_title'] = "Menu of the day";
 $lang['turtle_weekmenu_radio_today'] = "Show menu of the day";
 $lang['turtle_weekmenu_radio_full_weekmenu'] = "Show full week menu";
+$lang['turtle_image_duration'] = "Duration in ms (e.g 4000, for 4 seconds)";
+$lang['turtle_image_drag_drop_note'] = "Images can be reordered by dragging and dropping";
+$lang['turtle_image_uploading'] = "Upload new image";
+$lang['turtle_image_crop_portrait'] = "Choose the part of the image you want to keep for normal mode";
+$lang['turtle_image_crop_landscape'] = "Choose the part of the image you want to keep for full screen mode";
+$lang['turtle_image_add_slide'] = "Add image";
 
 
 /**
