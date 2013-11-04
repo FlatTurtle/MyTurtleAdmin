@@ -7,7 +7,7 @@
 <div class="control-group">
     <label class="control-label" for="{{id}}-duration">Duration</label>
     <div class="controls">
-        <input type="text" id="{{id}}-duration" name="{{id}}-duration" class='input-medium' value="{{duration}}"/>
+        <input type="text" id="{{id}}-duration" name="{{id}}-duration" class='input-medium' value="{{duration}}{{^duration}}4000{{/duration}}"/>
         <span class='help-block'>Duration in ms (e.g 4000, for 4 seconds)</span>
     </div>
 </div>
