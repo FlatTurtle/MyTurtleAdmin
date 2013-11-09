@@ -83,6 +83,9 @@ $lang['term_no_wifi'] = "Geen WiFi";
 $lang['term_flatturtle_wifi'] = "FlatTurtle WiFi";
 $lang['term_wifi_enabled'] = "FlatTurtle WiFi is geactiveerd";
 $lang['term_wifi_disabled'] = "Geen FlatTurtle WiFi geïnstalleerd";
+$lang['term_whitelabel'] = "Laat white labeling van FlatTurtle logo toe";
+$lang['term_hide_logo'] = "Verberg FlatTurtle logo";
+$lang['term_flatturtle_logo'] = "FlatTurtle logo";
 
 /**
  * Screen detail page
@@ -171,6 +174,7 @@ $lang['turtle_image_uploading'] = "Upload een nieuwe slide";
 $lang['turtle_image_crop_portrait'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de normale modus";
 $lang['turtle_image_crop_landscape'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de full screen modus";
 $lang['turtle_image_add_slide'] = "Voeg slide toe";
+
 
 
 
