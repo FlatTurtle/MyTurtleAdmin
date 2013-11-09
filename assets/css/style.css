@@ -8066,12 +8066,13 @@ nav[role=navigation] {
   margin: 0px auto;
   width: 100%;
   max-width: 500px;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  margin-top: 10px; }
   .single-infoscreen .screen-links {
     text-align: right;
     padding-bottom: 30px;
     position: absolute;
-    top: -30px;
+    top: -25px;
     right: 0px; }
     .single-infoscreen .screen-links a {
       margin-right: 20px; }
