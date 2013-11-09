@@ -60,7 +60,12 @@ function clearUploadModal(){
 
     // close modal box
     $("#modal-fade").hide();
-    $("#upload-modal").hide();
+    $("#upload-modal").hide().removeClass("wide");
+
+    $("#portrait").hide();
+    $("#landscape").hide();
+
+
 
     bindImageEvents();
 }
@@ -190,6 +195,17 @@ function bindImageEvents(){
                         $("#land_y2").val(c.y2);
                     }
                 });
+
+                //only show cropping viewport if images are bigger than max size
+                if(response.height > 920){
+                    $("#portrait").show();
+                    $("#landscape").show();
+                    $("#upload-modal").addClass("wide");
+                }else if(response.width > 920){
+                    $("#portrait").show();
+                }else if(response.width > 1920){
+                    $("#landscape").show();
+                }
 
                 // append id to finish button
                 $("#modal-finish").data('data-image-id', id);

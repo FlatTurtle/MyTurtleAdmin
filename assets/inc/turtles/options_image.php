@@ -8,15 +8,15 @@
     <label class="control-label" for="{{id}}-duration">Duration</label>
     <div class="controls">
         <input type="text" id="{{id}}-duration" name="{{id}}-duration" class='input-medium' value="{{duration}}{{^duration}}4000{{/duration}}"/>
-        <span class='help-block'>Duration in ms (e.g 4000, for 4 seconds)</span>
+        <span class='help-block'>{{turtle_image_duration}}</span>
     </div>
 </div>
 <div class="control-group">
     <label class="control-label">Slides</label>
     <div class="controls">
         <!--<textarea id="{{id}}-urls" name="{{id}}-urls" rows="10">{{&urls}}</textarea>-->
-        <p>Uploaded slides can be reordered by dragging and dropping</p>
-        <button id="add-slide" class="btn btn-small">Add slide</button>
+        <p>{{turtle_image_drag_drop_note}}</p>
+        <button id="add-slide" class="btn btn-small">{{turtle_image_add_slide}}</button>
         <div>
             <ul id="slide-sorter">
                 <!-- slides will get inserted here -->
@@ -26,7 +26,7 @@
         <!-- modal window to handle cropping and uploading of slides -->
         <div id="upload-modal">
             <div class="header">
-                <h1>Slide uploading and cropping</h1>
+                <h1>{{turtle_image_uploading}}</h1>
 
                 <form enctype='multipart/form-data'>
                     <input type='file' name='slide-upload' id="slide-upload" class='slide-image-file' data-turtle-id='{{id}}'/>
@@ -37,7 +37,7 @@
             <div id="portrait">
 
                 <div class="content">
-                    <p>Choose which part of the image you want to keep for portrait view</p>
+                    <p>{{turtle_image_crop_portrait}}</p>
                     <!-- full sized image gets inserted here to get cropped -->
                     <div class="image-container"></div>
                     <input type="hidden" id="port_x1"/>
@@ -50,7 +50,7 @@
             <!-- landscape cropping -->
             <div id="landscape">
                 <div class="content">
-                    <p>Choose which part of the image you want to keep for landscape (full screen) view</p>
+                    <p>{{turtle_image_crop_landscape}}</p>
                     <!-- full sized image gets inserted here to get cropped -->
                     <div class="image-container"></div>
                     <input type="hidden" id="land_x1"/>
@@ -61,7 +61,7 @@
             </div>
 
             <div class="footer">
-                <button class="btn" id="modal-finish">Finish</button>
+                <button class="btn" id="modal-finish">{{turtle_image_add_slide}}</button>
             </div>
         </div>
         <div id="modal-fade">

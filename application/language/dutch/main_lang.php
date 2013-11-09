@@ -167,10 +167,10 @@ $lang['turtle_weekmenu_radio_today'] = "Toon menu van de dag";
 $lang['turtle_weekmenu_radio_full_weekmenu'] = "Toon volledig week menu";
 $lang['turtle_image_duration'] = "Tijd in ms (b.v. 4000, voor 4 seconden)";
 $lang['turtle_image_drag_drop_note'] = "Afbeeldingen kunnen gesorteerd worden met drag and drop";
-$lang['turtle_image_uploading'] = "Upload een nieuwe afbeelding";
+$lang['turtle_image_uploading'] = "Upload een nieuwe slide";
 $lang['turtle_image_crop_portrait'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de normale modus";
 $lang['turtle_image_crop_landscape'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de full screen modus";
-$lang['turtle_image_add_slide'] = "Voeg afbeelding toe";
+$lang['turtle_image_add_slide'] = "Voeg slide toe";
 
 
 

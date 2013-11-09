@@ -8606,12 +8606,11 @@ select {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  left: 10%;
-  top: 10%;
+  left: 30%;
+  top: 30%;
   position: fixed;
   display: none;
-  width: 80%;
-  min-height: 300px;
+  width: 40%;
   z-index: 100; }
   .turtle_image #upload-modal .header {
     margin: 1%; }
@@ -8623,10 +8622,15 @@ select {
   .turtle_image #upload-modal #portrait, .turtle_image #upload-modal #landscape {
     float: left;
     width: 48%;
-    padding: 1%; }
+    padding: 1%;
+    display: none; }
   .turtle_image #upload-modal .footer {
     float: right;
     margin: 1%; }
+.turtle_image #upload-modal.wide {
+  width: 80%;
+  left: 10%;
+  top: 10%; }
 
 .turtle_weekmenu hr {
   border: 0;
