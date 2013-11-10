@@ -30,7 +30,6 @@ class Room extends CI_Model {
         $rooms = $this->reservations_api->get($alias);
         $_rooms = array();
         foreach($rooms as $room){
-            print $room->type;
             if(!strcmp($room->type, 'room'))
                 array_push($_rooms, $room);
         }   
