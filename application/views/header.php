@@ -104,7 +104,7 @@ $version_css = "1.0.6"
                     <div class="navbar-inner">
                         <div class="container">
                             <ul class="nav">
-                                <li class="dropdown <?php if($nav_screens) echo 'active' ?>">
+                                <li class="dropdown <?php if(isset($infoscreens)) echo 'active' ?>">
                                     <?php
                                         if(isset($infoscreens) && count($infoscreens) > 1){
                                     ?>
@@ -136,7 +136,7 @@ $version_css = "1.0.6"
                                         }
                                     ?>
                                 </li>
-                                <li><a href="<?= site_url($infoscreen->alias); ?>/reservations">Reservations</a></li>
+                                <li class="dropdown <?php if(isset($rooms)) echo 'active' ?>"><a href="<?= site_url($infoscreen->alias); ?>/reservations">Reservations</a></li>
                                 <?
                                 // Show this only for superadmins
                                 if ($this->session->userdata('rights') == 100) {

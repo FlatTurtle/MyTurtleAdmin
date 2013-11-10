@@ -51,18 +51,23 @@ $route['^[a-z]{2}/(.*)/settings'] = 'advanced/index/$1';
 $route['^[a-z]{2}/(.*)/settings/(.*)'] = 'advanced/$2/$1';
 $route['^[a-z]{2}/(.*)/shots/(.*)'] = 'advanced/shots/$1/$2';
 $route['^[a-z]{2}/(.*)/shots'] = 'advanced/shots/$1';
-$route['^[a-z]{2}/(.*)/reservations'] = 'reservations/index/$1';
+
 $route['^[a-z]{2}/(.*)/reservations/rooms/create/*'] = 'rooms/create/$1';
 $route['^[a-z]{2}/(.*)/reservations/rooms/delete/*'] = 'rooms/delete/$1';
 $route['^[a-z]{2}/(.*)/reservations/rooms/update/*'] = 'rooms/update/$1';
+$route['^[a-z]{2}/(.*)/reservations/rooms/(.*)/edit'] = 'rooms/get/$1/$2/true';
+$route['^[a-z]{2}/(.*)/reservations/rooms/(.*)'] = 'rooms/get/$1/$2';
 $route['^[a-z]{2}/(.*)/reservations/rooms/*'] = 'rooms/index/$1';
 $route['^[a-z]{2}/(.*)/reservations/amenities/create/*'] = 'amenities/create/$1';
 $route['^[a-z]{2}/(.*)/reservations/amenities/delete/*'] = 'amenities/delete/$1';
 $route['^[a-z]{2}/(.*)/reservations/amenities/update/*'] = 'amenities/update/$1';
+$route['^[a-z]{2}/(.*)/reservations/amenities/(.*)'] = 'amenities/get/$1/$2';
 $route['^[a-z]{2}/(.*)/reservations/amenities/*'] = 'amenities/index/$1';
+
 $route['^[a-z]{2}/(.*)/reservations/create/*'] = 'reservations/create/$1';
 $route['^[a-z]{2}/(.*)/reservations/delete/*'] = 'reservations/delete/$1';
 $route['^[a-z]{2}/(.*)/reservations/update/*'] = 'reservations/update/$1';
+$route['^[a-z]{2}/(.*)/reservations'] = 'reservations/index/$1';
 
 $route['^[a-z]{2}/(.*)/left/create/*'] = 'turtles/create/$1';
 $route['^[a-z]{2}/(.*)/left/delete/*'] = 'turtles/delete/$1';
