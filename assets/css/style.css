@@ -8829,3 +8829,91 @@ select {
     opacity: 0;
     background-color: transparent;
     color: transparent; }
+
+
+/* cards */
+.cards .span2, .cards .span3, .cards .span4, .cards .span5, .cards .span6, .cards .span7, .cards .span8, .cards .span9, .cards .span10 {
+  height:auto;
+  padding:10px;
+  margin-bottom:2px;
+  text-align:center;
+  overflow:hidden;
+}
+
+
+.cards-bordered .card {
+  background-color:#fff;
+}
+  
+.cards-rounded > div {
+  border-radius:3px;
+}
+.cards-rounded .card {
+  border-radius:3px;
+}
+        
+.cards-borderless .card {
+  border-width:0;
+}
+  
+.card {
+  padding:12px;
+  margin:1%;
+  overflow:hidden;
+  text-align:left;
+}
+
+
+.card p {
+ padding:5px;
+ padding-left:10px;
+ padding-right:10px;
+}
+
+.cards-50 .card {
+ width:100%;
+ min-height:50px;
+}
+.cards-300 .card {
+ min-height:300px;
+}
+.cards-400 .card {
+ min-height:400px;
+}
+
+ul.card {
+ width:auto; 
+ border:1px solid #ddd;
+}
+
+@media (min-width: 767px) { 
+  ul.card {
+   width:auto;
+   display:table;
+  }
+}
+
+.card li {
+ height:100%;
+ width:100%; 
+ list-style:none;
+}
+
+@media (min-width: 767px) { 
+  .card li {
+   display:table-row;
+  }
+}
+
+.card .head {
+ height:auto;
+}
+.card .foot {
+ height:auto;
+ vertical-align:bottom;
+}
+   
+.tile {
+    height:100%;
+    background-color:#eee;
+}

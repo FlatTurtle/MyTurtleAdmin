@@ -30,6 +30,14 @@ class Rooms extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function get($alias, $name) {
+        $data = array();
+        $data['infoscreen'] = $this->infoscreen->get($alias); 
+        $data['room'] = $this->room->get_by_name($this->session->userdata('username'), $name);
+        $this->load->view('header', $data);
+        $this->load->view('screen/room', $data);
+        $this->load->view('footer');
+    }
 
     /**
      * Update a room instance
