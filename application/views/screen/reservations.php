@@ -62,11 +62,11 @@
             <div class="span10 offset2">
             <? foreach($amenities as $amenity){?>
             
-            <a href="<?= site_url($infoscreen->alias.'/reservations/amenities/'.$amenity->title); ?>">
+            <a href="<?= site_url($infoscreen->alias.'/reservations/amenities/'.$amenity->name); ?>">
               <ul class="card" class="span12">
                 <li>
                 <blockquote>
-                  <p><?= $amenity->title; ?></p>
+                  <p><?= $amenity->name; ?></p>
                   <small><?= $amenity->description; ?></small>
                 </blockquote>
                 </li>

@@ -31,6 +31,18 @@ class Amenities extends CI_Controller {
         $this->load->view('footer');
     }
 
+    /**
+     *  Room page
+     */
+    public function get($alias, $name) {
+        $data = array();
+
+        $data['infoscreen'] = $this->infoscreen->get($alias); 
+        $data['amenity'] = $this->amenity->get_by_name($this->session->userdata('username'), $name);
+        $this->load->view('header', $data);
+        $this->load->view('screen/amenity', $data);
+        $this->load->view('footer');
+    }
     
     /**
      * Update an amenity instance

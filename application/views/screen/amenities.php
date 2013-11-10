@@ -35,10 +35,10 @@
                 if($amenity->id == $amenity->id)  $extra_class = "active";
         ?>
                     <div id="amenity_<?= $amenity->id; ?>" class='amenity draggable <?= $extra_class ?>'>
-                        <a href='<?= site_url($infoscreen->alias.'/reservations/amenity/'.$amenity->id. "#config"); ?>'>
+                        <a href='<?= site_url($infoscreen->alias.'/reservations/amenity/'.$amenity->name); ?>'>
                             <div class='holder'>
                             <?
-                                echo $amenity->title;
+                                echo $amenity->name;
                                 if(!empty($amenity->description)){
                                     echo "<span class='note'>".$amenity->description."</span>";
                                 }
