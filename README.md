@@ -12,8 +12,6 @@ MyTurtleAdmin makes use of [Codeigniter framework](http://codeigniter.com/),
 [WYSIHTML5](https://github.com/jhollingworth/bootstrap-wysihtml5/),
 [Intro.js](http://usablica.github.io/intro.js/) and [ControlBay API](https://github.com/FlatTurtle/)
 
-* [Michiel Vancoillie](http://twitter.com/ntynmichiel) (project lead)
-
 Install
 =======
 
