@@ -104,9 +104,9 @@ $version_css = "1.0.6"
                     <div class="navbar-inner">
                         <div class="container">
                             <ul class="nav">
-                                <li class="dropdown <?php if($nav_screens) echo 'active' ?>">
+                                <li class="dropdown <?php if(isset($infoscreens)) echo 'active' ?>">
                                     <?php
-                                        if(count($infoscreens) > 1){
+                                        if(isset($infoscreens) && count($infoscreens) > 1){
                                     ?>
                                         <a href="<?php echo site_url('') ?>" class="dropdown-toggle" data-toggle="dropdown">
                                             <?= lang('term_infoscreens') ?>
@@ -136,6 +136,7 @@ $version_css = "1.0.6"
                                         }
                                     ?>
                                 </li>
+                                <li class="dropdown <?php if(isset($rooms)) echo 'active' ?>"><a href="<?= site_url($infoscreen->alias); ?>/reservations">Reservations</a></li>
                                 <?
                                 // Show this only for superadmins
                                 if ($this->session->userdata('rights') == 100) {
@@ -149,7 +150,7 @@ $version_css = "1.0.6"
                                 <a id="help" href="" class="pull-left hide"><i class='icon-question-sign'></i></a>
                                 <?
                                     // Show search only on homepage
-                                    if (count($infoscreens) > 5 && !$this->uri->segment(2)) {
+                                    if (isset($infoscreens) && count($infoscreens) > 5 && !$this->uri->segment(2)) {
                                 ?>
                                         <form class="navbar-search">
                                             <span>

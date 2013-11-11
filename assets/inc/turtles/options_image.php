@@ -27,6 +27,8 @@
         <div id="upload-modal">
             <div class="header">
                 <h1>{{turtle_image_uploading}}</h1>
+                <!-- temporary upload spinner until PUT and progress bar -->
+                <i class='uploading fade'></i>
 
                 <form enctype='multipart/form-data'>
                     <input type='file' name='slide-upload' id="slide-upload" class='slide-image-file' data-turtle-id='{{id}}'/>

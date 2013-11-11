@@ -65,8 +65,6 @@ function clearUploadModal(){
     $("#portrait").hide();
     $("#landscape").hide();
 
-
-
     bindImageEvents();
 }
 
@@ -156,6 +154,8 @@ function bindImageEvents(){
         var turtle_id = $(this).data('turtle-id');
         var id = Math.round((new Date()).getTime() / 1000) + "_" + Math.round(Math.random() * 10000);
 
+        //spinner
+        $('.uploading', this).animate({'opacity':100}, 200);
 
         // upload image
         $.ajax({
