@@ -39,6 +39,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('API_AUTH_ADMIN','auth/admin');
 define('API_INFOSCREENS','');
+define('API_RESERVATIONS','http://reservations.irail.local/');
 define('API_TURTLE_TYPES','turtles');
 define('API_TURTLE_INSTANCES','turtles');
 define('API_TURTLE_ORDER','order');
