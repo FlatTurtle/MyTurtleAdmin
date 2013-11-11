@@ -16,7 +16,7 @@ class Reservation extends CI_Model {
         parent::__construct();
 
         $this->reservations_api = new API();
-        $this->reservations_api->API_PATH = API_RESERVATIONS;
+        $this->reservations_api->API_PATH = $this->config->item('reservations_api_url');
         // Init mustache engine
         $this->m = new Mustache_Engine;
 
@@ -31,9 +31,9 @@ class Reservation extends CI_Model {
      */
     public function get_all($alias, $day=null) {
         if($day!=null)
-            return $this->reservations_api->get($alias . '/reservation');   
+            return $this->reservations_api->get($alias . '/reservations');   
         else
-            return $this->reservations_api->get($alias . '/reservation'); //TODO(qkaiser) : add day parameter in GET request
+            return $this->reservations_api->get($alias . '/reservations'); //TODO(qkaiser) : add day parameter in GET request
     }
 
     /**
@@ -43,7 +43,7 @@ class Reservation extends CI_Model {
      * @return 
      **/
     public function get_by_id($alias, $id) {
-        return $this->reservations_api->get($alias . '/reservation/' . $id);
+        return $this->reservations_api->get($alias . '/reservations/' . $id);
     }
 
 
@@ -53,7 +53,7 @@ class Reservation extends CI_Model {
      * @param $data : the data POSTed to the API
      */
     public function create($alias, $data) {
-        return $this->reservations_api->post($alias . '/reservation', $data);
+        return $this->reservations_api->post($alias . '/reservations', $data);
     }
 
 
@@ -65,7 +65,7 @@ class Reservation extends CI_Model {
      * @return
      */
     public function update($alias, $id, $data) {
-        return $this->reservations_api->post($alias . '/reservation/' . $id, $data);
+        return $this->reservations_api->post($alias . '/reservations/' . $id, $data);
     }
 
 
@@ -75,7 +75,7 @@ class Reservation extends CI_Model {
      * @param $id : the reservation's id that you want to delete
      */
     public function delete($alias, $id){
-        return $this->reservations_api->delete($alias . '/reservation/' . $id);
+        return $this->reservations_api->delete($alias . '/reservations/' . $id);
     }
     
 

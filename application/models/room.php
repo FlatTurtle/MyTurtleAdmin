@@ -15,7 +15,7 @@ class Room extends CI_Model {
     public function __construct() {
         parent::__construct();
         $this->reservations_api = new API();
-        $this->reservations_api->API_PATH = API_RESERVATIONS;
+        $this->reservations_api->API_PATH = $this->config->item('reservations_api_url');
         // Init mustache engine
         $this->m = new Mustache_Engine;
 

@@ -16,7 +16,7 @@ class Amenity extends CI_Model {
         parent::__construct();
 
         $this->reservations_api = new API();
-        $this->reservations_api->API_PATH = API_RESERVATIONS;
+        $this->reservations_api->API_PATH = $this->config->item('reservations_api_url');
         // Init mustache engine
         $this->m = new Mustache_Engine;
 
@@ -28,7 +28,7 @@ class Amenity extends CI_Model {
      * @param $alias : the user's alias
      */
     public function get_all($alias) {
-        return $this->reservations_api->get($alias . '/amenity');   
+        return $this->reservations_api->get($alias . '/amenities');   
     }
 
     /**
@@ -37,7 +37,7 @@ class Amenity extends CI_Model {
      * @param $name : the amenity's name
      **/
     public function get_by_name($alias, $name) {
-        return $this->reservations_api->get($alias . '/amenity/' . $name);
+        return $this->reservations_api->get($alias . '/amenities/' . $name);
     }
     /**
      * Update amenity
@@ -46,7 +46,7 @@ class Amenity extends CI_Model {
      * @param $data : the amenity's data
      */
     public function update($alias, $name, $data) {
-        return $this->reservations_api->post($alias . '/amenity/' . $name, $data);
+        return $this->reservations_api->post($alias . '/amenities/' . $name, $data);
     }
 
 
@@ -57,7 +57,7 @@ class Amenity extends CI_Model {
      * @param $data : the amenity's data
      */
     public function create($alias, $name, $data) {
-        return $this->reservations_api->put($alias . '/amenity/' . $name, $data);
+        return $this->reservations_api->put($alias . '/amenities/' . $name, $data);
     }
 
     /**
@@ -66,7 +66,7 @@ class Amenity extends CI_Model {
      * @param $name : the amenity's name
      */
     public function delete($alias, $name){
-        return $this->reservations_api->delete($alias . '/amenity/' . $name);
+        return $this->reservations_api->delete($alias . '/amenities/' . $name);
     }
     
 
