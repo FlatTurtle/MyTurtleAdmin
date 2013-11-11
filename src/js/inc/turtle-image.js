@@ -174,6 +174,7 @@ function bindImageEvents(){
                     maxSize: [960, 920],
                     setSelect: [0, 0, 960, 920],
                     trueSize:[response.width, response.height],
+                    allowResize: false,
                     onChange:function(c){
                         $("#port_x1").val(c.x);
                         $("#port_y1").val(c.y);
@@ -188,6 +189,7 @@ function bindImageEvents(){
                     maxSize: [960, 920],
                     setSelect: [0, 0, 1920, 920],
                     trueSize:[response.width, response.height],
+                    allowResize: false,
                     onChange:function(c){
                         $("#land_x1").val(c.x);
                         $("#land_y1").val(c.y);
