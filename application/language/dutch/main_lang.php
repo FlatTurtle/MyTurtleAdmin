@@ -85,7 +85,6 @@ $lang['term_wifi_enabled'] = "FlatTurtle WiFi is geactiveerd";
 $lang['term_wifi_disabled'] = "Geen FlatTurtle WiFi geïnstalleerd";
 $lang['term_whitelabel'] = "Laat white labeling van FlatTurtle logo toe";
 $lang['term_hide_logo'] = "Verberg FlatTurtle logo";
-$lang['term_flatturtle_logo'] = "FlatTurtle logo";
 
 /**
  * Screen detail page

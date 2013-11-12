@@ -44,26 +44,6 @@
                 </div>
             </div>
 
-            <?php if($admin){ ?>
-                <div class="control-group">
-                    <label class="control-label"><?= lang('term_flatturtle_logo') ?></label>
-                    <div class="controls">
-                        <input type="hidden" value="<?= $infoscreen->allow_whitelabel ?>" id="allow_whitelabel" name="allow_whitelabel">
-                        <button type="button" id="whitelabel-button" class="btn<?= $infoscreen->allow_whitelabel == 0 ? '' : ' active';?>" data-toggle="button""><?=lang('term_whitelabel');?></button>
-                    </div>
-                </div>
-            <?php }else{ ?>
-                <?php if($infoscreen->allow_whitelabel) {?>
-                <div class="control-group">
-                    <label class="control-label"><?= lang('term_flatturtle_logo') ?></label>
-                    <div class="controls">
-                        <input type="hidden" value="<?= $infoscreen->hide_ft_logo ?>" id="hide_ft_logo" name="hide_ft_logo">
-                        <button type="button" id="hide-logo-button" class="btn<?= $infoscreen->hide_ft_logo == 0 ? '' : ' active';?>" data-toggle="button"><?=lang('term_hide_logo');?></button>
-                    </div>
-                </div>
-                <?php } ?>
-            <?php } ?>
-
             <div class="control-group">
                 <label class="control-label" for="inputHostname"><?= lang('term_hostname') ?></label>
                 <div class="controls">
@@ -98,6 +78,22 @@
                     <? } ?>
                 </div>
             </div>
+            <?php if($admin){ ?>
+            <div class="control-group">
+                <label class="control-label" for="allow_whitelabel"><?=lang('term_whitelabel');?></label>
+                <div class="controls">
+                    <input type="checkbox" value="1" <?= $infoscreen->allow_whitelabel == 0 ? '' : ' checked="checked"';?> id="allow_whitelabel" name="allow_whitelabel">
+                </div>
+            </div>
+            <?php } ?>
+            <?php if($infoscreen->allow_whitelabel) {?>
+            <div class="control-group">
+                <label class="control-label" for="allow_whitelabel"><?=lang('term_hide_logo');?></label>
+                <div class="controls">
+                    <input type="checkbox" value="1" <?= $infoscreen->hide_ft_logo == 0 ? '' : ' checked="checked"';?> id="hide_ft_logo" name="hide_ft_logo">
+                </div>
+            </div>
+            <?php } ?>
             <div class="control-group">
                 <div class="controls">
                     <? if (!empty($all_errors)) { ?>

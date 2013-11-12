@@ -119,17 +119,6 @@ $('.navbar .search-query').bind('input', function(){
     }
 });
 
-/**
- * Whitelabel button click for settings panel
- */
-$("#whitelabel-button").click(function(){
-    var active = $(this).hasClass("active");
-    $("#allow_whitelabel").val(active ? 0 : 1);
-});
-$("#hide-logo-button").click(function(){
-    var active = $(this).hasClass("active");
-    $("#hide_ft_logo").val(active ? 0 : 1);
-});
 
 /**
  * Helper to find url without left or right in it
