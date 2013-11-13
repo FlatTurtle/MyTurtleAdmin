@@ -46,6 +46,7 @@
                             lib/wysihtml5.js,
                             lib/jquery.color.js,
                             lib/jquery.jcrop.js,
+                            lib/bootstrap-datepicker.js,
                             inc/turtle-general.js,
                             inc/turtle-creation.js,
                             inc/turtle-sorting.js,

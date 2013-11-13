@@ -194,8 +194,6 @@
 	</div>
     <?}?>
 </div>
-<link rel="stylesheet" href="<?= base_url()?>/assets/css/datepicker.css" type="text/css" media="screen" />
-<script src='<?= base_url()?>/assets/js/bootstrap-datepicker.js' type='text/javascript'></script>
 
 <script type="text/javascript">
     $('.datepicker').datepicker();

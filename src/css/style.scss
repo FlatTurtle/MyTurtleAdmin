@@ -7,6 +7,7 @@ Author: Michiel Vancoillie
 @import "bootstrap-responsive";
 @import "bootstrap-wysihtml5";
 @import "bootstrap-select";
+@import "bootstrap-datepicker";
 @import "font-awesome";
 @import "introjs";
 @import "jcrop";
@@ -1101,6 +1102,10 @@ select{
         }
     }
 
+    input[type=text]{
+        width: 250px;
+    }
+
     .listing{
         margin-top: 3px;
 
@@ -1113,9 +1118,7 @@ select{
         input[type=file]{
             height: 10px;
         }
-        input[type=text]{
-            width: 250px;
-        }
+
 
         .entry_image_holder{
             display: inline-block;
