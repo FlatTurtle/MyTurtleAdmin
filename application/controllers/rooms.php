@@ -83,7 +83,7 @@ class Rooms extends CI_Controller {
         $data['body']['amenities'] = array();
 
         if(True){
-            $room = $this->room->create($alias, $this->input('name'), $data);
+            $room = $this->room->create($alias, $this->input->post('name'), $data);
             echo $this->room->template($room);
             return;    
         }
