@@ -51,7 +51,7 @@ function buildWeekMenuCategory(name, price){
     control_group.append("<label class='control-label'>" + lang['turtle_pricelist_category_name'] + "</label> ");
     var controls = $("<div class='controls'></div>");
 
-    var input = $("<input type='text' class='input-small name' placeholder=''/>").val(name);
+    var input = $("<input type='text' class='input name' placeholder=''/>").val(name);
     controls.append(input);
     controls.append("<button id='delete-category' class='btn btn-small btn-warning pull-right'><i class='icon-trash'></i></button>");
     control_group.append(controls);

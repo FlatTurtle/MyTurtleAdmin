@@ -8643,6 +8643,8 @@ select {
   margin-left: 10px; }
   .turtle_weekmenu .btn.delete-item {
     margin-left: 5px; }
+.turtle_weekmenu input[type=text] {
+  width: 250px; }
 .turtle_weekmenu .listing {
   margin-top: 3px; }
   .turtle_weekmenu .listing > i {
@@ -8651,8 +8653,6 @@ select {
     float: left; }
   .turtle_weekmenu .listing input[type=file] {
     height: 10px; }
-  .turtle_weekmenu .listing input[type=text] {
-    width: 250px; }
   .turtle_weekmenu .listing .entry_image_holder {
     display: inline-block; }
   .turtle_weekmenu .listing form {

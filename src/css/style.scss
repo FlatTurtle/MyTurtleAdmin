@@ -1101,6 +1101,10 @@ select{
         }
     }
 
+    input[type=text]{
+        width: 250px;
+    }
+
     .listing{
         margin-top: 3px;
 
@@ -1113,9 +1117,7 @@ select{
         input[type=file]{
             height: 10px;
         }
-        input[type=text]{
-            width: 250px;
-        }
+
 
         .entry_image_holder{
             display: inline-block;

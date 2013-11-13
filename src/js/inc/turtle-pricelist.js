@@ -54,7 +54,8 @@ function buildPriceListCategoryEntries(category, categoryHTML){
             var name = entries[i].name;
             var description = entries[i].description;
             var price = entries[i].price;
-            var image = entries[i].image;
+            // temporary remove until support for images it is added in the pricelist MyTurtle
+            //var image = entries[i].image;
             var id = entries[i].id;
 
             var item = buildPriceListCategoryEntry(name, description, price, image, id);
@@ -94,6 +95,8 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     control_group.append(controls);
     entry_control.append(control_group);
 
+    // temporary remove until support for images it is added in the pricelist MyTurtle
+    /*
     // control group for price and image upload
     control_group = $("<div class='control-group'></div>");
     control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_entry_price'] + "</label>");
@@ -120,6 +123,7 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     }
     controls.append(image_holder);
     control_group.append(controls);
+     */
     entry_control.append(control_group);
 
 
@@ -163,10 +167,13 @@ function savePriceList(turtle_instance){
             var id = $(this).prop('id').split('-');
             entry.id = id[1];
 
+            // temporary remove until support for images it is added in the pricelist MyTurtle
+            /*
             //save image url
             if($(this).has('img')){
                 entry.image = $('img', $(this)).attr('src');
             }
+            */
 
             if(entry.name.length > 0){
                 category.entries.push(entry);
@@ -214,8 +221,11 @@ function bindPriceListEvents(){
         if(confirm(lang['turtle_pricelist_delete_category_note'])){
             var component = $(this).parents('.control-group');
 
+            // temporary remove until support for images it is added in the pricelist MyTurtle
+            /*
             // Remove images
             $('.pricelist_image_delete', component).click();
+            */
 
             component.remove();
         }
@@ -228,14 +238,18 @@ function bindPriceListEvents(){
         if(confirm(lang['turtle_pricelist_delete_item_note'])){
             var component = $(this).parents('.listing');
 
+            // temporary remove until support for images it is added in the pricelist MyTurtle
+            /*
             // Remove images
             $('.pricelist-image-delete', component).click();
-
+            */
 
             component.remove();
         }
     });
 
+    // temporary remove until support for images it is added in the pricelist MyTurtle
+    /*
     // Image upload
     $('.pricelist-image-file').off().on('change', function(e){
         e.preventDefault();
@@ -342,6 +356,7 @@ function bindPriceListEvents(){
             processData: false
         });
     });
+    */
 }
 
 bindPriceListEvents();
