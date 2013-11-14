@@ -65,9 +65,7 @@ function clearUploadModal(){
     $("#upload-modal .header h1").after("<input type='file' name='slide-upload' id='slide-upload' class='slide-image-file' data-turtle-id='" + turtle_id + "'/>");
 
     $("#modal-finish")
-        .removeAttr('data-image-id')
-        .removeAttr('disabled')
-        .removeClass(".disable");
+        .removeAttr('data-image-id');
 
     // close modal box
     $("#modal-fade").hide();
@@ -228,8 +226,11 @@ function bindImageEvents(){
 
                 //stop spinner
                 $('#slide-uploading').animate({'opacity':0}, 200);
-                // append id to finish button
-                $("#modal-finish").data('data-image-id', id);
+                // append id to finish button and enable it
+                $("#modal-finish")
+                    .data('data-image-id', id)
+                    .removeAttr('disabled')
+                    .removeClass('disable');
             }
         },
         error: function (response) {

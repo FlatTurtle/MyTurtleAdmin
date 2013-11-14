@@ -64,7 +64,7 @@
 
             <div class="footer">
                 <i id="finish-slide-uploading" class='loading fade'></i>
-                <button class="btn" id="modal-finish">{{turtle_image_add_slide}}</button>
+                <button class="btn disable" id="modal-finish" disabled="disabled">{{turtle_image_add_slide}}</button>
             </div>
         </div>
         <div id="modal-fade">
