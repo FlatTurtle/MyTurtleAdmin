@@ -27,12 +27,12 @@
         <div id="upload-modal">
             <div class="header">
                 <h1>{{turtle_image_uploading}}</h1>
-                <!-- temporary upload spinner until PUT and progress bar -->
-                <i class='uploading fade'></i>
 
-                <form enctype='multipart/form-data'>
-                    <input type='file' name='slide-upload' id="slide-upload" class='slide-image-file' data-turtle-id='{{id}}'/>
-                </form>
+                <!-- without form around it .. forms within forms are not allowed -->
+                <input type='file' name='slide-upload' id="slide-upload" class='slide-image-file' data-turtle-id='{{id}}'/>
+
+                <!-- temporary upload spinner until PUT and progress bar -->
+                <i id="slide-uploading" class='loading fade'></i>
             </div>
 
             <!-- portrait cropping -->
@@ -63,6 +63,7 @@
             </div>
 
             <div class="footer">
+                <i id="finish-slide-uploading" class='loading fade'></i>
                 <button class="btn" id="modal-finish">{{turtle_image_add_slide}}</button>
             </div>
         </div>

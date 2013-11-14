@@ -1,5 +1,6 @@
-$("#slide-sorter").sortable();
-$("#slide-sorter").disableSelection();
+$("#slide-sorter")
+    .sortable()
+    .disableSelection();
 
 function buildImage(data, instance){
     if(data && data != ""){
@@ -10,6 +11,7 @@ function buildImage(data, instance){
             slide_sorter.append(createSlide(urls[url]));
         }
     }
+
     bindImageEvents();
 }
 
@@ -23,7 +25,7 @@ function createSlide(url){
     var thumb_holder = $("<li class='slide' data-id='" + id + "'></li>");
 
     //creating remove button
-    var header = $("<div class='header'></div>")
+    var header = $("<div class='header'></div>");
     var remove_button = $("<a href='#' class='btn remove-slide'>x</a>");
     header.append(remove_button);
     thumb_holder.append(header);
@@ -47,23 +49,32 @@ function saveSlideshow(instance){
 
 // clears all dynamic data in the upload modal box
 function clearUploadModal(){
+    var $portrait = $("#portrait");
+    var $landscape = $("#landscape");
     // clear modal box
-    $("#portrait").find(".content .image-container").empty();
-    $("#landscape").find(".content .image-container").empty();
-    var turtle_id = $("#slide-upload").data('turtle-id')
-    $("#slide-upload").remove();
-    $("#upload-modal .header").append("<form enctype='multipart/form-data'><input type='file' name='slide-upload' id='slide-upload' class='slide-image-file' data-turtle-id='" + turtle_id + "'/></form>");
-    $("#modal-finish").removeAttr('data-image-id');
+    $portrait.find(".content .image-container").empty();
+    $landscape.find(".content .image-container").empty();
 
-    $("#modal-finish").removeAttr('disabled').removeClass(".disable");
+    var $slide_upload = $("#slide-upload");
+    var turtle_id = $slide_upload.data('turtle-id');
+    // remove whole form element
+    $slide_upload.remove();
 
+    var $form = $("<form enctype='multipart/form-data' id='slide-upload-form'></form>");
+    $form.append("<input type='file' name='slide-upload' id='slide-upload' class='slide-image-file' data-turtle-id='" + turtle_id + "'/>");
+    $("#upload-modal .header h1").after("<input type='file' name='slide-upload' id='slide-upload' class='slide-image-file' data-turtle-id='" + turtle_id + "'/>");
+
+    $("#modal-finish")
+        .removeAttr('data-image-id')
+        .removeAttr('disabled')
+        .removeClass(".disable");
 
     // close modal box
     $("#modal-fade").hide();
     $("#upload-modal").hide().removeClass("wide");
 
-    $("#portrait").hide();
-    $("#landscape").hide();
+    $portrait.hide();
+    $landscape.hide();
 
     bindImageEvents();
 }
@@ -95,6 +106,9 @@ function bindImageEvents(){
         //get id
         var id = $(this).data('data-image-id');
 
+        //spinner
+        $('#finish-slide-uploading').animate({'opacity':100}, 200);
+
         var coordinates = {};
         //get portrait coordinates
         var portrait = {};
@@ -121,6 +135,9 @@ function bindImageEvents(){
                 if(response){
                     // append the new slide to the slide sorter
                     $("#slide-sorter").append(createSlide(response));
+
+                    //spinner
+                    $('#finish-slide-uploading').animate({'opacity':0}, 200);
 
                     //clear modal
                     clearUploadModal();
@@ -155,7 +172,7 @@ function bindImageEvents(){
         var id = Math.round((new Date()).getTime() / 1000) + "_" + Math.round(Math.random() * 10000);
 
         //spinner
-        $('.uploading', this).animate({'opacity':100}, 200);
+        $('#slide-uploading').animate({'opacity':100}, 200);
 
         // upload image
         $.ajax({
@@ -209,6 +226,8 @@ function bindImageEvents(){
                     $("#landscape").show();
                 }
 
+                //stop spinner
+                $('#slide-uploading').animate({'opacity':0}, 200);
                 // append id to finish button
                 $("#modal-finish").data('data-image-id', id);
             }
