@@ -27,10 +27,10 @@ class Room extends CI_Model {
      * @param $alias : the user's alias
      */
     public function get_all($alias) {
-        $rooms = $this->reservations_api->get($alias);
+        $rooms = $this->reservations_api->get($alias . '/things');
         $_rooms = array();
         foreach($rooms as $room){
-            if(!strcmp($room->type, 'room'))
+          if(!strcmp($room->type, 'room'))
                 array_push($_rooms, $room);
         }   
         return $_rooms;
@@ -42,7 +42,7 @@ class Room extends CI_Model {
      * @param $name : the room's name
      **/
     public function get_by_name($alias, $name) {
-        return $this->reservations_api->get($alias . '/' . $name);
+        return $this->reservations_api->get($alias . '/things/' . $name);
     }
     /**
      * Update room
@@ -51,7 +51,7 @@ class Room extends CI_Model {
      * @param $data : the room's data
      */
     public function update($alias, $name, $data) {
-        return $this->reservations_api->post($alias . '/' . $name, $data);
+        return $this->reservations_api->post($alias . '/things/' . $name, $data);
     }
 
 
@@ -62,7 +62,7 @@ class Room extends CI_Model {
      * @param $data : the room's data
      */
     public function create($alias, $name, $data) {
-        return $this->reservations_api->put($alias . '/' . $name, $data);
+        return $this->reservations_api->put($alias . '/things/' . $name, $data);
     }
 
     /**
@@ -72,7 +72,7 @@ class Room extends CI_Model {
      * @return
      */
     public function delete($alias, $name){
-        return $this->reservations_api->delete($alias . '/' . $name);
+        return $this->reservations_api->delete($alias . '/things/' . $name);
     }
     
 
