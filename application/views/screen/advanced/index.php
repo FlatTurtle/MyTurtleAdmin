@@ -86,7 +86,7 @@
                 </div>
             </div>
             <?php } ?>
-            <?php if($infoscreen->allow_whitelabel) {?>
+            <?php if($infoscreen->allow_whitelabel || $admin) {?>
             <div class="control-group">
                 <label class="control-label" for="allow_whitelabel"><?=lang('term_hide_logo');?></label>
                 <div class="controls">

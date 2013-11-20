@@ -158,6 +158,15 @@ class Advanced extends CI_Controller {
             }
         }
 
+        //see if checkbox is checked
+        if(!isset($_POST["hide_ft_logo"])){
+            $_POST["hide_ft_logo"] = 0;
+        }
+        //see if checkbox is checked
+        if(!isset($_POST["allow_whitelabel"])){
+            $_POST["allow_whitelabel"] = 0;
+        }
+
         // Validate the input
         if ($this->my_formvalidation->run()) {
             $this->infoscreen->post($alias, $this->input->post());
