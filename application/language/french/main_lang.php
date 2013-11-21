@@ -83,7 +83,7 @@ $lang['term_no_wifi'] = "Pas de WiFi";
 $lang['term_flatturtle_wifi'] = "FlatTurtle WiFi";
 $lang['term_wifi_enabled'] = "FlatTurtle WiFi est activée";
 $lang['term_wifi_disabled'] = "Pas de FlatTurtle WiFi installé";
-$lang['term_whitelabel'] = "Permettre l'étiquetage blanc du logo FlatTurtle";
+$lang['term_whitelabel'] = "Permettre l'étiquetage blanc";
 $lang['term_hide_logo'] = "Masquez le logo FlatTurtle";
 
 /**
