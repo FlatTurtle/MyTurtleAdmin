@@ -146,7 +146,7 @@ $version_css = "1.0.6"
                                 ?>
 
                                 <li>
-                                    <a href="<?= site_url() . "/maps" ?>">Maps</a>
+                                    <a href="<?= site_url() . "/" . $infoscreen->alias . "/maps" ?>">Maps</a>
                                 </li>
                             </ul>
                             <div class="pull-right">
