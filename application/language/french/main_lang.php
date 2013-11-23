@@ -85,6 +85,9 @@ $lang['term_wifi_enabled'] = "FlatTurtle WiFi est activée";
 $lang['term_wifi_disabled'] = "Pas de FlatTurtle WiFi installé";
 $lang['term_whitelabel'] = "Permettre l'étiquetage blanc du logo FlatTurtle";
 $lang['term_hide_logo'] = "Masquez le logo FlatTurtle";
+$lang['term_width'] = "Largeur";
+$lang['term_height'] = "Hauteur";
+$lang['term_maps'] = "Cartes";
 
 /**
 * Screen detail page
@@ -174,8 +177,13 @@ $lang['turtle_image_crop_portrait'] = "Choisissez la partie de l'image que vous 
 $lang['turtle_image_crop_landscape'] = "Choisissez la partie de l'image que vous voulez garder dans le mode plein écran";
 $lang['turtle_image_add_slide'] = "Ajouter une image";
 
+/**
+ * Maps page
+ */
 
-
+$lang['maps_px'] = "Pixel (px)";
+$lang['maps_pct'] = "Pour cent";
+$lang['maps_generate'] = "Générer le code";
 
 /**
 * Panes page

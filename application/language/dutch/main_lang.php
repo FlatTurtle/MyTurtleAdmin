@@ -85,6 +85,9 @@ $lang['term_wifi_enabled'] = "FlatTurtle WiFi is geactiveerd";
 $lang['term_wifi_disabled'] = "Geen FlatTurtle WiFi geïnstalleerd";
 $lang['term_whitelabel'] = "Laat white labeling van FlatTurtle logo toe";
 $lang['term_hide_logo'] = "Verberg FlatTurtle logo";
+$lang['term_width'] = "Breedte";
+$lang['term_height'] = "Lengte";
+$lang['term_maps'] = "Kaarten";
 
 /**
  * Screen detail page
@@ -174,8 +177,13 @@ $lang['turtle_image_crop_portrait'] = "Kies het deel van de afbeelding die gebru
 $lang['turtle_image_crop_landscape'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de full screen modus";
 $lang['turtle_image_add_slide'] = "Voeg slide toe";
 
+/**
+ * Maps page
+ */
 
-
+$lang['maps_px'] = "Pixels (px)";
+$lang['maps_pct'] = "Percent";
+$lang['maps_generate'] = "Genereer code";
 
 /**
  * Panes page

@@ -14,12 +14,18 @@ class Maps extends CI_Controller {
 
     }
 
-    public function index(){
-        
+    public function index($alias){
+        $data['infoscreens'] = getInfoscreens();
+        foreach($data['infoscreens'] as $infoscreen){
+            if($infoscreen->alias == $alias)
+                $data['infoscreen'] = $infoscreen;
+        }
+
+        $data['menu_second_item'] = lang("term_maps");
 
         $this->load->view('header', $data);
         $this->load->view('screen/menu', $data);
-        $this->load->view('screen/maps/index', $data);
+        $this->load->view('screen/advanced/maps', $data);
         $this->load->view('footer');
     }
 

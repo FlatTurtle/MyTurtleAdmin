@@ -22,8 +22,9 @@
         <h3>
             <?= $infoscreen->title; ?>
             <?php
-                if(isset($menu_second_item))
+                if(isset($menu_second_item)){
                     echo "&nbsp;<i class='icon-chevron-right'></i>&nbsp;". $menu_second_item;
+                }
             ?>
         </h3>
     </div>
