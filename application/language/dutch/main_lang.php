@@ -184,6 +184,7 @@ $lang['turtle_image_add_slide'] = "Voeg slide toe";
 $lang['maps_px'] = "Pixels (px)";
 $lang['maps_pct'] = "Percent";
 $lang['maps_generate'] = "Genereer code";
+$lang['maps_info'] = "Hier kan je de HTML code genereren om FlatTurtle maps te integreren in uw website. ";
 
 /**
  * Panes page

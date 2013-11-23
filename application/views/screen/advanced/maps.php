@@ -3,7 +3,7 @@
         <form class="form-horizontal center">
             <div class="control-group">
                 <div class="controls">
-                    <p>Here you can generate html code to embed FlatTurtle maps into your website. More info <a href="#">here</a></p>
+                    <p><?= lang('maps_info') ?>More info <a href="#">here</a></p>
                 </div>
             </div>
             <div class="control-group">

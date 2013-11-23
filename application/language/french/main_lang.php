@@ -184,6 +184,7 @@ $lang['turtle_image_add_slide'] = "Ajouter une image";
 $lang['maps_px'] = "Pixel (px)";
 $lang['maps_pct'] = "Pour cent";
 $lang['maps_generate'] = "Générer le code";
+$lang['maps_info'] = "Ici vous pouvez générer le code HTML pour intégrer FlatTurtle maps dans votre site web. ";
 
 /**
 * Panes page
