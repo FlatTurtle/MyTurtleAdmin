@@ -52,14 +52,18 @@
                     >
                 </div>
             </div>
+
+            <?php if($admin || $infoscreen->pincode != ""){ ?>
             <div class="control-group">
                 <label class="control-label" for="inputPin"><?= lang('screen_pin_for_tablet') ?></label>
                 <div class="controls">
                     <input type="text" id="inputPin" name="pincode" class="" value="<?= $infoscreen->pincode; ?>"
                         <?php if(!$admin) echo "disabled='disabled'" ?>
-                    >
+                            >
                 </div>
             </div>
+            <?php } ?>
+
             <div class="control-group">
                 <label class="control-label" for="wifi"><?= lang('term_flatturtle_wifi')?></label>
                 <div class="controls">
