@@ -87,8 +87,11 @@ $version_css = "1.0.6"
             </div>
             <?
                 // Highlight correct navigation
-                $nav_screens = $nav_users = false;
-                switch($this->uri->segment(2)){
+                $nav_screens = $nav_users = $nav_maps= false;
+                switch($this->uri->segment(3)){
+                    case "maps":
+                        $nav_maps = true;
+                        break;
                     case "users":
                         $nav_users = true;
                         break;
@@ -140,12 +143,12 @@ $version_css = "1.0.6"
                                 // Show this only for superadmins
                                 if ($this->session->userdata('rights') == 100) {
                                 ?>
-                                    <li><a href="#">Users</a></li>
+                                    <li class="<?php if($nav_users) echo 'active' ?>"><a href="#">Users</a></li>
                                 <?
                                 }
                                 ?>
 
-                                <li>
+                                <li class="<?php if($nav_maps) echo 'active' ?>">
                                     <a href="<?= site_url() . "/" . $infoscreen->alias . "/maps" ?>">Maps</a>
                                 </li>
                             </ul>
