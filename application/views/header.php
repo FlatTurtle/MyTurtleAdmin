@@ -148,6 +148,7 @@ $version_css = "1.0.6"
                                 }
                                 ?>
 
+
                                 <?php if(isset($infoscreen)){?>
                                 <li class="<?php if($nav_maps) echo 'active' ?>">
                                     <a href="<?= site_url() . "/" . $infoscreen->alias . "/maps" ?>">Maps</a>
