@@ -148,9 +148,11 @@ $version_css = "1.0.6"
                                 }
                                 ?>
 
+                                <?php if(isset($infoscreen)){?>
                                 <li class="<?php if($nav_maps) echo 'active' ?>">
                                     <a href="<?= site_url() . "/" . $infoscreen->alias . "/maps" ?>">Maps</a>
                                 </li>
+                                <?php } ?>
                             </ul>
                             <div class="pull-right">
                                 <a id="help" href="" class="pull-left hide"><i class='icon-question-sign'></i></a>
