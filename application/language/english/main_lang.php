@@ -87,6 +87,9 @@ $lang['term_wifi_enabled'] = "FlatTurtle WiFi has been activated";
 $lang['term_wifi_disabled'] = "No FlatTurtle WiFi installed";
 $lang['term_whitelabel'] = "Allow white labeling";
 $lang['term_hide_logo'] = "Hide FlatTurtle logo";
+$lang['term_width'] = "Width";
+$lang['term_height'] = "Height";
+$lang['term_maps'] = "Maps";
 
 
 /**
@@ -179,6 +182,14 @@ $lang['turtle_image_crop_portrait'] = "Choose the part of the image you want to 
 $lang['turtle_image_crop_landscape'] = "Choose the part of the image you want to keep for full screen mode";
 $lang['turtle_image_add_slide'] = "Add slide";
 
+/**
+ * Maps page
+ */
+
+$lang['maps_px'] = "Pixels (px)";
+$lang['maps_pct'] = "Percentage";
+$lang['maps_generate'] = "Generate code";
+$lang['maps_info'] = "Here you can generate html code to embed FlatTurtle maps into your website. ";
 
 /**
  * Panes page

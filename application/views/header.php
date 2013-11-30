@@ -144,6 +144,10 @@ $version_css = "1.0.6"
                                 <?
                                 }
                                 ?>
+
+                                <li>
+                                    <a href="<?= site_url() . "/" . $infoscreen->alias . "/maps" ?>">Maps</a>
+                                </li>
                             </ul>
                             <div class="pull-right">
                                 <a id="help" href="" class="pull-left hide"><i class='icon-question-sign'></i></a>
