@@ -90,6 +90,7 @@ $lang['term_hide_logo'] = "Hide FlatTurtle logo";
 $lang['term_width'] = "Width";
 $lang['term_height'] = "Height";
 $lang['term_maps'] = "Maps";
+$lang['term_screen_power'] = "Power schedule";
 
 
 /**

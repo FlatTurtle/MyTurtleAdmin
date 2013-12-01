@@ -87,8 +87,11 @@ $version_css = "1.0.6"
             </div>
             <?
                 // Highlight correct navigation
-                $nav_screens = $nav_users = $nav_maps= false;
+                $nav_screens = $nav_users = $nav_maps = $nav_power = false;
                 switch($this->uri->segment(3)){
+                    case "power":
+                        $nav_power = true;
+                        break;
                     case "maps":
                         $nav_maps = true;
                         break;
@@ -148,11 +151,13 @@ $version_css = "1.0.6"
                                 }
                                 ?>
 
-
                                 <?php if(isset($infoscreen)){?>
-                                <li class="<?php if($nav_maps) echo 'active' ?>">
-                                    <a href="<?= site_url() . "/" . $infoscreen->alias . "/maps" ?>">Maps</a>
-                                </li>
+                                    <li class="<?php if($nav_maps) echo 'active' ?>">
+                                        <a href="<?= site_url() . "/" . $infoscreen->alias . "/maps" ?>"> <?= lang('term_maps') ?></a>
+                                    </li>
+                                    <li class="<?php if($nav_power) echo 'active' ?>">
+                                        <a href="<?= site_url() . "/" . $infoscreen->alias . "/power" ?>"> <?= lang('term_screen_power') ?></a>
+                                    </li>
                                 <?php } ?>
                             </ul>
                             <div class="pull-right">

@@ -88,6 +88,7 @@ $lang['term_hide_logo'] = "Masquez le logo FlatTurtle";
 $lang['term_width'] = "Largeur";
 $lang['term_height'] = "Hauteur";
 $lang['term_maps'] = "Cartes";
+$lang['term_screen_power'] = "Programme d'énergie";
 
 /**
 * Screen detail page

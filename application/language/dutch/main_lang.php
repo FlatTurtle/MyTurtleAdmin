@@ -88,6 +88,7 @@ $lang['term_hide_logo'] = "Verberg FlatTurtle logo";
 $lang['term_width'] = "Breedte";
 $lang['term_height'] = "Lengte";
 $lang['term_maps'] = "Kaarten";
+$lang['term_screen_power'] = "Energiestand planning";
 
 /**
  * Screen detail page

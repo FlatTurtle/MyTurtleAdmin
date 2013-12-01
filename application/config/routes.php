@@ -48,6 +48,7 @@ $route['^[a-z]{2}/login/do/*'] = 'home/login_post';
 $route['^[a-z]{2}/login/*'] = 'home/login';
 $route['^[a-z]{2}/logout/*'] = 'home/logout';
 $route['^[a-z]{2}/(.*)/maps'] = 'maps/index/$1';
+$route['^[a-z]{2}/(.*)/power'] = 'power/index/$1';
 $route['^[a-z]{2}/(.*)/settings'] = 'advanced/index/$1';
 $route['^[a-z]{2}/(.*)/settings/(.*)'] = 'advanced/$2/$1';
 $route['^[a-z]{2}/(.*)/shots/(.*)'] = 'advanced/shots/$1/$2';
