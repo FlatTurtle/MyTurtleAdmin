@@ -8178,6 +8178,18 @@ nav[role=navigation] {
 .wrapper {
   background-color: #fff; }
 
+/* power settings */
+.power #power-save {
+  float: right; }
+.power #dp {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+.power .datepicker {
+  padding: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0; }
+
 .error_wrapper {
   background-color: #16b0d8;
   padding-bottom: 20px;

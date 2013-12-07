@@ -1,6 +1,6 @@
 <div class="row">
     <div class="span12">
-        <form class="form-horizontal center">
+        <form class="form-horizontal center power">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#general" data-toggle="tab">General</a></li>
                 <li><a id="btn-day-schedule" href="#day-schedule" data-toggle="tab">Advanced</a></li>
@@ -70,9 +70,7 @@
             </div>
 
             <div class="control-group">
-                <div class="controls">
-                    <button class="btn">Save</button>
-                </div>
+                <button id="power-save" class="btn">Save</button>
             </div>
         </form>
     </div>
