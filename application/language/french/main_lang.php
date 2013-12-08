@@ -88,6 +88,8 @@ $lang['term_hide_logo'] = "Masquez le logo FlatTurtle";
 $lang['term_width'] = "Largeur";
 $lang['term_height'] = "Hauteur";
 $lang['term_maps'] = "Cartes";
+$lang['term_disable_left'] = "Désactiver gauche";
+$lang['term_disable_right'] = "Désactiver droite";
 
 /**
 * Screen detail page
@@ -120,6 +122,7 @@ $lang['turtles_drag_to_sort'] = "Glissez les Turtles pour trier";
 $lang['turtles_option_number_of_items'] = "Eléments à afficher";
 $lang['turtles_option_zoom'] = "Zoom";
 $lang['turtles_error_blank'] = "Momentanément il n'y a pas d'options à configurer pour ce Turtle.";
+$lang['turtles_left_side_disabled'] = "The left side of your screen is disabled, please contact a FlatTurtle employee to activate it";
 
 /**
 * Specific for a turtle
@@ -198,6 +201,7 @@ $lang['panes_general_options'] = "Options générales du panneau";
 $lang['panes_disable_note'] = "Êtes-vous sûr de vouloir supprimer ce panneau?";
 $lang['panes_adding'] = "Ajout du panneau en cours";
 $lang['panes_deleting'] = "Retrait du panneau en cours";
+$lang['panes_right_side_disabled'] = "De rechterkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
 
 /**
 * Error messages

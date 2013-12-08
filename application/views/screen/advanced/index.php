@@ -54,14 +54,14 @@
             </div>
 
             <?php if($admin || $infoscreen->pincode != ""){ ?>
-            <div class="control-group">
-                <label class="control-label" for="inputPin"><?= lang('screen_pin_for_tablet') ?></label>
-                <div class="controls">
-                    <input type="text" id="inputPin" name="pincode" class="" value="<?= $infoscreen->pincode; ?>"
-                        <?php if(!$admin) echo "disabled='disabled'" ?>
-                            >
+                <div class="control-group">
+                    <label class="control-label" for="inputPin"><?= lang('screen_pin_for_tablet') ?></label>
+                    <div class="controls">
+                        <input type="text" id="inputPin" name="pincode" class="" value="<?= $infoscreen->pincode; ?>"
+                            <?php if(!$admin) echo "disabled='disabled'" ?>
+                                >
+                    </div>
                 </div>
-            </div>
             <?php } ?>
 
             <div class="control-group">
@@ -83,21 +83,37 @@
                 </div>
             </div>
             <?php if($admin){ ?>
-            <div class="control-group">
-                <label class="control-label" for="allow_whitelabel"><?=lang('term_whitelabel');?></label>
-                <div class="controls">
-                    <input type="checkbox" value="1" <?= $infoscreen->allow_whitelabel == 0 ? '' : ' checked="checked"';?> id="allow_whitelabel" name="allow_whitelabel">
+                <div class="control-group">
+                    <label class="control-label" for="allow_whitelabel"><?=lang('term_whitelabel');?></label>
+                    <div class="controls">
+                        <input type="checkbox" value="1" <?= $infoscreen->allow_whitelabel == 0 ? '' : ' checked="checked"';?> id="allow_whitelabel" name="allow_whitelabel">
+                    </div>
                 </div>
-            </div>
             <?php } ?>
             <?php if($infoscreen->allow_whitelabel || $admin) {?>
+                <div class="control-group">
+                    <label class="control-label" for="allow_whitelabel"><?=lang('term_hide_logo');?></label>
+                    <div class="controls">
+                        <input type="checkbox" value="1" <?= $infoscreen->hide_ft_logo == 0 ? '' : ' checked="checked"';?> id="hide_ft_logo" name="hide_ft_logo">
+                    </div>
+                </div>
+            <?php } ?>
+
+            <?php if($admin){ ?>
             <div class="control-group">
-                <label class="control-label" for="allow_whitelabel"><?=lang('term_hide_logo');?></label>
+                <label class="control-label" for="disable_left"><?=lang('term_disable_left');?></label>
                 <div class="controls">
-                    <input type="checkbox" value="1" <?= $infoscreen->hide_ft_logo == 0 ? '' : ' checked="checked"';?> id="hide_ft_logo" name="hide_ft_logo">
+                    <input type="checkbox" value="1" <?= $infoscreen->disable_left == 0 ? '' : ' checked="checked"';?> id="disable_left" name="disable_left">
                 </div>
             </div>
-            <?php } ?>
+            <div class="control-group">
+                <label class="control-label" for="disable_right"><?=lang('term_disable_right');?></label>
+                <div class="controls">
+                    <input type="checkbox" value="1" <?= $infoscreen->disable_right == 0 ? '' : ' checked="checked"';?> id="disable_right" name="disable_right">
+                </div>
+            </div>
+            <? } ?>
+
             <div class="control-group">
                 <div class="controls">
                     <? if (!empty($all_errors)) { ?>

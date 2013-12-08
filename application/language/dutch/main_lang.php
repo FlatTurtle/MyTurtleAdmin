@@ -88,6 +88,8 @@ $lang['term_hide_logo'] = "Verberg FlatTurtle logo";
 $lang['term_width'] = "Breedte";
 $lang['term_height'] = "Lengte";
 $lang['term_maps'] = "Kaarten";
+$lang['term_disable_left'] = "Deactiveer linkerkant";
+$lang['term_disable_right'] = "Deactiveer rechterkant";
 
 /**
  * Screen detail page
@@ -120,6 +122,7 @@ $lang['turtles_drag_to_sort'] = "Sleep de Turtles om ze te sorteren";
 $lang['turtles_option_number_of_items'] = "Elementen om weer te geven";
 $lang['turtles_option_zoom'] = "Zoom";
 $lang['turtles_error_blank'] = "Er zijn geen te configureren opties voor deze Turtle.";
+$lang['turtles_left_side_disabled'] = "De linkerkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
 
 /**
  * Specific for a turtle
@@ -198,6 +201,7 @@ $lang['panes_general_options'] = "Algemene pane opties";
 $lang['panes_disable_note'] = "Bent u zeker dat u deze pane wenst te verwijderen?";
 $lang['panes_adding'] = "Pane wordt aan het scherm toegevoegd.";
 $lang['panes_deleting'] = "Pane wordt van het scherm verwijderd.";
+$lang['panes_right_side_disabled'] = "De rechterkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
 
 /**
  * Error messages

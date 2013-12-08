@@ -168,6 +168,14 @@ class Advanced extends CI_Controller {
         if(!isset($_POST["allow_whitelabel"])){
             $_POST["allow_whitelabel"] = 0;
         }
+        //see if checkbox is checked
+        if(!isset($_POST["disable_left"])){
+            $_POST["disable_left"] = 0;
+        }
+        //see if checkbox is checked
+        if(!isset($_POST["disable_right"])){
+            $_POST["disable_right"] = 0;
+        }
 
         // add validation rule with alias in it
         if($this->session->userdata('rights') == 100){
