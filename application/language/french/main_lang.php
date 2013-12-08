@@ -89,6 +89,12 @@ $lang['term_width'] = "Largeur";
 $lang['term_height'] = "Hauteur";
 $lang['term_maps'] = "Cartes";
 $lang['term_screen_power'] = "Programme d'énergie";
+$lang['term_hours'] = "Heures";
+$lang['term_minutes'] = "Minutes";
+$lang['term_period'] = "période";
+$lang['term_on'] = "Active";
+$lang['term_day'] = "Jour";
+$lang['term_general'] = "Général";
 
 /**
 * Screen detail page
@@ -244,6 +250,12 @@ $lang['help_panes_enabled'] = "Liste de panneaux activés. Cliquez dessus pour v
 $lang['help_panes_available'] = "Liste de panneaux disponibles. Cochez la case pour activer le panneau désiré.";
 $lang['help_panes_area'] = "Voir/modifier les options du  panneau sélectionné.";
 $lang['help_panes_general_options'] = "Définissez les options générales du panneau sélectionné.";
+
+/**
+ * MISC
+ */
+$lang['power_day_schedule_info'] = "Selecteer de dagen dat het scherm aan of uit moet";
+
 
 /**
  * EOF

@@ -2,8 +2,8 @@
     <div class="span12">
         <form class="form-horizontal center power">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#general" data-toggle="tab">General</a></li>
-                <li><a id="btn-day-schedule" href="#day-schedule" data-toggle="tab">Advanced</a></li>
+                <li class="active"><a href="#general" data-toggle="tab"><?= lang('term_general') ?></a></li>
+                <li><a id="btn-day-schedule" href="#day-schedule" data-toggle="tab"><?= lang('term_advanced') ?></a></li>
             </ul>
 
             <div class="tab-content">
@@ -13,44 +13,44 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>On</th>
-                            <th>Period</th>
+                            <th><?= lang('term_day') ?></th>
+                            <th><?= lang('term_on') ?></th>
+                            <th><?= lang('term_period') ?></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr class="day">
-                            <td>Monday</td>
+                            <td><?= lang('term_monday') ?></td>
                             <td><input type="checkbox"></td>
                             <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
-                            <td>Tuesday</td>
+                            <td><?= lang('term_tuesday') ?></td>
                             <td><input type="checkbox"></td>
                             <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
-                            <td>Wednesday</td>
+                            <td><?= lang('term_wednesday') ?></td>
                             <td><input type="checkbox"></td>
                             <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
-                            <td>Thursday</td>
+                            <td><?= lang('term_thursday') ?></td>
                             <td><input type="checkbox"></td>
                             <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
-                            <td>Friday</td>
+                            <td><?= lang('term_friday') ?></td>
                             <td><input type="checkbox"></td>
                             <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
-                            <td>Saturday</td>
+                            <td><?= lang('term_saturday') ?></td>
                             <td><input type="checkbox"></td>
                             <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
-                            <td>Sunday</td>
+                            <td><?= lang('term_sunday') ?></td>
                             <td><input type="checkbox"></td>
                             <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
@@ -63,7 +63,7 @@
 
                 <!-- Advanced scheduling -->
                 <div class="tab-pane" id="day-schedule">
-                    <p>Enable or disable the screen on specific dates.</p>
+                    <p><?= lang('power_day_schedule_info') ?></p>
                     <div id="dp"></div>
                 </div>
 
@@ -94,6 +94,7 @@
                 var $from = $(".timepicker-from", this);
                 var $to = $(".timepicker-to", this);
                 $from.timepicker({
+                    // on select set $to min time to selected time
                     onSelect: function(time, instance){
                         $to.timepicker('option', {
                             minTime: {
@@ -101,9 +102,12 @@
                                 minute: instance.minutes
                             }
                         });
-                    }
+                    },
+                    hourText: '<?= lang('term_hours') ?>',
+                    minuteText: '<?= lang('term_minutes') ?>'
                 });
                 $to.timepicker({
+                    // on select set $from max time to selected time
                     onSelect: function(time, instance){
                         $from.timepicker('option', {
                             maxTime: {
@@ -111,7 +115,9 @@
                                 minute: instance.minutes
                             }
                         });
-                    }
+                    },
+                    hourText: '<?= lang('term_hours') ?>',
+                    minuteText: '<?= lang('term_minutes') ?>'
                 })
             });
 

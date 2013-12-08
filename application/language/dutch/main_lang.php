@@ -55,7 +55,7 @@ $lang['term_floor'] = "Verdieping";
 $lang['term_destination'] = "Bestemming";
 $lang['term_via'] = "Via";
 $lang['term_optional'] = "Optioneel";
-$lang['term_advanced'] = "Advanced";
+$lang['term_advanced'] = "Uitgebreid";
 $lang['term_settings'] = "Instellingen";
 $lang['term_screenshots'] = "Screenshots";
 $lang['term_type'] = "Type";
@@ -89,6 +89,12 @@ $lang['term_width'] = "Breedte";
 $lang['term_height'] = "Lengte";
 $lang['term_maps'] = "Kaarten";
 $lang['term_screen_power'] = "Energiestand planning";
+$lang['term_hours'] = "Uren";
+$lang['term_minutes'] = "Minuten";
+$lang['term_period'] = "Periode";
+$lang['term_on'] = "Scherm aan";
+$lang['term_day'] = "Dag";
+$lang['term_general'] = "Algemeen";
 
 /**
  * Screen detail page
@@ -244,6 +250,12 @@ $lang['help_panes_enabled'] = "Een lijst van actieve panes. Selecteer een pane o
 $lang['help_panes_available'] = "Een lijst van beschikbare panes. Klik op het vinkje om ze te activeren.";
 $lang['help_panes_area'] = "Bekijk en bewerk de opties van de geselecteerde pane.";
 $lang['help_panes_general_options'] = "Stel de algemene opties in van de geselecteerde pane.";
+
+
+/**
+ * MISC
+ */
+$lang['power_day_schedule_info'] = "Selecteer de dagen dat het scherm aan of uit moet";
 
 /**
  * EOF

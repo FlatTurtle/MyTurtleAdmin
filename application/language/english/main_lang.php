@@ -91,6 +91,12 @@ $lang['term_width'] = "Width";
 $lang['term_height'] = "Height";
 $lang['term_maps'] = "Maps";
 $lang['term_screen_power'] = "Power schedule";
+$lang['term_hours'] = "Hours";
+$lang['term_minutes'] = "Minutes";
+$lang['term_period'] = "Period";
+$lang['term_on'] = "Screen On";
+$lang['term_day'] = "Day";
+$lang['term_general'] = "General";
 
 
 /**
@@ -249,6 +255,12 @@ $lang['help_panes_enabled'] = "This is a list of enabled panes. Click them to vi
 $lang['help_panes_available'] = "All the available panes are listed here. Check the checkbox to enable the desired pane.";
 $lang['help_panes_area'] = "And view/set the options of the selected pane.";
 $lang['help_panes_general_options'] = "Here you can set the general options of the selected pane.";
+
+/**
+ * MISC
+ */
+$lang['power_day_schedule_info'] = "Select the days the screen has to be on or off";
+
 
 /**
  * EOF
