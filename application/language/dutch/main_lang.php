@@ -212,6 +212,7 @@ $lang['error_delete_turtle'] = "Kon de Turtle niet verwijderen. Refresh de pagin
 $lang['error_add_pane'] = "Kon de pane niet activeren. Refresh de pagina en probeer het opnieuw.";
 $lang['error_delete_pane'] = "Kon de pane niet verwijderen. Refresh de pagina en probeer het opnieuw.";
 $lang['error_resolve_walktime_geocodes'] = "Kon de wandelduur niet berekenen, de schermlocatie is niet gedefinieerd";
+$lang['error_duplicate_hostname'] = "De gegeven TurtleBox ID is al in gebruik";
 
 /**
  * Warnings
