@@ -8272,6 +8272,13 @@ nav[role=navigation] {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0; }
+.power #power_days_table td,
+.power #power_days_table th {
+  text-align: center; }
+.power .timepicker-from {
+  float: left; }
+.power .timepicker-to {
+  float: right; }
 
 /* ui timepicker */
 .ui-timepicker {

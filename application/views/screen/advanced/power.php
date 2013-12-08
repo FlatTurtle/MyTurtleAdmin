@@ -10,7 +10,7 @@
 
                 <!-- general power settings -->
                 <div class="tab-pane active" id="general">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="power_days_table">
                         <thead>
                         <tr>
                             <th><?= lang('term_day') ?></th>
@@ -22,37 +22,37 @@
                         <tr class="day">
                             <td><?= lang('term_monday') ?></td>
                             <td><input type="checkbox"></td>
-                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
+                            <td><input type="text" class="input-small timepicker-from"><span style="margin-left: auto;margin-right: auto"><?= lang('term_to') ?></span><input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
                             <td><?= lang('term_tuesday') ?></td>
                             <td><input type="checkbox"></td>
-                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
+                            <td><input type="text" class="input-small timepicker-from"><span><?= lang('term_to') ?></span><input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
                             <td><?= lang('term_wednesday') ?></td>
                             <td><input type="checkbox"></td>
-                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
+                            <td><input type="text" class="input-small timepicker-from"><span><?= lang('term_to') ?></span><input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
                             <td><?= lang('term_thursday') ?></td>
                             <td><input type="checkbox"></td>
-                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
+                            <td><input type="text" class="input-small timepicker-from"><span><?= lang('term_to') ?></span><input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
                             <td><?= lang('term_friday') ?></td>
                             <td><input type="checkbox"></td>
-                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
+                            <td><input type="text" class="input-small timepicker-from"><span><?= lang('term_to') ?></span><input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
                             <td><?= lang('term_saturday') ?></td>
                             <td><input type="checkbox"></td>
-                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
+                            <td><input type="text" class="input-small timepicker-from"><span><?= lang('term_to') ?></span><input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         <tr class="day">
                             <td><?= lang('term_sunday') ?></td>
                             <td><input type="checkbox"></td>
-                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
+                            <td><input type="text" class="input-small timepicker-from"><span><?= lang('term_to') ?></span><input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -70,7 +70,7 @@
             </div>
 
             <div class="control-group">
-                <button id="power-save" class="btn">Save</button>
+                <button id="power-save" class="btn"><?= lang('term_save') ?></button>
             </div>
         </form>
     </div>
@@ -85,7 +85,8 @@
                     $dp.DatePicker({
                         mode: 'multiple',
                         inline: true,
-                        calendars: 3
+                        calendars: 3,
+                        starts: 1
                     });
                 }
             });

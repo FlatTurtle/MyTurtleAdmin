@@ -97,6 +97,7 @@ $lang['term_period'] = "Period";
 $lang['term_on'] = "Screen On";
 $lang['term_day'] = "Day";
 $lang['term_general'] = "General";
+$lang['term_to'] = "to";
 
 
 /**

@@ -95,6 +95,7 @@ $lang['term_period'] = "Periode";
 $lang['term_on'] = "Scherm aan";
 $lang['term_day'] = "Dag";
 $lang['term_general'] = "Algemeen";
+$lang['term_to'] = "tot";
 
 /**
  * Screen detail page

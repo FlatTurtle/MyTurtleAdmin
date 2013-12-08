@@ -95,6 +95,7 @@ $lang['term_period'] = "période";
 $lang['term_on'] = "Active";
 $lang['term_day'] = "Jour";
 $lang['term_general'] = "Général";
+$lang['term_to'] = "à";
 
 /**
 * Screen detail page
