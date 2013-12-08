@@ -176,6 +176,7 @@ $lang['turtle_image_uploading'] = "Charger une nouvelle image";
 $lang['turtle_image_crop_portrait'] = "Choisissez la partie de l'image que vous voulez garder dans le mode normal";
 $lang['turtle_image_crop_landscape'] = "Choisissez la partie de l'image que vous voulez garder dans le mode plein écran";
 $lang['turtle_image_add_slide'] = "Ajouter une image";
+$lang['turtle_reservations_uri'] = "Reservations api";
 
 /**
  * Maps page

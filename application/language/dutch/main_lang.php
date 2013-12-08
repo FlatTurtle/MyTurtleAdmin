@@ -176,6 +176,7 @@ $lang['turtle_image_uploading'] = "Upload een nieuwe slide";
 $lang['turtle_image_crop_portrait'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de normale modus";
 $lang['turtle_image_crop_landscape'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de full screen modus";
 $lang['turtle_image_add_slide'] = "Voeg slide toe";
+$lang['turtle_reservations_uri'] = "Reservations api";
 
 /**
  * Maps page
