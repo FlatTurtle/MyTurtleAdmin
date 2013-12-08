@@ -47,6 +47,7 @@
                             lib/jquery.color.js,
                             lib/jquery.jcrop.js,
                             lib/datepicker.js,
+                            lib/jquery.ui.timepicker.js,
                             inc/turtle-general.js,
                             inc/turtle-creation.js,
                             inc/turtle-sorting.js,

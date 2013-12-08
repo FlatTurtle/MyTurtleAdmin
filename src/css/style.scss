@@ -11,6 +11,7 @@ Author: Michiel Vancoillie
 @import "font-awesome";
 @import "introjs";
 @import "jcrop";
+@import "jquery.ui.timepicker";
 
 
 html, body{
@@ -167,6 +168,8 @@ nav[role=navigation] {
     background-color: #fff;
 }
 
+
+
 /* power settings */
 .power{
     #power-save{
@@ -183,6 +186,16 @@ nav[role=navigation] {
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         border-radius: 0;
+    }
+}
+
+/* ui timepicker */
+.ui-timepicker{
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+
+    .ui-timepicker-hours, .ui-timepicker-minutes{
+        border: 1px solid #dddddd;
     }
 }
 

@@ -19,40 +19,40 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr class="day">
                             <td>Monday</td>
                             <td><input type="checkbox"></td>
-                            <td><input type="time" class="input-small"> to <input type="time"  class="input-small"></td>
+                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
-                        <tr>
+                        <tr class="day">
                             <td>Tuesday</td>
                             <td><input type="checkbox"></td>
-                            <td><input type="time" class="input-small"> to <input type="time"  class="input-small"></td>
+                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
-                        <tr>
+                        <tr class="day">
                             <td>Wednesday</td>
                             <td><input type="checkbox"></td>
-                            <td><input type="time" class="input-small"> to <input type="time"  class="input-small"></td>
+                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
-                        <tr>
+                        <tr class="day">
                             <td>Thursday</td>
                             <td><input type="checkbox"></td>
-                            <td><input type="time" class="input-small"> to <input type="time"  class="input-small"></td>
+                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
-                        <tr>
+                        <tr class="day">
                             <td>Friday</td>
                             <td><input type="checkbox"></td>
-                            <td><input type="time" class="input-small"> to <input type="time"  class="input-small"></td>
+                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
-                        <tr>
+                        <tr class="day">
                             <td>Saturday</td>
                             <td><input type="checkbox"></td>
-                            <td><input type="time" class="input-small"> to <input type="time"  class="input-small"></td>
+                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
-                        <tr>
+                        <tr class="day">
                             <td>Sunday</td>
                             <td><input type="checkbox"></td>
-                            <td><input type="time" class="input-small"> to <input type="time"  class="input-small"></td>
+                            <td><input type="text" class="input-small timepicker-from"> to <input type="text"  class="input-small timepicker-to"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -89,6 +89,32 @@
                     });
                 }
             });
+
+            $(".day").each(function(){
+                var $from = $(".timepicker-from", this);
+                var $to = $(".timepicker-to", this);
+                $from.timepicker({
+                    onSelect: function(time, instance){
+                        $to.timepicker('option', {
+                            minTime: {
+                                hour: instance.hours,
+                                minute: instance.minutes
+                            }
+                        });
+                    }
+                });
+                $to.timepicker({
+                    onSelect: function(time, instance){
+                        $from.timepicker('option', {
+                            maxTime: {
+                                hour: instance.hours,
+                                minute: instance.minutes
+                            }
+                        });
+                    }
+                })
+            });
+
         });
     }());
 </script>
