@@ -93,7 +93,6 @@ $lang['term_maps'] = "Maps";
 $lang['term_disable_left'] = "Deactivate left side";
 $lang['term_disable_right'] = "Deactivate right side";
 
-
 /**
  * Screen detail page
  */
