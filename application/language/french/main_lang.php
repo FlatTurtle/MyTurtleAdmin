@@ -255,7 +255,7 @@ $lang['help_panes_general_options'] = "Définissez les options générales du pa
 /**
  * MISC
  */
-$lang['power_day_schedule_info'] = "Selecteer de dagen dat het scherm aan of uit moet";
+$lang['power_day_schedule_info'] = "Sélectionnez les jours que l'écran doit être allumé ou desactivé";
 
 
 /**
