@@ -67,6 +67,8 @@ $lang['term_searching_for'] = "Zoeken op";
 $lang['term_upload'] = "Upload";
 $lang['term_uploading'] = "Uploaden";
 $lang['term_change'] = "Veranderen";
+$lang['term_larger'] = "Groter";
+$lang['term_filter'] = "Filter";
 $lang['term_image'] = "Afbeelding";
 $lang['term_price'] = "Prijs";
 $lang['term_monday'] = "Maandag";
@@ -183,7 +185,6 @@ $lang['turtle_image_add_slide'] = "Voeg slide toe";
 /**
  * Maps page
  */
-
 $lang['maps_px'] = "Pixels (px)";
 $lang['maps_pct'] = "Percent";
 $lang['maps_generate'] = "Genereer code";
