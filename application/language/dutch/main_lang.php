@@ -187,7 +187,6 @@ $lang['turtle_image_add_slide'] = "Voeg slide toe";
 /**
  * Maps page
  */
-
 $lang['maps_px'] = "Pixels (px)";
 $lang['maps_pct'] = "Percent";
 $lang['maps_generate'] = "Genereer code";

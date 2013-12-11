@@ -1,8 +1,8 @@
 <?php
 
 /**
-* Header
-*/
+ * Header
+ */
 
 // Page <title>
 $lang['title'] = "MyTurtleControl";
@@ -12,13 +12,13 @@ $lang['greeting'] = "Bonjour";
 $lang['mailing_list'] = "Abonnez-vous à nos mises à jour des produits";
 
 /**
-* Login page
-*/
+ * Login page
+ */
 $lang['login_title'] = "Connectez-vous s'il vous plaît";
 
 /**
-* General terms
-*/
+ * General terms
+ */
 $lang['term_save'] = "Sauvez";
 $lang['term_cancel'] = "Annulez";
 $lang['term_send'] = "Envoyez";
@@ -94,8 +94,8 @@ $lang['term_disable_left'] = "Désactiver gauche";
 $lang['term_disable_right'] = "Désactiver droite";
 
 /**
-* Screen detail page
-*/
+ * Screen detail page
+ */
 $lang['screen_sent_message'] = "Envoyez un message";
 $lang['screen_sent_message_note'] = "Le message est affiché sur l'écran pendant un petit laps de temps.";
 $lang['screen_sent_message_alt'] = "Affichez un message sur l'écran";
@@ -115,20 +115,20 @@ $lang['screen_btn_power'] = "(Dés)activez l'écran";
 $lang['screen_btn_refresh'] = "Actualisez";
 
 /**
-* Turtles page
-*/
+ * Turtles page
+ */
 $lang['turtles_available'] = "Turtles disponibles";
 $lang['turtles_drag_to_screen'] = "Glissez les Turtles vers l'écran";
 $lang['turtles_screen_title'] = "Côté gauche de l'écran";
 $lang['turtles_drag_to_sort'] = "Glissez les Turtles pour trier";
 $lang['turtles_option_number_of_items'] = "Eléments à afficher";
 $lang['turtles_option_zoom'] = "Zoom";
-$lang['turtles_error_blank'] = "Momentanément il n'y a pas d'options à configurer pour ce Turtle.";
-$lang['turtles_left_side_disabled'] = "The left side of your screen is disabled, please contact a FlatTurtle employee to activate it";
+$lang['turtles_error_blank'] = "Momentanément il n'y a pas d'options à configurer pour ce Turtle";
+$lang['turtles_left_side_disabled'] = "Le côté gauche de votre FlatTurle est désactivé. Contactez FlatTurtle pour l'activer";
 
 /**
-* Specific for a turtle
-*/
+ * Specific for a turtle
+ */
 $lang['turtle_airport_alt'] =  "Code de l'aéroport (ex: BRU ou CDG)";
 $lang['turtle_delijn_alt'] =  "Nom d'un arrêt (ex: Grimbergen Dorp)";
 $lang['turtle_mivb_alt'] =  "Nom d'un arrêt (ex: Mozart)";
@@ -194,8 +194,8 @@ $lang['maps_generate'] = "Générer le code";
 $lang['maps_info'] = "Ici vous pouvez générer le code HTML pour intégrer FlatTurtle maps dans votre site web. ";
 
 /**
-* Panes page
-*/
+ * Panes page
+ */
 $lang['panes_available'] = "Panneaux disponibles";
 $lang['panes_enabled'] = "Panneaux activés";
 $lang['panes_screen_title'] = "Côté droit de l'écran";
@@ -205,11 +205,11 @@ $lang['panes_general_options'] = "Options générales du panneau";
 $lang['panes_disable_note'] = "Êtes-vous sûr de vouloir supprimer ce panneau?";
 $lang['panes_adding'] = "Ajout du panneau en cours";
 $lang['panes_deleting'] = "Retrait du panneau en cours";
-$lang['panes_right_side_disabled'] = "De rechterkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
+$lang['panes_right_side_disabled'] = "Le côté droit de votre FlatTurle est désactivé. Contactez FlatTurtle pour l'activer";
 
 /**
-* Error messages
-*/
+ * Error messages
+ */
 $lang['error_logo_upload'] = "L'envoi a échoué. Essayez à nouveau.";
 $lang['error_color_check_hex'] = "La couleur {{value}} n'est pas une couleur hexadécimale correcte.";
 $lang['error_resolve_address'] = "Impossible de localiser l'adresse. Soyez plus précis.";
@@ -220,7 +220,7 @@ $lang['error_delete_turtle'] = "Impossible de supprimer le Turtle pour le moment
 $lang['error_add_pane'] = "Impossible d'activer le panneau. Veuillez actualiser l'écran et réessayer";
 $lang['error_delete_pane'] = "Impossible de supprimer le panneau pour le moment";
 $lang['error_resolve_walktime_geocodes'] = "Impossible de calculer la durée de marche. Les coordonnées géographiques de l'écran ne sont pas définies";
-$lang['error_duplicate_hostname'] = "The given TurtleBox ID is already in use";
+$lang['error_duplicate_hostname'] = "Le TurtleBox ID est déjà utilisé";
 
 /**
  * Warnings
