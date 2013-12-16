@@ -26,6 +26,8 @@ class Advanced extends CI_Controller {
             $this->my_formvalidation->set_rules('hostname', 'hostname', 'trim|max_length[50]');
             $this->my_formvalidation->set_rules('pincode', 'pincode', 'trim|max_length[20]');
         }
+        $this->my_formvalidation->set_message('check_hostname', lang('error_duplicate_hostname'));
+
         $this->my_formvalidation->set_rules('location', 'location', 'required|trim');
         $this->my_formvalidation->set_rules('longitude', 'longitude', 'callback_check_geocode');
         $this->my_formvalidation->set_rules('color', 'color', 'callback_check_color');
@@ -166,11 +168,24 @@ class Advanced extends CI_Controller {
         if(!isset($_POST["allow_whitelabel"])){
             $_POST["allow_whitelabel"] = 0;
         }
+        //see if checkbox is checked
+        if(!isset($_POST["disable_left"])){
+            $_POST["disable_left"] = 0;
+        }
+        //see if checkbox is checked
+        if(!isset($_POST["disable_right"])){
+            $_POST["disable_right"] = 0;
+        }
+
+        // add validation rule with alias in it
+        if($this->session->userdata('rights') == 100){
+            $this->my_formvalidation->set_rules('hostname', 'hostname', 'trim|max_length[50]|callback_check_hostname['. $alias .']');
+        }
 
         // Validate the input
         if ($this->my_formvalidation->run()) {
             $this->infoscreen->post($alias, $this->input->post());
-        } else {
+        }else {
             $this->session->set_flashdata('post_address', $this->input->post('location'));
             $this->session->set_flashdata('post_title', $this->input->post('title'));
             $this->session->set_flashdata('post_color', $this->input->post('color'));
@@ -271,5 +286,16 @@ class Advanced extends CI_Controller {
         }else{
             $this->shot($alias,$name);
         }
+    }
+
+    public function check_hostname($hostname, $alias){
+        $infoscreens = $this->infoscreen->getAll();
+        foreach($infoscreens as $infoscreen){
+            if($infoscreen->alias != $alias &&
+                $infoscreen->hostname == $hostname){
+                return false;
+            }
+        }
+        return true;
     }
 }

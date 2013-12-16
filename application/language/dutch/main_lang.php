@@ -67,6 +67,8 @@ $lang['term_searching_for'] = "Zoeken op";
 $lang['term_upload'] = "Upload";
 $lang['term_uploading'] = "Uploaden";
 $lang['term_change'] = "Veranderen";
+$lang['term_larger'] = "Groter";
+$lang['term_filter'] = "Filter";
 $lang['term_image'] = "Afbeelding";
 $lang['term_price'] = "Prijs";
 $lang['term_monday'] = "Maandag";
@@ -88,6 +90,8 @@ $lang['term_hide_logo'] = "Verberg FlatTurtle logo";
 $lang['term_width'] = "Breedte";
 $lang['term_height'] = "Lengte";
 $lang['term_maps'] = "Kaarten";
+$lang['term_disable_left'] = "Deactiveer linkerkant";
+$lang['term_disable_right'] = "Deactiveer rechterkant";
 
 /**
  * Screen detail page
@@ -120,6 +124,7 @@ $lang['turtles_drag_to_sort'] = "Sleep de Turtles om ze te sorteren";
 $lang['turtles_option_number_of_items'] = "Elementen om weer te geven";
 $lang['turtles_option_zoom'] = "Zoom";
 $lang['turtles_error_blank'] = "Er zijn geen te configureren opties voor deze Turtle.";
+$lang['turtles_left_side_disabled'] = "De linkerkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
 
 /**
  * Specific for a turtle
@@ -138,6 +143,7 @@ $lang['turtle_finance_primary_note'] = "Aandeelsymbool, deze staat het grootst o
 $lang['turtle_finance_secondary_note'] = "Een lijst van aandeelsymbolen gescheiden door een komma";
 $lang['turtle_finance_lookup_note'] = "Gebruik de volgende site om het juiste aandeelsymbool te vinden door de bedrijfsnaam daar in de zoekbalk in te vullen: ";
 $lang['turtle_twitter_search_alt'] = "Twitter (bvb. #FlatTurtle)";
+$lang['turtle_twitter_larger_note'] = "Vink dit aan om een grotere versie van de tweets te tonen.";
 $lang['turtle_rss_alt'] = "Een URL naar een RSS-feed";
 $lang['turtle_rss_custom'] = "Eigen feed";
 $lang['turtle_screen_location'] = "Een andere locatie";
@@ -153,6 +159,7 @@ $lang['turtle_signage_delete_entry_note'] = "Weet u zeker dat u dit item wilt ve
 $lang['turtle_delete_note'] = "Weet u zeker dat u deze Turtle wilt verwijderen?";
 $lang['turtle_calendar_alt'] = "Een URL naar een iCal feed";
 $lang['turtle_pricelist_add_category'] = "Voeg een categorie toe";
+$lang['turtle_calendar_filter'] = "Filter de items die getoond moeten worden, gebaseerd op locatie";
 $lang['turtle_pricelist_add_entry'] = "Voeg een item toe aan deze categorie";
 $lang['turtle_pricelist_category_name'] = "Categorie naam";
 $lang['turtle_pricelist_delete_category_note'] = "Weet u zeker dat u deze categorie en zijn items wilt verwijderen?";
@@ -181,7 +188,6 @@ $lang['turtle_reservations_uri'] = "Reservations api";
 /**
  * Maps page
  */
-
 $lang['maps_px'] = "Pixels (px)";
 $lang['maps_pct'] = "Percent";
 $lang['maps_generate'] = "Genereer code";
@@ -199,6 +205,7 @@ $lang['panes_general_options'] = "Algemene pane opties";
 $lang['panes_disable_note'] = "Bent u zeker dat u deze pane wenst te verwijderen?";
 $lang['panes_adding'] = "Pane wordt aan het scherm toegevoegd.";
 $lang['panes_deleting'] = "Pane wordt van het scherm verwijderd.";
+$lang['panes_right_side_disabled'] = "De rechterkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
 
 /**
  * Error messages
@@ -213,6 +220,7 @@ $lang['error_delete_turtle'] = "Kon de Turtle niet verwijderen. Refresh de pagin
 $lang['error_add_pane'] = "Kon de pane niet activeren. Refresh de pagina en probeer het opnieuw.";
 $lang['error_delete_pane'] = "Kon de pane niet verwijderen. Refresh de pagina en probeer het opnieuw.";
 $lang['error_resolve_walktime_geocodes'] = "Kon de wandelduur niet berekenen, de schermlocatie is niet gedefinieerd";
+$lang['error_duplicate_hostname'] = "De gegeven TurtleBox ID is al in gebruik";
 
 /**
  * Warnings

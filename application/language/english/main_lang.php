@@ -90,7 +90,8 @@ $lang['term_hide_logo'] = "Hide FlatTurtle logo";
 $lang['term_width'] = "Width";
 $lang['term_height'] = "Height";
 $lang['term_maps'] = "Maps";
-
+$lang['term_disable_left'] = "Deactivate left side";
+$lang['term_disable_right'] = "Deactivate right side";
 
 /**
  * Screen detail page
@@ -123,6 +124,7 @@ $lang['turtles_drag_to_sort'] = "Drag Turtles to sort";
 $lang['turtles_option_number_of_items'] = "Items to show";
 $lang['turtles_option_zoom'] = "Zoom";
 $lang['turtles_error_blank'] = "Momentarily there are no options to configure for this Turtle.";
+$lang['turtles_left_side_disabled'] = "The left side of your screen is disabled, please contact a FlatTurtle employee to activate it";
 
 /**
  * Specific for a Turtle
@@ -204,6 +206,7 @@ $lang['panes_general_options'] = "General pane options";
 $lang['panes_disable_note'] = "Are you sure you want to disable this pane?";
 $lang['panes_adding'] = "Adding a new pane to the screen";
 $lang['panes_deleting'] = "Deleting the pane from the screen";
+$lang['panes_right_side_disabled'] = "The right side of your screen is disabled, please contact a FlatTurtle employee to activate it";
 
 /**
  * Error messages
@@ -218,6 +221,7 @@ $lang['error_delete_turtle'] = "Couldn't delete that Turtle at the moment";
 $lang['error_add_pane'] = "Couldn't enable pane, please refresh and try again";
 $lang['error_delete_pane'] = "Couldn't delete that pane at the moment";
 $lang['error_resolve_walktime_geocodes'] = "Couldn't calculate the walking duration. The screens geo coordinates aren't set";
+$lang['error_duplicate_hostname'] = "The given TurtleBox ID is already in use";
 
 /**
  * Warnings

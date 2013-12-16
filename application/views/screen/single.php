@@ -42,15 +42,20 @@
                 <div class="dummy"></div>
                 <div class="screen <?= $extra_screen_class ?>">
                     <div class='inner'>
-                        <a href="<?= site_url($infoscreen->alias . '/left') ?>">
-                            <div class='left-side'>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                        <a href="<?= site_url($infoscreen->alias . '/right') ?>">
-                            <div class='right-side' style='background-color:<?= $infoscreen->color; ?>;'>
-                            </div>
-                        </a>
+                        <?php if(!$infoscreen->disable_left){ ?>
+                            <a href="<?= site_url($infoscreen->alias . '/left') ?>">
+                                <div class='left-side'>
+                                </div>
+                                <div class="clear"></div>
+                            </a>
+                        <? } ?>
+
+                        <?php if(!$infoscreen->disable_right){ ?>
+                            <a href="<?= site_url($infoscreen->alias . '/right') ?>">
+                                <div class='right-side' style='background-color:<?= $infoscreen->color; ?>;'>
+                                </div>
+                            </a>
+                        <? } ?>
 
                         <div class="logo-holder" data-step="3" data-intro="<?php echo lang('help_screen_footer'); ?>">
                             <label for="inputFooter"><?= lang('term_footer') ?>:</label>
@@ -84,12 +89,17 @@
                 </div>
 
                 <ul class="pager">
-                    <li class="previous">
-                        <a href="<?= site_url($infoscreen->alias . '/left') ?>" data-step="1" data-intro="<?php echo lang('help_screen_left'); ?>">&larr; <?= lang('screen_left_side') ?></a>
-                    </li>
-                    <li class="next">
-                        <a href="<?= site_url($infoscreen->alias . '/right') ?>"  data-step="2" data-intro="<?php echo lang('help_screen_right'); ?>"><?= lang('screen_right_side') ?> &rarr;</a>
-                    </li>
+                    <?php if(!$infoscreen->disable_left){ ?>
+                        <li class="previous">
+                            <a href="<?= site_url($infoscreen->alias . '/left') ?>" data-step="1" data-intro="<?php echo lang('help_screen_left'); ?>">&larr; <?= lang('screen_left_side') ?></a>
+                        </li>
+                    <?php } ?>
+
+                    <?php if(!$infoscreen->disable_right){ ?>
+                        <li class="next">
+                            <a href="<?= site_url($infoscreen->alias . '/right') ?>"  data-step="2" data-intro="<?php echo lang('help_screen_right'); ?>"><?= lang('screen_right_side') ?> &rarr;</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
 

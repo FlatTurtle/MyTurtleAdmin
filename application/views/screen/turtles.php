@@ -1,11 +1,16 @@
 <div class='row'>
     <div class='turtle-chooser span3' data-step="1" data-intro="<?php echo lang('help_turtles_available'); ?>">
         <h4><?= lang('turtles_available') ?></h4>
-        <? foreach($turtle_types as $turtle_type){ ?>
-        <div id="<?=$turtle_type->type ?>" class='turtle draggable'>
-            <?= $turtle_type->name; ?>
-        </div>
+        <? if(!$infoscreen->disable_left){
+            foreach($turtle_types as $turtle_type){ ?>
+                <div id="<?=$turtle_type->type ?>" class='turtle draggable'>
+                    <?= $turtle_type->name; ?>
+                </div>
+            <? }
+        } else { ?>
+            <p><?= lang('turtles_left_side_disabled')?></p>
         <? } ?>
+
         <span class='note'><?= lang('turtles_drag_to_screen') ?></span>
     </div>
     <div class='turtle-holder span9' data-step="2" data-intro="<?php echo lang('help_turtles_area'); ?>" data-position="top">
