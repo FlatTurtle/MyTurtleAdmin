@@ -10,11 +10,14 @@
 </div>
 <div class='row'>
     <div class='pane-chooser sortable span3'>
+        <? if(!$infoscreen->disable_right){ ?>
+
         <?
         if(!empty($panes)){
         ?>
         <h4><?= lang('panes_enabled') ?></h4>
-        <?php if(!$infoscreen->disable_right){ ?>
+
+
             <div class="sortable" data-step="1" data-intro="<?php echo lang('help_panes_enabled'); ?>">
             <?
                 // Show all enabled panes
