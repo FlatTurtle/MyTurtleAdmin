@@ -188,7 +188,7 @@ $lang['turtle_reservations_uri'] = "Reservations api";
 $lang['turtle_navitia_region_alt'] = "Région";
 $lang['turtle_navitia_location_alt'] = "Nom d'un arrêt";
 $lang['turtle_navitia_stop_point'] = "Navitia arrêt id";
-$lang['turtle_navitia_stop_point_alt'] = "Optional: arrêt id d'un arrêt";
+$lang['turtle_navitia_stop_point_alt'] = "Optionnel: arrêt id d'un arrêt";
 
 /**
  * Maps page
