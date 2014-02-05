@@ -92,6 +92,7 @@ $lang['term_height'] = "Height";
 $lang['term_maps'] = "Maps";
 $lang['term_disable_left'] = "Deactivate left side";
 $lang['term_disable_right'] = "Deactivate right side";
+$lang['term_region'] = "Region";
 
 /**
  * Screen detail page
@@ -184,6 +185,10 @@ $lang['turtle_image_crop_portrait'] = "Choose the part of the image you want to 
 $lang['turtle_image_crop_landscape'] = "Choose the part of the image you want to keep for full screen mode";
 $lang['turtle_image_add_slide'] = "Add slide";
 $lang['turtle_reservations_uri'] = "Reservations api";
+$lang['turtle_navitia_region_alt'] = "Region";
+$lang['turtle_navitia_location_alt'] = "Name of a stop";
+$lang['turtle_navitia_stop_point'] = "Navitia stop id";
+$lang['turtle_navitia_stop_point_alt'] = "Optional: the navitia id of a stop";
 
 /**
  * Maps page

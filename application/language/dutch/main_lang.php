@@ -92,6 +92,7 @@ $lang['term_height'] = "Lengte";
 $lang['term_maps'] = "Kaarten";
 $lang['term_disable_left'] = "Deactiveer linkerkant";
 $lang['term_disable_right'] = "Deactiveer rechterkant";
+$lang['term_region'] = "Regio";
 
 /**
  * Screen detail page
@@ -184,6 +185,10 @@ $lang['turtle_image_crop_portrait'] = "Kies het deel van de afbeelding die gebru
 $lang['turtle_image_crop_landscape'] = "Kies het deel van de afbeelding die gebruikt moet worden voor de full screen modus";
 $lang['turtle_image_add_slide'] = "Voeg slide toe";
 $lang['turtle_reservations_uri'] = "Reservations api";
+$lang['turtle_navitia_region_alt'] = "Regio";
+$lang['turtle_navitia_location_alt'] = "Haltenaam";
+$lang['turtle_navitia_stop_point'] = "Navitia halte id";
+$lang['turtle_navitia_stop_point_alt'] = "Optioneel: de navitia id van de halte";
 
 /**
  * Maps page
