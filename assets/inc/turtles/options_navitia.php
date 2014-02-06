@@ -8,7 +8,7 @@
 <div class="control-group">
     <label class="control-label" for="{{id}}-location">{{term_location}}</label>
     <div class="controls">
-        <input type="text" id="{{id}}-location" name="{{id}}-location" placeholder="{{turtle_navitia_region_alt}}" class='input-block-level autocomplete navitia-location' value="{{location}}"/>
+        <input type="text" id="{{id}}-location" name="{{id}}-location" placeholder="{{turtle_navitia_location_alt}}" class='input-block-level autocomplete navitia-location' value="{{location}}"/>
     </div>
 </div>
 <div class="control-group">
