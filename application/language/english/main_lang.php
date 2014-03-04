@@ -187,8 +187,12 @@ $lang['turtle_image_add_slide'] = "Add slide";
 $lang['turtle_reservations_uri'] = "Reservations api";
 $lang['turtle_navitia_region_alt'] = "Region";
 $lang['turtle_navitia_location_alt'] = "Name of a stop";
-$lang['turtle_navitia_stop_point'] = "Navitia stop id";
+$lang['turtle_navitia_mode'] = "Optional: Transport mode";
+$lang['turtle_navitia_mode_alt'] = "Enforce only one type of transport mode (e.g. train, bus, metro)";
+$lang['turtle_navitia_stop_point'] = "Navitia stop point id";
 $lang['turtle_navitia_stop_point_alt'] = "Optional: the navitia id of a stop";
+$lang['turtle_navitia_stop_area'] = "Navitia stop area id";
+$lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
 
 /**
  * Maps page
