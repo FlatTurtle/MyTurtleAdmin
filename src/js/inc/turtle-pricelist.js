@@ -96,13 +96,14 @@ function buildPriceListCategoryEntry(name, description, price, image, id){
     entry_control.append(control_group);
 
     // temporary remove until support for images it is added in the pricelist MyTurtle
-    /*
+    
     // control group for price and image upload
     control_group = $("<div class='control-group'></div>");
     control_group.append("<label class='control-label'>" +  lang['turtle_pricelist_category_entry_price'] + "</label>");
     controls = $("<div class='controls'></div>");
     controls.append("<input type='number' class='input price' step='0.05' pattern='^\\d+(\\.|\\,)\\d{2}$' value='" + price + "'/>");
-
+    control_group.append(controls);
+/*
     var buttonLabel = lang["term_upload"] + " " + lang["term_image"].toLowerCase();
     if(image){
         buttonLabel = lang["term_change"] + " " + lang["term_image"].toLowerCase();
