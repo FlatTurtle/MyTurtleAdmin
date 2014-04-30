@@ -49,7 +49,7 @@ Current supported databases are MySQL (4.1+), MySQLi, MS SQL, Postgres, Oracle, 
 Copyright and license
 =====================
 
-2012-2013 - FlatTurtle
+2012-2014 - FlatTurtle
 
 Code is licensed under AGPLv3
 
