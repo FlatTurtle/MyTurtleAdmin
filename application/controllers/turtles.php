@@ -118,7 +118,7 @@ class Turtles extends CI_Controller {
      * Uploads for signage turtle
      */
     public function signage_upload_logo($alias, $turtle_id, $file_id){
-        $this->upload_image_auto_crop($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR, LOGO_MAX_WIDTH, LOGO_MAX_HEIGHT, "uploads/signage/");
+        $this->upload_image_crop_hack($alias, $turtle_id, $file_id, SIGNAGE_UPLOAD_DIR, LOGO_MAX_WIDTH, LOGO_MAX_HEIGHT, "uploads/signage/");
     }
 
 
@@ -398,6 +398,75 @@ class Turtles extends CI_Controller {
         echo json_encode($data);
         exit();
     }
+
+    /*
+     * Special upload image function hack. Fix the actual issue and remove this one...
+     */
+    private function upload_image_crop_hack($alias, $turtle_id, $file_id, $upload_dir, $max_width, $max_height, $upload_path){
+        header('Content-type: application/json');
+        $data = false;
+
+        if(isset($_FILES['file-'.$file_id]['name'])){
+            $filename = basename($_FILES['file-'.$file_id]['name']);
+
+            if(!is_dir($upload_dir. $turtle_id)){
+                mkdir($upload_dir. $turtle_id, 0777, true);
+            }
+
+            $uploaddir = $upload_dir;
+            $uploadfile = $uploaddir . $turtle_id . "/" . $file_id . ".png";
+
+            $data = $uploadfile;
+
+            if (@move_uploaded_file($_FILES['file-'.$file_id]['tmp_name'], $uploadfile)) {
+                $data = base_url() . $upload_path . $turtle_id . "/" . $file_id . ".png";
+
+                // Resize the image
+                list($source_image_width, $source_image_height, $source_image_type) = getimagesize($uploadfile);
+                switch ($source_image_type) {
+                    case IMAGETYPE_GIF:
+                        $source_gd_image = imagecreatefromgif($uploadfile);
+                        break;
+                    case IMAGETYPE_JPEG:
+                        $source_gd_image = imagecreatefromjpeg($uploadfile);
+                        break;
+                    case IMAGETYPE_PNG:
+                        $source_gd_image = imagecreatefrompng($uploadfile);
+                        break;
+                }
+
+                if ($source_gd_image) {
+
+                    $old_x = imageSX($source_gd_image);
+                    $old_y = imageSY($source_gd_image);
+
+                    if ($old_x > $old_y) {
+                        $percentage = ($max_width / $old_x);
+                    } else {
+                        $percentage = ($max_height / $old_y);
+                    }   
+
+                    $new_width = round($old_x * $percentage);
+                    $new_height = round($old_y * $percentage);
+
+                    $gd_image = imagecreatetruecolor($new_width, $new_height);
+                    imagesavealpha($gd_image, true);
+                    $color = imagecolorallocatealpha($gd_image, 0, 0, 0, 127);
+                    imagefill($gd_image, 0, 0, $color);
+
+                    imagecopyresampled($gd_image,$source_gd_image,0,0,0,0,$new_width,$new_height,$old_x,$old_y); 
+
+                    imagepng($gd_image, $uploadfile);
+                    imagedestroy($source_gd_image);
+                    imagedestroy($gd_image);
+                }
+            }
+        }
+
+        echo json_encode($data);
+        exit();
+    }
+
 
     /*
      * Generic image delete function
