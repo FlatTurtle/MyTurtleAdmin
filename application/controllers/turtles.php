@@ -216,6 +216,9 @@ class Turtles extends CI_Controller {
         $landscape_coords = $post_data->landscape;
         $landscape_crop = $this->crop($original_image, $landscape_coords, $file_id . "-landscape.png", $directory);
 
+        $tall_coords = $post_data->tall;
+        $tall_crop = $this->crop($original_image, $tall_coords, $file_id . "-tall.png", $directory);
+        
         if($landscape_crop && $portrait_crop){
             // return portrait uri (temp)
             $data = base_url() . "uploads/slideshow_images/" . $alias . "/" . $turtle_id . "/" . $file_id . "-portrait.png";

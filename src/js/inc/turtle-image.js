@@ -51,9 +51,12 @@ function saveSlideshow(instance){
 function clearUploadModal(){
     var $portrait = $("#portrait");
     var $landscape = $("#landscape");
+    var $tall = $("#tall");
+
     // clear modal box
     $portrait.find(".content .image-container").empty();
     $landscape.find(".content .image-container").empty();
+    $tall.find(".content .image-container").empty();
 
     var $slide_upload = $("#slide-upload");
     var turtle_id = $slide_upload.data('turtle-id');
@@ -73,6 +76,7 @@ function clearUploadModal(){
 
     $portrait.hide();
     $landscape.hide();
+    $tall.hide();
 
     bindImageEvents();
 }
@@ -124,6 +128,14 @@ function bindImageEvents(){
         landscape.y2 = $("#land_y2").val();
         coordinates.landscape = landscape;
 
+        //get tall coordinates
+        var tall = {};
+        tall.x1 = $("#tall_x1").val();
+        tall.y1 = $("#tall_y1").val();
+        tall.x2 = $("#tall_x2").val();
+        tall.y2 = $("#tall_y2").val();
+        coordinates.tall = tall;
+
         // send info to server
         $.ajax({
             url : upload_path + turtle_id + "/" + id,
@@ -160,6 +172,7 @@ function bindImageEvents(){
         //remove previous stuff if it was there
         $("#portrait").find(".content .image-container").empty();
         $("#landscape").find(".content .image-container").empty();
+        $("#tall").find(".content .image-container").empty();
 
         var formData = new FormData($(this).parents('form')[0]);
 
@@ -182,6 +195,7 @@ function bindImageEvents(){
                 // add image to both portrait and landscape holder
                 $("#portrait").find(".content .image-container").append("<img src='" + response.url + "' id='portrait-cropBox'/>");
                 $("#landscape").find(".content .image-container").append("<img src='" + response.url + "' id='landscape-cropBox'/>");
+                $("#tall").find(".content .image-container").append("<img src='" + response.url + "' id='tall-cropBox'/>");
 
                 // activate jcrop for portrait
                 $("#portrait-cropBox").Jcrop({
@@ -213,16 +227,39 @@ function bindImageEvents(){
                     }
                 });
 
+                // activate jcrop for tall
+                $("#tall-cropBox").Jcrop({
+                    minSize: [960, 920],
+                    maxSize: [960, 920],
+                    setSelect: [0, 0, 920, 1920],
+                    trueSize:[response.width, response.height],
+                    allowResize: false,
+                    onChange:function(c){
+                        $("#tall_x1").val(c.x);
+                        $("#tall_y1").val(c.y);
+                        $("#tall_x2").val(c.x2);
+                        $("#tall_y2").val(c.y2);
+                    }
+                });
+
                 //only show cropping viewport if images are bigger than max size
+                /*
                 if(response.height > 920){
                     $("#portrait").show();
                     $("#landscape").show();
+                    $("#tall").show();
                     $("#upload-modal").addClass("wide");
                 }else if(response.width > 920){
                     $("#portrait").show();
+                    $("#tall").show();
                 }else if(response.width > 1920){
                     $("#landscape").show();
+                    $("#tall").show();
                 }
+                */
+                $("#portrait").show();
+                $("#landscape").show();
+                $("#tall").show();
 
                 //stop spinner
                 $('#slide-uploading').animate({'opacity':0}, 200);

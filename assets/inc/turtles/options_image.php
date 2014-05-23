@@ -62,6 +62,19 @@
                 </div>
             </div>
 
+            <!-- tall cropping -->
+            <div id="tall">
+                <div class="content">
+                    <p>{{turtle_image_crop_tall}}</p>
+                    <!-- full sized image gets inserted here to get cropped -->
+                    <div class="image-container"></div>
+                    <input type="hidden" id="tall_x1"/>
+                    <input type="hidden" id="tall_y1"/>
+                    <input type="hidden" id="tall_x2"/>
+                    <input type="hidden" id="tall_y2"/>
+                </div>
+            </div>
+
             <div class="footer">
                 <i id="finish-slide-uploading" class='loading fade'></i>
                 <button class="btn disable" id="modal-finish" disabled="disabled">{{turtle_image_add_slide}}</button>

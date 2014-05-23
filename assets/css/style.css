@@ -8620,9 +8620,9 @@ select {
       font-size: 1.25em; }
   .turtle_image #upload-modal input[type="file"]#slide-upload {
     line-height: normal; }
-  .turtle_image #upload-modal #portrait, .turtle_image #upload-modal #landscape {
+  .turtle_image #upload-modal #portrait, .turtle_image #upload-modal #landscape, .turtle_image #upload-modal #tall {
     float: left;
-    width: 48%;
+    width: 31%;
     padding: 1%;
     display: none; }
   .turtle_image #upload-modal .footer {

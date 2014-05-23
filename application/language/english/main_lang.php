@@ -181,7 +181,8 @@ $lang['turtle_image_duration'] = "Duration in ms (e.g 4000, for 4 seconds)";
 $lang['turtle_image_drag_drop_note'] = "Images can be reordered by dragging and dropping";
 $lang['turtle_image_uploading'] = "Upload new slide";
 $lang['turtle_image_crop_portrait'] = "Choose the part of the image you want to keep for normal mode";
-$lang['turtle_image_crop_landscape'] = "Choose the part of the image you want to keep for full screen mode";
+$lang['turtle_image_crop_landscape'] = "Choose the part of the image you want to keep for full screen landscape mode";
+$lang['turtle_image_crop_tall'] = "Choose the part of the image you want to keep for full screen portrait mode";
 $lang['turtle_image_add_slide'] = "Add slide";
 $lang['turtle_reservations_uri'] = "Reservations api";
 
