@@ -8607,11 +8607,13 @@ select {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  left: 30%;
+  left: 20%;
   top: 30%;
   position: fixed;
   display: none;
-  width: 40%;
+  width: 60%;
+  height: 50%;
+  overflow-y: scroll;
   z-index: 100; }
   .turtle_image #upload-modal .header {
     margin: 1%; }
