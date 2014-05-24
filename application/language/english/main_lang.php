@@ -180,7 +180,7 @@ $lang['turtle_weekmenu_radio_full_weekmenu'] = "Show full week menu";
 $lang['turtle_image_duration'] = "Duration in ms (e.g 4000, for 4 seconds)";
 $lang['turtle_image_drag_drop_note'] = "Images can be reordered by dragging and dropping";
 $lang['turtle_image_uploading'] = "Upload new slide";
-$lang['turtle_image_uploading_doc'] = "Standard dimensions: normal = 960x920, landscape: 1920x920, portrait: 1080x1760";
+$lang['turtle_image_uploading_doc'] = "Standard dimensions: normal = 960x920, landscape = 1920x920, portrait = 1080x1760";
 $lang['turtle_image_crop_portrait'] = "Choose the part of the image you want to keep for normal mode";
 $lang['turtle_image_crop_landscape'] = "Choose the part of the image you want to keep for full screen landscape mode";
 $lang['turtle_image_crop_tall'] = "Choose the part of the image you want to keep for full screen portrait mode";
