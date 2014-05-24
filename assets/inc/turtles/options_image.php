@@ -27,7 +27,7 @@
         <div id="upload-modal">
             <div class="header">
                 <h1>{{turtle_image_uploading}}</h1>
-
+                    <p>{{turtle_image_uploading_doc}}</p>
                 <!-- without form around it .. forms within forms are not allowed -->
                 <input type='file' name='slide-upload' id="slide-upload" class='slide-image-file' data-turtle-id='{{id}}'/>
 

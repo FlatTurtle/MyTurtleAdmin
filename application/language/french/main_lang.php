@@ -180,6 +180,7 @@ $lang['turtle_weekmenu_radio_full_weekmenu'] = "Montre menu de la semaine";
 $lang['turtle_image_duration'] = "Duration in ms (e.g 4000, for 4 seconds)";
 $lang['turtle_image_drag_drop_note'] = "Images can be reordered by dragging and dropping";
 $lang['turtle_image_uploading'] = "Charger une nouvelle image";
+$lang['turtle_image_uploading_doc'] = "Dimensions standard: normal = 960x920, paysage: 1920x920, portrait: 1080x1760";
 $lang['turtle_image_crop_portrait'] = "Choisissez la partie de l'image que vous voulez garder dans le mode normal";
 $lang['turtle_image_crop_landscape'] = "Choisissez la partie de l'image que vous voulez garder dans le mode paysage plein écran";
 $lang['turtle_image_crop_tall'] = "Choisissez la partie de l'image que vous voulez garder dans le mode portrait plein écran";
