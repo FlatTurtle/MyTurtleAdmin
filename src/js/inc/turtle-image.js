@@ -231,7 +231,7 @@ function bindImageEvents(){
                 $("#tall-cropBox").Jcrop({
                     minSize: [960, 920],
                     maxSize: [960, 920],
-                    setSelect: [0, 0, 920, 1920],
+                    setSelect: [0, 0, 1080, 1760],
                     trueSize:[response.width, response.height],
                     allowResize: false,
                     onChange:function(c){
