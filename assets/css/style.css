@@ -8607,11 +8607,13 @@ select {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  left: 30%;
+  left: 20%;
   top: 30%;
   position: fixed;
   display: none;
-  width: 40%;
+  width: 60%;
+  height: 50%;
+  overflow-y: scroll;
   z-index: 100; }
   .turtle_image #upload-modal .header {
     margin: 1%; }
@@ -8620,9 +8622,9 @@ select {
       font-size: 1.25em; }
   .turtle_image #upload-modal input[type="file"]#slide-upload {
     line-height: normal; }
-  .turtle_image #upload-modal #portrait, .turtle_image #upload-modal #landscape {
+  .turtle_image #upload-modal #portrait, .turtle_image #upload-modal #landscape, .turtle_image #upload-modal #tall {
     float: left;
-    width: 48%;
+    width: 31%;
     padding: 1%;
     display: none; }
   .turtle_image #upload-modal .footer {

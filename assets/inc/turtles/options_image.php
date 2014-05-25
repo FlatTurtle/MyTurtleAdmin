@@ -27,7 +27,7 @@
         <div id="upload-modal">
             <div class="header">
                 <h1>{{turtle_image_uploading}}</h1>
-
+                    <p>{{turtle_image_uploading_doc}}</p>
                 <!-- without form around it .. forms within forms are not allowed -->
                 <input type='file' name='slide-upload' id="slide-upload" class='slide-image-file' data-turtle-id='{{id}}'/>
 
@@ -59,6 +59,19 @@
                     <input type="hidden" id="land_y1"/>
                     <input type="hidden" id="land_x2"/>
                     <input type="hidden" id="land_y2"/>
+                </div>
+            </div>
+
+            <!-- tall cropping -->
+            <div id="tall">
+                <div class="content">
+                    <p>{{turtle_image_crop_tall}}</p>
+                    <!-- full sized image gets inserted here to get cropped -->
+                    <div class="image-container"></div>
+                    <input type="hidden" id="tall_x1"/>
+                    <input type="hidden" id="tall_y1"/>
+                    <input type="hidden" id="tall_x2"/>
+                    <input type="hidden" id="tall_y2"/>
                 </div>
             </div>
 
