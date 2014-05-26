@@ -29,4 +29,12 @@
         <input type="text" id="{{id}}-stop_area" name="{{id}}-stop_area" placeholder="{{turtle_navitia_stop_area_alt}}" class='input-block-level autocomplete navitia-stop_area' value="{{stop_area}}"/>
     </div>
 </div>
+<div class="control-group">
+    <label class="control-label" for="{{id}}-limit">{{turtles_option_number_of_items}}</label>
+    <div class="controls">
+        <select name="{{id}}-limit" class='input-small'>
+            {{{limit_options}}}
+        </select>
+    </div>
+</div>
 <? include 'footer.php'; ?>
