@@ -380,7 +380,7 @@ function bind_event_to_turtles(){
                     }
                 });
             }else if(turtle_instance.hasClass('turtle_mivb') && option_data['location'] != ""){
-                // Resolve and save walking time for nmbs
+                // Resolve and save walking time for mivb
                 $.ajax({
                     url: "http://data.irail.be/MIVBSTIB/Stations.json",
                     type: 'GET',
