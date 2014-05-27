@@ -409,6 +409,31 @@ function bind_event_to_turtles(){
                         updateTurtle(turtle_instance, button, turtle_id, option_data);
                     }
                 });
+            }else if(turtle_instance.hasClass('turtle_navitia') && option_data['location'] != "" && option_data['region'] != ""){
+                // Resolve and save walking time for navitia
+                $.ajax({
+                    url: "https://api.navitia.io/v1/coverage/"+option_data['region']+"/places?q="+option_data['location']+"&type[]=stop_area&count=1",
+                    type: 'GET',
+                    datatype: "json",
+                    success: function(data){
+                        var found = null;
+                        if(typeof data.places[0].stop_area.coord !== 'undefined'){
+                            found = data.places[0].stop_area.coord.lat + "," + data.places[0].stop_area.coord.lon;
+                        }
+                        
+                        if(found != null){
+                            calculateWalkTime(found, turtle_instance, button, turtle_id, option_data);
+                        }else{
+                            option_data['time_walk'] = -1;
+                            updateTurtle(turtle_instance, button, turtle_id, option_data);
+                        }
+                        
+                    },
+                    error: function(data, status){
+                        option_data['time_walk'] = -1;
+                        updateTurtle(turtle_instance, button, turtle_id, option_data);
+                    }
+                });
             }else if(turtle_instance.hasClass('turtle_rss') && option_data['feed'] != ""){
                 // Add http:// in front of RSS feed when it's missing
                 var httpDetectRegExp = new RegExp('^http(s?)://');
