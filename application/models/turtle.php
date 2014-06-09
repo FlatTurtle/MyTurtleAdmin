@@ -86,7 +86,7 @@ class Turtle extends CI_Model {
 
         // Fill out known values
         foreach ($turtle->options as $key => $value) {
-            $data[$key] = htmlentities($value);
+            $data[$key] = htmlspecialchars($value);
         }
 
         // Limit options
