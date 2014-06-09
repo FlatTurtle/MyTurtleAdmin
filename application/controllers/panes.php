@@ -126,7 +126,7 @@ class Panes extends CI_Controller {
         }else{
             if(isset($_POST['duration']))
             $post_data['duration'] = $this->input->post('duration')*1000;
-            $post_data['title'] = htmlentities(ucfirst($this->input->post('title')));
+            $post_data['title'] = htmlspecialchars(ucfirst($this->input->post('title')));
             $this->pane->post($alias, $pane->id, $post_data);
             redirect(site_url($alias.'/right/'.$pane->template . '/' . $pane->id . '#config'));
         }
