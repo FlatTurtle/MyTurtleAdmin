@@ -26,7 +26,7 @@
         localStorageKey: false,
         maxSelectionSize: 7,
         cancelText: "cancel",
-        chooseText: "choose",
+        chooseText: "ok",
         preferredFormat: false,
         className: "",
         showAlpha: false,
