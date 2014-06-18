@@ -289,6 +289,11 @@ class Advanced extends CI_Controller {
     }
 
     public function check_hostname($hostname, $alias){
+        // empty hostnames are valid 
+        if(empty($hostname)) {
+            return true;
+        }
+
         $infoscreens = $this->infoscreen->getAll();
         foreach($infoscreens as $infoscreen){
             if($infoscreen->alias != $alias &&
