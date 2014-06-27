@@ -410,13 +410,20 @@ function bind_event_to_turtles(){
                     }
                 });
             }else if(turtle_instance.hasClass('turtle_navitia') && option_data['location'] != "" && option_data['region'] != ""){
-                // Resolve and save walking time for navitia
+                // Resolve and save walking time for naviitia
+                var jsonMimeType = "application/json;charset=UTF-8";
                 $.ajax({
                     url: "https://data.flatturtle.com/navitia_proxy.php?https://api.navitia.io/v1/coverage/"+option_data['region']+"/places?q="+option_data['location']+"&type[]=stop_area&count=1",
                     type: 'GET',
-                    datatype: "json",
+                    datatype: "x-javascript",
+                    beforeSend: function(x) {
+                        if(x && x.overrideMimeType) {
+                            x.overrideMimeType(jsonMimeType);
+                        }
+                    },
                     success: function(data){
                         var found = null;
+                        console.log(JSON.stringify(data));
                         if(typeof data.contents.places[0].stop_area.coord !== 'undefined'){
                             found = data.contents.places[0].stop_area.coord.lat + "," + data.contents.places[0].stop_area.coord.lon;
                         }
