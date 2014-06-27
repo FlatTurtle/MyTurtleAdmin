@@ -418,7 +418,7 @@ function bind_event_to_turtles(){
                     success: function(data){
                         var found = null;
                         if(typeof data.contents.places[0].stop_area.coord !== 'undefined'){
-                            found = data.contents.places[0].stop_area.coord.lat + "," + data.places[0].stop_area.coord.lon;
+                            found = data.contents.places[0].stop_area.coord.lat + "," + data.contents.places[0].stop_area.coord.lon;
                         }
                         
                         if(found != null){
