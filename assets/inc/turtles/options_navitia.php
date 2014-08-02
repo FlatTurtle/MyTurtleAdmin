@@ -17,6 +17,7 @@
         <input type="text" id="{{id}}-mode" name="{{id}}-mode" placeholder="{{turtle_navitia_mode_alt}}" class='input-block-level autocomplete navitia-mode' value="{{mode}}"/>
     </div>
 </div>
+<!--
 <div class="control-group">
     <label class="control-label" for="{{id}}-stop_point">{{turtle_navitia_stop_point}}</label>
     <div class="controls">
@@ -29,6 +30,7 @@
         <input type="text" id="{{id}}-stop_area" name="{{id}}-stop_area" placeholder="{{turtle_navitia_stop_area_alt}}" class='input-block-level autocomplete navitia-stop_area' value="{{stop_area}}"/>
     </div>
 </div>
+-->
 <div class="control-group">
     <label class="control-label" for="{{id}}-limit">{{turtles_option_number_of_items}}</label>
     <div class="controls">
