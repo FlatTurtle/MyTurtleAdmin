@@ -5,7 +5,7 @@
  */
 
 // Page <title>
-$lang['title'] = "MyTurtleControl";
+$lang['title'] = "FlatTurtle Control";
 
 // Greeting in front of name
 $lang['greeting'] = "Hi";
