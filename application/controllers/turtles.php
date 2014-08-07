@@ -255,7 +255,7 @@ class Turtles extends CI_Controller {
 
 
         // quality
-        $png_quality = 0;
+        $png_quality = 9;
 
 
         list($source_image_width, $source_image_height, $source_image_type) = getimagesize($image);
