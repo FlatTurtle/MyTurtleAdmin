@@ -2,7 +2,7 @@
 <div class="control-group">
     <label class="control-label" for="{{id}}-userid">{{term_userid}}</label>
     <div class="controls">
-        <input type="text" id="{{id}}-userid" name="{{id}}-userid" placeholder="{{turtle_flickr_userid__alt}}" class='input-small' value="{{userid}}"/>
+        <input type="text" id="{{id}}-userid" name="{{id}}-userid" placeholder="{{turtle_flickr_userid_alt}}" class='input-medium' value="{{userid}}"/>
         <br/><span class='note'>{{turtle_flickr_userid_note}}</span>
   </div>
 </div>
