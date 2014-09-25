@@ -93,6 +93,7 @@ $lang['term_maps'] = "Cartes";
 $lang['term_disable_left'] = "Désactiver gauche";
 $lang['term_disable_right'] = "Désactiver droite";
 $lang['term_region'] = "Région";
+$lang['term_userid'] = "Utilisateur ID";
 
 /**
  * Screen detail page

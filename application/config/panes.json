@@ -108,5 +108,16 @@
                 "order" : 0
             }
         ]
+    },
+    "flickr": {
+        "name" : "Flickr",
+        "description" : "Display a Flickr photostream",
+        "description_fr" : "",
+        "turtles" : [
+            {
+                "type" : "flickr",
+                "order" : 0
+            }
+        ]
     }
 }
