@@ -119,5 +119,16 @@
                 "order" : 0
             }
         ]
+    },
+    "streaming": {
+        "name" : "Streaming",
+        "description" : "Live video streaming",
+        "description_fr" : "",
+        "turtles" : [
+            {
+                "type" : "streaming",
+                "order" : 0
+            }
+        ]
     }
 }
