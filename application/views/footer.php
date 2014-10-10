@@ -62,7 +62,7 @@ $version_js = "1.0.13";
 
 
 <!-- Mailchip modal -->
-<form action="http://flatturtle.us6.list-manage1.com/subscribe/post?u=d82ed07d6d647a768b87d3e8d&amp;id=48d462a1ea" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate onsubmit="$('#mailChimp').modal('hide');">
+<form action="//flatturtle.us6.list-manage.com/subscribe/post?u=d82ed07d6d647a768b87d3e8d&amp;id=48d462a1ea" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate onsubmit="$('#mailChimp').modal('hide');">
     <div id="mailChimp" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mailChimpLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
