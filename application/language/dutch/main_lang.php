@@ -94,6 +94,8 @@ $lang['term_disable_left'] = "Deactiveer linkerkant";
 $lang['term_disable_right'] = "Deactiveer rechterkant";
 $lang['term_region'] = "Regio";
 $lang['term_userid'] = "Gebruiker ID";
+$lang['term_stream'] = "Video stream locatie";
+$lang['term_videoid'] = "Video ID";
 
 /**
  * Screen detail page
