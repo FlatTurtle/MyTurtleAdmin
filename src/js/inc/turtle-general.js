@@ -326,7 +326,7 @@ function bind_event_to_turtles(){
             }else if(turtle_instance.hasClass('turtle_nmbs') && option_data['location'] != ""){
                 // Resolve and save walking time for nmbs
                 $.ajax({
-                    url: 'http://data.irail.be/NMBS/Stations.json',
+                    url: 'https://data.irail.be/NMBS/Stations.json',
                     type: 'GET',
                     success: function( data ) {
                         var pattern = new RegExp(option_data['location'].toLowerCase());
@@ -352,7 +352,7 @@ function bind_event_to_turtles(){
             }else if(turtle_instance.hasClass('turtle_delijn') && option_data['location'] != ""){
                 // Resolve and save walking time for delijn
                 $.ajax({
-                    url: 'http://data.irail.be/DeLijn/Stations.json',
+                    url: 'https://data.irail.be/DeLijn/Stations.json',
                     type: 'GET',
                     dataType: "json",
                     data: {
@@ -382,7 +382,7 @@ function bind_event_to_turtles(){
             }else if(turtle_instance.hasClass('turtle_mivb') && option_data['location'] != ""){
                 // Resolve and save walking time for mivb
                 $.ajax({
-                    url: "http://data.irail.be/MIVBSTIB/Stations.json",
+                    url: "https://data.irail.be/MIVBSTIB/Stations.json",
                     type: 'GET',
                     dataType: "json",
                     data: {
