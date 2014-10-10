@@ -119,7 +119,7 @@
                 "order" : 0
             }
         ]
-    }
+    },
     "streaming": {
         "name" : "Streaming",
         "description" : "Live video streaming",
