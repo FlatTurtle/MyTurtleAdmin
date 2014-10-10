@@ -35,14 +35,6 @@ $version_css = "1.0.6"
             !window.jQuery.ui && document.write(unescape("%3Cscript src='<?= base_url(); ?>assets/js/jquery-ui-min.js type='text/javascript'%3E%3C/script%3E"))
         </script>
         <script src='<?= base_url(); ?>assets/js/jquery-ui-touch-punch-min.js' type='text/javascript'></script>
-        <script type="text/javascript">
-          var uvOptions = {};
-          (function() {
-            var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-            uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/3vteHtGxmCQCGMzqWw.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-          })();
-        </script>
     </head>
     <body>
         <div class="wrapper">
