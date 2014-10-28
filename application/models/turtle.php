@@ -92,7 +92,7 @@ class Turtle extends CI_Model {
         // Limit options
         $limit_options = "";
         $limit = (!empty($turtle->options->limit))? $turtle->options->limit : 5;
-        for ($i = 2; $i < 36; $i++) {
+        for ($i = 2; $i < 34; $i++) {
             $selected = '';
             if ($i == $limit)
                 $selected = 'selected';
