@@ -113,6 +113,18 @@ class Turtle extends CI_Model {
             $data['zoom_options'] = $zoom_options;
         }
 
+        $zoomalt_options = "";
+        if(!empty($turtle->options->zoomalt)){
+            $zoom = (!empty($turtle->options->zoomalt))? $turtle->options->zoomalt : 12;
+            for ($i = 10; $i <= 20; $i++) {
+                $selected = '';
+                if ($i == $zoom)
+                    $selected = 'selected';
+                $zoomalt_options .= '<option ' . $selected . '>' . $i . '</option>';
+            }
+            $data['zoomalt_options'] = $zoomalt_options;
+        }
+
         // Type options
         $type_options = "";
         $selected_dep = "selected='selected'";

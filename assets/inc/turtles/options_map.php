@@ -16,4 +16,20 @@
         </select>
     </div>
 </div>
+<div class="control-group">
+    <label class="control-label" for="{{id}}-limit">{{turtles_option_zoomalt}}</label>
+    <div class="controls">
+        <select name="{{id}}-zoomalt" class='input-small'>
+            {{{zoom_options}}}
+        </select>
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="{{id}}-duration">Duration</label>
+    <div class="controls">
+        <input type="text" id="{{id}}-duration" name="{{id}}-duration" class='input-medium' value="{{zoomtime}}{{^zoomtime}}30{{/zoomtime}}"/>
+        <span class='help-block'>{{turtle_map_zoomtime}}</span>
+    </div>
+</div>
+
 <? include 'footer.php'; ?>

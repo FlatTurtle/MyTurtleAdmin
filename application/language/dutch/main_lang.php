@@ -127,6 +127,7 @@ $lang['turtles_screen_title'] = "Linkerkant van het scherm";
 $lang['turtles_drag_to_sort'] = "Sleep de Turtles om ze te sorteren";
 $lang['turtles_option_number_of_items'] = "Elementen om weer te geven";
 $lang['turtles_option_zoom'] = "Zoom";
+$lang['turtles_option_zoomalt'] = "Tweede Zoom Niveau";
 $lang['turtles_error_blank'] = "Er zijn geen te configureren opties voor deze Turtle.";
 $lang['turtles_left_side_disabled'] = "De linkerkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
 
@@ -182,6 +183,7 @@ $lang['turtle_weekmenu_today_title'] = "Menu van de dag";
 $lang['turtle_weekmenu_radio_today'] = "Toon menu van de dag";
 $lang['turtle_weekmenu_radio_full_weekmenu'] = "Toon volledig week menu";
 $lang['turtle_image_duration'] = "Tijd in ms (b.v. 4000, voor 4 seconden)";
+$lang['turtle_map_zoomtime'] = "Tijd in seconden tussen zoom niveaus";
 $lang['turtle_image_drag_drop_note'] = "Afbeeldingen kunnen gesorteerd worden met drag and drop";
 $lang['turtle_image_uploading'] = "Upload een nieuwe slide";
 $lang['turtle_image_uploading_doc'] = "Standaard afmetingen: normaal = 960x920, landschap = 1920x920, portret = 1080x1760";
