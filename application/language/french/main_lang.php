@@ -96,6 +96,8 @@ $lang['term_region'] = "Région";
 $lang['term_userid'] = "Utilisateur ID";
 $lang['term_stream'] = "Lieu de données vidéo";
 $lang['term_videoid'] = "Vidéo ID";
+$lang['term_link'] = "Website URL";
+$lang['term_zoom'] = "Zoom";
 
 /**
  * Screen detail page
@@ -127,6 +129,7 @@ $lang['turtles_screen_title'] = "Côté gauche de l'écran";
 $lang['turtles_drag_to_sort'] = "Glissez les Turtles pour trier";
 $lang['turtles_option_number_of_items'] = "Eléments à afficher";
 $lang['turtles_option_zoom'] = "Zoom";
+$lang['turtles_option_zoomalt'] = "Niveau de Zoom Secondaire";
 $lang['turtles_error_blank'] = "Momentanément il n'y a pas d'options à configurer pour ce Turtle";
 $lang['turtles_left_side_disabled'] = "Le côté gauche de votre FlatTurle est désactivé. Contactez FlatTurtle pour l'activer";
 
@@ -182,6 +185,7 @@ $lang['turtle_weekmenu_today_title'] = "Plat du jour";
 $lang['turtle_weekmenu_radio_today'] = "Montre le plat du jour";
 $lang['turtle_weekmenu_radio_full_weekmenu'] = "Montre menu de la semaine";
 $lang['turtle_image_duration'] = "Duration in ms (e.g 4000, for 4 seconds)";
+$lang['turtle_map_zoomtime'] = "Durée en secondes entre les niveaux de zoom";
 $lang['turtle_image_drag_drop_note'] = "Images can be reordered by dragging and dropping";
 $lang['turtle_image_uploading'] = "Charger une nouvelle image";
 $lang['turtle_image_uploading_doc'] = "Dimensions standard: normal = 960x920, paysage = 1920x920, portrait = 1080x1760";
@@ -198,6 +202,8 @@ $lang['turtle_navitia_stop_point'] = "Navitia arrêt id";
 $lang['turtle_navitia_stop_point_alt'] = "Optionnel: arrêt id d'un arrêt";
 $lang['turtle_navitia_stop_area'] = "Navitia stop area id";
 $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
+$lang['turtle_iframe_link_note'] = "URL due site Web";
+$lang['turtle_iframe_zoom_note'] = "Niveau de Zoom: 0.00 ... 1.00";
 
 /**
  * Maps page

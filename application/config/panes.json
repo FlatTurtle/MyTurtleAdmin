@@ -130,5 +130,16 @@
                 "order" : 0
             }
         ]
+    },
+    "iframe": {
+        "name" : "iFrame",
+        "description" : "Load a website in an iFrame",
+        "description_fr" : "",
+        "turtles" : [
+            {
+                "type" : "iframe",
+                "order" : 0
+            }
+        ]
     }
 }

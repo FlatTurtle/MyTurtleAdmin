@@ -96,6 +96,8 @@ $lang['term_region'] = "Region";
 $lang['term_userid'] = "User ID";
 $lang['term_stream'] = "Stream Location";
 $lang['term_videoid'] = "Video ID";
+$lang['term_link'] = "Website URL";
+$lang['term_zoom'] = "Zoom";
 
 /**
  * Screen detail page
@@ -127,6 +129,7 @@ $lang['turtles_screen_title'] = "Left side of the screen";
 $lang['turtles_drag_to_sort'] = "Drag Turtles to sort";
 $lang['turtles_option_number_of_items'] = "Items to show";
 $lang['turtles_option_zoom'] = "Zoom";
+$lang['turtles_option_zoomalt'] = "Secondary Zoom Level";
 $lang['turtles_error_blank'] = "Momentarily there are no options to configure for this Turtle.";
 $lang['turtles_left_side_disabled'] = "The left side of your screen is disabled, please contact a FlatTurtle employee to activate it";
 
@@ -182,6 +185,7 @@ $lang['turtle_weekmenu_today_title'] = "Menu of the day";
 $lang['turtle_weekmenu_radio_today'] = "Show menu of the day";
 $lang['turtle_weekmenu_radio_full_weekmenu'] = "Show full week menu";
 $lang['turtle_image_duration'] = "Duration in ms (e.g 4000, for 4 seconds)";
+$lang['turtle_map_zoomtime'] = "Duration in seconds between zoom levels";
 $lang['turtle_image_drag_drop_note'] = "Images can be reordered by dragging and dropping";
 $lang['turtle_image_uploading'] = "Upload new slide";
 $lang['turtle_image_uploading_doc'] = "Standard dimensions: normal = 960x920, landscape = 1920x920, portrait = 1080x1760";
@@ -198,6 +202,8 @@ $lang['turtle_navitia_stop_point'] = "Navitia stop point id";
 $lang['turtle_navitia_stop_point_alt'] = "Optional: the navitia id of a stop";
 $lang['turtle_navitia_stop_area'] = "Navitia stop area id";
 $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
+$lang['turtle_iframe_link_note'] = "Full Website URL";
+$lang['turtle_iframe_zoom_note'] = "Zoom level, 0.00 ... 1.00";
 
 /**
  * Maps page
