@@ -96,7 +96,8 @@ $lang['term_region'] = "Regio";
 $lang['term_userid'] = "Gebruiker ID";
 $lang['term_stream'] = "Video stream locatie";
 $lang['term_videoid'] = "Video ID";
-
+$lang['term_link'] = "Website URL";
+$lang['term_zoom'] = "Zoom";
 /**
  * Screen detail page
  */
@@ -152,7 +153,7 @@ $lang['turtle_twitter_larger_note'] = "Vink dit aan om een grotere versie van de
 $lang['turtle_rss_alt'] = "Een URL naar een RSS-feed";
 $lang['turtle_rss_custom'] = "Eigen feed";
 $lang['turtle_screen_location'] = "Een andere locatie";
-$lang['turtle_custom_location'] = "Ander";
+$lang['turtle_custom_location'] = "A-nder";
 $lang['turtle_weather_location'] = "De weer-Turtle gebruikt de locatie van het scherm.";
 $lang['turtle_signage_floor_location'] = "Locatie verdieping";
 $lang['turtle_signage_location_alt'] = "(bv.: +2, -1)";
@@ -200,7 +201,8 @@ $lang['turtle_navitia_stop_point'] = "Navitia halte id";
 $lang['turtle_navitia_stop_point_alt'] = "Optioneel: de navitia id van de halte";
 $lang['turtle_navitia_stop_area'] = "Navitia stop area id";
 $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
-
+$lang['turtle_iframe_link_note'] = "Volledige URL van de website";
+$lang['turtle_iframe_zoom_note'] = "Zoom niveau, 0.00 ... 1.00";
 /**
  * Maps page
  */

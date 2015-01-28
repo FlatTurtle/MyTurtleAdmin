@@ -96,6 +96,8 @@ $lang['term_region'] = "Region";
 $lang['term_userid'] = "User ID";
 $lang['term_stream'] = "Stream Location";
 $lang['term_videoid'] = "Video ID";
+$lang['term_link'] = "Website URL";
+$lang['term_zoom'] = "Zoom";
 
 /**
  * Screen detail page
@@ -200,6 +202,8 @@ $lang['turtle_navitia_stop_point'] = "Navitia stop point id";
 $lang['turtle_navitia_stop_point_alt'] = "Optional: the navitia id of a stop";
 $lang['turtle_navitia_stop_area'] = "Navitia stop area id";
 $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
+$lang['turtle_iframe_link_note'] = "Full Website URL";
+$lang['turtle_iframe_zoom_note'] = "Zoom level, 0.00 ... 1.00";
 
 /**
  * Maps page
