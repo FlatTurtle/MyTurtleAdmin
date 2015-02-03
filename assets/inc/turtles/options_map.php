@@ -20,7 +20,7 @@
     <label class="control-label" for="{{id}}-limit">{{turtles_option_zoomalt}}</label>
     <div class="controls">
         <select name="{{id}}-zoomalt" class='input-small'>
-            {{{zoom_options}}}
+            {{{zoomalt_options}}}
         </select>
     </div>
 </div>
