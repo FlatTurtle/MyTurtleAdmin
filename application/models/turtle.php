@@ -125,6 +125,10 @@ class Turtle extends CI_Model {
             $data['zoomalt_options'] = $zoomalt_options;
         }
 
+        if(!empty($turtle->options->zoomtime)){
+                $zoomtime = $turtle->options->zoomtime;
+        }
+
         // Type options
         $type_options = "";
         $selected_dep = "selected='selected'";
