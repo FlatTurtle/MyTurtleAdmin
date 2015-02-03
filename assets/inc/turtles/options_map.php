@@ -25,9 +25,9 @@
     </div>
 </div>
 <div class="control-group">
-    <label class="control-label" for="{{id}}-duration">Duration</label>
+    <label class="control-label" for="{{id}}-zoomtime">Duration</label>
     <div class="controls">
-        <input type="text" id="{{id}}-duration" name="{{id}}-duration" class='input-medium' value="{{zoomtime}}{{^zoomtime}}30{{/zoomtime}}"/>
+        <input type="text" id="{{id}}-zoomtime" name="{{id}}-zoomtime" class='input-medium' value="{{zoomtime}}{{^zoomtime}}30{{/zoomtime}}"/>
         <span class='help-block'>{{turtle_map_zoomtime}}</span>
     </div>
 </div>
