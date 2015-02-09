@@ -97,6 +97,8 @@ class Panes extends CI_Controller {
             redirect(site_url($alias.'/right/'));
         }
 
+        // Video pane duration
+        $video_duration = $data['current_pane']->duration/1000;
 
         // Pane duration
         $duration_options = "";
