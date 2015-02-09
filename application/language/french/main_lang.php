@@ -96,6 +96,7 @@ $lang['term_region'] = "Région";
 $lang['term_userid'] = "Utilisateur ID";
 $lang['term_stream'] = "Lieu de données vidéo";
 $lang['term_videoid'] = "Vidéo ID";
+$lang['term_video'] = "Lieu de vidéo";
 $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
 
