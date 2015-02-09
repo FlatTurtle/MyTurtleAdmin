@@ -115,7 +115,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="duration"><?= lang('term_duration') ?></label>
                                 <div class="controls">
-                                    <input type="text" id="video-duration" name="video-duration" class='input-medium' value="<?= $video_duration ?>"/>
+                                    <input type="text" id="duration" name="duration" class='input-medium' value="<?= $duration_options ?>"/>
                                 </div>
                             </div>
 

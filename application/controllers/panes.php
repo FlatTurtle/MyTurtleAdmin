@@ -97,16 +97,18 @@ class Panes extends CI_Controller {
             redirect(site_url($alias.'/right/'));
         }
 
-        // Video pane duration
-        $video_duration = $data['current_pane']->duration/1000;
-
-        // Pane duration
         $duration_options = "";
-        for ($i = 10; $i <= 60; $i+=5) {
-            $selected = '';
-            if ($i == $data['current_pane']->duration/1000)
-                $selected = 'selected';
-            $duration_options .= '<option ' . $selected . '>' . $i . '</option>';
+        if($data['current_pane']->template == "video"){
+            // Video pane duration
+            $duration_options = $data['current_pane']->duration/1000;
+        }else{
+            // Pane duration
+            for ($i = 10; $i <= 60; $i+=5) {
+                $selected = '';
+                if ($i == $data['current_pane']->duration/1000)
+                    $selected = 'selected';
+                $duration_options .= '<option ' . $selected . '>' . $i . '</option>';
+            }
         }
         $data['duration_options'] = $duration_options;
         $data['menu_second_item'] = lang("term_right");
