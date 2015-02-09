@@ -110,6 +110,16 @@
                                 </div>
                             </div>
                         <?
+                        }else{
+                        ?>
+                            <div class="control-group">
+                                <label class="control-label" for="duration"><?= lang('term_duration') ?></label>
+                                <div class="controls">
+                                    <input type="text" id="video-duration" name="video-duration" class='input-medium' value="<?= $video_duration ?>"/>
+                                </div>
+                            </div>
+
+                        <?
                         }
                         ?>
                         <div class="control-group">
