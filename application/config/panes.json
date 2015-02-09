@@ -141,5 +141,16 @@
                 "order" : 0
             }
         ]
+    },
+    "video": {
+        "name" : "Video",
+        "description" : "Play a video from local storage",
+        "description_fr" : "",
+        "turtles" : [
+            {
+                "type" : "video",
+                "order" : 0
+            }
+        ]
     }
 }
