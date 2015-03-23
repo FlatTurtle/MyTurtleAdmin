@@ -530,9 +530,10 @@ function bind_event_to_turtles(){
 // Check Twitter options default
 if($('.turtle_instance .size-field').val() == "big"){
     $('.turtle_instance .make-larger').attr('checked', 'checked')
+}
 
 // Check Calenday hide description default
-if($('.turtle_instance .nodescription-field').val() == "1"){
+if($('.turtle_instance .nodescription-field').val() == '1'){
     $('.turtle_instance .nodescription').attr('checked', 'checked')
 }
 
