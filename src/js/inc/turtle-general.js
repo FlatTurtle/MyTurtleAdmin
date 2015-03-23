@@ -513,6 +513,14 @@ function bind_event_to_turtles(){
         }
     });
 
+    // Calendar hide description
+    $('.turtle_instance .nodescription').off().on('click', function(){
+        $('.turtle_instance .nodescription-field').val('0');
+        if($(this).is(':checked')){
+            $('.turtle_instance .size-field').val('1');
+        }
+    });
+
     // Map & mapbox type selector
     $('.turtle_map .map-location-type').off().on('change', changedMapType);
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
