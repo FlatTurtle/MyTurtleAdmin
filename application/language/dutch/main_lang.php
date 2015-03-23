@@ -99,6 +99,7 @@ $lang['term_videoid'] = "Video ID";
 $lang['term_video'] = "Video locatie";
 $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
+$lang["term_nodescription"] = "Verberg Beschrijving";
 /**
  * Screen detail page
  */
@@ -204,6 +205,7 @@ $lang['turtle_navitia_stop_area'] = "Navitia stop area id";
 $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
 $lang['turtle_iframe_link_note'] = "Volledige URL van de website";
 $lang['turtle_iframe_zoom_note'] = "Zoom niveau, 0.00 ... 1.00";
+$lang['turtle_calendar_nodescription_note'] = "Selecteer deze optie om de kalenderbeschrijving te verbergen";
 /**
  * Maps page
  */
