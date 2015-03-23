@@ -31,8 +31,8 @@
 <div class="control-group">
     <label class="control-label" for="{{id}}-nodescription">{{term_nodescription}}</label>
     <div class="controls">
-        <input type="hidden" id="{{id}}-nodescription" name="{{id}}-nodescription" class='size-field' value="{{nodescription}}"/>
-        <input type="checkbox" id="{{id}}-nodescription" class='make-larger'/>
+        <input type="hidden" id="{{id}}-nodescription" name="{{id}}-nodescription" class='nodescription-field' value="{{nodescription}}"/>
+        <input type="checkbox" id="{{id}}-nodescription" class='nodescription'/>
         <span class='help-block note'>{{turtle_calendar_nodescription_note}}</span>
     </div>
 </div>
