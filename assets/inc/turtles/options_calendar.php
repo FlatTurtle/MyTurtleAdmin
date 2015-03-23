@@ -28,4 +28,12 @@
         <span class='help-block note'>{{turtle_twitter_larger_note}}</span>
     </div>
 </div>
+<div class="control-group">
+    <label class="control-label" for="{{id}}-size">{{term_nodescription}}</label>
+    <div class="controls">
+        <input type="hidden" id="{{id}}-size" name="{{id}}-size" class='size-field' value="{{nodescription}}"/>
+        <input type="checkbox" id="{{id}}-nodescription" class='make-larger'/>
+        <span class='help-block note'>{{turtle_calendar_nodescription_note}}</span>
+    </div>
+</div>
 <? include 'footer.php'; ?>
