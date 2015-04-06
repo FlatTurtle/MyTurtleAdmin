@@ -230,6 +230,25 @@ $lang['panes_deleting'] = "Deleting the pane from the screen";
 $lang['panes_right_side_disabled'] = "The right side of your screen is disabled, please contact a FlatTurtle employee to activate it";
 
 /**
+ * Settings
+ */
+$lang['settings_general'] = "General";
+$lang['settings_power'] = "Power Schedule";
+
+/**
+ * Power Scheduling settings
+ */
+$lang['title_weekly_schedule'] = "Weekly Schedule";
+$lang['title_special_days'] = "Special Days";
+$lang['table_head_day'] = "Day";
+$lang['table_head_enabled'] = "Enabled";
+$lang['table_head_time_on'] = "Time On";
+$lang['table_head_time_off'] = "Time Off";
+$lang['table_head_date'] = "Date";
+$lang['button_add_days'] = "Add Days";
+
+
+/**
  * Error messages
  */
 $lang['error_logo_upload'] = "Something went wrong while trying to upload a new logo. Try again.";
@@ -267,7 +286,7 @@ $lang['help_screen_buttons'] = "These buttons give you control over the MyTurtle
 $lang['help_screen_settings'] = "This allows you to edit the MyTurtle settings.";
 $lang['help_screen_shots'] = "A list of recent screenshots is available here.";
 
-$lang['help_turtles_available'] = "This is a list of available Turtles. Drag these to the right area (see step 2) to enabled them.";
+$lang['help_turtles_available'] = "This is a list of available Turtles. Drag these to the right area (see step 2) to enable them.";
 $lang['help_turtles_area'] = "You can drop Turtles from the left to create new ones. Here you can edit the available options for each of your enabled Turtles. Drag and drop them to change their order.";
 
 $lang['help_panes_enabled'] = "This is a list of enabled panes. Click them to view/change their options in the right area (see step 3). Drag and drop to change the order.";

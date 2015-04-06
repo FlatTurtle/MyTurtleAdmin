@@ -229,6 +229,24 @@ $lang['panes_deleting'] = "Pane wordt van het scherm verwijderd.";
 $lang['panes_right_side_disabled'] = "De rechterkant van het scherm is uitgeschakeld, contacteer een FlatTurtle medewerker om het te activeren.";
 
 /**
+ * Settings
+ */
+$lang['settings_general'] = "Algemeen";
+$lang['settings_power'] = "Scherm Energie Kalender";
+
+/**
+ * Power Scheduling settings
+ */
+$lang['title_weekly_schedule'] = "Wekenlijks Schema";
+$lang['title_special_days'] = "Speciale Dagen";
+$lang['table_head_day'] = "Dag";
+$lang['table_head_enabled'] = "Geactiveerd";
+$lang['table_head_time_on'] = "Uur Scherm Aan";
+$lang['table_head_time_off'] = "Uur Scherm Uit";
+$lang['table_head_date'] = "Datum";
+$lang['button_add_days'] = "Voeg dag toe";
+
+/**
  * Error messages
  */
 $lang['error_logo_upload'] = "Er ging iets fout bij het opladen van een nieuwe foto. Gelieve opnieuw te proberen.";

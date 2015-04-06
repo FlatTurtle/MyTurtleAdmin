@@ -9,8 +9,8 @@
 <div class="row">
     <div class="span2">
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><a href="#general" data-toggle="tab" aria-controls="general">General</a></li>
-            <li role="presentation"><a href="#power" data-toggle="tab" aria-controls="power">Power</a></li>
+            <li role="presentation" class="active"><a href="#general" data-toggle="tab" aria-controls="general"><?= lang('settings_general') ?></a></li>
+            <li role="presentation"><a href="#power" data-toggle="tab" aria-controls="power"><?= lang('settings_power') ?></a></li>
         </ul>
     </div>
     <div class="span8 tab-content">
@@ -139,55 +139,55 @@
 
         <div role="tabpanel" class="tab-pane" id="power">
             <form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/settings/power'); ?>" method="post" enctype="multipart/form-data">
-                <h4>Weekly Schedule</h4>
+                <h4><?= lang('title_weekly_schedule') ?></h4>
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>Enabled</th>
-                            <th>Time On</th>
-                            <th>Time Off</th>
+                            <th><?= lang('table_head_day') ?></th>
+                            <th><?= lang('table_head_enabled') ?></th>
+                            <th><?= lang('table_head_time_on') ?></th>
+                            <th><?= lang('table_head_time_off') ?></th>
                         </tr>    
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Monday</td>
+                            <td><?= lang('term_monday') ?></td>
                             <td><input type="checkbox"/></td>
                             <td><input type="text" class="time" id="monday.on" placeholder="00:00"></td>
                             <td><input type="text" class="time" id="monday.off" placeholder="00:00"></td>
                         </tr>
                         <tr>
-                            <td>Tuesday</td>
+                            <td><?= lang('term_tuesday') ?></td>
                             <td><input type="checkbox"/></td>
                             <td><input type="text" class="time" id="tuesday.on" placeholder="00:00"></td>
                             <td><input type="text" class="time" id="tuesday.off" placeholder="00:00"></td>
                         </tr>
                         <tr>
-                            <td>Wednesday</td>
+                            <td><?= lang('term_wednesday') ?></td>
                             <td><input type="checkbox"/></td>
                             <td><input type="text" class="time" id="wednesday.on" placeholder="00:00"></td>
                             <td><input type="text" class="time" id="wednesday.off" placeholder="00:00"></td>
                         </tr>
                         <tr>
-                            <td>Thursday</td>
+                            <td><?= lang('term_thursday') ?></td>
                             <td><input type="checkbox"/></td>
                             <td><input type="text" class="time" id="thursday.on" placeholder="00:00"></td>
                             <td><input type="text" class="time" id="thursday.off" placeholder="00:00"></td>
                         </tr>
                         <tr>
-                            <td>Friday</td>
+                            <td><?= lang('term_friday') ?></td>
                             <td><input type="checkbox"/></td>
                             <td><input type="text" class="time" id="friday.on" placeholder="00:00"></td>
                             <td><input type="text" class="time" id="friday.off" placeholder="00:00"></td>
                         </tr>
                         <tr>
-                            <td>Saturday</td>
+                            <td><?= lang('term_saturday') ?></td>
                             <td><input type="checkbox"/></td>
                             <td><input type="text" class="time" id="saturday.on" placeholder="00:00"></td>
                             <td><input type="text" class="time" id="saturday.off" placeholder="00:00"></td>
                         </tr>
                         <tr>
-                            <td>Sunday</td>
+                            <td><?= lang('term_sunday') ?></td>
                             <td><input type="checkbox"/></td>
                             <td><input type="text" class="time" id="sunday.on" placeholder="00:00"></td>
                             <td><input type="text" class="time" id="sunday.off" placeholder="00:00"></td>
@@ -195,14 +195,14 @@
                     </tbody>    
                 </table>
 
-                <h4>Special Days &nbsp<button class="btn">Add Day</button></h4>
+                <h4><?= lang('title_special_days') ?>&nbsp<button class="btn"><?= lang('button_add_days') ?></button></h4>
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Enabled</th>
-                            <th>Time On</th>
-                            <th>Time Off</th>
+                            <th><?= lang('table_head_date') ?></th>
+                            <th><?= lang('table_head_enabled') ?></th>
+                            <th><?= lang('table_head_time_on') ?></th>
+                            <th><?= lang('table_head_time_off') ?></th>
                         </tr>
                     </thead>
                 </table>

@@ -230,6 +230,24 @@ $lang['panes_deleting'] = "Retrait du panneau en cours";
 $lang['panes_right_side_disabled'] = "Le côté droit de votre FlatTurle est désactivé. Contactez FlatTurtle pour l'activer";
 
 /**
+ * Settings
+ */
+$lang['settings_general'] = "General";
+$lang['settings_power'] = "Power";
+
+/**
+ * Power Scheduling settings
+ */
+$lang['title_weekly_schedule'] = "Weekly Schedule";
+$lang['title_special_days'] = "Special Days";
+$lang['table_head_day'] = "Day";
+$lang['table_head_enabled'] = "Enabled";
+$lang['table_head_time_on'] = "Time On";
+$lang['table_head_time_off'] = "Time Off";
+$lang['table_head_date'] = "Date";
+$lang['button_add_days'] = "Add Days";
+
+/**
  * Error messages
  */
 $lang['error_logo_upload'] = "L'envoi a échoué. Essayez à nouveau.";
