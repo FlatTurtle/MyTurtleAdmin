@@ -206,10 +206,10 @@ $lang['turtle_navitia_stop_area_alt'] = "Optionnel: l'id navitia d'une area";
 $lang['turtle_iframe_link_note'] = "URL due site Web";
 $lang['turtle_iframe_zoom_note'] = "Niveau de Zoom: 0.00 ... 1.00";
 $lang['turtle_calendar_nodescription_note'] = "Sélectionnez cette option pour cacher la description du calendrier.";
+
 /**
  * Maps page
  */
-
 $lang['maps_px'] = "Pixel (px)";
 $lang['maps_pct'] = "Pour cent";
 $lang['maps_generate'] = "Générer le code";
@@ -238,14 +238,14 @@ $lang['settings_power'] = "Power";
 /**
  * Power Scheduling settings
  */
-$lang['title_weekly_schedule'] = "Weekly Schedule";
-$lang['title_special_days'] = "Special Days";
-$lang['table_head_day'] = "Day";
-$lang['table_head_enabled'] = "Enabled";
-$lang['table_head_time_on'] = "Time On";
-$lang['table_head_time_off'] = "Time Off";
+$lang['title_weekly_schedule'] = "Horaire Hebdomadaire";
+$lang['title_special_days'] = "jours spécials";
+$lang['table_head_day'] = "Jour";
+$lang['table_head_enabled'] = "Activé";
+$lang['table_head_time_on'] = "Allumé";
+$lang['table_head_time_off'] = "2teint";
 $lang['table_head_date'] = "Date";
-$lang['button_add_days'] = "Add Days";
+$lang['button_add_days'] = "Ajouter des jours";
 
 /**
  * Error messages
