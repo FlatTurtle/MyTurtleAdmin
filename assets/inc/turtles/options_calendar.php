@@ -36,4 +36,12 @@
         <span class='help-block note'>{{turtle_calendar_nodescription_note}}</span>
     </div>
 </div>
+<div class="control-group">
+    <label class="control-label" for="{{id}}-removeempty">{{term_removeempty}}</label>
+    <div class="controls">
+        <input type="hidden" id="{{id}}-removeempty" name="{{id}}-removeempty" class='removeempty-field' value="{{removeempty}}"/>
+        <input type="checkbox" id="{{id}}-removeempty" class='removeempty'/>
+        <span class='help-block note'>{{turtle_calendar_removeempty_note}}</span>
+    </div>
+</div>
 <? include 'footer.php'; ?>
