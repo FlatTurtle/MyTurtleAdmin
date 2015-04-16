@@ -521,6 +521,14 @@ function bind_event_to_turtles(){
         }
     });
 
+    // Calendar remove when empty 
+    $('.turtle_instance .removeempty').off().on('click', function(){
+        $('.turtle_instance .removeempty-field').val('0');
+        if($(this).is(':checked')){
+                $('.turtle_instance .removeempty-field').val('1');
+        }
+    });
+
     // Map & mapbox type selector
     $('.turtle_map .map-location-type').off().on('change', changedMapType);
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
@@ -537,6 +545,10 @@ if($('.turtle_instance .nodescription-field').val() == '1'){
     $('.turtle_instance .nodescription').attr('checked', 'checked')
 }
 
+// Check Calenday remove empty default
+if($('.turtle_instance .removeempty-field').val() == '1'){
+    $('.turtle_instance .removeempty').attr('checked', 'checked')
+}
 
 /**
  * Calculate walking distance between screen and (new) location

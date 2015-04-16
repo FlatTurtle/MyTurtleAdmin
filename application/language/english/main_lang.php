@@ -100,6 +100,7 @@ $lang['term_video'] = "Video Location";
 $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
 $lang["term_nodescription"] = "Hide Description";
+$lang["term_removeempty"] = "Hide When Empty";
 /**
  * Screen detail page
  */
@@ -206,6 +207,7 @@ $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
 $lang['turtle_iframe_link_note'] = "Full Website URL";
 $lang['turtle_iframe_zoom_note'] = "Zoom level, 0.00 ... 1.00";
 $lang['turtle_calendar_nodescription_note'] = "Select this to hide calendar description information";
+$lang['turtle_calendar_removeempty_note'] = "Select this to hide the calendar when there are no entries";
 /**
  * Maps page
  */
