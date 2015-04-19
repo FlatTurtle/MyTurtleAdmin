@@ -14,6 +14,8 @@
         </ul>
     </div>
     <div class="span8 tab-content">
+
+        <!-- Start General tab -->
         <div role="tabpanel" class="tab-pane active" id="general">
             <form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/settings/update'); ?>" method="post" enctype="multipart/form-data">
                 <div class="control-group<?= (!empty($errors['title'])) ? ' error' : ''; ?>">
@@ -136,7 +138,9 @@
                 </div>
             </form>
         </div>
+        <!-- End general tab -->
 
+        <!-- Start power settings tab -->
         <div role="tabpanel" class="tab-pane" id="power">
             <form class="form-horizontal center" action="<?= site_url($infoscreen->alias . '/settings/power'); ?>" method="post" enctype="multipart/form-data">
                 <h4><?= lang('title_weekly_schedule') ?></h4>
@@ -195,7 +199,7 @@
                     </tbody>    
                 </table>
 
-                <h4><?= lang('title_special_days') ?>&nbsp<button class="btn"><?= lang('button_add_days') ?></button></h4>
+                <h4><?= lang('title_special_days') ?>&nbsp<button class="btn" id="add-special-day"><?= lang('button_add_days') ?></button></h4>
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
@@ -205,10 +209,23 @@
                             <th><?= lang('table_head_time_off') ?></th>
                         </tr>
                     </thead>
+                    <tbody id="special-days-content">
+                        
+                    </tbody>
                 </table>
 
                 <button type="submit" class="btn"><?= lang('term_save') ?></button>
             </form>
+
         </div>
+        <!-- End power settings tab -->
+    
+
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        initPowerSettings();
+    });
+</script>

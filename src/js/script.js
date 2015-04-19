@@ -20,6 +20,15 @@ if($('#inputColor')[0]){
     });
 }
 
+// Timepicker
+$('.time').timepicker({
+    showMeridian: false,
+
+});
+
+// Datepicker
+$('.date').datepicker();
+
 // Nicer looking file uploads
 $('input.better-file-upload').change(function() {
    $('input.file-value', $(this).next()).val($(this).val());

@@ -36,7 +36,6 @@
         <copy file="${src.js.dir}/lib/jquery-ui-1.9.1.js" tofile="${build.dir}/js/jquery-ui.js"/>
         <copy file="${src.js.dir}/lib/spectrum.js" tofile="${build.dir}/js/spectrum.js"/>
         <copy file="${src.js.dir}/lib/jquery-ui-touch-punch.js" tofile="${build.dir}/js/jquery-ui-touch-punch.js"/>
-        <copy file="${src.js.dir}/lib/jquery.timepicker.js" tofile="${build.dir}/js/jquery.timepicker.js"/>
         <concat destfile="${build.dir}/js/script.js">
             <fileset
                 dir="${src.js.dir}"
@@ -48,7 +47,7 @@
                             lib/jquery.color.js,
                             lib/jquery.jcrop.js,
                             lib/bootstrap-datepicker.js,
-                            lib/jquery.timepicker.js,
+                            lib/bootstrap-timepicker.js,
                             inc/turtle-general.js,
                             inc/turtle-creation.js,
                             inc/turtle-sorting.js,
@@ -59,7 +58,8 @@
                             inc/turtle-pricelist.js,
                             inc/turtle-weekmenu.js,
                             inc/turtle_offers.js,
-                            inc/turtle-image.js"
+                            inc/turtle-image.js,
+                            inc/power-settings.js"
                 excludes=""/>
         </concat>
         <echo>Finished</echo>
