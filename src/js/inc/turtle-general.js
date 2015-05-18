@@ -329,7 +329,7 @@ function bind_event_to_turtles(){
                     url: 'https://data.irail.be/NMBS/Stations.json',
                     type: 'GET',
                     success: function( data ) {
-                        var pattern = new RegExp(option_data['location'].toLowerCase());
+                        var pattern = new RegExp('^'+option_data['location'].toLowerCase()+'$');
                         var found = null;
                         $.map( data.Stations, function( item ) {
                             if(item.name.toLowerCase().match(pattern)){
