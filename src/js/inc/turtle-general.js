@@ -529,6 +529,14 @@ function bind_event_to_turtles(){
         }
     });
 
+    // Calendar only show today's events
+    $('.turtle_instance .todayonly').off().on('click', function(){
+        $('.turtle_instance .todayonly-field').val('0');
+        if($(this).is(':checked')){
+                $('.turtle_instance .todayonly-field').val('1');
+        }
+    });
+
     // Map & mapbox type selector
     $('.turtle_map .map-location-type').off().on('change', changedMapType);
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
@@ -548,6 +556,11 @@ if($('.turtle_instance .nodescription-field').val() == '1'){
 // Check Calenday remove empty default
 if($('.turtle_instance .removeempty-field').val() == '1'){
     $('.turtle_instance .removeempty').attr('checked', 'checked')
+}
+
+// Check Calenday todayonly empty default
+if($('.turtle_instance .todayonly-field').val() == '1'){
+    $('.turtle_instance .todayonly').attr('checked', 'checked')
 }
 
 /**
