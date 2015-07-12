@@ -101,6 +101,7 @@ $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
 $lang["term_nodescription"] = "Cacher la Description";
 $lang["term_removeempty"] = "Cacher Quand Vide";
+lang["term_todayonly"] = "Seulement Aujourd'hui.";
 /**
  * Screen detail page
  */
@@ -208,6 +209,7 @@ $lang['turtle_iframe_link_note'] = "URL due site Web";
 $lang['turtle_iframe_zoom_note'] = "Niveau de Zoom: 0.00 ... 1.00";
 $lang['turtle_calendar_nodescription_note'] = "Sélectionnez cette option pour cacher la description du calendrier.";
 $lang['turtle_calendar_removeempty_note'] = "Sélectionnez cette option pour cacher le calendrier quand il n'y a aucune entrée.";
+$lang['turtle_calendar_todayonly_note'] = "Sélectionnez cette option pour afficher uniquement les événements à la date actuelle.";
 /**
  * Maps page
  */

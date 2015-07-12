@@ -44,4 +44,12 @@
         <span class='help-block note'>{{turtle_calendar_removeempty_note}}</span>
     </div>
 </div>
+<div class="control-group">
+    <label class="control-label" for="{{id}}-todayonly">{{term_todayonly}}</label>
+    <div class="controls">
+        <input type="hidden" id="{{id}}-todayonly" name="{{id}}-todayonly" class='todayonly-field' value="{{todayonly}}"/>
+        <input type="checkbox" id="{{id}}-todayonly" class='todayonly'/>
+        <span class='help-block note'>{{turtle_calendar_todayonly_note}}</span>
+    </div>
+</div>
 <? include 'footer.php'; ?>
