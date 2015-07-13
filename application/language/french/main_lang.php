@@ -101,7 +101,7 @@ $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
 $lang["term_nodescription"] = "Cacher la Description";
 $lang["term_removeempty"] = "Cacher Quand Vide";
-lang["term_todayonly"] = "Seulement Aujourd'hui.";
+$lang["term_todayonly"] = "Seulement Aujourd'hui.";
 /**
  * Screen detail page
  */
