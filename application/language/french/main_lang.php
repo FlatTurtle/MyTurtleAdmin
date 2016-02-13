@@ -100,6 +100,8 @@ $lang['term_video'] = "Lieu de vidéo";
 $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
 $lang["term_nodescription"] = "Cacher la Description";
+$lang["term_removeempty"] = "Cacher Quand Vide";
+lang["term_todayonly"] = "Seulement Aujourd'hui.";
 /**
  * Screen detail page
  */
@@ -151,7 +153,7 @@ $lang['turtle_finance_primary_note'] = "Symbole boursier, celui-ci est représen
 $lang['turtle_finance_secondary_note'] = "Liste virgules des symboles boursiers";
 $lang['turtle_finance_lookup_note'] = "Utilisez le site suivant pour trouver les symboles boursiers correcte en faisant une recherche du nom de l'entreprise dans la barre de recherche: ";
 $lang['turtle_twitter_search_alt'] = "Twitter recherche (ex: #FlatTurtle)";
-$lang['turtle_twitter_larger_note'] = "Cochez cette case pour afficher une version plus grande des tweets";
+$lang['turtle_twitter_larger_note'] = "Cochez cette case pour afficher une version plus grande";
 $lang['turtle_rss_alt'] = "L'adresse web d'un flux RSS";
 $lang['turtle_rss_custom'] = "Flux adapté";
 $lang['turtle_screen_location'] = "Location de l'écran";
@@ -206,6 +208,8 @@ $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
 $lang['turtle_iframe_link_note'] = "URL due site Web";
 $lang['turtle_iframe_zoom_note'] = "Niveau de Zoom: 0.00 ... 1.00";
 $lang['turtle_calendar_nodescription_note'] = "Sélectionnez cette option pour cacher la description du calendrier.";
+$lang['turtle_calendar_removeempty_note'] = "Sélectionnez cette option pour cacher le calendrier quand il n'y a aucune entrée.";
+$lang['turtle_calendar_todayonly_note'] = "Sélectionnez cette option pour afficher uniquement les événements à la date actuelle.";
 /**
  * Maps page
  */

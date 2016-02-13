@@ -100,6 +100,8 @@ $lang['term_video'] = "Video Location";
 $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
 $lang["term_nodescription"] = "Hide Description";
+$lang["term_removeempty"] = "Hide When Empty";
+$lang["term_todayonly"] = "Only Today";
 /**
  * Screen detail page
  */
@@ -151,7 +153,7 @@ $lang['turtle_finance_primary_note'] = "Stock symbol, this one is shown bigger t
 $lang['turtle_finance_secondary_note'] = "List of comma separated stock symbols";
 $lang['turtle_finance_lookup_note'] = "Use the next site to find the right stock symbols by typing the company name in the search bar: ";
 $lang['turtle_twitter_search_alt'] = "Twitter search (e.g. #FlatTurtle)";
-$lang['turtle_twitter_larger_note'] = "Check this box to show a bigger version of the tweets";
+$lang['turtle_twitter_larger_note'] = "Check this box to show a bigger version";
 $lang['turtle_rss_alt'] = "A URL to an RSS feed";
 $lang['turtle_rss_custom'] = "Custom feed";
 $lang['turtle_screen_location'] = "Screen location";
@@ -206,6 +208,8 @@ $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
 $lang['turtle_iframe_link_note'] = "Full Website URL";
 $lang['turtle_iframe_zoom_note'] = "Zoom level, 0.00 ... 1.00";
 $lang['turtle_calendar_nodescription_note'] = "Select this to hide calendar description information";
+$lang['turtle_calendar_removeempty_note'] = "Select this to hide the calendar when there are no entries";
+$lang['turtle_calendar_todayonly_note'] = "Select this to show events on the current date only";
 /**
  * Maps page
  */

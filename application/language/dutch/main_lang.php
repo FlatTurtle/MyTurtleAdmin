@@ -100,6 +100,8 @@ $lang['term_video'] = "Video locatie";
 $lang['term_link'] = "Website URL";
 $lang['term_zoom'] = "Zoom";
 $lang["term_nodescription"] = "Verberg Beschrijving";
+$lang["term_removeempty"] = "Verberg Lege Kalender";
+$lang["term_todayonly"] = "Enkel Voor Vandaag";
 /**
  * Screen detail page
  */
@@ -151,7 +153,7 @@ $lang['turtle_finance_primary_note'] = "Aandeelsymbool, deze staat het grootst o
 $lang['turtle_finance_secondary_note'] = "Een lijst van aandeelsymbolen gescheiden door een komma";
 $lang['turtle_finance_lookup_note'] = "Gebruik de volgende site om het juiste aandeelsymbool te vinden door de bedrijfsnaam daar in de zoekbalk in te vullen: ";
 $lang['turtle_twitter_search_alt'] = "Twitter (bvb. #FlatTurtle)";
-$lang['turtle_twitter_larger_note'] = "Vink dit aan om een grotere versie van de tweets te tonen.";
+$lang['turtle_twitter_larger_note'] = "Vink dit aan om een grotere versie te tonen.";
 $lang['turtle_rss_alt'] = "Een URL naar een RSS-feed";
 $lang['turtle_rss_custom'] = "Eigen feed";
 $lang['turtle_screen_location'] = "Een andere locatie";
@@ -206,6 +208,8 @@ $lang['turtle_navitia_stop_area_alt'] = "Optional: the navitia id of an area";
 $lang['turtle_iframe_link_note'] = "Volledige URL van de website";
 $lang['turtle_iframe_zoom_note'] = "Zoom niveau, 0.00 ... 1.00";
 $lang['turtle_calendar_nodescription_note'] = "Selecteer deze optie om de kalenderbeschrijving te verbergen";
+$lang['turtle_calendar_removeempty_note'] = "Selecteer dit om de kalender te verbergen wanneer er geen vermeldingen zijn";
+$lang['turtle_calendar_todayonly_note'] = "Selecteer dit om enkel de evenementen van de huidige dag weer te geven";
 /**
  * Maps page
  */

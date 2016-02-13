@@ -329,7 +329,7 @@ function bind_event_to_turtles(){
                     url: 'https://data.irail.be/NMBS/Stations.json',
                     type: 'GET',
                     success: function( data ) {
-                        var pattern = new RegExp(option_data['location'].toLowerCase());
+                        var pattern = new RegExp('^'+option_data['location'].toLowerCase()+'$');
                         var found = null;
                         $.map( data.Stations, function( item ) {
                             if(item.name.toLowerCase().match(pattern)){
@@ -521,6 +521,22 @@ function bind_event_to_turtles(){
         }
     });
 
+    // Calendar remove when empty 
+    $('.turtle_instance .removeempty').off().on('click', function(){
+        $('.turtle_instance .removeempty-field').val('0');
+        if($(this).is(':checked')){
+                $('.turtle_instance .removeempty-field').val('1');
+        }
+    });
+
+    // Calendar only show today's events
+    $('.turtle_instance .todayonly').off().on('click', function(){
+        $('.turtle_instance .todayonly-field').val('0');
+        if($(this).is(':checked')){
+                $('.turtle_instance .todayonly-field').val('1');
+        }
+    });
+
     // Map & mapbox type selector
     $('.turtle_map .map-location-type').off().on('change', changedMapType);
     $('.turtle_mapbox .map-location-type').off().on('change', changedMapType);
@@ -537,6 +553,15 @@ if($('.turtle_instance .nodescription-field').val() == '1'){
     $('.turtle_instance .nodescription').attr('checked', 'checked')
 }
 
+// Check Calenday remove empty default
+if($('.turtle_instance .removeempty-field').val() == '1'){
+    $('.turtle_instance .removeempty').attr('checked', 'checked')
+}
+
+// Check Calenday todayonly empty default
+if($('.turtle_instance .todayonly-field').val() == '1'){
+    $('.turtle_instance .todayonly').attr('checked', 'checked')
+}
 
 /**
  * Calculate walking distance between screen and (new) location
