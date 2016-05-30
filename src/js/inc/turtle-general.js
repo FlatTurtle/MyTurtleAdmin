@@ -412,8 +412,13 @@ function bind_event_to_turtles(){
             }else if(turtle_instance.hasClass('turtle_navitia') && option_data['location'] != "" && option_data['region'] != ""){
                 // Resolve and save walking time for naviitia
                 var jsonMimeType = "application/json;charset=UTF-8";
+                var navitiaUrl = "https://api.navitia.io/v1/coverage/" +
+                                    option_data['region'] +
+                                    "/places?q=" +
+                                    option_data['location'] +
+                                    "&type[]=stop_area"
                 $.ajax({
-                    url: "https://data.flatturtle.com/navitia_proxy.php?https://api.navitia.io/v1/coverage/"+option_data['region']+"/places?q="+option_data['location']+"&type[]=stop_area&count=1",
+                    url: "https://data.flatturtle.com/navitia_proxy.php?" + navitiaUrl,
                     type: 'GET',
                     datatype: "x-javascript",
                     beforeSend: function(x) {
@@ -423,17 +428,23 @@ function bind_event_to_turtles(){
                     },
                     success: function(data){
                         var found = null;
-                        if(typeof data.contents.places[0].stop_area.coord !== 'undefined'){
-                            found = data.contents.places[0].stop_area.coord.lat + "," + data.contents.places[0].stop_area.coord.lon;
+                        //find the result with the best quality
+                        var currentQuality = 0;
+                        for (i = 0; i<data.contents.places.length; i++) {
+                          if(typeof data.contents.places[i].stop_area.coord !== 'undefined'
+                              && data.contents.places[i].quality > currentQuality){
+                              found = data.contents.places[i].stop_area.coord.lat + "," + data.contents.places[i].stop_area.coord.lon;
+                              currentQuality = data.contents.places[i].quality;
+                          }
                         }
-                        
+
                         if(found != null){
                             calculateWalkTime(found, turtle_instance, button, turtle_id, option_data);
                         }else{
                             option_data['time_walk'] = -1;
                             updateTurtle(turtle_instance, button, turtle_id, option_data);
                         }
-                        
+
                     },
                     error: function(data, status){
                         option_data['time_walk'] = -1;
@@ -521,7 +532,7 @@ function bind_event_to_turtles(){
         }
     });
 
-    // Calendar remove when empty 
+    // Calendar remove when empty
     $('.turtle_instance .removeempty').off().on('click', function(){
         $('.turtle_instance .removeempty-field').val('0');
         if($(this).is(':checked')){
