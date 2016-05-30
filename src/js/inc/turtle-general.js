@@ -435,16 +435,17 @@ function bind_event_to_turtles(){
                               && data.contents.places[i].quality > currentQuality){
                               found = data.contents.places[i].stop_area.coord.lat + "," + data.contents.places[i].stop_area.coord.lon;
                               currentQuality = data.contents.places[i].quality;
+                              option_data['stop_area'] = data.contents.places[i].stop_area.id;
                           }
                         }
 
                         if(found != null){
                             calculateWalkTime(found, turtle_instance, button, turtle_id, option_data);
+
                         }else{
                             option_data['time_walk'] = -1;
-                            updateTurtle(turtle_instance, button, turtle_id, option_data);
                         }
-
+                        updateTurtle(turtle_instance, button, turtle_id, option_data);
                     },
                     error: function(data, status){
                         option_data['time_walk'] = -1;
